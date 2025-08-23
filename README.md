@@ -1,46 +1,79 @@
 
 
-#### Technical Skills: Python, Java, JavaScript, SQL, MYSQL, MATLAB
+## 🛠️ Technical Skills
 
-## Education
-						       		
-- M.Sc Artificial Intelligence	| Yeshiva University (_December 2026_)	 			        		
-- B.Sc, Computer Science |University of Greenwich (_June 2023_)
+- **Programming Languages:** Python, Java, JavaScript  
+- **Databases:** SQL, MySQL  
+- **Tools & Libraries:** Scikit-learn, Pandas, NumPy, OpenCV, Flask, NLTK  
+- **Mathematical Tools:** MATLAB  
+- **Other Skills:** Data Visualization (Matplotlib, Seaborn, Tableau/Power BI), Data Preprocessing, NLP  
 
-## Work Experience
-**HR Data and Systems Analyst, NLPSS NHS, London, UK (_July 2022 - December 2024_)**
-• Analysed and managed workforce data using the Electronic Staff Record (ESR) system, improving data
-accuracy by 98% and supporting compliance with NHS regulations
-• Optimized recruitment and payroll processes, cutting processing time by 30% through data analysis and system
-improvements.
+---
 
-**Administrative Officer, RFL NHS Trust, London, (_UK February 2022 - June 2022_)**
-• Managed and streamlined administrative frameworks, ensuring efficient operations and organization-wide
-adherence to protocols
-• Performed copyediting to ensure document clarity and consistency, while coordinating project management efforts
-by tracking deadlines, fostering communication, and ensuring on-time completion
+## 🎓 Education
 
-**Data Support Coordinator, Citizen Shareholders, London, UK (_February 2021 - April 2021_)**
-• Provided exceptional customer service by addressing client inquiries, resolving issues, and offering data-driven
-solutions to enhance customer satisfaction
-• Maintained a well-organized data repository, ensuring 100% accuracy and thoroughness with strong attention to
-detail
+**M.Sc in Artificial Intelligence**  
+*Yeshiva University, New York, USA*  
+*Expected Graduation: December 2026*  
+
+**B.Sc in Computer Science**  
+*University of Greenwich, London, UK*  
+*June 2023*  
 
 ## Projects
-### Web-Based Business Intelligence Tool 
 
+### Web-Based Business Intelligence Tool
+- Designed and deployed a **Flask-based web app** to classify and analyze customer feedback.  
+- Implemented **Natural Language Processing (NLP)** techniques with **TF-IDF** and **NLTK** for feature extraction.  
+- Trained multiple ML models (**SVM, Logistic Regression, Naive Bayes**) and selected the best-performing one for deployment.  
+- Delivered actionable insights that improved business decision-making by highlighting common customer concerns.  
+- 🔗 [View Code Repository](#) (Add link to GitHub repo)
 
-Leveraged TF-IDF, NLTK, and machine learning models (SVM, Logistic Regression, Naive Bayes) for analysing
-and classifying customer feedback, culminating in the development of a web app deployed via Flask to drive
-business decisions
+---
 
-###  Stock Market Prediction January 2022
-Combined time series analysis and machine learning techniques to predict stock price fluctuations and enhance
-accuracy
+###  Stock Market Prediction *(January 2022)*
+- Built a **machine learning pipeline** to predict stock price fluctuations.  
+- Applied **time series forecasting** techniques (ARIMA, Prophet) alongside ML models to improve accuracy.  
+- Conducted **feature engineering** using historical prices, moving averages, and volume trends.  
+- Visualized results with **Matplotlib and Seaborn** to communicate model performance clearly.  
+- 🔗 [View Code Repository](#)
 
-###  Image  Recognition 
-• Utilized CNNs and OpenCV to develop a real-time facial recognition system, achieving 95% accuracy in emotion
-detection and identification
+---
+
+###  Image Recognition System
+- Developed a **real-time facial recognition application** using **Convolutional Neural Networks (CNNs)**.  
+- Integrated **OpenCV** for live video capture and face detection.  
+- Achieved **95% accuracy** in both emotion detection and identity recognition tasks.  
+- Demonstrated applications in **security systems** and **human-computer interaction**.  
+- 🔗 [View Code Repository](#)
+
+---
+
+### Web-Based Business Intelligence Tool
+- Created a **Flask web application** that performs sentiment analysis on user-provided text.  
+- Trained a **Logistic Regression classifier** on labeled datasets to detect positive/negative sentiment.  
+- Designed an intuitive **web UI** for users to input text and view predictions instantly.  
+- Deployed the app on **Heroku**, making it accessible online.  
+- 🔗 [View Code Repository](#)
+
+---
+
+### 🔹 STUFlow – Recruitment Automation
+- Built an automation system for **HR recruitment workflows** in the NHS.  
+- Used **Python + RPA techniques** to synchronize candidate data from multiple sources into the **Electronic Staff Record (ESR)**.  
+- Added functionality to detect rejected candidates, perform **data entry**, and automate reports.  
+- Enhanced **efficiency and compliance** in recruitment pipelines by reducing manual work.  
+- 🔗 [View Code Repository](#)
+
+---
+
+### 🔹 Menstrual Health & Productivity Research
+- Conducted research on how **menstrual cycle tracking** affects productivity and wellbeing.  
+- Analyzed survey data (Mendeley dataset, 167 responses) using **Python (pandas, scikit-learn)**.  
+- Focused on **work/study loss patterns**, hormone cycle impact, and cycle tracking adoption.  
+- Currently developing an **AI-driven predictor** for cycle-related health disruptions.  
+- 🔗 [Research Draft / Dataset Link](#)
+
 
 
 ### Decoding Physical and Cognitive Impacts of Particulate Matter Concentrations at Ultra-Fine Scales
