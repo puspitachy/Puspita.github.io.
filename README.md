@@ -1,11 +1,11 @@
-# Data Scientist
+
 
 #### Technical Skills: Python, Java, JavaScript, SQL, MYSQL, MATLAB
 
 ## Education
-- Ph.D., Physics | The University of Texas at Dallas (_May 2022_)								       		
-- M.S., Physics	| The University of Texas at Dallas (_December 2019_)	 			        		
-- B.S., Physics | The University of Texas at Dallas (_May 2017_)
+						       		
+- M.Sc Artificial Intelligence	| Yeshiva University (_December 2026_)	 			        		
+- B.Sc, Computer Science |University of Greenwich (_June 2023_)
 
 ## Work Experience
 **HR Data and Systems Analyst, NLPSS NHS, London, UK (_July 2022 - December 2024_)**
@@ -13,11 +13,13 @@
 accuracy by 98% and supporting compliance with NHS regulations
 • Optimized recruitment and payroll processes, cutting processing time by 30% through data analysis and system
 improvements.
+
 **Administrative Officer, RFL NHS Trust, London, (_UK February 2022 - June 2022_)**
 • Managed and streamlined administrative frameworks, ensuring efficient operations and organization-wide
 adherence to protocols
 • Performed copyediting to ensure document clarity and consistency, while coordinating project management efforts
 by tracking deadlines, fostering communication, and ensuring on-time completion
+
 **Data Support Coordinator, Citizen Shareholders, London, UK (_February 2021 - April 2021_)**
 • Provided exceptional customer service by addressing client inquiries, resolving issues, and offering data-driven
 solutions to enhance customer satisfaction
