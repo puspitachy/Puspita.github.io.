@@ -1,6 +1,6 @@
 # Data Scientist
 
-#### Technical Skills: Python, SQL, AWS, Snowflake, MATLAB
+#### Technical Skills: Python, Java, JavaScript, SQL, MYSQL, MATLAB
 
 ## Education
 - Ph.D., Physics | The University of Texas at Dallas (_May 2022_)								       		
@@ -8,21 +8,38 @@
 - B.S., Physics | The University of Texas at Dallas (_May 2017_)
 
 ## Work Experience
-**Data Scientist @ Toyota Financial Services (_June 2022 - Present_)**
-- Uncovered and corrected missing step in production data pipeline which impacted over 70% of active accounts
-- Redeveloped loan originations model which resulted in 50% improvement in model performance and saving 1 million dollars in potential losses
-
-**Data Science Consultant @ Shawhin Talebi Ventures LLC (_December 2020 - Present_)**
-- Conducted data collection, processing, and analysis for novel study evaluating the impact of over 300 biometrics variables on human performance in hyper-realistic, live-fire training scenarios
-- Applied unsupervised deep learning approaches to longitudinal ICU data to discover novel sepsis sub-phenotypes
+**HR Data and Systems Analyst, NLPSS NHS, London, UK (_July 2022 - December 2024_)**
+• Analysed and managed workforce data using the Electronic Staff Record (ESR) system, improving data
+accuracy by 98% and supporting compliance with NHS regulations
+• Optimized recruitment and payroll processes, cutting processing time by 30% through data analysis and system
+improvements.
+**Administrative Officer, RFL NHS Trust, London, (_UK February 2022 - June 2022_)**
+• Managed and streamlined administrative frameworks, ensuring efficient operations and organization-wide
+adherence to protocols
+• Performed copyediting to ensure document clarity and consistency, while coordinating project management efforts
+by tracking deadlines, fostering communication, and ensuring on-time completion
+**Data Support Coordinator, Citizen Shareholders, London, UK (_February 2021 - April 2021_)**
+• Provided exceptional customer service by addressing client inquiries, resolving issues, and offering data-driven
+solutions to enhance customer satisfaction
+• Maintained a well-organized data repository, ensuring 100% accuracy and thoroughness with strong attention to
+detail
 
 ## Projects
-### Data-Driven EEG Band Discovery with Decision Trees
-[Publication](https://www.mdpi.com/1424-8220/22/8/3048)
+### Web-Based Business Intelligence Tool 
 
-Developed objective strategy for discovering optimal EEG bands based on signal power spectra using **Python**. This data-driven approach led to better characterization of the underlying power spectrum by identifying bands that outperformed the more commonly used band boundaries by a factor of two. The proposed method provides a fully automated and flexible approach to capturing key signal components and possibly discovering new indices of brain activity.
 
-![EEG Band Discovery](/assets/img/eeg_band_discovery.jpeg)
+Leveraged TF-IDF, NLTK, and machine learning models (SVM, Logistic Regression, Naive Bayes) for analysing
+and classifying customer feedback, culminating in the development of a web app deployed via Flask to drive
+business decisions
+
+###  Stock Market Prediction January 2022
+Combined time series analysis and machine learning techniques to predict stock price fluctuations and enhance
+accuracy
+
+###  Image  Recognition 
+• Utilized CNNs and OpenCV to develop a real-time facial recognition system, achieving 95% accuracy in emotion
+detection and identification
+
 
 ### Decoding Physical and Cognitive Impacts of Particulate Matter Concentrations at Ultra-Fine Scales
 [Publication](https://www.mdpi.com/1424-8220/22/11/4240)
