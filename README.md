@@ -1,7 +1,7 @@
 <!-- Dark themed centered intro -->
 <div align="center" style="background-color:#0d1117; padding:20px; border-radius:15px;">
 
-<img src="profile.jpg" width="180" style="border-radius:50%;" alt="Puspita Chowdhury Photo"/>
+<img src="IMG_2850.jpg" width="180" style="border-radius:50%;" alt="Puspita Chowdhury Photo"/>
 
 # 👩‍💻 Puspita Chowdhury  
 🎓 MS in Artificial Intelligence & Data | Yeshiva University  
