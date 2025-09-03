@@ -5,14 +5,14 @@ description: "AI • Data • Ethics — Portfolio"
 remote_theme: "mmistakes/minimal-mistakes@4.26.2"
 minimal_mistakes_skin: "dark"
 
-# IMPORTANT: change USERNAME below to your GitHub username
-url: "https://USERNAME.github.io"
+# Your project site lives at:
+# https://puspitachy.github.io/Puspita.github.io./
+url: "https://puspitachy.github.io"
 baseurl: "/Puspita.github.io."
 
 author:
   name: "Puspita Chowdhury"
-author:
-  avatar: "/images/IMG_2850.jpg"
+  avatar: "{{ site.baseurl }}/images/IMG_2850.jpg"
   bio: "MS in AI @ Yeshiva University • AI Ethics & Data • Open to internships"
   location: "New York, USA"
   links:
@@ -21,13 +21,13 @@ author:
       url: "mailto:YOUR_EMAIL@domain.com"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/USERNAME"
+      url: "https://github.com/puspitachy"
     - label: "LinkedIn"
       icon: "fab fa-fw fa-linkedin"
       url: "https://www.linkedin.com/in/YOUR-LINK/"
     - label: "Resume (PDF)"
       icon: "fas fa-fw fa-file-pdf"
-      url: "/resume.pdf"
+      url: "{{ site.baseurl }}/resume.pdf"
 
 plugins:
   - jekyll-include-cache
