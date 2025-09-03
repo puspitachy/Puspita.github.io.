@@ -48,14 +48,11 @@
     .nav-links a { opacity:.85; margin-left:18px }
     .nav-links a:hover { opacity:1 }
 
-    .hero { display:grid; grid-template-columns:1.2fr .8fr; gap:36px; padding:72px 0 36px }
-    @media (max-width:900px){ .hero{grid-template-columns:1fr; text-align:center} }
-
+    .hero { display:grid; grid-template-columns:1fr; gap:36px; padding:72px 0 36px; text-align:center }
     .tag { display:inline-block; padding:6px 12px; border:1px solid rgba(255,255,255,.12); border-radius:999px; font-size:.9rem; color:var(--muted) }
     h1 { font-family:Poppins, Inter, sans-serif; font-weight:800; line-height:1.1; font-size:clamp(36px, 5.2vw, 58px); margin:14px 0 }
-    .lead { font-size:1.05rem; color:var(--muted); max-width:60ch }
-    .cta { display:flex; gap:14px; margin-top:26px; flex-wrap:wrap; justify-content:flex-start }
-    @media (max-width:900px){ .cta{justify-content:center} }
+    .lead { font-size:1.05rem; color:var(--muted); max-width:60ch; margin-inline:auto }
+    .cta { display:flex; gap:14px; margin-top:26px; flex-wrap:wrap; justify-content:center }
     .btn { padding:12px 18px; border-radius:12px; border:1px solid rgba(255,255,255,.12); background:transparent; color:var(--text); font-weight:600; box-shadow:var(--shadow); transition:.2s }
     .btn:hover { transform:translateY(-2px) }
     .btn.primary { background:linear-gradient(135deg, var(--accent), var(--accent-2)); border-color:transparent }
@@ -67,14 +64,16 @@
 
     .divider { height:1px; background:linear-gradient(90deg, transparent, rgba(255,255,255,.12), transparent); margin:20px 0 }
 
-    /* ✅ Right column styling */
-    .hero-right { display:flex; flex-direction:column; align-items:center; gap:24px }
+    /* ✅ Photo styling */
     .hero-photo {
-      width:260px; height:260px; object-fit:cover; border-radius:50%;
-      box-shadow:0 12px 28px rgba(0,0,0,.35);
-      border:3px solid rgba(255,255,255,.15);
+      width:340px; height:340px; object-fit:cover; border-radius:50%;
+      box-shadow:0 14px 32px rgba(0,0,0,.35);
+      border:4px solid rgba(255,255,255,.15);
+      margin:20px auto;
+      display:block;
     }
-    .quick-facts { width:100%; max-width:440px; text-align:left }
+    .quick-facts { width:100%; max-width:500px; margin:0 auto; }
+    .quick-facts ul { list-style:none; padding:0; margin:0; color:var(--muted) }
   </style>
 </head>
 <body>
@@ -95,32 +94,30 @@
   <main class="container">
     <!-- HERO -->
     <section class="hero">
-      <!-- Left column -->
       <div>
         <span class="tag">AI & Data • Yeshiva University</span>
         <h1>Building AI & Data solutions that are useful, ethical, and human-centered.</h1>
         <p class="lead">I’m an MS student in Artificial Intelligence focused on data analytics, product-oriented ML, and research with social impact. I love turning messy datasets into simple, helpful tools people actually use.</p>
         <div class="cta">
-          <a class="btn primary" href="https://github.com/puspitachy" target="_blank" rel="noreferrer"><i class="fa-brands fa-github"></i> GitHub</a>
+          <a class="btn primary" href="https://github.com/puspitachy" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
           <a class="btn ghost" href="#projects"><i class="fa-solid fa-diagram-project"></i> View Projects</a>
           <a class="btn ghost" href="#contact"><i class="fa-regular fa-envelope"></i> Contact</a>
         </div>
       </div>
+    </section>
 
-      <!-- ✅ Right column: photo above quick facts -->
-      <div class="hero-right">
-        <img src="/Puspita.github.io./images/IMG_2850.jpg" alt="Puspita Chowdhury" class="hero-photo" />
-
-        <div class="panel quick-facts">
-          <h3 style="margin-top:4px">Quick facts</h3>
-          <div class="divider"></div>
-          <ul style="list-style:none; padding:0; margin:0; color:var(--muted)">
-            <li>🎓 MS in AI — Yeshiva University</li>
-            <li>🧭 Interests: Data Analytics, ML Ops-lite, Product UX for AI</li>
-            <li>🧪 Recent: Sentiment Analysis app, Image Recognition, STUFlow (recruitment automation)</li>
-            <li>📝 Writing: Medium & research aligned to NIW topics</li>
-          </ul>
-        </div>
+    <!-- ✅ Quick Facts Section -->
+    <section id="quick-facts">
+      <img src="/Puspita.github.io./images/IMG_2850.jpg" alt="Puspita Chowdhury" class="hero-photo" />
+      <div class="panel quick-facts">
+        <h2>Quick facts</h2>
+        <div class="divider"></div>
+        <ul>
+          <li>🎓 MS in AI — Yeshiva University</li>
+          <li>🧭 Interests: Data Analytics, ML Ops-lite, Product UX for AI</li>
+          <li>🧪 Recent: Sentiment Analysis app, Image Recognition, STUFlow (recruitment automation)</li>
+          <li>📝 Writing: Medium & research aligned to NIW topics</li>
+        </ul>
       </div>
     </section>
 
