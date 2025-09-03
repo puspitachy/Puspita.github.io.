@@ -72,6 +72,22 @@
     .links a{margin-right:14px; opacity:.9}
 
     .divider{height:1px; background:linear-gradient(90deg, transparent, rgba(255,255,255,.12), transparent); margin:28px 0}
+
+    /* ✅ RIGHT COLUMN: photo above quick facts */
+    .hero-right{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:16px;
+    }
+    .hero-photo{
+      width:180px;
+      height:180px;
+      object-fit:cover;
+      border-radius:50%;
+      box-shadow:0 8px 24px rgba(0,0,0,.35);
+      border:1px solid rgba(255,255,255,.08);
+    }
   </style>
 </head>
 <body>
@@ -94,23 +110,35 @@
     <section class="hero">
       <div>
         <span class="tag">AI & Data • Yeshiva University</span>
-        <h1>Building AI & Data solutions that are useful, ethical, and human‑centered.</h1>
-        <p class="lead">I’m an MS student in Artificial Intelligence focused on data analytics, product‑oriented ML, and research with social impact. I love turning messy datasets into simple, helpful tools people actually use.</p>
+        <h1>Building AI & Data solutions that are useful, ethical, and human-centered.</h1>
+        <p class="lead">I’m an MS student in Artificial Intelligence focused on data analytics, product-oriented ML, and research with social impact. I love turning messy datasets into simple, helpful tools people actually use.</p>
         <div class="cta">
           <a class="btn primary" href="https://github.com/puspitachy" target="_blank" rel="noreferrer"><i class="fa-brands fa-github"></i> GitHub</a>
           <a class="btn ghost" href="#projects"><i class="fa-solid fa-diagram-project"></i> View Projects</a>
           <a class="btn ghost" href="#contact"><i class="fa-regular fa-envelope"></i> Contact</a>
         </div>
       </div>
-      <div class="panel">
-        <h3 style="margin-top:4px">Quick facts</h3>
-        <div class="divider"></div>
-        <ul style="list-style:none; padding:0; margin:0; color:var(--muted)">
-          <li>🎓 MS in AI — Yeshiva University</li>
-          <li>🧭 Interests: Data Analytics, ML Ops‑lite, Product UX for AI</li>
-          <li>🧪 Recent: Sentiment Analysis app, Image Recognition, STUFlow (recruitment automation)</li>
-          <li>📝 Writing: Medium & research aligned to NIW topics</li>
-        </ul>
+
+      <!-- ✅ RIGHT COLUMN with Photo + Quick facts -->
+      <div class="hero-right">
+        <!-- Profile photo (use project-site base path) -->
+        <img
+          src="/Puspita.github.io./images/IMG_2850.jpg"
+          alt="Puspita Chowdhury"
+          class="hero-photo"
+        />
+
+        <!-- Quick facts card -->
+        <div class="panel" style="width:100%; max-width:420px;">
+          <h3 style="margin-top:4px">Quick facts</h3>
+          <div class="divider"></div>
+          <ul style="list-style:none; padding:0; margin:0; color:var(--muted)">
+            <li>🎓 MS in AI — Yeshiva University</li>
+            <li>🧭 Interests: Data Analytics, ML Ops-lite, Product UX for AI</li>
+            <li>🧪 Recent: Sentiment Analysis app, Image Recognition, STUFlow (recruitment automation)</li>
+            <li>📝 Writing: Medium & research aligned to NIW topics</li>
+          </ul>
+        </div>
       </div>
     </section>
 
@@ -126,20 +154,20 @@
         </article>
         <article class="card">
           <div class="chip">PyTorch</div><div class="chip">CV</div>
-          <h3>Image Recognition Mini‑Suite</h3>
+          <h3>Image Recognition Mini-Suite</h3>
           <p>Explorations in image classification/segmentation with clear notebooks and evaluation plots. Focus on explainability and clean baselines.</p>
           <p><a href="https://github.com/puspitachy" target="_blank">Notebooks ↗</a></p>
         </article>
         <article class="card">
           <div class="chip">Automation</div><div class="chip">RPA</div><div class="chip">ESR</div>
           <h3>STUFlow — Recruitment Automation</h3>
-          <p>Streamlines candidate data to ESR, detects rejections, and triggers next‑step actions. Designed for clarity, auditability, and time savings.</p>
+          <p>Streamlines candidate data to ESR, detects rejections, and triggers next-step actions. Designed for clarity, auditability, and time savings.</p>
           <p><a href="#" aria-disabled="true" style="opacity:.6">Case note (upon request)</a></p>
         </article>
         <article class="card">
           <div class="chip">React</div><div class="chip">Firebase</div>
           <h3>Milesto / Appcountable</h3>
-          <p>Goal‑tracking app with AI step breakdowns and proof verification. Dashboard‑first UX for students and upskillers.</p>
+          <p>Goal-tracking app with AI step breakdowns and proof verification. Dashboard-first UX for students and upskillers.</p>
           <p><a href="https://github.com/puspitachy" target="_blank">Code ↗</a></p>
         </article>
         <article class="card">
@@ -162,7 +190,7 @@
         <div class="chip">Python</div>
         <div class="chip">Pandas</div>
         <div class="chip">NumPy</div>
-        <div class="chip">scikit‑learn</div>
+        <div class="chip">scikit-learn</div>
         <div class="chip">PyTorch (basics)</div>
         <div class="chip">SQL</div>
         <div class="chip">Power BI / Tableau</div>
@@ -183,7 +211,7 @@
           <ul style="margin:0; padding-left:18px; color:var(--muted)">
             <li><strong>Global Guide • One to World</strong> — mentoring & community programs</li>
             <li><strong>Recruitment Officer / HR Data & Systems Analyst • NHS</strong> — ESR, TRAC, process automation</li>
-            <li><strong>Software Eng. Intern</strong> — practical full‑stack tasks and data work</li>
+            <li><strong>Software Eng. Intern</strong> — practical full-stack tasks and data work</li>
           </ul>
         </div>
         <div class="panel">
@@ -200,4 +228,26 @@
     <section id="contact">
       <h2>Contact</h2>
       <div class="panel">
-        <p class="lead" style="margin:0 0 12px"
+        <p class="lead" style="margin:0 0 12px">
+          I’m open to research collaborations, internships, and speaking/mentoring.
+        </p>
+        <p class="links">
+          <a href="mailto:YOUR_EMAIL@domain.com"><i class="fa-regular fa-envelope"></i> Email</a>
+          <a href="https://www.linkedin.com/in/YOUR-LINK/" target="_blank" style="margin-left:14px"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+          <a href="https://github.com/puspitachy" target="_blank" style="margin-left:14px"><i class="fa-brands fa-github"></i> GitHub</a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © <span id="yr"></span> Puspita Chowdhury — Built with ❤️ for clarity & impact.
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('yr').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
