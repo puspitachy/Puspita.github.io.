@@ -1,96 +1,81 @@
-<!-- Dark Themed GitHub Portfolio -->
-<div align="center" style="background-color:#0d1117; padding:30px; border-radius:15px;">
+<!-- ===== Hero / Header ===== -->
+<div align="center" style="background:#0d1117;padding:28px;border-radius:16px;">
+  <img src="assets/img/headshot_circle.png" width="140" style="border-radius:50%;border:3px solid #58a6ff" alt="Puspita Chowdhury"/>
+  <h1 style="color:#e6edf3;margin:12px 0 4px;">Puspita Chowdhury</h1>
+  <p style="color:#8b949e;margin:0 0 12px;">MS in AI & Data • Yeshiva University • Building practical, human-centered AI</p>
 
-<img src="IMG_2850.jpg" width="160" style="border-radius:50%; border:3px solid #58a6ff;" alt="Puspita Chowdhury Photo"/>
-
-# 👩‍💻 **Puspita Chowdhury**  
-🎓 MS in Artificial Intelligence & Data | Yeshiva University  
-💻 BSc in Computer Science | University of Greenwich, UK  
-
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](http://linkedin.com/in/puspita-chowdhury-b200561a4) 
-[![GitHub](https://img.shields.io/badge/GitHub-171515?style=for-the-badge&logo=github&logoColor=white)](https://github.com/puspitachy) 
-[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:Puspitachy2000@gmail.com) 
-[![Resume](https://img.shields.io/badge/Resume-0E76A8?style=for-the-badge&logo=adobeacrobatreader&logoColor=white)](resume.pdf)
-
+  <a href="http://linkedin.com/in/puspita-chowdhury-b200561a4">
+    <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white"/>
+  </a>
+  <a href="https://github.com/puspitachy">
+    <img src="https://img.shields.io/badge/GitHub-171515?style=for-the-badge&logo=github&logoColor=white"/>
+  </a>
+  <a href="mailto:Puspitachy2000@gmail.com">
+    <img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white"/>
+  </a>
+  <a href="resume.pdf">
+    <img src="https://img.shields.io/badge/Resume-0E76A8?style=for-the-badge&logo=adobeacrobatreader&logoColor=white"/>
+  </a>
 </div>
 
 ---
 
-## 👩‍💻 About Me
-I am a graduate student pursuing a **Master of Science in Artificial Intelligence & Data** at Yeshiva University, New York, with a **Bachelor’s in Computer Science** from the University of Greenwich, London.  
+## 👋 About
+I’m a graduate student in **AI & Data** who enjoys turning messy datasets into simple, useful tools. Previously **HR Data & Systems Analyst (NHS UK)** — I automated workflows, improved data quality, and shipped dashboards people actually used.
 
-🔹 Experienced as an **HR Data & Systems Analyst (NHS UK)** with expertise in **automation, compliance, and workforce analytics**.  
-🔹 Passionate about **AI for social good**: healthcare, education accessibility, and workforce transformation.  
-🔹 Strong background in **AI, ML, NLP, and Data Visualization** with hands-on projects and research.  
-
----
-
-## 🎓 Education
-- 🎓 **MS in Artificial Intelligence & Data** – *Yeshiva University* (2025–2027)  
-  *Coursework:* Machine Learning, Numerical Methods, Data Analytics, NLP  
-  *Role:* Teaching Assistant (Graduate AI & Data Courses)  
-
-- 🎓 **BSc in Computer Science** – *University of Greenwich, London* (2023)  
-  *Focus:* Web BI, Stock Market Prediction, Emotion Recognition  
-  *Role:* Peer Mentor, Student Guide  
+- Focus: **Data Analytics, NLP, light-weight ML**, usable UIs
+- Interests: **healthcare**, **education access**, **workflow automation**
 
 ---
 
-## 💼 Work Experience
-- **HR Data & Systems Analyst** – NHS London (2022–2024)  
-  ✅ Improved **data accuracy by 98%** using ESR automation  
-  ✅ Reduced recruitment & payroll processing time by **30%**  
-  ✅ Designed **automated SQL/Excel reporting templates**  
-  🏆 **Recognition:** *Team of the Year Award*  
-
-- **Administrative Officer** – Royal Free NHS Trust (2022)  
-- **Data Support Coordinator** – Citizen Shareholders (2021)  
-
----
-
-## 🧑‍🏫 Teaching & Volunteering
-- **Teaching Assistant** – Yeshiva University (2025–Present)  
-- **Global Guide** – One to World 🌍  
-- **Mentor** – University of Greenwich 👩‍🎓  
-- **Event Coordinator** – Bondhusova 🎤  
+## 🔧 Tech I use
+<p>
+  <img src="https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white"> 
+  <img src="https://img.shields.io/badge/Pandas-150458?logo=pandas&logoColor=white">
+  <img src="https://img.shields.io/badge/scikit--learn-F7931E?logo=scikitlearn&logoColor=white">
+  <img src="https://img.shields.io/badge/PyTorch-EE4C2C?logo=pytorch&logoColor=white">
+  <img src="https://img.shields.io/badge/SQL-4479A1?logo=postgresql&logoColor=white">
+  <img src="https://img.shields.io/badge/Flask-000?logo=flask&logoColor=white">
+  <img src="https://img.shields.io/badge/React-20232A?logo=react&logoColor=61DAFB">
+  <img src="https://img.shields.io/badge/Power%20BI-F2C811?logo=powerbi&logoColor=000">
+</p>
 
 ---
 
-## 📂 Featured Projects
-- 📝 **Sentiment Analysis Web App** – Flask + ML (SVM, LR, NB)  
-- 🖼 **Image Recognition Model** – CNN with PyTorch  
-- 📊 **Excel BI Dashboards** – Coffee Sales & Bike Dataset KPIs  
-- 🎯 **Milesto / Appcountable** – Goal-tracking app (React + Firebase + Flask AI)  
-- 🔍 **Menstrual Health & Productivity Research** – Data-driven analysis  
+## 🚀 Selected Projects
+<table>
+  <tr>
+    <td width="33%">
+      <img src="assets/img/proj-sentiment.png" alt="Sentiment App" />
+      <h4>Sentiment Analysis Web App</h4>
+      <p>Flask + TF-IDF + Logistic Regression. Clean UI for classifying reviews.</p>
+      <a href="https://github.com/puspitachy">Code ↗</a>
+    </td>
+    <td width="33%">
+      <img src="assets/img/proj-cv.png" alt="Image Recognition" />
+      <h4>Image Recognition Mini-Suite</h4>
+      <p>PyTorch notebooks with tidy training/eval and explainability notes.</p>
+      <a href="https://github.com/puspitachy">Notebooks ↗</a>
+    </td>
+    <td width="33%">
+      <img src="assets/img/proj-milesto.png" alt="Milesto/Appcountable" />
+      <h4>Milesto / Appcountable</h4>
+      <p>Goal tracking + AI step breakdown + proof verification (React/Firebase).</p>
+      <a href="https://github.com/puspitachy">Code ↗</a>
+    </td>
+  </tr>
+</table>
 
 ---
 
-## 🛠 Skills
-**Programming:** Python, Java, SQL, MATLAB  
-**AI/ML:** Scikit-learn, PyTorch, NLP, Generative AI  
-**BI & Viz:** Power BI, Tableau, Excel Dashboards  
-**Tools:** Git/GitHub, Flask, Jupyter, Office Suite  
-**Languages:** English, Bengali, Hindi  
+## 🏆 Highlights
+- NHS **Team of the Year** (analytics + automation)
+- Teaching Assistant — AI & Data (Yeshiva)
+- Articles on Medium about **AI in healthcare** & **data productivity**
 
 ---
 
-## 🏅 Achievements
-- 🏆 NHS *Team of the Year Award* (2023)  
-- ✍️ Published articles on *Medium* about AI & Healthcare  
-- 🌐 Debate, Poetry, Science & Language Competitions  
+## 📫 Contact
+**Email:** Puspitachy2000@gmail.com • **LinkedIn:** /in/puspita-chowdhury-b200561a4
 
----
-
-## 📬 Contact Me
-📧 **Email:** [Puspitachy2000@gmail.com](mailto:Puspitachy2000@gmail.com)  
-🔗 **LinkedIn:** [linkedin.com/in/puspita-chowdhury-b200561a4](http://linkedin.com/in/puspita-chowdhury-b200561a4)  
-💻 **GitHub:** [github.com/puspitachy](https://github.com/puspitachy)  
-📄 **[Download Resume](resume.pdf)**  
-
----
-
-<div align="center">
-  
-✨ *“Turning data into meaningful impact with AI.”* ✨  
-
-</div>
+<div align="center"><sub>© 2025 Puspita Chowdhury</sub></div>
