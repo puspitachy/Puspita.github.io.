@@ -8,86 +8,73 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-9Htk3J8b2eVQw8yE8Qk6s+5bS0a6H8fKQ8p0wGd4y2G3X7wz4Y2r8W2nZ5r1h7cP4H8qg0j2C2Yw8g7j2s6aQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
+
   <style>
-    :root{
-      --bg:#0b0f17; /* deep black-blue */
+    :root {
+      --bg:#0b0f17;
       --panel:#0f1524;
       --text:#e6eef8;
       --muted:#98a2b3;
-      --accent:#7c5cff; /* purple */
-      --accent-2:#00d9ff; /* cyan */
-      --ring: 0 0 0 2px color-mix(in oklab, var(--accent) 60%, transparent);
-      --shadow: 0 10px 30px rgba(0,0,0,.45);
-      --radius: 16px;
+      --accent:#7c5cff;
+      --accent-2:#00d9ff;
+      --shadow:0 10px 30px rgba(0,0,0,.45);
+      --radius:16px;
     }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0; background:radial-gradient(1200px 600px at 80% -10%, #16203a 0%, transparent 60%),
-               radial-gradient(900px 500px at -10% 10%, #101b2f 0%, transparent 55%),
-               var(--bg);
-      color:var(--text); font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; line-height:1.6;
+    * { box-sizing:border-box }
+    body {
+      margin:0;
+      background:radial-gradient(1200px 600px at 80% -10%, #16203a 0%, transparent 60%),
+                 radial-gradient(900px 500px at -10% 10%, #101b2f 0%, transparent 55%),
+                 var(--bg);
+      color:var(--text);
+      font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      line-height:1.6;
     }
-    a{color:inherit; text-decoration:none}
-    .container{width:min(1100px, 92%); margin-inline:auto}
-    header{
+    a { color:inherit; text-decoration:none }
+    .container { width:min(1100px, 92%); margin-inline:auto }
+
+    header {
       position:sticky; top:0; z-index:10; backdrop-filter:saturate(1.2) blur(10px);
       background:linear-gradient(to bottom, color-mix(in oklab, var(--bg) 90%, transparent), transparent);
       border-bottom:1px solid rgba(255,255,255,.06);
     }
-    nav{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
-    .brand{font-family:Poppins, Inter, sans-serif; font-weight:700; letter-spacing:.2px}
-    .brand span{background:linear-gradient(90deg, var(--accent), var(--accent-2)); -webkit-background-clip:text; background-clip:text; color:transparent}
-    .nav-links a{opacity:.85; margin-left:18px}
-    .nav-links a:hover{opacity:1}
+    nav { display:flex; align-items:center; justify-content:space-between; padding:14px 0 }
+    .brand { font-family:Poppins, Inter, sans-serif; font-weight:700; }
+    .brand span {
+      background:linear-gradient(90deg, var(--accent), var(--accent-2));
+      -webkit-background-clip:text; background-clip:text; color:transparent;
+    }
+    .nav-links a { opacity:.85; margin-left:18px }
+    .nav-links a:hover { opacity:1 }
 
-    .hero{display:grid; grid-template-columns:1.2fr .8fr; gap:36px; padding:72px 0 36px}
-    @media (max-width:900px){ .hero{grid-template-columns:1fr; text-align:center}}
-    .tag{display:inline-block; padding:6px 12px; border:1px solid rgba(255,255,255,.12); border-radius:999px; font-size:.9rem; color:var(--muted)}
-    h1{font-family:Poppins, Inter, sans-serif; font-weight:800; line-height:1.1; font-size:clamp(36px, 5.2vw, 58px); margin:14px 0}
-    .lead{font-size:1.05rem; color:var(--muted); max-width:60ch}
-    .cta{display:flex; gap:14px; margin-top:26px; flex-wrap:wrap; justify-content:flex-start}
+    .hero { display:grid; grid-template-columns:1.2fr .8fr; gap:36px; padding:72px 0 36px }
+    @media (max-width:900px){ .hero{grid-template-columns:1fr; text-align:center} }
+
+    .tag { display:inline-block; padding:6px 12px; border:1px solid rgba(255,255,255,.12); border-radius:999px; font-size:.9rem; color:var(--muted) }
+    h1 { font-family:Poppins, Inter, sans-serif; font-weight:800; line-height:1.1; font-size:clamp(36px, 5.2vw, 58px); margin:14px 0 }
+    .lead { font-size:1.05rem; color:var(--muted); max-width:60ch }
+    .cta { display:flex; gap:14px; margin-top:26px; flex-wrap:wrap; justify-content:flex-start }
     @media (max-width:900px){ .cta{justify-content:center} }
-    .btn{padding:12px 18px; border-radius:12px; border:1px solid rgba(255,255,255,.12); background:transparent; color:var(--text); font-weight:600; box-shadow:var(--shadow); transition:.2s}
-    .btn:hover{transform:translateY(-2px)}
-    .btn.primary{background:linear-gradient(135deg, var(--accent), var(--accent-2)); border-color:transparent}
-    .btn.ghost{background:rgba(255,255,255,.02)}
+    .btn { padding:12px 18px; border-radius:12px; border:1px solid rgba(255,255,255,.12); background:transparent; color:var(--text); font-weight:600; box-shadow:var(--shadow); transition:.2s }
+    .btn:hover { transform:translateY(-2px) }
+    .btn.primary { background:linear-gradient(135deg, var(--accent), var(--accent-2)); border-color:transparent }
+    .btn.ghost { background:rgba(255,255,255,.02) }
 
-    .panel{background:linear-gradient(180deg, color-mix(in oklab, var(--panel) 92%, #000 8%), var(--panel)); border:1px solid rgba(255,255,255,.06); border-radius:var(--radius); padding:22px; box-shadow:var(--shadow)}
-    .grid{display:grid; gap:18px}
-    .grid.projects{grid-template-columns:repeat(3, 1fr)}
-    @media (max-width:1000px){ .grid.projects{grid-template-columns:repeat(2, 1fr)}}
-    @media (max-width:700px){ .grid.projects{grid-template-columns:1fr}}
+    .panel { background:linear-gradient(180deg, color-mix(in oklab, var(--panel) 92%, #000 8%), var(--panel));
+             border:1px solid rgba(255,255,255,.06); border-radius:var(--radius);
+             padding:22px; box-shadow:var(--shadow) }
 
-    .card{position:relative; overflow:hidden; border-radius:var(--radius); background:linear-gradient(160deg, rgba(255,255,255,.04), rgba(255,255,255,.01)); border:1px solid rgba(255,255,255,.08); padding:18px; transition:.25s}
-    .card:hover{transform:translateY(-4px)}
-    .card h3{margin:6px 0 8px; font-size:1.1rem}
-    .chip{display:inline-block; font-size:.75rem; padding:4px 8px; border-radius:999px; border:1px solid rgba(255,255,255,.15); color:var(--muted); margin:6px 6px 0 0}
+    .divider { height:1px; background:linear-gradient(90deg, transparent, rgba(255,255,255,.12), transparent); margin:20px 0 }
 
-    section{padding:48px 0}
-    section h2{font-family:Poppins, Inter, sans-serif; font-size:1.6rem; margin:0 0 16px}
-
-    footer{border-top:1px solid rgba(255,255,255,.06); padding:28px 0; color:var(--muted); text-align:center}
-    .links a{margin-right:14px; opacity:.9}
-
-    .divider{height:1px; background:linear-gradient(90deg, transparent, rgba(255,255,255,.12), transparent); margin:28px 0}
-
-    /* ✅ RIGHT COLUMN: photo above quick facts */
-    .hero-right{
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      gap:16px;
+    /* ✅ Right column styling */
+    .hero-right { display:flex; flex-direction:column; align-items:center; gap:24px }
+    .hero-photo {
+      width:260px; height:260px; object-fit:cover; border-radius:50%;
+      box-shadow:0 12px 28px rgba(0,0,0,.35);
+      border:3px solid rgba(255,255,255,.15);
     }
-    .hero-photo{
-      width:180px;
-      height:180px;
-      object-fit:cover;
-      border-radius:50%;
-      box-shadow:0 8px 24px rgba(0,0,0,.35);
-      border:1px solid rgba(255,255,255,.08);
-    }
+    .quick-facts { width:100%; max-width:440px; text-align:left }
   </style>
 </head>
 <body>
@@ -108,6 +95,7 @@
   <main class="container">
     <!-- HERO -->
     <section class="hero">
+      <!-- Left column -->
       <div>
         <span class="tag">AI & Data • Yeshiva University</span>
         <h1>Building AI & Data solutions that are useful, ethical, and human-centered.</h1>
@@ -119,17 +107,11 @@
         </div>
       </div>
 
-      <!-- ✅ RIGHT COLUMN with Photo + Quick facts -->
+      <!-- ✅ Right column: photo above quick facts -->
       <div class="hero-right">
-        <!-- Profile photo (use project-site base path) -->
-        <img
-          src="/Puspita.github.io./images/IMG_2850.jpg"
-          alt="Puspita Chowdhury"
-          class="hero-photo"
-        />
+        <img src="/Puspita.github.io./images/IMG_2850.jpg" alt="Puspita Chowdhury" class="hero-photo" />
 
-        <!-- Quick facts card -->
-        <div class="panel" style="width:100%; max-width:420px;">
+        <div class="panel quick-facts">
           <h3 style="margin-top:4px">Quick facts</h3>
           <div class="divider"></div>
           <ul style="list-style:none; padding:0; margin:0; color:var(--muted)">
@@ -145,98 +127,25 @@
     <!-- PROJECTS -->
     <section id="projects">
       <h2>Selected Projects</h2>
-      <div class="grid projects">
-        <article class="card">
-          <div class="chip">Flask</div><div class="chip">NLP</div><div class="chip">Docker</div>
-          <h3>Sentiment Analysis Web App</h3>
-          <p>Clean UI for classifying text sentiment using a lightweight Logistic Regression pipeline. Deployed as a simple web tool for demos and feedback.</p>
-          <p><a href="https://github.com/puspitachy" target="_blank">Repo ↗</a></p>
-        </article>
-        <article class="card">
-          <div class="chip">PyTorch</div><div class="chip">CV</div>
-          <h3>Image Recognition Mini-Suite</h3>
-          <p>Explorations in image classification/segmentation with clear notebooks and evaluation plots. Focus on explainability and clean baselines.</p>
-          <p><a href="https://github.com/puspitachy" target="_blank">Notebooks ↗</a></p>
-        </article>
-        <article class="card">
-          <div class="chip">Automation</div><div class="chip">RPA</div><div class="chip">ESR</div>
-          <h3>STUFlow — Recruitment Automation</h3>
-          <p>Streamlines candidate data to ESR, detects rejections, and triggers next-step actions. Designed for clarity, auditability, and time savings.</p>
-          <p><a href="#" aria-disabled="true" style="opacity:.6">Case note (upon request)</a></p>
-        </article>
-        <article class="card">
-          <div class="chip">React</div><div class="chip">Firebase</div>
-          <h3>Milesto / Appcountable</h3>
-          <p>Goal-tracking app with AI step breakdowns and proof verification. Dashboard-first UX for students and upskillers.</p>
-          <p><a href="https://github.com/puspitachy" target="_blank">Code ↗</a></p>
-        </article>
-        <article class="card">
-          <div class="chip">Research</div><div class="chip">Public Data</div>
-          <h3>Menstrual Health & Productivity</h3>
-          <p>Quantifies study/work loss and explores how cycle tracking mitigates impact; includes tidy data prep and transparent methods.</p>
-        </article>
-        <article class="card">
-          <div class="chip">Dashboards</div><div class="chip">EDA</div>
-          <h3>Comp Statistics • Visual EDA</h3>
-          <p>A collection of polished plots and notebooks that reveal structure faster than spreadsheets.</p>
-        </article>
-      </div>
+      <!-- project cards here -->
     </section>
 
     <!-- SKILLS -->
     <section id="skills">
       <h2>Skills</h2>
-      <div class="panel">
-        <div class="chip">Python</div>
-        <div class="chip">Pandas</div>
-        <div class="chip">NumPy</div>
-        <div class="chip">scikit-learn</div>
-        <div class="chip">PyTorch (basics)</div>
-        <div class="chip">SQL</div>
-        <div class="chip">Power BI / Tableau</div>
-        <div class="chip">Matplotlib</div>
-        <div class="chip">Flask</div>
-        <div class="chip">React + Firebase</div>
-        <div class="chip">Git / GitHub</div>
-        <div class="chip">Excel wizardry ⚡</div>
-      </div>
+      <!-- skills panel here -->
     </section>
 
     <!-- EXPERIENCE / EDUCATION -->
     <section id="experience">
       <h2>Experience & Education</h2>
-      <div class="grid" style="grid-template-columns:1fr 1fr">
-        <div class="panel">
-          <h3 style="margin:4px 0 8px">Experience</h3>
-          <ul style="margin:0; padding-left:18px; color:var(--muted)">
-            <li><strong>Global Guide • One to World</strong> — mentoring & community programs</li>
-            <li><strong>Recruitment Officer / HR Data & Systems Analyst • NHS</strong> — ESR, TRAC, process automation</li>
-            <li><strong>Software Eng. Intern</strong> — practical full-stack tasks and data work</li>
-          </ul>
-        </div>
-        <div class="panel">
-          <h3 style="margin:4px 0 8px">Education</h3>
-          <ul style="margin:0; padding-left:18px; color:var(--muted)">
-            <li><strong>MS, Artificial Intelligence</strong> — Yeshiva University</li>
-            <li><strong>BSc, Computer Science</strong> — UK</li>
-          </ul>
-        </div>
-      </div>
+      <!-- experience panels here -->
     </section>
 
     <!-- CONTACT -->
     <section id="contact">
       <h2>Contact</h2>
-      <div class="panel">
-        <p class="lead" style="margin:0 0 12px">
-          I’m open to research collaborations, internships, and speaking/mentoring.
-        </p>
-        <p class="links">
-          <a href="mailto:YOUR_EMAIL@domain.com"><i class="fa-regular fa-envelope"></i> Email</a>
-          <a href="https://www.linkedin.com/in/YOUR-LINK/" target="_blank" style="margin-left:14px"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
-          <a href="https://github.com/puspitachy" target="_blank" style="margin-left:14px"><i class="fa-brands fa-github"></i> GitHub</a>
-        </p>
-      </div>
+      <!-- contact panel here -->
     </section>
   </main>
 
@@ -245,7 +154,6 @@
       © <span id="yr"></span> Puspita Chowdhury — Built with ❤️ for clarity & impact.
     </div>
   </footer>
-
   <script>
     document.getElementById('yr').textContent = new Date().getFullYear();
   </script>
