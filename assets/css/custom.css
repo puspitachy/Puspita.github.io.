@@ -1,0 +1,5 @@
+/* Subtle tech dark theme tweaks */
+.page__hero--overlay { background-color:#0a1a2f; }
+.site-title, .site-title:visited { font-weight:700; }
+.btn--primary { border-radius:10px; padding:0.6rem 1rem; }
+a { text-decoration:none; }
