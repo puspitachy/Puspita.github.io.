@@ -2,11 +2,16 @@ title: "Puspita Chowdhury"
 logo: /assets/img/headshot_circle.png
 description: "MS in Artificial Intelligence & Data • AI Solutions for Social Impact"
 show_downloads: false
-theme: jekyll-theme-hacker
 
-# Optional extras
+# Use the official Hacker theme
+remote_theme: pages-themes/hacker@v0.2.0
+
+# Required plugin for remote themes
+plugins:
+  - jekyll-remote-theme
+
+# Optional GitHub links in footer
 github:
   is_project_page: true
   repository_url: https://github.com/puspitachy/Puspita.github.io
   owner_url: https://github.com/puspitachy
-
