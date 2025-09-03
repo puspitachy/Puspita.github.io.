@@ -1,6 +1,8 @@
 ---
 title: "About"
 permalink: /about/
+layout: single
+author_profile: true
 ---
 
 Hi! I’m **Puspita Chowdhury**, an MS student in **Artificial Intelligence** at **Yeshiva University** (New York).  
