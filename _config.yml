@@ -1,19 +1,55 @@
 title: "Puspita Chowdhury"
 name: "Puspita Chowdhury"
-url: "https://puspitachowdhury.github.io"
+description: "AI • Data • Ethics — Portfolio"
+
+remote_theme: "mmistakes/minimal-mistakes@4.26.2"
+minimal_mistakes_skin: "dark"
+
+# IMPORTANT: change USERNAME below to your GitHub username
+url: "https://USERNAME.github.io"
+baseurl: ""
 
 author:
   name: "Puspita Chowdhury"
   avatar: "/images/profile.jpg"
-  bio: "MS in AI @ YU • AI ethics & data projects • Open to internships"
+  bio: "MS in AI @ Yeshiva University • AI Ethics & Data • Open to internships"
   location: "New York, USA"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope"
-      url: "mailto:yourname@email.com"
+      url: "mailto:YOUR_EMAIL@domain.com"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/puspitachowdhury"
+      url: "https://github.com/USERNAME"
     - label: "LinkedIn"
       icon: "fab fa-fw fa-linkedin"
-      url: "https://www.linkedin.com/in/your-handle/"
+      url: "https://www.linkedin.com/in/YOUR-LINK/"
+    - label: "Resume (PDF)"
+      icon: "fas fa-fw fa-file-pdf"
+      url: "/resume.pdf"
+
+plugins:
+  - jekyll-include-cache
+
+collections:
+  projects:
+    output: true
+    permalink: /projects/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: single
+      author_profile: true
+  - scope:
+      path: ""
+      type: projects
+    values:
+      layout: single
+      author_profile: true
+
+sass:
+  sass_dir: _sass
+  style: compressed
