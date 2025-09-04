@@ -88,16 +88,31 @@
     /* Sections & grids */
     section{padding:48px 0}
     section h2{font-family:Poppins, Inter, sans-serif; font-size:1.6rem; margin:0 0 16px}
+
     .grid{display:grid; gap:18px}
-    .grid.projects{grid-template-columns:repeat(3, 1fr)}
-    @media (max-width:1000px){ .grid.projects{grid-template-columns:repeat(2,1fr)}}
-    @media (max-width:700px){ .grid.projects{grid-template-columns:1fr}}
+
+    /* ===== Projects: layout, thumbnails, filters ===== */
+    .grid.projects{ grid-template-columns: repeat(2, 1fr); }
+    @media (max-width:900px){ .grid.projects{ grid-template-columns: 1fr; } }
+
     .card{position:relative; overflow:hidden; border-radius:var(--radius);
       background:linear-gradient(160deg, rgba(255,255,255,.04), rgba(255,255,255,.01));
       border:1px solid rgba(255,255,255,.08); padding:18px; transition:.25s}
     .card:hover{transform:translateY(-4px)}
     .card h3{margin:6px 0 8px; font-size:1.1rem}
     .chip{display:inline-block; font-size:.75rem; padding:4px 8px; border-radius:999px; border:1px solid rgba(255,255,255,.15); color:var(--muted); margin:6px 6px 0 0}
+
+    .card.project{ padding:24px; min-height:320px; display:flex; flex-direction:column; }
+    .proj-thumb{ width:96px; height:96px; border-radius:50%; overflow:hidden; margin-bottom:12px;
+      box-shadow:0 8px 18px rgba(0,0,0,.35); border:2px solid rgba(255,255,255,.12); background:rgba(255,255,255,.04) }
+    .proj-thumb img{ width:100%; height:100%; object-fit:cover; display:block }
+
+    .filters{ display:flex; gap:10px; margin:8px 0 18px; flex-wrap:wrap }
+    .filter-btn{ padding:8px 12px; border-radius:999px; border:1px solid rgba(255,255,255,.15);
+      background:rgba(255,255,255,.03); color:var(--text); font-weight:600; cursor:pointer; transition:.2s }
+    .filter-btn:hover{ transform:translateY(-1px) }
+    .filter-btn.active{ background:linear-gradient(135deg, var(--accent), var(--accent-2)); border-color:transparent }
+    .hidden{ display:none !important }
 
     footer{border-top:1px solid rgba(255,255,255,.06); padding:28px 0; color:var(--muted); text-align:center}
     .links a{margin-right:14px; opacity:.9}
@@ -106,37 +121,28 @@
     .media-list{ display:grid; gap:22px; }
     .media-card{
       display:grid;
-      grid-template-columns:220px 1fr; /* match the circle size so it won't overlap */
+      grid-template-columns:220px 1fr; /* matches circle width so it never overlaps text */
       gap:28px;
       align-items:start;
     }
     .media-logo{
-      width:220px; height:220px;       /* bigger circle */
+      width:220px; height:220px;
       border-radius:50%;
-      overflow:hidden;                 /* crop to circle */
+      overflow:hidden;
       border:3px solid rgba(255,255,255,.15);
       box-shadow:0 10px 24px rgba(0,0,0,.45);
       background:rgba(255,255,255,.04);
       flex-shrink:0;
     }
-    .media-logo img{
-      width:100%; height:100%;
-      display:block;
-      object-fit:cover;                /* fill the circle */
-    }
+    .media-logo img{ width:100%; height:100%; display:block; object-fit:cover }
     .media-title{ margin:0; font-size:1.25rem; font-weight:800; }
     .media-period{ margin:6px 0 12px; color:var(--muted); font-weight:600; }
     ul.media-bullets{ margin:0; padding-left:18px; color:var(--muted); }
     ul.media-bullets li{ margin:8px 0; }
-
     .btn.sm{ padding:8px 12px; border-radius:10px; font-size:.9rem; }
 
-    /* Responsive: stack card on narrow screens */
     @media (max-width:720px){
-      .media-card{
-        grid-template-columns:120px 1fr;
-        gap:16px;
-      }
+      .media-card{ grid-template-columns:120px 1fr; gap:16px; }
       .media-logo{ width:120px; height:120px; }
       .media-title{ font-size:1.1rem; }
     }
@@ -194,46 +200,94 @@
       </ul>
     </section>
 
-    <!-- Projects -->
+    <!-- Projects with filters and thumbnails -->
     <section id="projects">
       <h2>Selected Projects</h2>
-      <div class="grid projects">
-        <article class="card">
+
+      <div class="filters" id="proj-filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="ai">AI</button>
+        <button class="filter-btn" data-filter="automation">Automation</button>
+        <button class="filter-btn" data-filter="data-analytics">Data Analytics</button>
+      </div>
+
+      <div class="grid projects" id="proj-grid">
+        <!-- Sentiment Analysis -->
+        <article class="card project" data-tags="ai,data-analytics">
+          <div class="proj-thumb">
+            <img src="/images/projects/sentiment.jpg" alt="Sentiment Analysis Web App">
+          </div>
           <div class="chip">Flask</div><div class="chip">NLP</div><div class="chip">Docker</div>
           <h3>Sentiment Analysis Web App</h3>
           <p>Clean UI for classifying text sentiment using a lightweight Logistic Regression pipeline. Focus on explainability and demo-friendly UX.</p>
           <p><a href="https://github.com/puspitachy" target="_blank">Repo ↗</a></p>
         </article>
-        <article class="card">
+
+        <!-- Image Recognition -->
+        <article class="card project" data-tags="ai">
+          <div class="proj-thumb">
+            <img src="/images/projects/image-recognition.jpg" alt="Image Recognition Mini-Suite">
+          </div>
           <div class="chip">PyTorch</div><div class="chip">CV</div>
           <h3>Image Recognition Mini-Suite</h3>
           <p>Explorations in classification/segmentation with tidy notebooks and evaluation plots. Emphasis on baselines, clarity, and repeatability.</p>
           <p><a href="https://github.com/puspitachy" target="_blank">Notebooks ↗</a></p>
         </article>
-        <article class="card">
+
+        <!-- STUFlow -->
+        <article class="card project" data-tags="automation,data-analytics">
+          <div class="proj-thumb">
+            <img src="/images/projects/stuflow.jpg" alt="STUFlow — Recruitment Automation">
+          </div>
           <div class="chip">Automation</div><div class="chip">RPA</div><div class="chip">ESR</div>
           <h3>STUFlow — Recruitment Automation</h3>
           <p>Automates candidate data syncing to ESR and detects rejections to trigger next steps. Designed for transparency and time savings.</p>
           <p><a href="#" aria-disabled="true" style="opacity:.65">Case note on request</a></p>
         </article>
-        <article class="card">
+
+        <!-- Milesto -->
+        <article class="card project" data-tags="ai,automation">
+          <div class="proj-thumb">
+            <img src="/images/projects/milesto.jpg" alt="Milesto / Appcountable">
+          </div>
           <div class="chip">React</div><div class="chip">Firebase</div>
           <h3>Milesto / Appcountable</h3>
           <p>Goal-tracking app with AI step breakdowns and “proof” uploads. Rules for certificate/file verification and simple validations.</p>
           <p><a href="https://github.com/puspitachy" target="_blank">Code ↗</a></p>
         </article>
-        <article class="card">
+
+        <!-- Menstrual Health -->
+        <article class="card project" data-tags="data-analytics">
+          <div class="proj-thumb">
+            <img src="/images/projects/menstrual-health.jpg" alt="Menstrual Health & Productivity">
+          </div>
           <div class="chip">Research</div><div class="chip">Public Data</div>
           <h3>Menstrual Health & Productivity</h3>
           <p>Quantifies study/work loss and explores how cycle-tracking can mitigate impact; includes ethical notes on privacy and consent.</p>
           <p><a href="#" aria-disabled="true" style="opacity:.65">Summary (soon)</a></p>
         </article>
-        <article class="card">
+
+        <!-- Comp Stats -->
+        <article class="card project" data-tags="data-analytics">
+          <div class="proj-thumb">
+            <img src="/images/projects/comp-stats.jpg" alt="Comp Statistics • Visual EDA">
+          </div>
           <div class="chip">Dashboards</div><div class="chip">EDA</div>
           <h3>Comp Statistics • Visual EDA</h3>
           <p>Clear visuals & notebooks that expose patterns faster than spreadsheets. Built for rapid stakeholder insight.</p>
           <p><a href="#" aria-disabled="true" style="opacity:.65">Gallery (soon)</a></p>
         </article>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+      <h2>Skills</h2>
+      <div class="panel">
+        <div class="chip">Python</div><div class="chip">Pandas</div><div class="chip">NumPy</div>
+        <div class="chip">scikit-learn</div><div class="chip">PyTorch (basics)</div><div class="chip">SQL</div>
+        <div class="chip">Power BI / Tableau</div><div class="chip">Matplotlib</div><div class="chip">Flask</div>
+        <div class="chip">React + Firebase</div><div class="chip">Git / GitHub</div><div class="chip">Excel wizardry ⚡</div>
       </div>
     </section>
 
@@ -347,6 +401,26 @@
       © <span id="yr"></span> Puspita Chowdhury — Built with ❤️ for clarity & impact.
     </div>
   </footer>
-  <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+
+  <script>
+    // footer year
+    document.getElementById('yr').textContent = new Date().getFullYear();
+
+    // simple project filter
+    const buttons = document.querySelectorAll('#proj-filters .filter-btn');
+    const cards = document.querySelectorAll('#proj-grid .project');
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        buttons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const key = btn.dataset.filter;
+        cards.forEach(card => {
+          const tags = (card.dataset.tags || '').split(',').map(s => s.trim());
+          const show = (key === 'all') || tags.includes(key);
+          card.classList.toggle('hidden', !show);
+        });
+      });
+    });
+  </script>
 </body>
 </html>
