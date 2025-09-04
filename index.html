@@ -91,7 +91,7 @@
 
     .grid{display:grid; gap:18px}
 
-    /* ===== Projects: FILTERS + SPLIT CARDS (image left, content right) ===== */
+    /* ===== Projects: FILTERS + CARD STYLE FROM SKETCH ===== */
     .filters{ display:flex; gap:10px; margin:8px 0 18px; flex-wrap:wrap }
     .filter-btn{ padding:8px 12px; border-radius:999px; border:1px solid rgba(255,255,255,.15);
       background:rgba(255,255,255,.03); color:var(--text); font-weight:600; cursor:pointer; transition:.2s }
@@ -99,40 +99,50 @@
     .filter-btn.active{ background:linear-gradient(135deg, var(--accent), var(--accent-2)); border-color:transparent }
     .hidden{ display:none !important }
 
-    .projects{ grid-template-columns: 1fr; } /* one card per row for wide split look */
+    .projects{ grid-template-columns: repeat(2, 1fr); }
+    @media (max-width:900px){ .projects{ grid-template-columns: 1fr; } }
+
     .project-card{
-      display:grid;
-      grid-template-columns: 1fr 1fr; /* left image / right content */
+      display:flex;
+      flex-direction:column;
       border-radius:var(--radius);
       overflow:hidden;
       border:1px solid rgba(255,255,255,.08);
       background:linear-gradient(160deg, rgba(255,255,255,.04), rgba(255,255,255,.01));
       box-shadow:var(--shadow);
-      min-height:240px;
+      min-height:420px;
     }
-    .project-media{
-      position:relative; min-height:240px; background:rgba(255,255,255,.03);
-    }
-    .project-media img{
-      position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block;
+    .project-img{
+      width:100%;
+      height:210px;              /* top image area */
+      object-fit:cover;
+      display:block;
+      background:#0e1627;
     }
     .project-body{
-      padding:20px 22px; display:flex; flex-direction:column; justify-content:center;
+      padding:18px 20px 16px;
+      display:flex; flex-direction:column; gap:10px; flex:1;
     }
-    .project-title{ font-size:1.35rem; margin:0 0 8px; font-weight:800; }
-    .project-desc{ margin:0 0 12px; color:var(--text) }
-    .tech{ display:flex; flex-wrap:wrap; gap:8px; margin:6px 0 10px }
-    .tech .chip{ display:inline-block; font-size:.75rem; padding:6px 10px; border-radius:999px; border:1px solid rgba(255,255,255,.15); color:var(--muted); }
+    .project-title{ font-size:1.25rem; margin:0; font-weight:800; }
+    .project-desc{ margin:0; color:var(--text) }
+
+    /* skills row: circular chips like your sketch */
+    .skills-row{ display:flex; gap:10px; margin-top:6px; flex-wrap:wrap }
+    .skill-dot{
+      width:30px; height:30px; border-radius:50%;
+      border:2px solid rgba(255,255,255,.2);
+      background:rgba(255,255,255,.06);
+      display:flex; align-items:center; justify-content:center;
+      font-size:.7rem; color:var(--muted);
+      cursor:default;
+    }
+    .project-links{ margin-top:auto }
     .project-links a{ text-decoration:none; border-bottom:1px dashed rgba(255,255,255,.35); padding-bottom:2px }
-    @media (max-width:900px){
-      .project-card{ grid-template-columns: 1fr; }
-      .project-media{ height:190px; min-height:190px; }
-    }
 
     footer{border-top:1px solid rgba(255,255,255,.06); padding:28px 0; color:var(--muted); text-align:center}
     .links a{margin-right:14px; opacity:.9}
 
-    /* === Experience media style (unchanged) === */
+    /* Experience media styles (unchanged) */
     .media-list{ display:grid; gap:22px; }
     .media-card{
       display:grid; grid-template-columns:220px 1fr; gap:28px; align-items:start;
@@ -192,7 +202,7 @@
       <p style="margin-top:0">I design and ship pragmatic AI & data solutions—from low-code dashboards to clean, explainable ML demos. I care about clarity, fairness, and building tools that people actually use.</p>
     </section>
 
-    <!-- Projects -->
+    <!-- PROJECTS -->
     <section id="projects">
       <h2>Selected Projects</h2>
 
@@ -204,124 +214,101 @@
         <button class="filter-btn" data-filter="data-analytics">Data Analytics</button>
       </div>
 
+      <!-- Two per row cards -->
       <div class="grid projects" id="proj-grid">
         <!-- Sentiment Analysis -->
         <article class="project-card project" data-tags="ai,data-analytics">
-          <div class="project-media">
-            <!-- TIP: rename files to avoid spaces; or keep as-is if it loads -->
-            <img src="images/Screenshot 2025-04-10 153022.png" alt="Sentiment Analysis Web App">
-          </div>
+          <img class="project-img" src="images/Screenshot 2025-04-10 153022.png" alt="Sentiment Analysis Web App">
           <div class="project-body">
             <h3 class="project-title">Sentiment Analysis Web App</h3>
-            <p class="project-desc">Classifies customer feedback (positive/neutral/negative) with a light Logistic Regression pipeline and a clean Flask UI.</p>
-            <div class="tech">
-              <span class="chip">Python</span>
-              <span class="chip">Flask</span>
-              <span class="chip">scikit-learn</span>
-              <span class="chip">NumPy</span>
-              <span class="chip">Pandas</span>
-              <span class="chip">Docker</span>
+            <p class="project-desc">Classifies customer feedback (positive / neutral / negative) with a light Logistic Regression pipeline and clean Flask UI.</p>
+            <div class="skills-row" title="Skills gained">
+              <div class="skill-dot">Py</div>
+              <div class="skill-dot">Fl</div>
+              <div class="skill-dot">sk</div>
+              <div class="skill-dot">Np</div>
+              <div class="skill-dot">Pd</div>
+              <div class="skill-dot">Dc</div>
             </div>
-            <div class="project-links">
-              <a href="https://github.com/puspitachy" target="_blank">Repo ↗</a>
-            </div>
+            <div class="project-links"><a href="https://github.com/puspitachy" target="_blank">Repo ↗</a></div>
           </div>
         </article>
 
         <!-- Image Recognition -->
         <article class="project-card project" data-tags="ai">
-          <div class="project-media">
-            <img src="/images/projects/image-recognition.jpg" alt="Image Recognition Mini-Suite">
-          </div>
+          <img class="project-img" src="/images/projects/image-recognition.jpg" alt="Image Recognition Mini-Suite">
           <div class="project-body">
             <h3 class="project-title">Image Recognition Mini-Suite</h3>
-            <p class="project-desc">Explorations in classification/segmentation with tidy notebooks, evaluation plots, and emphasis on baselines & explainability.</p>
-            <div class="tech">
-              <span class="chip">PyTorch</span>
-              <span class="chip">Torchvision</span>
-              <span class="chip">NumPy</span>
-              <span class="chip">Matplotlib</span>
+            <p class="project-desc">Explorations in classification/segmentation with tidy notebooks and evaluation plots; focus on baselines & explainability.</p>
+            <div class="skills-row">
+              <div class="skill-dot">PT</div>
+              <div class="skill-dot">Tv</div>
+              <div class="skill-dot">Np</div>
+              <div class="skill-dot">plt</div>
             </div>
-            <div class="project-links">
-              <a href="https://github.com/puspitachy" target="_blank">Notebooks ↗</a>
-            </div>
+            <div class="project-links"><a href="https://github.com/puspitachy" target="_blank">Notebooks ↗</a></div>
           </div>
         </article>
 
         <!-- STUFlow -->
         <article class="project-card project" data-tags="automation,data-analytics">
-          <div class="project-media">
-            <img src="/images/projects/stuflow.jpg" alt="STUFlow — Recruitment Automation">
-          </div>
+          <img class="project-img" src="/images/projects/stuflow.jpg" alt="STUFlow — Recruitment Automation">
           <div class="project-body">
             <h3 class="project-title">STUFlow — Recruitment Automation</h3>
-            <p class="project-desc">Automates candidate data syncing to ESR/TRAC and detects rejections to trigger next-step actions.</p>
-            <div class="tech">
-              <span class="chip">Python</span>
-              <span class="chip">RPA</span>
-              <span class="chip">APIs</span>
-              <span class="chip">Scheduling</span>
+            <p class="project-desc">Automates candidate data syncing to ESR/TRAC and detects rejections to trigger next-step actions and emails.</p>
+            <div class="skills-row">
+              <div class="skill-dot">Py</div>
+              <div class="skill-dot">RPA</div>
+              <div class="skill-dot">API</div>
+              <div class="skill-dot">CR</div>
             </div>
-            <div class="project-links">
-              <a href="#" aria-disabled="true" style="opacity:.65">Case note on request</a>
-            </div>
+            <div class="project-links"><a href="#" aria-disabled="true" style="opacity:.65">Case note (on request)</a></div>
           </div>
         </article>
 
         <!-- Milesto -->
         <article class="project-card project" data-tags="ai,automation">
-          <div class="project-media">
-            <img src="/images/projects/milesto.jpg" alt="Milesto / Appcountable">
-          </div>
+          <img class="project-img" src="/images/projects/milesto.jpg" alt="Milesto / Appcountable">
           <div class="project-body">
             <h3 class="project-title">Milesto / Appcountable</h3>
-            <p class="project-desc">Goal tracking with AI step breakdowns and proof uploads; rules for certificate/file verification and simple validations.</p>
-            <div class="tech">
-              <span class="chip">React</span>
-              <span class="chip">Firebase</span>
-              <span class="chip">Cloud Functions</span>
+            <p class="project-desc">Goal tracking with AI step breakdowns and “proof” uploads. Rules for certificate/file verification and validations.</p>
+            <div class="skills-row">
+              <div class="skill-dot">Re</div>
+              <div class="skill-dot">FB</div>
+              <div class="skill-dot">CF</div>
             </div>
-            <div class="project-links">
-              <a href="https://github.com/puspitachy" target="_blank">Code ↗</a>
-            </div>
+            <div class="project-links"><a href="https://github.com/puspitachy" target="_blank">Code ↗</a></div>
           </div>
         </article>
 
         <!-- Menstrual Health -->
         <article class="project-card project" data-tags="data-analytics">
-          <div class="project-media">
-            <img src="/images/projects/menstrual-health.jpg" alt="Menstrual Health & Productivity">
-          </div>
+          <img class="project-img" src="/images/projects/menstrual-health.jpg" alt="Menstrual Health & Productivity">
           <div class="project-body">
             <h3 class="project-title">Menstrual Health & Productivity</h3>
-            <p class="project-desc">Quantifies study/work loss and explores how cycle tracking mitigates impact; emphasizes privacy and consent.</p>
-            <div class="tech">
-              <span class="chip">Pandas</span>
-              <span class="chip">Plotly/Matplotlib</span>
-              <span class="chip">Survey Design</span>
+            <p class="project-desc">Quantifies study/work loss from symptoms and explores how cycle tracking mitigates impact; ethical focus on privacy.</p>
+            <div class="skills-row">
+              <div class="skill-dot">Pd</div>
+              <div class="skill-dot">Viz</div>
+              <div class="skill-dot">EDA</div>
             </div>
-            <div class="project-links">
-              <a href="#" aria-disabled="true" style="opacity:.65">Summary (soon)</a>
-            </div>
+            <div class="project-links"><a href="#" aria-disabled="true" style="opacity:.65">Summary (soon)</a></div>
           </div>
         </article>
 
         <!-- Comp Stats -->
         <article class="project-card project" data-tags="data-analytics">
-          <div class="project-media">
-            <img src="/images/projects/comp-stats.jpg" alt="Comp Statistics • Visual EDA">
-          </div>
+          <img class="project-img" src="/images/projects/comp-stats.jpg" alt="Comp Statistics • Visual EDA">
           <div class="project-body">
             <h3 class="project-title">Comp Statistics • Visual EDA</h3>
-            <p class="project-desc">Clean visual EDA that surfaces patterns faster than spreadsheets, aimed at quick stakeholder insight.</p>
-            <div class="tech">
-              <span class="chip">Python</span>
-              <span class="chip">Pandas</span>
-              <span class="chip">Seaborn/Matplotlib</span>
+            <p class="project-desc">Clean visual EDA that surfaces patterns faster than spreadsheets—built for quick stakeholder insight.</p>
+            <div class="skills-row">
+              <div class="skill-dot">Py</div>
+              <div class="skill-dot">Pd</div>
+              <div class="skill-dot">sb</div>
+              <div class="skill-dot">plt</div>
             </div>
-            <div class="project-links">
-              <a href="#" aria-disabled="true" style="opacity:.65">Gallery (soon)</a>
-            </div>
+            <div class="project-links"><a href="#" aria-disabled="true" style="opacity:.65">Gallery (soon)</a></div>
           </div>
         </article>
       </div>
@@ -353,8 +340,8 @@
               <ul class="media-bullets">
                 <li>Managed workforce data in ESR; lifted accuracy to <strong>98%</strong> and ensured compliance.</li>
                 <li>Optimised recruitment & payroll flows; cut processing time by <strong>30%</strong>.</li>
-                <li>Built HR dashboards (trends, turnover, compliance); enabled <strong>20%</strong> better decisions.</li>
-                <li>Automated repetitive tasks with <strong>RPA</strong>; reduced manual workload by <strong>50%</strong>.</li>
+                <li>Built HR dashboards (trends, turnover, compliance).</li>
+                <li>Automated repetitive tasks with <strong>RPA</strong> and scripts.</li>
               </ul>
               <p style="margin-top:10px"><a class="btn ghost sm" href="https://www.nhs.uk/" target="_blank" rel="noreferrer">Company site</a></p>
             </div>
@@ -369,7 +356,7 @@
               <div class="media-period">2020 – 2021</div>
               <ul class="media-bullets">
                 <li>Resolved client issues with data-driven solutions and clear communication.</li>
-                <li>Maintained an organized repository; ensured <strong>100%</strong> accuracy.</li>
+                <li>Maintained an organized repository with 100% accuracy.</li>
               </ul>
               <p style="margin-top:10px"><a class="btn ghost sm" href="#" target="_blank" rel="noreferrer">Company site</a></p>
             </div>
@@ -401,9 +388,7 @@
             <div>
               <h3 class="media-title">BSc, Computer Science — University of Greenwich (UK)</h3>
               <div class="media-period">2017 – 2020</div>
-              <ul class="media-bullets">
-                <li>Core CS: data structures, DBs, networking, web.</li>
-              </ul>
+              <ul class="media-bullets"><li>Core CS: data structures, DBs, networking, web.</li></ul>
               <p style="margin-top:10px"><a class="btn ghost sm" href="https://www.gre.ac.uk/" target="_blank" rel="noreferrer">University site</a></p>
             </div>
           </div>
@@ -433,7 +418,7 @@
     // footer year
     document.getElementById('yr').textContent = new Date().getFullYear();
 
-    // simple project filter
+    // simple project filter (works with the data-tags attr)
     const buttons = document.querySelectorAll('#proj-filters .filter-btn');
     const cards = document.querySelectorAll('#proj-grid .project');
     buttons.forEach(btn => {
