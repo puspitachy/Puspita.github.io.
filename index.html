@@ -44,7 +44,7 @@
     }
     nav{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
     .brand{font-family:Poppins, Inter, sans-serif; font-weight:700; letter-spacing:.2px; display:flex; gap:.4ch; align-items:center}
-    /* ✅ gradient on BOTH words */
+    /* gradient on BOTH words */
     .brand span{
       background:linear-gradient(90deg, var(--accent), var(--accent-2));
       -webkit-background-clip:text; background-clip:text; color:transparent;
@@ -77,14 +77,14 @@
 
     /* Right column in hero */
     .hero-right{display:flex; flex-direction:column; align-items:center; gap:24px}
-    /* ✅ bigger circular photo */
+    /* bigger circular photo */
     .hero-photo{
-      width:380px; height:380px; object-fit:cover; border-radius:50%;
-      box-shadow:0 16px 34px rgba(0,0,0,.38);
-      border:4px solid rgba(255,255,255,.15);
+      width:420px; height:420px; object-fit:cover; border-radius:50%;
+      box-shadow:0 18px 38px rgba(0,0,0,.4);
+      border:5px solid rgba(255,255,255,.15);
     }
     @media (max-width:900px){
-      .hero-photo{width:280px; height:280px}
+      .hero-photo{width:300px; height:300px}
     }
 
     /* Sections & grids */
@@ -101,15 +101,6 @@
     .card h3{margin:6px 0 8px; font-size:1.1rem}
     .chip{display:inline-block; font-size:.75rem; padding:4px 8px; border-radius:999px; border:1px solid rgba(255,255,255,.15); color:var(--muted); margin:6px 6px 0 0}
 
-    /* ✅ Intro panel (full-width attractive box under hero) */
-    .intro-panel{margin-top:8px}
-    .intro-grid{display:grid; grid-template-columns:1.1fr .9fr; gap:28px}
-    @media (max-width:900px){ .intro-grid{grid-template-columns:1fr} }
-    .intro-panel h2{margin:0 0 6px}
-    .intro-muted{color:var(--muted)}
-    .intro-panel .cta{justify-content:flex-start}
-    @media (max-width:900px){ .intro-panel .cta{justify-content:center} }
-
     footer{border-top:1px solid rgba(255,255,255,.06); padding:28px 0; color:var(--muted); text-align:center}
     .links a{margin-right:14px; opacity:.9}
   </style>
@@ -118,7 +109,7 @@
   <header>
     <div class="container">
       <nav>
-        <!-- ✅ gradient on BOTH words -->
+        <!-- gradient on BOTH words -->
         <div class="brand"><span>Puspita</span> <span>Chowdhury</span></div>
         <div class="nav-links">
           <a href="#projects">Projects</a>
@@ -151,34 +142,23 @@
       </div>
     </section>
 
-    <!-- ✅ FULL-WIDTH INTRO / QUICK FACTS BOX (under BOTH the photo and the hero text) -->
-    <section id="intro" class="panel intro-panel">
-      <div class="intro-grid">
-        <!-- Left side: short intro + CTAs (as an “introducing me” box) -->
-        <div>
-          <h2>Quick intro</h2>
-          <p class="intro-muted">MS in AI @ Yeshiva University • Data Analytics • Product-oriented ML • AI Ethics</p>
-          <div class="divider"></div>
-          <p>I design and ship pragmatic AI & data solutions—from low-code dashboards to clean, explainable ML demos. I care about clarity, fairness, and building tools that people actually use.</p>
-          <div class="cta" style="margin-top:18px">
-            <a class="btn primary" href="https://github.com/puspitachy" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
-            <a class="btn ghost" href="#projects"><i class="fa-solid fa-diagram-project"></i> Projects</a>
-            <a class="btn ghost" href="#contact"><i class="fa-regular fa-envelope"></i> Contact</a>
-          </div>
-        </div>
-
-        <!-- Right side: quick facts list -->
-        <div>
-          <h2>Quick facts</h2>
-          <div class="divider"></div>
-          <ul style="list-style:none; padding:0; margin:0; color:var(--muted)">
-            <li>🎓 MS in AI — Yeshiva University</li>
-            <li>🧭 Interests: Data Analytics, ML Ops-lite, Product UX for AI</li>
-            <li>🧪 Recent: Sentiment Analysis app, Image Recognition, STUFlow (recruitment automation)</li>
-            <li>📝 Writing: Medium & research aligned to NIW topics</li>
-          </ul>
-        </div>
-      </div>
+    <!-- ✅ SINGLE “ABOUT ME” SECTION (no buttons) -->
+    <section id="about" class="panel">
+      <h2>About me</h2>
+      <div class="divider"></div>
+      <p class="lead" style="margin:0 0 14px">
+        MS in AI @ Yeshiva University • Data Analytics • Product-oriented ML • AI Ethics
+      </p>
+      <p style="margin-top:0">
+        I design and ship pragmatic AI & data solutions—from low-code dashboards to clean, explainable ML demos.
+        I care about clarity, fairness, and building tools that people actually use.
+      </p>
+      <ul style="list-style:none; padding:0; margin:12px 0 0; color:var(--muted)">
+        <li>🎓 MS in AI — Yeshiva University</li>
+        <li>🧭 Interests: Data Analytics, ML Ops-lite, Product UX for AI</li>
+        <li>🧪 Recent: Sentiment Analysis app, Image Recognition, STUFlow (recruitment automation)</li>
+        <li>📝 Writing: Medium & research aligned to NIW topics</li>
+      </ul>
     </section>
 
     <!-- PROJECTS -->
@@ -276,9 +256,6 @@
       © <span id="yr"></span> Puspita Chowdhury — Built with ❤️ for clarity & impact.
     </div>
   </footer>
-
-  <script>
-    document.getElementById('yr').textContent = new Date().getFullYear();
-  </script>
+  <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
 </body>
 </html>
