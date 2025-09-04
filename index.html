@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
 
   <style>
-    :root {
+    :root{
       --bg:#0b0f17;
       --panel:#0f1524;
       --text:#e6eef8;
@@ -21,75 +21,94 @@
       --shadow:0 10px 30px rgba(0,0,0,.45);
       --radius:16px;
     }
-    * { box-sizing:border-box }
-    body {
+    *{box-sizing:border-box}
+    body{
       margin:0;
-      background:radial-gradient(1200px 600px at 80% -10%, #16203a 0%, transparent 60%),
-                 radial-gradient(900px 500px at -10% 10%, #101b2f 0%, transparent 55%),
-                 var(--bg);
+      background:
+        radial-gradient(1200px 600px at 80% -10%, #16203a 0%, transparent 60%),
+        radial-gradient(900px 500px at -10% 10%, #101b2f 0%, transparent 55%),
+        var(--bg);
       color:var(--text);
       font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       line-height:1.6;
     }
-    a { color:inherit; text-decoration:none }
-    .container { width:min(1100px, 92%); margin-inline:auto }
+    a{color:inherit; text-decoration:none}
+    .container{width:min(1100px,92%); margin-inline:auto}
 
-    header {
-      position:sticky; top:0; z-index:10; backdrop-filter:saturate(1.2) blur(10px);
+    /* Header */
+    header{
+      position:sticky; top:0; z-index:10;
+      backdrop-filter:saturate(1.2) blur(10px);
       background:linear-gradient(to bottom, color-mix(in oklab, var(--bg) 90%, transparent), transparent);
       border-bottom:1px solid rgba(255,255,255,.06);
     }
-    nav { display:flex; align-items:center; justify-content:space-between; padding:14px 0 }
-    .brand { font-family:Poppins, Inter, sans-serif; font-weight:700; }
-    .brand span {
+    nav{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
+    .brand{font-family:Poppins, Inter, sans-serif; font-weight:700; letter-spacing:.2px; display:flex; gap:.4ch; align-items:center}
+    /* ✅ gradient on BOTH words */
+    .brand span{
       background:linear-gradient(90deg, var(--accent), var(--accent-2));
       -webkit-background-clip:text; background-clip:text; color:transparent;
     }
-    .nav-links a { opacity:.85; margin-left:18px }
-    .nav-links a:hover { opacity:1 }
+    .nav-links a{opacity:.85; margin-left:18px}
+    .nav-links a:hover{opacity:1}
 
-    /* HERO */
-    .hero { display:grid; grid-template-columns:1.2fr .8fr; gap:36px; padding:72px 0 36px }
+    /* Hero */
+    .hero{display:grid; grid-template-columns:1.2fr .8fr; gap:36px; padding:72px 0 36px}
     @media (max-width:900px){ .hero{grid-template-columns:1fr; text-align:center} }
-    .tag { display:inline-block; padding:6px 12px; border:1px solid rgba(255,255,255,.12); border-radius:999px; font-size:.9rem; color:var(--muted) }
-    h1 { font-family:Poppins, Inter, sans-serif; font-weight:800; line-height:1.1; font-size:clamp(36px, 5.2vw, 58px); margin:14px 0 }
-    .lead { font-size:1.05rem; color:var(--muted); max-width:60ch }
-    .cta { display:flex; gap:14px; margin-top:26px; flex-wrap:wrap; justify-content:flex-start }
+    .tag{display:inline-block; padding:6px 12px; border:1px solid rgba(255,255,255,.12); border-radius:999px; font-size:.9rem; color:var(--muted)}
+    h1{font-family:Poppins, Inter, sans-serif; font-weight:800; line-height:1.1; font-size:clamp(36px,5.2vw,58px); margin:14px 0}
+    .lead{font-size:1.05rem; color:var(--muted); max-width:60ch}
+    .cta{display:flex; gap:14px; margin-top:26px; flex-wrap:wrap; justify-content:flex-start}
     @media (max-width:900px){ .cta{justify-content:center} }
-    .btn { padding:12px 18px; border-radius:12px; border:1px solid rgba(255,255,255,.12); background:transparent; color:var(--text); font-weight:600; box-shadow:var(--shadow); transition:.2s }
-    .btn:hover { transform:translateY(-2px) }
-    .btn.primary { background:linear-gradient(135deg, var(--accent), var(--accent-2)); border-color:transparent }
-    .btn.ghost { background:rgba(255,255,255,.02) }
+    .btn{padding:12px 18px; border-radius:12px; border:1px solid rgba(255,255,255,.12); background:transparent; color:var(--text); font-weight:600; box-shadow:var(--shadow); transition:.2s}
+    .btn:hover{transform:translateY(-2px)}
+    .btn.primary{background:linear-gradient(135deg, var(--accent), var(--accent-2)); border-color:transparent}
+    .btn.ghost{background:rgba(255,255,255,.02)}
 
-    .panel { background:linear-gradient(180deg, color-mix(in oklab, var(--panel) 92%, #000 8%), var(--panel));
-             border:1px solid rgba(255,255,255,.06); border-radius:var(--radius);
-             padding:22px; box-shadow:var(--shadow) }
+    /* Panels / cards */
+    .panel{
+      background:linear-gradient(180deg, color-mix(in oklab, var(--panel) 92%, #000 8%), var(--panel));
+      border:1px solid rgba(255,255,255,.06);
+      border-radius:var(--radius);
+      padding:22px;
+      box-shadow:var(--shadow);
+    }
+    .divider{height:1px; background:linear-gradient(90deg, transparent, rgba(255,255,255,.12), transparent); margin:20px 0}
 
-    .divider { height:1px; background:linear-gradient(90deg, transparent, rgba(255,255,255,.12), transparent); margin:20px 0 }
-
-    /* ✅ Right column styling */
-    .hero-right { display:flex; flex-direction:column; align-items:center; gap:24px }
-    .hero-photo {
-      width:340px; height:340px; object-fit:cover; border-radius:50%;
-      box-shadow:0 14px 32px rgba(0,0,0,.35);
+    /* Right column in hero */
+    .hero-right{display:flex; flex-direction:column; align-items:center; gap:24px}
+    /* ✅ bigger circular photo */
+    .hero-photo{
+      width:380px; height:380px; object-fit:cover; border-radius:50%;
+      box-shadow:0 16px 34px rgba(0,0,0,.38);
       border:4px solid rgba(255,255,255,.15);
     }
-    .quick-facts { width:100%; max-width:440px; text-align:left }
+    @media (max-width:900px){
+      .hero-photo{width:280px; height:280px}
+    }
 
-    /* GRIDS */
+    /* Sections & grids */
     section{padding:48px 0}
     section h2{font-family:Poppins, Inter, sans-serif; font-size:1.6rem; margin:0 0 16px}
     .grid{display:grid; gap:18px}
     .grid.projects{grid-template-columns:repeat(3, 1fr)}
-    @media (max-width:1000px){ .grid.projects{grid-template-columns:repeat(2, 1fr)}}
+    @media (max-width:1000px){ .grid.projects{grid-template-columns:repeat(2,1fr)}}
     @media (max-width:700px){ .grid.projects{grid-template-columns:1fr}}
-
     .card{position:relative; overflow:hidden; border-radius:var(--radius);
-          background:linear-gradient(160deg, rgba(255,255,255,.04), rgba(255,255,255,.01));
-          border:1px solid rgba(255,255,255,.08); padding:18px; transition:.25s}
+      background:linear-gradient(160deg, rgba(255,255,255,.04), rgba(255,255,255,.01));
+      border:1px solid rgba(255,255,255,.08); padding:18px; transition:.25s}
     .card:hover{transform:translateY(-4px)}
     .card h3{margin:6px 0 8px; font-size:1.1rem}
     .chip{display:inline-block; font-size:.75rem; padding:4px 8px; border-radius:999px; border:1px solid rgba(255,255,255,.15); color:var(--muted); margin:6px 6px 0 0}
+
+    /* ✅ Intro panel (full-width attractive box under hero) */
+    .intro-panel{margin-top:8px}
+    .intro-grid{display:grid; grid-template-columns:1.1fr .9fr; gap:28px}
+    @media (max-width:900px){ .intro-grid{grid-template-columns:1fr} }
+    .intro-panel h2{margin:0 0 6px}
+    .intro-muted{color:var(--muted)}
+    .intro-panel .cta{justify-content:flex-start}
+    @media (max-width:900px){ .intro-panel .cta{justify-content:center} }
 
     footer{border-top:1px solid rgba(255,255,255,.06); padding:28px 0; color:var(--muted); text-align:center}
     .links a{margin-right:14px; opacity:.9}
@@ -99,7 +118,8 @@
   <header>
     <div class="container">
       <nav>
-        <div class="brand">Puspita <span>Chowdhury</span></div>
+        <!-- ✅ gradient on BOTH words -->
+        <div class="brand"><span>Puspita</span> <span>Chowdhury</span></div>
         <div class="nav-links">
           <a href="#projects">Projects</a>
           <a href="#skills">Skills</a>
@@ -125,12 +145,31 @@
         </div>
       </div>
 
-      <!-- ✅ Right column: photo above quick facts -->
+      <!-- Right column -->
       <div class="hero-right">
         <img src="/Puspita.github.io./images/IMG_2850.jpg" alt="Puspita Chowdhury" class="hero-photo" />
+      </div>
+    </section>
 
-        <div class="panel quick-facts">
-          <h3 style="margin-top:4px">Quick facts</h3>
+    <!-- ✅ FULL-WIDTH INTRO / QUICK FACTS BOX (under BOTH the photo and the hero text) -->
+    <section id="intro" class="panel intro-panel">
+      <div class="intro-grid">
+        <!-- Left side: short intro + CTAs (as an “introducing me” box) -->
+        <div>
+          <h2>Quick intro</h2>
+          <p class="intro-muted">MS in AI @ Yeshiva University • Data Analytics • Product-oriented ML • AI Ethics</p>
+          <div class="divider"></div>
+          <p>I design and ship pragmatic AI & data solutions—from low-code dashboards to clean, explainable ML demos. I care about clarity, fairness, and building tools that people actually use.</p>
+          <div class="cta" style="margin-top:18px">
+            <a class="btn primary" href="https://github.com/puspitachy" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+            <a class="btn ghost" href="#projects"><i class="fa-solid fa-diagram-project"></i> Projects</a>
+            <a class="btn ghost" href="#contact"><i class="fa-regular fa-envelope"></i> Contact</a>
+          </div>
+        </div>
+
+        <!-- Right side: quick facts list -->
+        <div>
+          <h2>Quick facts</h2>
           <div class="divider"></div>
           <ul style="list-style:none; padding:0; margin:0; color:var(--muted)">
             <li>🎓 MS in AI — Yeshiva University</li>
@@ -152,39 +191,34 @@
           <p>Clean UI for classifying text sentiment using a lightweight Logistic Regression pipeline. Focus on explainability and demo-friendly UX.</p>
           <p><a href="https://github.com/puspitachy" target="_blank">Repo ↗</a></p>
         </article>
-
         <article class="card">
           <div class="chip">PyTorch</div><div class="chip">CV</div>
           <h3>Image Recognition Mini-Suite</h3>
           <p>Explorations in classification/segmentation with tidy notebooks and evaluation plots. Emphasis on baselines, clarity, and repeatability.</p>
           <p><a href="https://github.com/puspitachy" target="_blank">Notebooks ↗</a></p>
         </article>
-
         <article class="card">
           <div class="chip">Automation</div><div class="chip">RPA</div><div class="chip">ESR</div>
           <h3>STUFlow — Recruitment Automation</h3>
           <p>Automates candidate data syncing to ESR and detects rejections to trigger next steps. Designed for transparency and time savings.</p>
           <p><a href="#" aria-disabled="true" style="opacity:.65">Case note on request</a></p>
         </article>
-
         <article class="card">
           <div class="chip">React</div><div class="chip">Firebase</div>
           <h3>Milesto / Appcountable</h3>
-          <p>Goal-tracking app with AI step breakdowns and “proof” uploads. Includes rules for certificate/file verification and simple validations.</p>
+          <p>Goal-tracking app with AI step breakdowns and “proof” uploads. Rules for certificate/file verification and simple validations.</p>
           <p><a href="https://github.com/puspitachy" target="_blank">Code ↗</a></p>
         </article>
-
         <article class="card">
           <div class="chip">Research</div><div class="chip">Public Data</div>
           <h3>Menstrual Health & Productivity</h3>
           <p>Quantifies study/work loss and explores how cycle-tracking can mitigate impact; includes ethical notes on privacy and consent.</p>
           <p><a href="#" aria-disabled="true" style="opacity:.65">Summary (soon)</a></p>
         </article>
-
         <article class="card">
           <div class="chip">Dashboards</div><div class="chip">EDA</div>
           <h3>Comp Statistics • Visual EDA</h3>
-          <p>A set of clear visuals and notebooks that expose patterns faster than spreadsheets. Built for rapid stakeholder insight.</p>
+          <p>Clear visuals & notebooks that expose patterns faster than spreadsheets. Built for rapid stakeholder insight.</p>
           <p><a href="#" aria-disabled="true" style="opacity:.65">Gallery (soon)</a></p>
         </article>
       </div>
@@ -194,18 +228,10 @@
     <section id="skills">
       <h2>Skills</h2>
       <div class="panel">
-        <div class="chip">Python</div>
-        <div class="chip">Pandas</div>
-        <div class="chip">NumPy</div>
-        <div class="chip">scikit-learn</div>
-        <div class="chip">PyTorch (basics)</div>
-        <div class="chip">SQL</div>
-        <div class="chip">Power BI / Tableau</div>
-        <div class="chip">Matplotlib</div>
-        <div class="chip">Flask</div>
-        <div class="chip">React + Firebase</div>
-        <div class="chip">Git / GitHub</div>
-        <div class="chip">Excel wizardry ⚡</div>
+        <div class="chip">Python</div><div class="chip">Pandas</div><div class="chip">NumPy</div>
+        <div class="chip">scikit-learn</div><div class="chip">PyTorch (basics)</div><div class="chip">SQL</div>
+        <div class="chip">Power BI / Tableau</div><div class="chip">Matplotlib</div><div class="chip">Flask</div>
+        <div class="chip">React + Firebase</div><div class="chip">Git / GitHub</div><div class="chip">Excel wizardry ⚡</div>
       </div>
     </section>
 
@@ -216,7 +242,7 @@
         <div class="panel">
           <h3 style="margin:4px 0 8px">Experience</h3>
           <ul style="margin:0; padding-left:18px; color:var(--muted)">
-            <li><strong>Global Guide • One to World</strong> — Mentoring international students; community and program support; cross-cultural engagement.</li>
+            <li><strong>Global Guide • One to World</strong> — Mentoring international students; community & program support; cross-cultural engagement.</li>
             <li><strong>Recruitment Officer / HR Data & Systems Analyst • NHS</strong> — ESR & TRAC workflows, reporting, process automation, stakeholder support.</li>
             <li><strong>Software Engineering Intern</strong> — Practical full-stack tasks, small Flask apps, and data-driven features.</li>
           </ul>
@@ -235,9 +261,7 @@
     <section id="contact">
       <h2>Contact</h2>
       <div class="panel">
-        <p class="lead" style="margin:0 0 12px">
-          I’m open to research collaborations, internships, and speaking/mentoring.
-        </p>
+        <p class="lead" style="margin:0 0 12px">I’m open to research collaborations, internships, and speaking/mentoring.</p>
         <p class="links">
           <a href="mailto:YOUR_EMAIL@domain.com"><i class="fa-regular fa-envelope"></i> Email</a>
           <a href="https://www.linkedin.com/in/YOUR-LINK/" target="_blank" style="margin-left:14px"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
@@ -252,6 +276,7 @@
       © <span id="yr"></span> Puspita Chowdhury — Built with ❤️ for clarity & impact.
     </div>
   </footer>
+
   <script>
     document.getElementById('yr').textContent = new Date().getFullYear();
   </script>
