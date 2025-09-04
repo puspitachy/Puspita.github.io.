@@ -44,7 +44,6 @@
     }
     nav{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
     .brand{font-family:Poppins, Inter, sans-serif; font-weight:700; letter-spacing:.2px; display:flex; gap:.4ch; align-items:center}
-    /* gradient on BOTH words */
     .brand span{
       background:linear-gradient(90deg, var(--accent), var(--accent-2));
       -webkit-background-clip:text; background-clip:text; color:transparent;
@@ -77,7 +76,6 @@
 
     /* Right column in hero */
     .hero-right{display:flex; flex-direction:column; align-items:center; gap:24px}
-    /* bigger circular photo */
     .hero-photo{
       width:420px; height:420px; object-fit:cover; border-radius:50%;
       box-shadow:0 18px 38px rgba(0,0,0,.4);
@@ -86,65 +84,6 @@
     @media (max-width:900px){
       .hero-photo{width:300px; height:300px}
     }
-/* === Experience & Education Media Card Styles === */
-.media-list {
-  display: grid;
-  gap: 18px;
-}
-
-.media-card {
-  display: grid;
-  grid-template-columns: 120px 1fr;
-  gap: 20px;
-  align-items: start;
-}
-
-.media-logo {
-  width: 180px;   /* ⬅️ increase size here */
-  height: 180px;  /* ⬅️ keep same for circle */
-  border-radius: 50%;
-  overflow: hidden;
-  border: 3px solid rgba(255, 255, 255, .15);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, .4);
-  background: rgba(255, 255, 255, .04);
-  flex-shrink: 0;
-}
-
-.media-logo img {
-  width: 100%;
-  height: 100%;
-  display: block;
-  object-fit: cover; /* fills the circle */
-}
-
-
-.media-title {
-  margin: 0;
-  font-size: 1.15rem;
-  font-weight: 800;
-}
-
-.media-period {
-  margin: 6px 0 10px;
-  color: var(--muted);
-  font-weight: 600;
-}
-
-ul.media-bullets {
-  margin: 0;
-  padding-left: 18px;
-  color: var(--muted);
-}
-
-ul.media-bullets li {
-  margin: 6px 0;
-}
-
-.btn.sm {
-  padding: 8px 12px;
-  border-radius: 10px;
-  font-size: .9rem;
-}
 
     /* Sections & grids */
     section{padding:48px 0}
@@ -162,13 +101,51 @@ ul.media-bullets li {
 
     footer{border-top:1px solid rgba(255,255,255,.06); padding:28px 0; color:var(--muted); text-align:center}
     .links a{margin-right:14px; opacity:.9}
+
+    /* === Experience & Education Media Card Styles === */
+    .media-list{ display:grid; gap:22px; }
+    .media-card{
+      display:grid;
+      grid-template-columns:220px 1fr; /* match the circle size so it won't overlap */
+      gap:28px;
+      align-items:start;
+    }
+    .media-logo{
+      width:220px; height:220px;       /* bigger circle */
+      border-radius:50%;
+      overflow:hidden;                 /* crop to circle */
+      border:3px solid rgba(255,255,255,.15);
+      box-shadow:0 10px 24px rgba(0,0,0,.45);
+      background:rgba(255,255,255,.04);
+      flex-shrink:0;
+    }
+    .media-logo img{
+      width:100%; height:100%;
+      display:block;
+      object-fit:cover;                /* fill the circle */
+    }
+    .media-title{ margin:0; font-size:1.25rem; font-weight:800; }
+    .media-period{ margin:6px 0 12px; color:var(--muted); font-weight:600; }
+    ul.media-bullets{ margin:0; padding-left:18px; color:var(--muted); }
+    ul.media-bullets li{ margin:8px 0; }
+
+    .btn.sm{ padding:8px 12px; border-radius:10px; font-size:.9rem; }
+
+    /* Responsive: stack card on narrow screens */
+    @media (max-width:720px){
+      .media-card{
+        grid-template-columns:120px 1fr;
+        gap:16px;
+      }
+      .media-logo{ width:120px; height:120px; }
+      .media-title{ font-size:1.1rem; }
+    }
   </style>
 </head>
 <body>
   <header>
     <div class="container">
       <nav>
-        <!-- gradient on BOTH words -->
         <div class="brand"><span>Puspita</span> <span>Chowdhury</span></div>
         <div class="nav-links">
           <a href="#projects">Projects</a>
@@ -183,7 +160,6 @@ ul.media-bullets li {
   <main class="container">
     <!-- HERO -->
     <section class="hero">
-      <!-- Left column -->
       <div>
         <span class="tag">AI & Data • Yeshiva University</span>
         <h1>Building AI & Data solutions that are useful, ethical, and human-centered.</h1>
@@ -194,14 +170,12 @@ ul.media-bullets li {
           <a class="btn ghost" href="#contact"><i class="fa-regular fa-envelope"></i> Contact</a>
         </div>
       </div>
-
-      <!-- Right column -->
       <div class="hero-right">
         <img src="/Puspita.github.io./images/IMG_2850.jpg" alt="Puspita Chowdhury" class="hero-photo" />
       </div>
     </section>
 
-    <!-- ✅ SINGLE “ABOUT ME” SECTION (no buttons) -->
+    <!-- About -->
     <section id="about" class="panel">
       <h2>About me</h2>
       <div class="divider"></div>
@@ -220,7 +194,7 @@ ul.media-bullets li {
       </ul>
     </section>
 
-    <!-- PROJECTS -->
+    <!-- Projects -->
     <section id="projects">
       <h2>Selected Projects</h2>
       <div class="grid projects">
@@ -263,117 +237,98 @@ ul.media-bullets li {
       </div>
     </section>
 
-    <!-- SKILLS -->
-    <section id="skills">
-      <h2>Skills</h2>
+    <!-- Experience & Education -->
+    <section id="experience">
+      <h2><strong>Experience</strong></h2>
+
       <div class="panel">
-        <div class="chip">Python</div><div class="chip">Pandas</div><div class="chip">NumPy</div>
-        <div class="chip">scikit-learn</div><div class="chip">PyTorch (basics)</div><div class="chip">SQL</div>
-        <div class="chip">Power BI / Tableau</div><div class="chip">Matplotlib</div><div class="chip">Flask</div>
-        <div class="chip">React + Firebase</div><div class="chip">Git / GitHub</div><div class="chip">Excel wizardry ⚡</div>
+        <div class="media-list">
+          <!-- NHS -->
+          <div class="media-card">
+            <div class="media-logo">
+              <img src="images/north_london_partners_shared_services_logo.jpeg" alt="NHS logo">
+            </div>
+            <div>
+              <h3 class="media-title">HR Data &amp; Systems Analyst — NHS</h3>
+              <div class="media-period">UK • Jan 2022 – Mar 2024</div>
+              <ul class="media-bullets">
+                <li>Managed workforce data in ESR; lifted accuracy to <strong>98%</strong> and ensured compliance.</li>
+                <li>Optimised recruitment & payroll flows; cut processing time by <strong>30%</strong>.</li>
+                <li>Built HR dashboards (trends, turnover, compliance); enabled <strong>20%</strong> better decisions.</li>
+                <li>Automated repetitive tasks with <strong>RPA</strong>; reduced manual workload by <strong>50%</strong>.</li>
+                <li>Drove system enhancements & data migrations to reduce discrepancies.</li>
+              </ul>
+              <p style="margin-top:10px">
+                <a class="btn ghost sm" href="https://www.nhs.uk/" target="_blank" rel="noreferrer">View company website</a>
+              </p>
+            </div>
+          </div>
+
+          <!-- Data Support Coordinator -->
+          <div class="media-card">
+            <div class="media-logo">
+              <img src="images/CS_logo_2020-new-colour.png" alt="Company logo">
+            </div>
+            <div>
+              <h3 class="media-title">Data Support Coordinator</h3>
+              <div class="media-period">2020 – 2021</div>
+              <ul class="media-bullets">
+                <li>Resolved client issues with data-driven solutions and clear communication.</li>
+                <li>Maintained a well-organised repository; ensured <strong>100%</strong> accuracy.</li>
+              </ul>
+              <p style="margin-top:10px">
+                <a class="btn ghost sm" href="#" target="_blank" rel="noreferrer">View company website</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h2 style="margin-top:28px"><strong>Education</strong></h2>
+
+      <div class="panel">
+        <div class="media-list">
+          <!-- Yeshiva -->
+          <div class="media-card">
+            <div class="media-logo">
+              <img src="images/images.png" alt="Yeshiva University logo">
+            </div>
+            <div>
+              <h3 class="media-title">MS, Artificial Intelligence — Yeshiva University (New York)</h3>
+              <div class="media-period">2024 – Present</div>
+              <ul class="media-bullets">
+                <li>Focus: <strong>Data Analytics</strong>, <strong>Product-oriented ML</strong>, <strong>AI Ethics</strong>.</li>
+                <li>Projects: NLP sentiment app, image recognition, workflow automation.</li>
+                <li>Writing aligned to NIW; emphasis on fairness, privacy, and usability.</li>
+              </ul>
+              <p style="margin-top:10px">
+                <a class="btn ghost sm" href="https://www.yu.edu/" target="_blank" rel="noreferrer">View university website</a>
+              </p>
+            </div>
+          </div>
+
+          <!-- University of Greenwich -->
+          <div class="media-card">
+            <div class="media-logo">
+              <img src="images/greenwich.jpeg" alt="University of Greenwich logo">
+            </div>
+            <div>
+              <h3 class="media-title">BSc, Computer Science — University of Greenwich (UK)</h3>
+              <div class="media-period">2017 – 2020</div>
+              <ul class="media-bullets">
+                <li>Core CS: data structures, DBs, networking, web.</li>
+                <li>Practical work in <strong>Python</strong>, <strong>SQL</strong>, and front-end tooling.</li>
+              </ul>
+              <p style="margin-top:10px">
+                <a class="btn ghost sm" href="https://www.gre.ac.uk/" target="_blank" rel="noreferrer">View university website</a>
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-  <!-- EXPERIENCE / EDUCATION -->
-<section id="experience">
-  <h2><strong>Experience</strong></h2>
-
-  <div class="panel">
-    <div class="media-list">
-
-      <!-- NHS -->
-      <div class="media-card">
-        <div class="media-logo">
-          <img src="images/north_london_partners_shared_services_logo.jpeg" alt="NHS logo">
-        </div>
-        <div>
-          <h3 class="media-title">HR Data &amp; Systems Analyst — NHS</h3>
-          <div class="media-period">UK • Jan 2022 – Mar 2024</div>
-          <ul class="media-bullets">
-            <li>Managed workforce data in ESR; lifted accuracy to <strong>98%</strong> and ensured compliance.</li>
-            <li>Optimised recruitment & payroll flows; cut processing time by <strong>30%</strong>.</li>
-            <li>Built HR dashboards (trends, turnover, compliance); enabled <strong>20%</strong> better decisions.</li>
-            <li>Automated repetitive tasks with <strong>RPA</strong>; reduced manual workload by <strong>50%</strong>.</li>
-            <li>Drove system enhancements & data migrations to reduce discrepancies.</li>
-          </ul>
-          <p style="margin-top:10px">
-            <a class="btn ghost sm" href="https://www.nhs.uk/" target="_blank" rel="noreferrer">View company website</a>
-          </p>
-        </div>
-      </div>
-
-      <!-- Data Support Coordinator -->
-      <div class="media-card">
-        <div class="media-logo">
-          <img src="images/CS_logo_2020-new-colour.png" alt="Company logo">
-        </div>
-        <div>
-          <h3 class="media-title">Data Support Coordinator</h3>
-          <div class="media-period">2020 – 2021</div>
-          <ul class="media-bullets">
-            <li>Resolved client issues with data-driven solutions and clear communication.</li>
-            <li>Maintained a well-organised repository; ensured <strong>100%</strong> accuracy.</li>
-          </ul>
-          <p style="margin-top:10px">
-            <a class="btn ghost sm" href="#" target="_blank" rel="noreferrer">View company website</a>
-          </p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <h2 style="margin-top:28px"><strong>Education</strong></h2>
-
-  <div class="panel">
-    <div class="media-list">
-
-      <!-- Yeshiva University -->
-      <div class="media-card">
-        <div class="media-logo">
-          <img src="images/images.png" alt="Yeshiva University logo">
-        </div>
-        <div>
-          <h3 class="media-title">MS, Artificial Intelligence — Yeshiva University (New York)</h3>
-          <div class="media-period">2024 – Present</div>
-          <ul class="media-bullets">
-            <li>Focus: <strong>Data Analytics</strong>, <strong>Product-oriented ML</strong>, <strong>AI Ethics</strong>.</li>
-            <li>Projects: NLP sentiment app, image recognition, workflow automation.</li>
-            <li>Writing aligned to NIW; emphasis on fairness, privacy, and usability.</li>
-          </ul>
-          <p style="margin-top:10px">
-            <a class="btn ghost sm" href="https://www.yu.edu/" target="_blank" rel="noreferrer">View university website</a>
-          </p>
-        </div>
-      </div>
-
-      <!-- University of Greenwich -->
-      <div class="media-card">
-        <div class="media-logo">
-          <img src="images/greenwich.jpeg" alt="University of Greenwich logo">
-        </div>
-        <div>
-          <h3 class="media-title">BSc, Computer Science — University of Greenwich (UK)</h3>
-          <div class="media-period">2017 – 2020</div>
-          <ul class="media-bullets">
-            <li>Core CS: data structures, DBs, networking, web.</li>
-            <li>Practical work in <strong>Python</strong>, <strong>SQL</strong>, and front-end tooling.</li>
-          </ul>
-          <p style="margin-top:10px">
-            <a class="btn ghost sm" href="https://www.gre.ac.uk/" target="_blank" rel="noreferrer">View university website</a>
-          </p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-
-
-
-    <!-- CONTACT -->
+    <!-- Contact -->
     <section id="contact">
       <h2>Contact</h2>
       <div class="panel">
