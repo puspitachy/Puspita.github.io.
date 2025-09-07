@@ -176,7 +176,21 @@
     .pub-tags{ padding:0 18px 16px }
     .pub-actions{ margin-top:auto; padding:14px 18px; display:flex; justify-content:space-between; align-items:center; border-top:1px solid rgba(255,255,255,.08); background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01)) }
     .pub-actions .btn{ box-shadow:none }
-    .ribbon { font-size:0.8rem; padding:4px 48px; }
+     .ribbon {
+  position:absolute;
+  top:20px;          /* move it a bit higher */
+  right:-30px;       /* shift further right */
+  transform:rotate(35deg);
+  background:linear-gradient(135deg, var(--accent-2), var(--accent));
+  color:#001018;
+  font-weight:800;
+  padding:6px 60px;  /* slightly wider to stretch out of the card */
+  box-shadow:var(--shadow);
+  letter-spacing:.5px;
+  z-index: 2;        /* ensure it’s on top but doesn’t hide text */
+  pointer-events: none;
+}
+
 
 
     /* ===== Contact Form ===== */
