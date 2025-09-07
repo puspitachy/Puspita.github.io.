@@ -176,7 +176,20 @@
     .pub-tags{ padding:0 18px 16px }
     .pub-actions{ margin-top:auto; padding:14px 18px; display:flex; justify-content:space-between; align-items:center; border-top:1px solid rgba(255,255,255,.08); background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01)) }
     .pub-actions .btn{ box-shadow:none }
-    .ribbon{ position:absolute; top:14px; right:-32px; transform:rotate(35deg); background:linear-gradient(135deg, var(--accent-2), var(--accent)); color:#001018; font-weight:900; padding:6px 52px; box-shadow:var(--shadow); letter-spacing:.5px }
+.ribbon {
+  position:absolute;
+  top:10px;          /* move it a bit higher */
+  right:-40px;       /* shift further right */
+  transform:rotate(35deg);
+  background:linear-gradient(135deg, var(--accent-2), var(--accent));
+  color:#001018;
+  font-weight:900;
+  padding:6px 60px;  /* slightly wider to stretch out of the card */
+  box-shadow:var(--shadow);
+  letter-spacing:.5px;
+  z-index: 2;        /* ensure it’s on top but doesn’t hide text */
+  pointer-events: none;
+}
 
     /* ===== Contact Form ===== */
     form.contact { display:grid; gap:14px; }
