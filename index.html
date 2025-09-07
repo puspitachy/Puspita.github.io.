@@ -37,7 +37,7 @@
 
     /* Header */
     header{
-      position:sticky; top:0; z-index:10;
+      position:sticky; top:0; z-index:40;
       backdrop-filter:saturate(1.2) blur(10px);
       background:linear-gradient(to bottom, color-mix(in oklab, var(--bg) 90%, transparent), transparent);
       border-bottom:1px solid rgba(255,255,255,.06);
@@ -48,8 +48,41 @@
       background:linear-gradient(90deg, var(--accent), var(--accent-2));
       -webkit-background-clip:text; background-clip:text; color:transparent;
     }
-    .nav-links a{opacity:.85; margin-left:18px}
+
+    /* Desktop nav */
+    .nav-links{display:flex; align-items:center; gap:18px}
+    .nav-links a{opacity:.85}
     .nav-links a:hover{opacity:1}
+
+    /* Hamburger (hidden on desktop) */
+    .menu-btn{
+      display:none; border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.02); color:var(--text);
+      padding:8px 12px; border-radius:10px; font-weight:700;
+    }
+
+    /* Mobile nav */
+    @media (max-width:900px){
+      .menu-btn{display:inline-flex; align-items:center; gap:8px}
+      /* turn the link row into a dropdown panel */
+      .nav-links{
+        position:fixed; left:4%; right:4%; top:64px;
+        display:none; flex-direction:column; gap:12px;
+        padding:16px; border-radius:14px;
+        background:linear-gradient(180deg, color-mix(in oklab, var(--panel) 92%, #000 8%), var(--panel));
+        border:1px solid rgba(255,255,255,.08);
+        box-shadow:var(--shadow);
+        z-index:35;
+        animation:slideDown .22s ease-out;
+      }
+      .nav-links.open{display:flex}
+      .nav-links a{width:100%; padding:10px 8px; border-radius:10px; opacity:1}
+      .nav-links a:active{background:rgba(255,255,255,.05)}
+    }
+    @keyframes slideDown{
+      from{transform:translateY(-6px); opacity:.0}
+      to{transform:translateY(0); opacity:1}
+    }
 
     /* Hero */
     .hero{display:grid; grid-template-columns:1.2fr .8fr; gap:36px; padding:72px 0 36px}
@@ -191,15 +224,14 @@
       pointer-events:none;
     }
 
-    /* ===== Skills Bars (new) ===== */
+    /* ===== Skills Bars ===== */
     .skills-bars{ display:grid; grid-template-columns:1fr 1fr; gap:16px 28px }
     @media (max-width:860px){ .skills-bars{ grid-template-columns:1fr } }
     .skill-row{ display:flex; align-items:center; gap:14px }
     .skill-label{ width:160px; min-width:140px; font-weight:800; color:var(--text) }
     .skill-meter{ position:relative; flex:1; height:12px; border-radius:999px; background:rgba(255,255,255,.08); overflow:hidden; border:1px solid rgba(255,255,255,.12) }
-    .skill-meter .fill{ position:absolute; inset:0 0 0 0; width:0; height:100%; background:linear-gradient(90deg,#10b981,#22c55e); box-shadow:inset 0 0 12px rgba(0,0,0,.25) }
+    .skill-meter .fill{ position:absolute; inset:0 0 0 0; width:0; height:100%; background:linear-gradient(90deg,#10b981,#22c55e); box-shadow:inset 0 0 12px rgba(0,0,0,.25); transition:width .9s ease }
     .pct{ position:absolute; right:6px; top:-26px; padding:2px 8px; font-weight:800; border-radius:8px; background:#16a34a; color:white; font-size:.85rem; box-shadow:var(--shadow) }
-    .skill-meter .fill{ transition:width .9s ease }
   </style>
 </head>
 <body>
@@ -207,7 +239,14 @@
     <div class="container">
       <nav>
         <div class="brand"><span>Puspita</span> <span>Chowdhury</span></div>
-        <div class="nav-links">
+
+        <!-- Hamburger for phones -->
+        <button id="menu-btn" class="menu-btn" aria-label="Open navigation" aria-expanded="false" aria-controls="site-nav">
+          <i class="fa-solid fa-bars"></i> Menu
+        </button>
+
+        <!-- One set of links; becomes dropdown on phones -->
+        <div class="nav-links" id="site-nav">
           <a href="#projects">Projects</a>
           <a href="#skills">Skills</a>
           <a href="#experience">Experience</a>
@@ -242,21 +281,20 @@
       <div class="divider"></div>
       <p class="lead" style="margin:0 0 14px">MS in AI @ Yeshiva University • Data Analytics • Product-oriented ML • AI Ethics</p>
       <p style="margin-top:0">I design and ship pragmatic AI & data solutions—from low-code dashboards to clean, explainable ML demos. I care about clarity, fairness, and building tools that people actually use.</p>
-   <div class="cta" style="margin-top:14px">
-  <a class="btn primary" href="assets/Puspita_Chowdhury_Resume.pdf" download>
-    <i class="fa-solid fa-file-arrow-down"></i> Download Resume 
-  </a>
-  <a class="btn ghost" href="assets/Puspita_Chowdhury_Resume.pdf" target="_blank" rel="noreferrer">
-    <i class="fa-regular fa-file-lines"></i> View Resume
-  </a>
-</div>
+      <div class="cta" style="margin-top:14px">
+        <a class="btn primary" href="assets/Puspita_Chowdhury_Resume.pdf" download>
+          <i class="fa-solid fa-file-arrow-down"></i> Download Resume
+        </a>
+        <a class="btn ghost" href="assets/Puspita_Chowdhury_Resume.pdf" target="_blank" rel="noreferrer">
+          <i class="fa-regular fa-file-lines"></i> View Resume
+        </a>
+      </div>
     </section>
 
     <!-- PROJECTS -->
     <section id="projects">
       <h2>Selected Projects</h2>
 
-      <!-- Filters -->
       <div class="filters" id="proj-filters">
         <button class="filter-btn active" data-filter="all">All</button>
         <button class="filter-btn" data-filter="ai">AI</button>
@@ -264,7 +302,6 @@
         <button class="filter-btn" data-filter="data-analytics">Data Analytics</button>
       </div>
 
-      <!-- Two per row cards -->
       <div class="grid projects" id="proj-grid">
         <!-- Sentiment Analysis -->
         <article class="project-card project" data-tags="ai,data-analytics">
@@ -273,12 +310,8 @@
             <h3 class="project-title">Sentiment Analysis Web App</h3>
             <p class="project-desc">Classifies customer feedback (positive / neutral / negative) with a light Logistic Regression pipeline and clean Flask UI.</p>
             <div class="skills-row" title="Skills gained">
-              <div class="skill-dot">Py</div>
-              <div class="skill-dot">Fl</div>
-              <div class="skill-dot">sk</div>
-              <div class="skill-dot">Np</div>
-              <div class="skill-dot">Pd</div>
-              <div class="skill-dot">Dc</div>
+              <div class="skill-dot">Py</div><div class="skill-dot">Fl</div><div class="skill-dot">sk</div>
+              <div class="skill-dot">Np</div><div class="skill-dot">Pd</div><div class="skill-dot">Dc</div>
             </div>
             <div class="project-links"><a href="https://github.com/puspitachy" target="_blank">Repo ↗</a></div>
           </div>
@@ -291,10 +324,7 @@
             <h3 class="project-title">Image Recognition Mini-Suite</h3>
             <p class="project-desc">Explorations in classification/segmentation with tidy notebooks and evaluation plots; focus on baselines & explainability.</p>
             <div class="skills-row">
-              <div class="skill-dot">PT</div>
-              <div class="skill-dot">Tv</div>
-              <div class="skill-dot">Np</div>
-              <div class="skill-dot">plt</div>
+              <div class="skill-dot">PT</div><div class="skill-dot">Tv</div><div class="skill-dot">Np</div><div class="skill-dot">plt</div>
             </div>
             <div class="project-links"><a href="https://github.com/puspitachy" target="_blank">Notebooks ↗</a></div>
           </div>
@@ -307,10 +337,7 @@
             <h3 class="project-title">Applied GenAI Solutions</h3>
             <p class="project-desc">Generative AI experiments — practical tools and creative apps built with OpenAI models to reimagine real-world problem solving.</p>
             <div class="skills-row">
-              <div class="skill-dot">AI</div>
-              <div class="skill-dot">Automation</div>
-              <div class="skill-dot">API</div>
-              <div class="skill-dot">python</div>
+              <div class="skill-dot">AI</div><div class="skill-dot">Automation</div><div class="skill-dot">API</div><div class="skill-dot">python</div>
             </div>
             <div class="project-links"><a href="#" aria-disabled="true" style="opacity:.65">Case note (on request)</a></div>
           </div>
@@ -323,9 +350,7 @@
             <h3 class="project-title">Scuva Diving app design</h3>
             <p class="project-desc">Scuva diving app design which offers divers to take photoes, count their diving time, see their diving history and also view their photoes</p>
             <div class="skills-row">
-              <div class="skill-dot">Re</div>
-              <div class="skill-dot">FB</div>
-              <div class="skill-dot">CF</div>
+              <div class="skill-dot">Re</div><div class="skill-dot">FB</div><div class="skill-dot">CF</div>
             </div>
             <div class="project-links"><a href="https://github.com/puspitachy" target="_blank">Code ↗</a></div>
           </div>
@@ -338,9 +363,7 @@
             <h3 class="project-title">Sales Dashboard</h3>
             <p class="project-desc">Built an interactive Coffee Sales Dashboard to track top customers, product performance, and revenue trends for data-driven decision-making..</p>
             <div class="skills-row">
-              <div class="skill-dot">Excel</div>
-              <div class="skill-dot">Data</div>
-              <div class="skill-dot">query</div>
+              <div class="skill-dot">Excel</div><div class="skill-dot">Data</div><div class="skill-dot">query</div>
             </div>
             <div class="project-links"><a href="#" aria-disabled="true" style="opacity:.65">Summary (soon)</a></div>
           </div>
@@ -353,10 +376,7 @@
             <h3 class="project-title">Excel Dashboard </h3>
             <p class="project-desc">Developed a Bike Sales Dashboard providing insights into sales by region, marital status, and customer education levels to uncover key buying patterns.</p>
             <div class="skills-row">
-              <div class="skill-dot">Excel</div>
-              <div class="skill-dot">Pivot table</div>
-              <div class="skill-dot">data-analysis</div>
-              <div class="skill-dot">Charts</div>
+              <div class="skill-dot">Excel</div><div class="skill-dot">Pivot table</div><div class="skill-dot">data-analysis</div><div class="skill-dot">Charts</div>
             </div>
             <div class="project-links"><a href="#" aria-disabled="true" style="opacity:.65">Gallery (soon)</a></div>
           </div>
@@ -369,48 +389,37 @@
       <h2>Skills</h2>
       <div class="panel">
         <div class="skills-bars">
-          <div class="skill-row">
-            <span class="skill-label">Python</span>
+          <div class="skill-row"><span class="skill-label">Python</span>
             <div class="skill-meter"><div class="fill" style="width:95%"></div><span class="pct">95%</span></div>
           </div>
-          <div class="skill-row">
-            <span class="skill-label">Pandas</span>
+          <div class="skill-row"><span class="skill-label">Pandas</span>
             <div class="skill-meter"><div class="fill" style="width:92%"></div><span class="pct">92%</span></div>
           </div>
-          <div class="skill-row">
-            <span class="skill-label">NumPy</span>
+          <div class="skill-row"><span class="skill-label">NumPy</span>
             <div class="skill-meter"><div class="fill" style="width:90%"></div><span class="pct">90%</span></div>
           </div>
-          <div class="skill-row">
-            <span class="skill-label">scikit-learn</span>
+          <div class="skill-row"><span class="skill-label">scikit-learn</span>
             <div class="skill-meter"><div class="fill" style="width:90%"></div><span class="pct">90%</span></div>
           </div>
-          <div class="skill-row">
-            <span class="skill-label">SQL</span>
+          <div class="skill-row"><span class="skill-label">SQL</span>
             <div class="skill-meter"><div class="fill" style="width:88%"></div><span class="pct">88%</span></div>
           </div>
-          <div class="skill-row">
-            <span class="skill-label">Power BI / Tableau</span>
+          <div class="skill-row"><span class="skill-label">Power BI / Tableau</span>
             <div class="skill-meter"><div class="fill" style="width:90%"></div><span class="pct">90%</span></div>
           </div>
-          <div class="skill-row">
-            <span class="skill-label">Matplotlib</span>
+          <div class="skill-row"><span class="skill-label">Matplotlib</span>
             <div class="skill-meter"><div class="fill" style="width:88%"></div><span class="pct">88%</span></div>
           </div>
-          <div class="skill-row">
-            <span class="skill-label">Flask</span>
+          <div class="skill-row"><span class="skill-label">Flask</span>
             <div class="skill-meter"><div class="fill" style="width:86%"></div><span class="pct">86%</span></div>
           </div>
-          <div class="skill-row">
-            <span class="skill-label">React + Firebase</span>
+          <div class="skill-row"><span class="skill-label">React + Firebase</span>
             <div class="skill-meter"><div class="fill" style="width:85%"></div><span class="pct">85%</span></div>
           </div>
-          <div class="skill-row">
-            <span class="skill-label">Git / GitHub</span>
+          <div class="skill-row"><span class="skill-label">Git / GitHub</span>
             <div class="skill-meter"><div class="fill" style="width:92%"></div><span class="pct">92%</span></div>
           </div>
-          <div class="skill-row">
-            <span class="skill-label">Excel</span>
+          <div class="skill-row"><span class="skill-label">Excel</span>
             <div class="skill-meter"><div class="fill" style="width:97%"></div><span class="pct">97%</span></div>
           </div>
         </div>
@@ -427,7 +436,7 @@
               <img src="images/north_london_partners_shared_services_logo.jpeg" alt="NHS logo">
             </div>
             <div>
-              <h2 class="media-title">North London Parther Shared Recruitment Service (NHS), London, Uk</h2>
+              <h2 class="media-title">North London Partner Shared Recruitment Service (NHS), London, UK</h2>
               <h3 class="media-title">HR Data &amp; Systems Analyst — NHS</h3>
               <div class="media-period">UK • Jan 2022 – Mar 2024</div>
               <ul class="media-bullets">
@@ -482,7 +491,7 @@
             </div>
             <div>
               <h2 class="media-title">University of Greenwich, London, UK</h2>
-              <h3 class="media-title">BSc Computer Science </h3>
+              <h3 class="media-title">BSc Computer Science</h3>
               <div class="media-period">2017 – 2020</div>
               <ul class="media-bullets"><li>Core CS: data structures, DBs, networking, web.</li></ul>
               <p style="margin-top:10px"><a class="btn ghost sm" href="https://www.gre.ac.uk/" target="_blank" rel="noreferrer">University site</a></p>
@@ -498,7 +507,6 @@
       <div class="panel">
         <p class="lead" style="margin:0 0 18px">Articles that showcase my ability to demystify complex ideas and ship practical, human-centered AI/data solutions.</p>
         <div class="pubs-grid">
-          <!-- 1. Robot Arms -->
           <article class="pub-card">
             <div class="ribbon">Featured</div>
             <div class="pub-top">
@@ -517,7 +525,6 @@
             </div>
           </article>
 
-          <!-- 2. Health Data & Productivity -->
           <article class="pub-card">
             <div class="pub-top">
               <div class="pub-logo">M</div>
@@ -535,7 +542,6 @@
             </div>
           </article>
 
-          <!-- 3. Sentiment Analysis -->
           <article class="pub-card">
             <div class="pub-top">
               <div class="pub-logo">M</div>
@@ -571,9 +577,6 @@
           <a href="https://github.com/puspitachy" target="_blank" style="margin-left:14px"><i class="fa-brands fa-github"></i> GitHub</a>
         </p>
 
-        <!-- WORKING EMAIL FORM (Formspree) -->
-        <!-- 1) Create a free Formspree form and replace the ACTION URL below (https://formspree.io/f/xxxxxxxx). -->
-        <!-- 2) Set your email inside Formspree settings to receive messages. -->
         <form id="contact-form" class="contact" action="https://formspree.io/f/xxxxxxxx" method="POST">
           <div class="row">
             <div>
@@ -590,9 +593,7 @@
             <textarea id="message" name="message" placeholder="Write your message…" required></textarea>
           </div>
 
-          <!-- Anti-spam honeypot (hidden field) -->
           <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
-          <!-- Optional subject line for your inbox -->
           <input type="hidden" name="_subject" value="New message from puspita.github.io contact form">
 
           <button class="btn primary" type="submit"><i class="fa-regular fa-paper-plane"></i> Send</button>
@@ -611,7 +612,24 @@
     // footer year
     document.getElementById('yr').textContent = new Date().getFullYear();
 
-    // simple project filter (works with the data-tags attr)
+    // ===== Mobile nav toggle =====
+    const menuBtn = document.getElementById('menu-btn');
+    const siteNav = document.getElementById('site-nav');
+
+    menuBtn.addEventListener('click', () => {
+      const open = siteNav.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+
+    // close menu when a link is clicked (mobile)
+    siteNav.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        siteNav.classList.remove('open');
+        menuBtn.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // ===== Project filter =====
     const buttons = document.querySelectorAll('#proj-filters .filter-btn');
     const cards = document.querySelectorAll('#proj-grid .project');
     buttons.forEach(btn => {
@@ -646,7 +664,7 @@
 
         if (res.ok) {
           form.reset();
-          toast.textContent = 'Thanks! Your message has been sent.';
+          toast.textContent = 'This form securely sends to your email via Formspree. No account info is stored on this site.';
           toast.classList.add('show', 'ok');
         } else {
           const out = await res.json().catch(() => ({}));
