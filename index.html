@@ -159,6 +159,24 @@
       .media-logo{ width:120px; height:120px; }
       .media-title{ font-size:1.1rem; }
     }
+
+    /* ===== Contact Form ===== */
+    form.contact { display:grid; gap:14px; }
+    .row { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+    @media (max-width:720px){ .row{ grid-template-columns:1fr; } }
+    label { font-weight:600; color:var(--text); font-size:.95rem; }
+    input[type="text"], input[type="email"], textarea {
+      width:100%; padding:12px 14px; border-radius:12px; border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.03); color:var(--text); outline:none; transition:.2s; font-size:1rem;
+    }
+    input:focus, textarea:focus { border-color: color-mix(in oklab, var(--accent) 70%, white 30%); box-shadow:0 0 0 4px rgba(124,92,255,.15); }
+    textarea{ min-height:150px; resize:vertical }
+    .help { color:var(--muted); font-size:.9rem }
+
+    .toast { display:none; margin-top:12px; padding:12px 14px; border-radius:12px; font-weight:600; }
+    .toast.show { display:block }
+    .toast.ok { background:rgba(0,200,120,.15); border:1px solid rgba(0,200,120,.35); color:#aef7d4 }
+    .toast.err{ background:rgba(230,70,70,.15); border:1px solid rgba(230,70,70,.35); color:#ffbdbd }
   </style>
 </head>
 <body>
@@ -250,9 +268,9 @@
           </div>
         </article>
 
-        <!-- STUFlow -->
+        <!-- Applied GenAI Solutions -->
         <article class="project-card project" data-tags="automation,data-analytics">
-          <img class="project-img" src="images/1*nrDGmwods4fbpJf-rRSPAg.jpg" alt="STUFlow — Recruitment Automation">
+          <img class="project-img" src="images/1*nrDGmwods4fbpJf-rRSPAg.jpg" alt="Applied GenAI Solutions">
           <div class="project-body">
             <h3 class="project-title">Applied GenAI Solutions</h3>
             <p class="project-desc">Generative AI experiments — practical tools and creative apps built with OpenAI models to reimagine real-world problem solving.</p>
@@ -266,9 +284,9 @@
           </div>
         </article>
 
-        <!-- Milesto -->
+        <!-- Scuba Diving App Design -->
         <article class="project-card project" data-tags="ai,automation">
-          <img class="project-img" src="images/dive_app_screenshot.png" alt="Milesto / Appcountable">
+          <img class="project-img" src="images/dive_app_screenshot.png" alt="Scuba Diving app design">
           <div class="project-body">
             <h3 class="project-title">Scuva Diving app design</h3>
             <p class="project-desc">Scuva diving app design which offers divers to take photoes, count their diving time, see their diving history and also view their photoes</p>
@@ -281,9 +299,9 @@
           </div>
         </article>
 
-        <!-- Menstrual Health -->
+        <!-- Sales Dashboard -->
         <article class="project-card project" data-tags="data-analytics">
-          <img class="project-img" src="images/top_5_customers.png" alt="Menstrual Health & Productivity">
+          <img class="project-img" src="images/top_5_customers.png" alt="Sales Dashboard">
           <div class="project-body">
             <h3 class="project-title">Sales Dashboard</h3>
             <p class="project-desc">Built an interactive Coffee Sales Dashboard to track top customers, product performance, and revenue trends for data-driven decision-making..</p>
@@ -296,9 +314,9 @@
           </div>
         </article>
 
-        <!-- Comp Stats -->
+        <!-- Bike Sales Dashboard -->
         <article class="project-card project" data-tags="data-analytics">
-          <img class="project-img" src="images/downloaded_chart.png" alt="Comp Statistics • Visual EDA">
+          <img class="project-img" src="images/downloaded_chart.png" alt="Excel Dashboard">
           <div class="project-body">
             <h3 class="project-title">Excel Dashboard </h3>
             <p class="project-desc">Developed a Bike Sales Dashboard providing insights into sales by region, marital status, and customer education levels to uncover key buying patterns.</p>
@@ -320,7 +338,8 @@
       <div class="panel">
         <div class="chip">Python</div><div class="chip">Pandas</div><div class="chip">NumPy</div>
         <div class="chip">scikit-learn</div><div class="chip">PyTorch (basics)</div><div class="chip">SQL</div>
-        <div class="chip">Power BI / Tableau</div><div class="chip">Matplotlib</div><div class="chip">Flask</div>
+        <div class="chip">Power BI / Tableau</div><div class="chip">Matplotlib</div>
+        <div class="chip">Flask</div>
         <div class="chip">React + Firebase</div><div class="chip">Git / GitHub</div><div class="chip">Excel wizardry ⚡</div>
       </div>
     </section>
@@ -401,11 +420,40 @@
       <h2>Contact</h2>
       <div class="panel">
         <p class="lead" style="margin:0 0 12px">I’m open to research collaborations, internships, and speaking/mentoring.</p>
-        <p class="links">
+        <p class="links" style="margin-bottom:18px">
           <a href="mailto:YOUR_EMAIL@domain.com"><i class="fa-regular fa-envelope"></i> Email</a>
           <a href="https://www.linkedin.com/in/YOUR-LINK/" target="_blank" style="margin-left:14px"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
           <a href="https://github.com/puspitachy" target="_blank" style="margin-left:14px"><i class="fa-brands fa-github"></i> GitHub</a>
         </p>
+
+        <!-- WORKING EMAIL FORM (Formspree) -->
+        <!-- 1) Create a free Formspree form and replace the ACTION URL below (https://formspree.io/f/xxxxxxxx). -->
+        <!-- 2) Set your email inside Formspree settings to receive messages. -->
+        <form id="contact-form" class="contact" action="https://formspree.io/f/xxxxxxxx" method="POST">
+          <div class="row">
+            <div>
+              <label for="name">Name</label>
+              <input id="name" name="name" type="text" placeholder="Your full name" required>
+            </div>
+            <div>
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="you@example.com" required>
+            </div>
+          </div>
+          <div>
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Write your message…" required></textarea>
+          </div>
+
+          <!-- Anti-spam honeypot (hidden field) -->
+          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+          <!-- Optional subject line for your inbox -->
+          <input type="hidden" name="_subject" value="New message from puspita.github.io contact form">
+
+          <button class="btn primary" type="submit"><i class="fa-regular fa-paper-plane"></i> Send</button>
+          <div id="form-toast" class="toast" role="status" aria-live="polite"></div>
+          <p class="help">This form securely sends to your email via Formspree. No account info is stored on this site.</p>
+        </form>
       </div>
     </section>
   </main>
@@ -432,6 +480,38 @@
           card.classList.toggle('hidden', !show);
         });
       });
+    });
+
+    // ===== Contact form AJAX submit (Formspree) =====
+    const form = document.getElementById('contact-form');
+    const toast = document.getElementById('form-toast');
+
+    form?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      toast.className = 'toast';
+      toast.textContent = '';
+
+      const data = new FormData(form);
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (res.ok) {
+          form.reset();
+          toast.textContent = 'Thanks! Your message has been sent.';
+          toast.classList.add('show', 'ok');
+        } else {
+          const out = await res.json().catch(() => ({}));
+          toast.textContent = out?.errors?.[0]?.message || 'Sorry, something went wrong. Please email me directly.';
+          toast.classList.add('show', 'err');
+        }
+      } catch (err) {
+        toast.textContent = 'Network error. Please try again or email me directly.';
+        toast.classList.add('show', 'err');
+      }
     });
   </script>
 </body>
