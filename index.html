@@ -34,6 +34,32 @@
     }
     a{color:inherit; text-decoration:none}
     .container{width:min(1100px,92%); margin-inline:auto}
+.about-wrap{display:grid;grid-template-columns:1.3fr .7fr;gap:22px}
+@media (max-width:900px){.about-wrap{grid-template-columns:1fr}}
+.about-cta{display:flex;gap:12px;margin-top:16px;flex-wrap:wrap}
+
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:6px}
+@media (max-width:640px){.kpis{grid-template-columns:1fr 1fr}}
+.kpi{
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:12px;
+  padding:14px 12px;
+  text-align:center;
+  box-shadow:var(--shadow);
+}
+.kpi strong{display:block;font-size:1.35rem;line-height:1.1}
+.kpi span{display:block;color:var(--muted);font-weight:600;margin-top:4px}
+
+.about-note{
+  margin-top:14px;
+  padding:12px 14px;
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:12px;
+  background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
+  color:var(--muted);
+  font-weight:600;
+}
 
     /* Header */
     header{
@@ -276,11 +302,40 @@
     </section>
 
     <!-- About -->
-    <section id="about" class="panel">
-      <h2>About me</h2>
-      <div class="divider"></div>
-      <p class="lead" style="margin:0 0 14px">MS in AI @ Yeshiva University • Data Analytics • Product-oriented ML • AI Ethics</p>
-      <p style="margin-top:0">I design and ship pragmatic AI & data solutions—from low-code dashboards to clean, explainable ML demos. I care about clarity, fairness, and building tools that people actually use.</p>
+    <!-- About -->
+<section id="about" class="panel">
+  <h2>About Me</h2>
+  <div class="divider"></div>
+
+  <div class="about-wrap">
+    <!-- Left: narrative -->
+    <div>
+      <p class="lead" style="margin:0 0 14px">
+        I’m <strong>Puspita Chowdhury</strong>, an AI & data practitioner who ships pragmatic analytics and
+        lightweight ML products. I turn messy datasets into <strong>reliable, explainable</strong> decisions and
+        tools that teams actually use.
+      </p>
+      <p style="margin-top:0">
+        At the <strong>National Health Service (NHS), London</strong> I led data-quality and automation initiatives
+        across recruitment and payroll—lifting ESR workforce-data accuracy to <strong>98%</strong> and cutting processing
+        time by <strong>30%</strong>. I build clear dashboards, automate repetitive reporting, and prototype compact ML
+        services that fit real constraints.
+      </p>
+
+      <ul class="media-bullets">
+        <li><strong>Impact:</strong> 98% data accuracy in ESR; automated weekly reporting to save hours per cycle.</li>
+        <li><strong>Tooling:</strong> Python, Pandas, SQL, scikit-learn, Flask, Power BI/Tableau, Git.</li>
+        <li><strong>Writing:</strong> Featured articles on Medium (robotics, NLP, applied analytics).</li>
+      </ul>
+
+      <div style="margin-top:10px">
+        <span class="chip">Data Analytics</span>
+        <span class="chip">Product ML</span>
+        <span class="chip">Human-Centered AI</span>
+        <span class="chip">Automation</span>
+        <span class="chip">Python • SQL</span>
+      </div>
+
       <div class="cta" style="margin-top:14px">
         <a class="btn primary" href="assets/Puspita_Chowdhury_Resume.pdf" download>
           <i class="fa-solid fa-file-arrow-down"></i> Download Resume
@@ -289,7 +344,33 @@
           <i class="fa-regular fa-file-lines"></i> View Resume
         </a>
       </div>
-    </section>
+    </div>
+
+    <!-- Right: quick stats -->
+    <div>
+      <div class="kpis">
+        <div class="kpi">
+          <strong>98%</strong>
+          <span>Workforce data accuracy (NHS ESR)</span>
+        </div>
+        <div class="kpi">
+          <strong>30%</strong>
+          <span>Cycle-time reduction via automation</span>
+        </div>
+        <div class="kpi">
+          <strong>3+</strong>
+          <span>Articles featured on Medium</span>
+        </div>
+      </div>
+
+      <div class="about-note">
+        Focus areas: <strong>analytics for decision-making</strong>, <strong>product-oriented ML</strong>,
+        and <strong>AI with measurable impact</strong>. Open to research collaborations and internships.
+      </div>
+    </div>
+  </div>
+</section>
+
 
     <!-- PROJECTS -->
     <section id="projects">
