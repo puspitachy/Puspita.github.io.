@@ -153,6 +153,62 @@
     .btn.bighire{font-size:1.05rem; padding:14px 22px; border-radius:14px}
     @media (max-width:900px){ .cta{justify-content:center} .btn.bighire{width:100%} }
 
+
+    /* Published Work */
+.pubs-intro { margin: 0 0 18px; max-width: 70ch; }
+
+.pubs-grid{
+  display:grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap:18px;
+}
+@media (max-width: 900px){
+  .pubs-grid{ grid-template-columns: 1fr; }
+}
+
+.pub-card{
+  position:relative;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:12px;
+  background:linear-gradient(160deg, rgba(255,255,255,.04), rgba(255,255,255,.01));
+  padding:18px;
+  transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  box-shadow: 0 10px 24px rgba(0,0,0,.25);
+}
+.pub-card:hover{
+  transform: translateY(-4px);
+  border-color: rgba(255,255,255,.16);
+  box-shadow: 0 14px 30px rgba(0,0,0,.35);
+}
+
+.ribbon{
+  position:absolute; top:12px; right:-8px;
+  background:linear-gradient(135deg, var(--accent), var(--accent-2));
+  color:#0b0f17; font-weight:800; font-size:.75rem;
+  padding:6px 10px; border-top-left-radius:8px; border-bottom-left-radius:8px;
+}
+
+.pub-top{ display:flex; gap:14px; align-items:flex-start; }
+.pub-logo{
+  width:44px; height:44px; border-radius:10px; flex:0 0 44px;
+  display:grid; place-items:center; font-weight:900;
+  background:#121826; border:1px solid rgba(255,255,255,.12);
+  color:#e6eef8;
+}
+.pub-headings{ flex:1; }
+.pub-title{ margin:0 0 6px; font-size:1.1rem; line-height:1.35; }
+.pub-title a{ text-decoration:none; }
+.pub-title a:hover{ text-decoration:underline; }
+.pub-sub{ margin:0; color:var(--muted); }
+
+.pub-meta{ display:flex; flex-wrap:wrap; gap:8px; margin:12px 0 0; }
+.pub-actions{
+  margin-top:14px; display:flex; justify-content:space-between; align-items:center; gap:12px;
+}
+.pub-source{ color:var(--muted); }
+
+.pubs-footer{ margin-top:16px; display:flex; justify-content:flex-end; }
+
     /* Panels / cards */
     .panel{
       background:linear-gradient(180deg, color-mix(in oklab, var(--panel) 92%, #000 8%), var(--panel));
@@ -694,70 +750,110 @@
       </div>
     </section>
 
-    <!-- Published Work -->
-    <section id="publications">
-      <h2>Published Work</h2>
-      <div class="panel">
-        <p class="lead" style="margin:0 0 18px">Articles that showcase my ability to demystify complex ideas and ship practical, human-centered AI/data solutions.</p>
-        <div class="pubs-grid">
-          <article class="pub-card">
-            <div class="ribbon">Featured</div>
-            <div class="pub-top">
-              <div class="pub-logo">M</div>
-              <div>
-                <h3 class="pub-title"><a href="https://medium.com/ai-advances/cracking-the-code-of-robot-arms-953dc0c7fe99" target="_blank" rel="noreferrer">Cracking the Code of Robot Arms</a></h3>
-                <p class="pub-sub">A gentle guide to kinematics—turning intimidating equations into an intuitive roadmap for motion planning.</p>
-              </div>
-            </div>
-            <div class="pub-body">
-              <div class="chip">Robotics</div><div class="chip">Kinematics</div><div class="chip">Math → Intuition</div>
-            </div>
-            <div class="pub-actions">
-              <span class="help">Published in <strong>AI Advances</strong></span>
-              <a class="btn primary" href="https://medium.com/ai-advances/cracking-the-code-of-robot-arms-953dc0c7fe99" target="_blank" rel="noreferrer">Read article ↗</a>
-            </div>
-          </article>
+    
+             <!-- Published Work -->
+<section id="publications">
+  <h2>Published Work</h2>
+  <div class="panel">
+    <p class="lead pubs-intro">
+      Articles that turn complex ideas into clear, practical, human-centered AI/data solutions.
+    </p>
 
-          <article class="pub-card">
-            <div class="pub-top">
-              <div class="pub-logo">M</div>
-              <div>
-                <h3 class="pub-title"><a href="https://medium.com/activated-thinker/when-health-data-is-overlooked-productivity-pays-the-price-b915327af958" target="_blank" rel="noreferrer">When Health Data Is Overlooked, Productivity Pays the Price</a></h3>
-                <p class="pub-sub">Evidence-backed argument for treating women’s health metrics as first-class features in product and policy design.</p>
-              </div>
-            </div>
-            <div class="pub-body">
-              <div class="chip">Women’s Health</div><div class="chip">Productivity</div><div class="chip">Data for Impact</div>
-            </div>
-            <div class="pub-actions">
-              <span class="help">Published in <strong>Activated Thinker</strong></span>
-              <a class="btn primary" href="https://medium.com/activated-thinker/when-health-data-is-overlooked-productivity-pays-the-price-b915327af958" target="_blank" rel="noreferrer">Read article ↗</a>
-            </div>
-          </article>
-
-          <article class="pub-card">
-            <div class="pub-top">
-              <div class="pub-logo">M</div>
-              <div>
-                <h3 class="pub-title"><a href="https://medium.com/ai-advances/simplifying-sentiment-analysis-7c7f56267c4e" target="_blank" rel="noreferrer">Simplifying Sentiment Analysis</a></h3>
-                <p class="pub-sub">A pragmatic pipeline—from data cleaning to a lightweight model—that business teams can actually deploy.</p>
-              </div>
-            </div>
-            <div class="pub-body">
-              <div class="chip">NLP</div><div class="chip">LogReg</div><div class="chip">Deployment-ready</div>
-            </div>
-            <div class="pub-actions">
-              <span class="help">Published in <strong>AI Advances</strong></span>
-              <a class="btn primary" href="https://medium.com/ai-advances/simplifying-sentiment-analysis-7c7f56267c4e" target="_blank" rel="noreferrer">Read article ↗</a>
-            </div>
-          </article>
+    <div class="pubs-grid">
+      <!-- Card 1 -->
+      <article class="pub-card">
+        <div class="ribbon">Featured</div>
+        <div class="pub-top">
+          <div class="pub-logo" aria-hidden="true">M</div>
+          <div class="pub-headings">
+            <h3 class="pub-title">
+              <a href="https://medium.com/ai-advances/cracking-the-code-of-robot-arms-953dc0c7fe99" target="_blank" rel="noreferrer">
+                Cracking the Code of Robot Arms
+              </a>
+            </h3>
+            <p class="pub-sub">
+              A gentle guide to kinematics—turning intimidating equations into an intuitive roadmap for motion planning.
+            </p>
+          </div>
         </div>
-
-        <div style="margin-top:16px; display:flex; justify-content:flex-end">
-          <a class="btn ghost" href="https://medium.com/@puspitachy" target="_blank" rel="noreferrer"><i class="fa-brands fa-medium"></i> View all on Medium</a>
+        <div class="pub-meta">
+          <span class="chip">Robotics</span>
+          <span class="chip">Kinematics</span>
+          <span class="chip">Math → Intuition</span>
         </div>
-      </div>
-    </section>
+        <div class="pub-actions">
+          <span class="pub-source">Published in <strong>AI Advances</strong></span>
+          <a class="btn primary" href="https://medium.com/ai-advances/cracking-the-code-of-robot-arms-953dc0c7fe99" target="_blank" rel="noreferrer">
+            Read article ↗
+          </a>
+        </div>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="pub-card">
+        <div class="pub-top">
+          <div class="pub-logo" aria-hidden="true">M</div>
+          <div class="pub-headings">
+            <h3 class="pub-title">
+              <a href="https://medium.com/activated-thinker/when-health-data-is-overlooked-productivity-pays-the-price-b915327af958" target="_blank" rel="noreferrer">
+                When Health Data Is Overlooked, Productivity Pays the Price
+              </a>
+            </h3>
+            <p class="pub-sub">
+              Evidence-backed argument for treating women’s health metrics as first-class features in product and policy design.
+            </p>
+          </div>
+        </div>
+        <div class="pub-meta">
+          <span class="chip">Women’s Health</span>
+          <span class="chip">Productivity</span>
+          <span class="chip">Data for Impact</span>
+        </div>
+        <div class="pub-actions">
+          <span class="pub-source">Published in <strong>Activated Thinker</strong></span>
+          <a class="btn primary" href="https://medium.com/activated-thinker/when-health-data-is-overlooked-productivity-pays-the-price-b915327af958" target="_blank" rel="noreferrer">
+            Read article ↗
+          </a>
+        </div>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="pub-card">
+        <div class="pub-top">
+          <div class="pub-logo" aria-hidden="true">M</div>
+          <div class="pub-headings">
+            <h3 class="pub-title">
+              <a href="https://medium.com/ai-advances/simplifying-sentiment-analysis-7c7f56267c4e" target="_blank" rel="noreferrer">
+                Simplifying Sentiment Analysis
+              </a>
+            </h3>
+            <p class="pub-sub">
+              A pragmatic pipeline—from data cleaning to a lightweight model—that business teams can actually deploy.
+            </p>
+          </div>
+        </div>
+        <div class="pub-meta">
+          <span class="chip">NLP</span>
+          <span class="chip">LogReg</span>
+          <span class="chip">Deployment-ready</span>
+        </div>
+        <div class="pub-actions">
+          <span class="pub-source">Published in <strong>AI Advances</strong></span>
+          <a class="btn primary" href="https://medium.com/ai-advances/simplifying-sentiment-analysis-7c7f56267c4e" target="_blank" rel="noreferrer">
+            Read article ↗
+          </a>
+        </div>
+      </article>
+    </div>
+
+    <div class="pubs-footer">
+      <a class="btn ghost" href="https://medium.com/@puspitachy" target="_blank" rel="noreferrer">
+        <i class="fa-brands fa-medium"></i> View all on Medium
+      </a>
+    </div>
+  </div>
+</section>
+
 
     <!-- Contact -->
     <section id="contact">
