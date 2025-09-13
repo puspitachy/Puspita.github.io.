@@ -49,6 +49,46 @@
       background:linear-gradient(90deg, var(--accent), var(--accent-2));
       -webkit-background-clip:text; background-clip:text; color:transparent;
     }
+/* === Skills === */
+.skills-bars{
+  display:grid;
+  grid-template-columns: 1fr 1fr;   /* two-column layout */
+  column-gap: 40px;
+}
+@media (max-width:900px){
+  .skills-bars{ grid-template-columns: 1fr; }
+}
+.skill-row{
+  display:grid;
+  grid-template-columns: 180px 1fr;
+  align-items:center;
+  gap:16px;
+  margin:18px 0;
+}
+.skill-label{
+  font-weight:800;
+  letter-spacing:.2px;
+}
+.skill-meter{
+  position:relative;
+  height:16px;
+  border-radius:999px;
+  background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+  border:1px solid rgba(255,255,255,.10);
+  overflow:hidden;
+}
+.skill-meter .fill{
+  position:absolute; inset:0 auto 0 0;
+  width:0%;                          /* animated by JS */
+  background:linear-gradient(90deg, #19c37d, #2ee59d);
+  border-radius:999px;
+  box-shadow:inset 0 0 6px rgba(0,0,0,.25);
+  transition:width 1.6s cubic-bezier(.22,.61,.36,1);
+}
+.skill-meter .pct{
+  position:absolute; right:8px; top:50%; transform:translateY(-50%);
+  font-weight:800; color:#cfeee0;
+}
 
     /* Desktop nav */
     .nav-links{display:flex; align-items:center; gap:18px}
@@ -291,32 +331,37 @@
       </div>
     </section>
 
-    <!-- About -->
-    <section id="about" class="panel">
-      <h2>About Me</h2>
-      <div class="divider"></div>
-      <p class="lead" style="margin:0 0 ">
-        I’m <strong>an AI & data practitioner</strong> who ships pragmatic analytics and lightweight ML products. I turn messy datasets into <strong>reliable, explainable</strong> decisions and tools that teams actually use.
-      </p>
-      <p style="margin-top:0">
-        At the National Health Service (NHS), London I led data-quality and automation initiatives—lifting ESR workforce-data accuracy to <strong>98%</strong> and cutting processing time by <strong>30%</strong>. I build clear dashboards, automate repetitive reporting, and prototype compact ML services that fit real constraints.
-      </p>
-      <div>
-        <span class="chip">Data Analytics</span>
-        <span class="chip">Product ML</span>
-        <span class="chip">Human-Centered AI</span>
-        <span class="chip">Automation</span>
-        <span class="chip">Python • SQL</span>
-      </div>
-      <div class="cta" style="margin-top:14px">
-        <a class="btn primary" href="assets/Puspita_Chowdhury_Resume.pdf" download>
-          <i class="fa-solid fa-file-arrow-down"></i> Download Resume (PDF)
-        </a>
-        <a class="btn ghost" href="assets/Puspita_Chowdhury_Resume.pdf" target="_blank" rel="noreferrer">
-          <i class="fa-regular fa-file-lines"></i> View Resume
-        </a>
-      </div>
-    </section>
+   <!-- About -->
+<section id="about" class="panel">
+  <h2>About Me</h2>
+  <div class="divider"></div>
+  <p class="lead" style="margin:0 0;">
+    I’m <strong style="color:#fff;">an AI &amp; Data Practitioner</strong> passionate about building <strong style="color:#fff;">reliable, explainable, and human-centered</strong> ML products.  
+    My focus is on transforming messy datasets into <strong style="color:#fff;">clear insights</strong> and tools that organizations actually use.
+  </p>
+  <p style="margin-top:0">
+    At the <strong style="color:#fff;">National Health Service (NHS), London</strong>, I drove major <strong style="color:#fff;">data-quality and automation</strong> initiatives—lifting workforce data accuracy in <strong style="color:#fff;">ESR to 98%</strong>  
+    and cutting processing time by <strong style="color:#fff;">30%</strong>. I specialize in creating dashboards, automating repetitive workflows, and prototyping compact ML services that fit real-world constraints.
+  </p>
+  <p>
+    My expertise spans <strong style="color:#fff;">Data Analytics</strong>, <strong style="color:#fff;">Product ML</strong>, <strong style="color:#fff;">Human-Centered AI</strong>, and <strong style="color:#fff;">Automation</strong>, with hands-on work in <strong style="color:#fff;">Python, SQL, and visualization tools</strong>.
+  </p>
+  <div>
+    <span class="chip">Data Analytics</span>
+    <span class="chip">Product ML</span>
+    <span class="chip">Human-Centered AI</span>
+    <span class="chip">Automation</span>
+    <span class="chip">Python • SQL</span>
+  </div>
+  <div class="cta" style="margin-top:14px">
+    <a class="btn primary" href="assets/Puspita_Chowdhury_Resume.pdf" download>
+      <i class="fa-solid fa-file-arrow-down"></i> Download Resume (PDF)
+    </a>
+    <a class="btn ghost" href="assets/Puspita_Chowdhury_Resume.pdf" target="_blank" rel="noreferrer">
+      <i class="fa-regular fa-file-lines"></i> View Resume
+    </a>
+  </div>
+</section>
 
     <!-- PROJECTS -->
     <section id="projects">
@@ -474,48 +519,62 @@
       </div>
     </section>
 
-    <!-- Skills -->
-    <section id="skills">
-      <h2>Skills</h2>
-      <div class="panel">
-        <div class="skills-bars">
-          <div class="skill-row"><span class="skill-label">Python</span>
-            <div class="skill-meter"><div class="fill" style="width:95%"></div><span class="pct">95%</span></div>
-          </div>
-          <div class="skill-row"><span class="skill-label">Pandas</span>
-            <div class="skill-meter"><div class="fill" style="width:92%"></div><span class="pct">92%</span></div>
-          </div>
-          <div class="skill-row"><span class="skill-label">NumPy</span>
-            <div class="skill-meter"><div class="fill" style="width:90%"></div><span class="pct">90%</span></div>
-          </div>
-          <div class="skill-row"><span class="skill-label">scikit-learn</span>
-            <div class="skill-meter"><div class="fill" style="width:90%"></div><span class="pct">90%</span></div>
-          </div>
-          <div class="skill-row"><span class="skill-label">SQL</span>
-            <div class="skill-meter"><div class="fill" style="width:88%"></div><span class="pct">88%</span></div>
-          </div>
-          <div class="skill-row"><span class="skill-label">Power BI / Tableau</span>
-            <div class="skill-meter"><div class="fill" style="width:90%"></div><span class="pct">90%</span></div>
-          </div>
-          <div class="skill-row"><span class="skill-label">Matplotlib</span>
-            <div class="skill-meter"><div class="fill" style="width:88%"></div><span class="pct">88%</span></div>
-          </div>
-          <!-- UPDATED: Flask now 94% -->
-          <div class="skill-row"><span class="skill-label">Flask</span>
-            <div class="skill-meter"><div class="fill" style="width:94%"></div><span class="pct">94%</span></div>
-          </div>
-          <div class="skill-row"><span class="skill-label">React + Firebase</span>
-            <div class="skill-meter"><div class="fill" style="width:85%"></div><span class="pct">85%</span></div>
-          </div>
-          <div class="skill-row"><span class="skill-label">Git / GitHub</span>
-            <div class="skill-meter"><div class="fill" style="width:92%"></div><span class="pct">92%</span></div>
-          </div>
-          <div class="skill-row"><span class="skill-label">Excel</span>
-            <div class="skill-meter"><div class="fill" style="width:97%"></div><span class="pct">97%</span></div>
-          </div>
-        </div>
+   <!-- Skills -->
+<section id="skills">
+  <h2>Skills</h2>
+  <div class="panel">
+    <div class="skills-bars">
+      <!-- LEFT COLUMN -->
+      <div class="skill-row" data-percent="95">
+        <span class="skill-label">Python</span>
+        <div class="skill-meter"><div class="fill"></div><span class="pct">0%</span></div>
       </div>
-    </section>
+      <div class="skill-row" data-percent="92">
+        <span class="skill-label">Pandas</span>
+        <div class="skill-meter"><div class="fill"></div><span class="pct">0%</span></div>
+      </div>
+      <div class="skill-row" data-percent="90">
+        <span class="skill-label">NumPy</span>
+        <div class="skill-meter"><div class="fill"></div><span class="pct">0%</span></div>
+      </div>
+      <div class="skill-row" data-percent="90">
+        <span class="skill-label">scikit-learn</span>
+        <div class="skill-meter"><div class="fill"></div><span class="pct">0%</span></div>
+      </div>
+      <div class="skill-row" data-percent="88">
+        <span class="skill-label">SQL</span>
+        <div class="skill-meter"><div class="fill"></div><span class="pct">0%</span></div>
+      </div>
+
+      <!-- RIGHT COLUMN -->
+      <div class="skill-row" data-percent="90">
+        <span class="skill-label">Power BI / Tableau</span>
+        <div class="skill-meter"><div class="fill"></div><span class="pct">0%</span></div>
+      </div>
+      <div class="skill-row" data-percent="88">
+        <span class="skill-label">Matplotlib</span>
+        <div class="skill-meter"><div class="fill"></div><span class="pct">0%</span></div>
+      </div>
+      <div class="skill-row" data-percent="94">
+        <span class="skill-label">Flask</span>
+        <div class="skill-meter"><div class="fill"></div><span class="pct">0%</span></div>
+      </div>
+      <div class="skill-row" data-percent="85">
+        <span class="skill-label">React + Firebase</span>
+        <div class="skill-meter"><div class="fill"></div><span class="pct">0%</span></div>
+      </div>
+      <div class="skill-row" data-percent="92">
+        <span class="skill-label">Git / GitHub</span>
+        <div class="skill-meter"><div class="fill"></div><span class="pct">0%</span></div>
+      </div>
+      <div class="skill-row" data-percent="97">
+        <span class="skill-label">Excel</span>
+        <div class="skill-meter"><div class="fill"></div><span class="pct">0%</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
     <!-- Experience & Education -->
     <section id="experience">
@@ -832,5 +891,44 @@
       }
     });
   </script>
+  <script>
+// Animate skill bars when the section enters the viewport (one time)
+(function(){
+  const section = document.querySelector('#skills');
+  if(!section) return;
+
+  function animateBars(){
+    const rows = section.querySelectorAll('.skill-row');
+    rows.forEach(row=>{
+      if(row.dataset.done) return;               // avoid reruns
+      const target = +row.dataset.percent || 0;
+      const fill = row.querySelector('.fill');
+      const pct  = row.querySelector('.pct');
+
+      // animate bar width
+      requestAnimationFrame(()=>{ fill.style.width = target + '%'; });
+
+      // animate number counter
+      const start = performance.now(), dur = 1600;
+      const step = (now)=>{
+        const p = Math.min(1, (now - start)/dur);
+        pct.textContent = Math.round(p * target) + '%';
+        if(p < 1) requestAnimationFrame(step);
+        else { pct.textContent = target + '%'; row.dataset.done = '1'; }
+      };
+      requestAnimationFrame(step);
+    });
+  }
+
+  const io = new IntersectionObserver((entries)=>{
+    if(entries.some(e=>e.isIntersecting)){
+      animateBars();
+      io.disconnect();
+    }
+  }, {threshold:0.25});
+  io.observe(section);
+})();
+</script>
+
 </body>
 </html>
