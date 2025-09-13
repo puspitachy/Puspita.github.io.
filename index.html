@@ -213,6 +213,30 @@
       .media-logo{ width:120px; height:120px; }
       .media-title{ font-size:1.1rem; }
     }
+#about p {
+  margin: 14px 0;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #eaeef5;   /* soft white */
+  max-width: 65ch; /* keeps paragraphs same width */
+}
+
+#about .lead {
+  font-size: 1.15rem;
+  margin-bottom: 18px;
+}
+
+#about .highlight {
+  color: #fff;
+  font-weight: 700;
+}
+
+#about .chips {
+  margin: 14px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
 
     /* Remove gradient colorization from bold text in About & Experience */
     #about strong, #experience strong{
@@ -331,29 +355,43 @@
       </div>
     </section>
 
-   <!-- About -->
+  <!-- About -->
 <section id="about" class="panel">
   <h2>About Me</h2>
   <div class="divider"></div>
-  <p class="lead" style="margin:0 0;">
-    I’m <strong style="color:#fff;">an AI &amp; Data Practitioner</strong> passionate about building <strong style="color:#fff;">reliable, explainable, and human-centered</strong> ML products.  
-    My focus is on transforming messy datasets into <strong style="color:#fff;">clear insights</strong> and tools that organizations actually use.
+
+  <p class="lead">
+    I’m <strong class="highlight">an AI &amp; Data Practitioner</strong>  
+    passionate about building <strong class="highlight">reliable, explainable, and human-centered</strong> ML products.  
+    My focus is on transforming messy datasets into <strong class="highlight">clear insights</strong>  
+    and tools that organizations actually use.
   </p>
-  <p style="margin-top:0">
-    At the <strong style="color:#fff;">National Health Service (NHS), London</strong>, I drove major <strong style="color:#fff;">data-quality and automation</strong> initiatives—lifting workforce data accuracy in <strong style="color:#fff;">ESR to 98%</strong>  
-    and cutting processing time by <strong style="color:#fff;">30%</strong>. I specialize in creating dashboards, automating repetitive workflows, and prototyping compact ML services that fit real-world constraints.
-  </p>
+
   <p>
-    My expertise spans <strong style="color:#fff;">Data Analytics</strong>, <strong style="color:#fff;">Product ML</strong>, <strong style="color:#fff;">Human-Centered AI</strong>, and <strong style="color:#fff;">Automation</strong>, with hands-on work in <strong style="color:#fff;">Python, SQL, and visualization tools</strong>.
+    At the <strong class="highlight">National Health Service (NHS), London</strong>,  
+    I led <strong class="highlight">data-quality and automation</strong> initiatives—lifting workforce data accuracy  
+    in <strong class="highlight">ESR to 98%</strong> and cutting processing time by <strong class="highlight">30%</strong>.  
+    I specialize in creating dashboards, automating repetitive workflows,  
+    and prototyping compact ML services that fit real-world constraints.
   </p>
-  <div>
+
+  <p>
+    My expertise spans <strong class="highlight">Data Analytics</strong>,  
+    <strong class="highlight">Product ML</strong>,  
+    <strong class="highlight">Human-Centered AI</strong>, and  
+    <strong class="highlight">Automation</strong>,  
+    with hands-on work in <strong class="highlight">Python, SQL, and visualization tools</strong>.
+  </p>
+
+  <div class="chips">
     <span class="chip">Data Analytics</span>
     <span class="chip">Product ML</span>
     <span class="chip">Human-Centered AI</span>
     <span class="chip">Automation</span>
     <span class="chip">Python • SQL</span>
   </div>
-  <div class="cta" style="margin-top:14px">
+
+  <div class="cta" style="margin-top:18px">
     <a class="btn primary" href="assets/Puspita_Chowdhury_Resume.pdf" download>
       <i class="fa-solid fa-file-arrow-down"></i> Download Resume (PDF)
     </a>
@@ -362,6 +400,7 @@
     </a>
   </div>
 </section>
+
 
     <!-- PROJECTS -->
     <section id="projects">
