@@ -321,6 +321,26 @@
       color:var(--text) !important;
       font-weight:800;
     }
+    /* logo github
+    .icon-links { display:flex; gap:14px; }
+
+.icon-btn{
+  width:56px; height:56px; display:grid; place-items:center;
+  border-radius:14px;
+  background:rgba(255,255,255,.02);
+  border:1px solid rgba(255,255,255,.12);
+  box-shadow:0 10px 24px rgba(0,0,0,.25);
+  transition:transform .15s ease, border-color .15s ease, background .15s ease;
+}
+.icon-btn:hover{ transform:translateY(-2px); border-color:rgba(255,255,255,.25); background:rgba(255,255,255,.04); }
+.icon-btn img{ width:24px; height:24px; display:block; }
+
+/* Optional: smaller on phones */
+@media (max-width:520px){
+  .icon-btn{ width:48px; height:48px; border-radius:12px; }
+  .icon-btn img{ width:22px; height:22px; }
+}
+
 
     /* Optional explicit emphasis using the third color */
     .emph{
@@ -425,47 +445,32 @@
         <!-- UPDATED CTA: two rows; Hire me is larger and on its own row below -->
        <div class="cta">
   <div class="cta-row">
-    <!-- GitHub -->
-    <a class="btn ghost" href="https://github.com/puspitachy" target="_blank" rel="noreferrer">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" style="width:20px;height:20px;vertical-align:middle;margin-right:8px;">
-      GitHub
-    </a>
+    <div class="cta-row icon-links">
+  <!-- GitHub -->
+  <a class="icon-btn" href="https://github.com/puspitachy" target="_blank" rel="noreferrer"
+     aria-label="GitHub" title="GitHub">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="">
+  </a>
 
-    <!-- LinkedIn -->
-    <a class="btn ghost" href="https://www.linkedin.com/in/puspita-chowdhury-b200561a" target="_blank" rel="noreferrer">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn" style="width:20px;height:20px;vertical-align:middle;margin-right:8px;">
-      LinkedIn
-    </a>
+  <!-- LinkedIn -->
+  <a class="icon-btn" href="https://www.linkedin.com/in/puspita-chowdhury-b200561a" target="_blank" rel="noreferrer"
+     aria-label="LinkedIn" title="LinkedIn">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="">
+  </a>
 
-    <!-- Medium -->
-    <a class="btn ghost" href="https://medium.com/@puspitachy" target="_blank" rel="noreferrer">
-      <img src="https://seeklogo.com/images/M/medium-logo-93CDCF6451-seeklogo.com.png" alt="Medium" style="width:20px;height:20px;vertical-align:middle;margin-right:8px;">
-      Medium
-    </a>
+  <!-- Medium -->
+  <a class="icon-btn" href="https://medium.com/@puspitachy" target="_blank" rel="noreferrer"
+     aria-label="Medium" title="Medium">
+    <img src="https://seeklogo.com/images/M/medium-logo-93CDCF6451-seeklogo.com.png" alt="">
+  </a>
 
-    <!-- Email -->
-    <a class="btn ghost" href="mailto:Puspitachy2000@gmail.com" rel="noreferrer">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Mail_%28iOS%29.svg" alt="Email" style="width:20px;height:20px;vertical-align:middle;margin-right:8px;">
-      Email
-    </a>
-  </div>
-
-  <div class="cta-row">
-    <a class="btn primary bighire" href="#contact" id="hire-me-hero">
-      <i class="fa-solid fa-handshake-angle"></i> Hire me
-    </a>
-  </div>
+  <!-- Email -->
+  <a class="icon-btn" href="mailto:Puspitachy2000@gmail.com" rel="noreferrer"
+     aria-label="Email" title="Email">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Mail_%28iOS%29.svg" alt="">
+  </a>
 </div>
 
-          <div class="cta-row">
-            <a class="btn primary bighire" href="#contact" id="hire-me-hero"><i class="fa-solid fa-handshake-angle"></i> Hire me</a>
-          </div>
-        </div>
-      </div>
-      <div class="hero-right">
-        <img src="/Puspita.github.io./images/IMG_2850.jpg" alt="Puspita Chowdhury" class="hero-photo" />
-      </div>
-    </section>
 
  <!-- About -->
 <section id="about" class="panel">
