@@ -86,8 +86,15 @@
     .divider{height:1px; background:linear-gradient(90deg, transparent, rgba(255,255,255,.12), transparent); margin:20px 0}
 
     /* ===== About ===== */
-    #about p{margin:14px 0; font-size:1.05rem; line-height:1.7; color:#fff; max-width:70ch; text-align:justify}
-    #about strong{color:#fff; font-weight:800}
+#about p{
+  margin:14px 0;
+  font-size:1.05rem;
+  line-height:1.7;
+  color:#fff;
+  max-width:none;      /* ← let it use the whole panel width */
+  width:100%;
+  text-align:justify;  /* keep if you like the neat edges */
+}    #about strong{color:#fff; font-weight:800}
     .chip{display:inline-block; padding:6px 10px; border-radius:999px; border:1px solid rgba(255,255,255,.14); background:rgba(255,255,255,.04); margin:6px 6px 0 0; font-weight:700}
 
     /* ===== Projects ===== */
