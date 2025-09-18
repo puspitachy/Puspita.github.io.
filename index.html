@@ -118,11 +118,21 @@
   border-radius:999px;
   font-weight:700;
   font-size:.85rem;
-  color:#0b0f17;              /* good contrast on orange */
-  background:#FCB045;         /* ← default ORANGE */
+  color:#0b0f17;           /* contrast on orange */
+  background:#FCB045;      /* default ORANGE */
   border:none;
   box-shadow:0 2px 10px rgba(252,176,69,.18);
+
+  /* OPTIONAL: extra space if you want more breathing room than `gap` gives */
+  /* margin:0 2px 8px 0; */
 }
+    .tech-row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px 12px;
+  margin-top:auto;
+}
+
 
 /* Optional: per-skill brand colors (use if you add the class on the span) */
 .tech.python   { background:#306998; color:#fff; }   /* Python */
