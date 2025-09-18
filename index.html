@@ -150,8 +150,17 @@
     .btn:hover{transform:translateY(-2px)}
     .btn.primary{background:linear-gradient(135deg, var(--accent), var(--accent-2)); border-color:transparent; color:#041018}
     .btn.ghost{background:rgba(255,255,255,.02)}
-    .btn.bighire{font-size:1.05rem; padding:14px 22px; border-radius:14px}
-    @media (max-width:900px){ .cta{justify-content:center} .btn.bighire{width:100%} }
+.btn.bighire {
+  width: 100%;              /* take the full CTA width */
+  justify-content: center;  /* center icon + text */
+}
+    @media (max-width:900px)
+    .cta {
+  display: inline-grid;     /* grid ensures both rows line up */
+  row-gap: 14px;
+  width: max-content;       /* width defined by widest row (social buttons row) */
+}
+
 
 
     /* Published Work */
