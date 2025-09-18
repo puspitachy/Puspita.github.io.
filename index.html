@@ -120,11 +120,32 @@
     #skills .panel{overflow:hidden}
     .skills-bars{display:grid; grid-template-columns: 1fr 1fr; gap:20px 36px}
     @media (max-width:860px){ .skills-bars{grid-template-columns:1fr} }
-    .skill-row{display:grid; grid-template-columns: 180px 1fr; align-items:center; gap:16px}
-    .skill-label{font-weight:800; letter-spacing:.2px}
-    .skill-meter{position:relative; height:16px; border-radius:999px; background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03)); border:1px solid rgba(255,255,255,.10); overflow:hidden}
-    .skill-meter .fill{position:absolute; inset:0 auto 0 0; width:0%; background:linear-gradient(90deg, var(--success), #2ee59d); border-radius:999px; box-shadow:inset 0 0 6px rgba(0,0,0,.25); transition:width 1.6s cubic-bezier(.22,.61,.36,1)}
-    .skill-meter .pct{position:absolute; right:8px; top:50%; transform:translateY(-50%); font-weight:800; color:#cfeee0}
+    /* Skills layout with icon + name above bar */
+.skill-row{
+  display:grid;
+  grid-template-columns: 44px 1fr;   /* icon | content */
+  align-items:center;
+  gap:14px;
+}
+
+.skill-icon{
+  width:40px; height:40px;
+  border-radius:10px;
+  background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+  border:1px solid rgba(255,255,255,.10);
+  padding:6px;
+}
+
+.skill-col{display:flex; flex-direction:column; gap:8px}
+.skill-name{font-weight:800; letter-spacing:.2px}
+
+/* Meter stays the same; just a touch taller looks nicer with the new layout */
+.skill-meter{position:relative; height:18px; border-radius:999px; background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03)); border:1px solid rgba(255,255,255,.10); overflow:hidden}
+.skill-meter .fill{position:absolute; inset:0 auto 0 0; width:0%; background:linear-gradient(90deg, var(--success), #2ee59d); border-radius:999px; box-shadow:inset 0 0 6px rgba(0,0,0,.25); transition:width 1.6s cubic-bezier(.22,.61,.36,1)}
+.skill-meter .pct{position:absolute; right:8px; top:50%; transform:translateY(-50%); font-weight:800; color:#cfeee0}
+
+/* Remove the old label column if it exists */
+.skill-label{display:none}
 
     /* ===== Experience / Education ===== */
     .media-list{display:grid; gap:22px}
@@ -388,21 +409,110 @@
     <section id="skills">
       <h2>Skills</h2>
       <div class="panel">
-        <div class="skills-bars">
-          <div class="skill-row" data-percent="95"><span class="skill-label">Python</span><div class="skill-meter"><div class="fill"></div><span class="pct">0%</span></div></div>
-          <div class="skill-row" data-percent="92"><span class="skill-label">Pandas</span><div class="skill-meter"><div class="fill"></div><span class="pct">0%</span></div></div>
-          <div class="skill-row" data-percent="90"><span class="skill-label">NumPy</span><div class="skill-meter"><div class="fill"></div><span class="pct">0%</span></div></div>
-          <div class="skill-row" data-percent="90"><span class="skill-label">scikit‑learn</span><div class="skill-meter"><div class="fill"></div><span class="pct">0%</span></div></div>
-          <div class="skill-row" data-percent="88"><span class="skill-label">SQL</span><div class="skill-meter"><div class="fill"></div><span class="pct">0%</span></div></div>
-
-          <div class="skill-row" data-percent="90"><span class="skill-label">Power BI / Tableau</span><div class="skill-meter"><div class="fill"></div><span class="pct">0%</span></div></div>
-          <div class="skill-row" data-percent="88"><span class="skill-label">Matplotlib</span><div class="skill-meter"><div class="fill"></div><span class="pct">0%</span></div></div>
-          <div class="skill-row" data-percent="94"><span class="skill-label">Flask</span><div class="skill-meter"><div class="fill"></div><span class="pct">0%</span></div></div>
-          <div class="skill-row" data-percent="85"><span class="skill-label">React + Firebase</span><div class="skill-meter"><div class="fill"></div><span class="pct">0%</span></div></div>
-          <div class="skill-row" data-percent="92"><span class="skill-label">Git / GitHub</span><div class="skill-meter"><div class="fill"></div><span class="pct">0%</span></div></div>
-          <div class="skill-row" data-percent="97"><span class="skill-label">Excel</span><div class="skill-meter"><div class="fill"></div><span class="pct">0%</span></div></div>
-        </div>
+     <div class="skills-bars">
+  <!-- Python -->
+  <div class="skill-row" data-percent="95">
+    <img class="skill-icon" src="images/skills/python.svg" alt="Python logo">
+    <div class="skill-col">
+      <div class="skill-name">Python</div>
+      <div class="skill-meter">
+        <div class="fill"></div>
+        <span class="pct">0%</span>
       </div>
+    </div>
+  </div>
+
+  <!-- Pandas -->
+  <div class="skill-row" data-percent="92">
+    <img class="skill-icon" src="images/skills/pandas.svg" alt="Pandas logo">
+    <div class="skill-col">
+      <div class="skill-name">Pandas</div>
+      <div class="skill-meter"><div class="fill"></div><span class="pct">0%</span></div>
+    </div>
+  </div>
+
+  <!-- NumPy -->
+  <div class="skill-row" data-percent="90">
+    <img class="skill-icon" src="images/skills/numpy.svg" alt="NumPy logo">
+    <div class="skill-col">
+      <div class="skill-name">NumPy</div>
+      <div class="skill-meter"><div class="fill"></div><span class="pct">0%</span></div>
+    </div>
+  </div>
+
+  <!-- scikit-learn -->
+  <div class="skill-row" data-percent="90">
+    <img class="skill-icon" src="images/skills/sklearn.svg" alt="scikit-learn logo">
+    <div class="skill-col">
+      <div class="skill-name">scikit-learn</div>
+      <div class="skill-meter"><div class="fill"></div><span class="pct">0%</span></div>
+    </div>
+  </div>
+
+  <!-- SQL -->
+  <div class="skill-row" data-percent="88">
+    <img class="skill-icon" src="images/skills/sql.svg" alt="SQL logo">
+    <div class="skill-col">
+      <div class="skill-name">SQL</div>
+      <div class="skill-meter"><div class="fill"></div><span class="pct">0%</span></div>
+    </div>
+  </div>
+
+  <!-- Power BI / Tableau -->
+  <div class="skill-row" data-percent="90">
+    <img class="skill-icon" src="images/skills/bi.svg" alt="Power BI / Tableau logo">
+    <div class="skill-col">
+      <div class="skill-name">Power BI / Tableau</div>
+      <div class="skill-meter"><div class="fill"></div><span class="pct">0%</span></div>
+    </div>
+  </div>
+
+  <!-- Matplotlib -->
+  <div class="skill-row" data-percent="88">
+    <img class="skill-icon" src="images/skills/matplotlib.svg" alt="Matplotlib logo">
+    <div class="skill-col">
+      <div class="skill-name">Matplotlib</div>
+      <div class="skill-meter"><div class="fill"></div><span class="pct">0%</span></div>
+    </div>
+  </div>
+
+  <!-- Flask -->
+  <div class="skill-row" data-percent="94">
+    <img class="skill-icon" src="images/skills/flask.svg" alt="Flask logo">
+    <div class="skill-col">
+      <div class="skill-name">Flask</div>
+      <div class="skill-meter"><div class="fill"></div><span class="pct">0%</span></div>
+    </div>
+  </div>
+
+  <!-- React + Firebase -->
+  <div class="skill-row" data-percent="85">
+    <img class="skill-icon" src="images/skills/react.svg" alt="React/Firebase logo">
+    <div class="skill-col">
+      <div class="skill-name">React + Firebase</div>
+      <div class="skill-meter"><div class="fill"></div><span class="pct">0%</span></div>
+    </div>
+  </div>
+
+  <!-- Git / GitHub -->
+  <div class="skill-row" data-percent="92">
+    <img class="skill-icon" src="images/skills/git.svg" alt="Git/GitHub logo">
+    <div class="skill-col">
+      <div class="skill-name">Git / GitHub</div>
+      <div class="skill-meter"><div class="fill"></div><span class="pct">0%</span></div>
+    </div>
+  </div>
+
+  <!-- Excel -->
+  <div class="skill-row" data-percent="97">
+    <img class="skill-icon" src="images/skills/excel.svg" alt="Excel logo">
+    <div class="skill-col">
+      <div class="skill-name">Excel</div>
+      <div class="skill-meter"><div class="fill"></div><span class="pct">0%</span></div>
+    </div>
+  </div>
+</div>
+
     </section>
 
     <!-- ===== EXPERIENCE & EDUCATION ===== -->
