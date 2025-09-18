@@ -169,8 +169,14 @@
     @media (max-width:900px){ .pubs-grid{grid-template-columns:1fr} }
     .pub-card{position:relative; border:1px solid rgba(255,255,255,.10); border-radius:12px; background:linear-gradient(160deg, rgba(255,255,255,.05), rgba(255,255,255,.01)); padding:18px; transition:transform .2s, box-shadow .2s, border-color .2s; box-shadow:0 10px 24px rgba(0,0,0,.25)}
     .pub-card:hover{transform:translateY(-4px); border-color:rgba(255,255,255,.18); box-shadow:0 14px 30px rgba(0,0,0,.35)}
-    .ribbon{position:absolute; top:12px; right:-8px; background:linear-gradient(135deg, var(--accent), var(--accent-2)); color:#0b0f17; font-weight:800; font-size:.75rem; padding:6px 10px; border-top-left-radius:8px; border-bottom-left-radius:8px}
-    .pub-top{display:flex; gap:14px; align-items:flex-start}
+.ribbon{
+  position:absolute; top:12px; right:-8px;
+  /* pick your highlight colors */
+  background:linear-gradient(135deg, #7c5cff, #00d9ff);  /* ← edit */
+  color:#041018;                     /* badge text color */
+  font-weight:800; font-size:.75rem;
+  padding:6px 10px; border-top-left-radius:8px; border-bottom-left-radius:8px;
+}    .pub-top{display:flex; gap:14px; align-items:flex-start}
     .pub-logo{width:44px; height:44px; border-radius:10px; display:grid; place-items:center; font-weight:900; background:#121826; border:1px solid rgba(255,255,255,.12)}
     .pub-headings{flex:1}
     .pub-title{margin:0 0 6px; font-size:1.12rem; line-height:1.35}
