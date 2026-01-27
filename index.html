@@ -431,212 +431,180 @@
       </div>
     </section>
 
-    <!-- ===== PROJECTS ===== -->
-    <section id="projects" aria-labelledby="projects-heading">
-      <h2 id="projects-heading">Selected Projects</h2>
+    <!-- =========================
+     2) REPLACE YOUR ENTIRE <section id="projects"> ... </section> WITH THIS
+     ========================= -->
 
-      <div class="filters" id="proj-filters" role="tablist" aria-label="Project filters">
-        <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">All</button>
-        <button class="filter-btn" data-filter="data-analyst" role="tab" aria-selected="false">Data Analyst</button>
-        <button class="filter-btn" data-filter="ai-ml" role="tab" aria-selected="false">AI / ML</button>
-        <button class="filter-btn" data-filter="business-analyst" role="tab" aria-selected="false">Business Analyst</button>
-      </div>
+<section id="projects" aria-labelledby="projects-heading">
+  <h2 id="projects-heading">Selected Projects</h2>
+  <div class="section-kicker">Notable Projects</div>
 
-      <!-- NEW: Featured toggle toolbar -->
-      <div class="projects-toolbar">
-        <button id="toggle-projects" class="btn ghost" type="button" aria-expanded="false">
-          Show all projects
-        </button>
-        <span class="projects-note" id="projects-note">Showing 3 featured projects</span>
-      </div>
+  <div class="filters" id="proj-filters" role="tablist" aria-label="Project filters">
+    <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">All</button>
+    <button class="filter-btn" data-filter="data-analyst" role="tab" aria-selected="false">Data Analyst</button>
+    <button class="filter-btn" data-filter="ai-ml" role="tab" aria-selected="false">AI / ML</button>
+    <button class="filter-btn" data-filter="business-analyst" role="tab" aria-selected="false">Business Analyst</button>
+  </div>
 
-      <div class="projects" id="proj-grid">
-        <!-- Sentiment Analysis (AI/ML + Data Analyst) -->
-        <article class="project-card project" data-tags="ai-ml,data-analyst">
-          <img class="project-img" src="images/Screenshot 2025-04-10 153022.png" alt="Screenshot of Sentiment Analysis Web App" loading="lazy">
-          <div class="project-body">
-            <h3 class="project-title">Sentiment Analysis Web App</h3>
-            <p class="project-desc">Lightweight Flask app that classifies feedback (positive / neutral / negative) with a clean, reproducible pipeline.</p>
-            <div class="key-title">Key Achievements</div>
-            <ul class="key-bullets">
-              <li>End-to-end pipeline from cleaning → model → UI.</li>
-              <li>Explainable baseline for business stakeholders.</li>
-              <li>Ready for small-team deployment.</li>
-            </ul>
-            <div class="tech-row">
-              <span class="tech python">Python</span><span class="tech pandas">Pandas</span><span class="tech sklearn">scikit-learn</span><span class="tech flask">Flask</span>
-            </div>
-            <div class="project-actions">
-              <span class="help">Repo & notebooks</span>
-              <a class="btn primary" href="https://github.com/puspitachy/Building-an-web-app-for-Sentiment-Analysis" target="_blank" rel="noreferrer noopener">View Project ↗</a>
-            </div>
-          </div>
-        </article>
+  <div class="projects-toolbar">
+    <button id="toggle-projects" class="btn ghost" type="button" aria-expanded="false">
+      Show all projects
+    </button>
+    <span class="projects-note" id="projects-note">Showing 3 featured projects</span>
+  </div>
 
-        <!-- Image Recognition (AI/ML) -->
-        <article class="project-card project" data-tags="ai-ml">
-          <img class="project-img" src="images/downloaded_image.png" alt="Image Recognition notebooks and plots" loading="lazy">
-          <div class="project-body">
-            <h3 class="project-title">Image Recognition</h3>
-            <p class="project-desc">Classification & segmentation experiments with tidy notebooks and evaluation plots; focus on baselines & explainability.</p>
-            <div class="key-title">Key Achievements</div>
-            <ul class="key-bullets">
-              <li>Reproducible EDA + metrics.</li>
-              <li>PyTorch CNN for image classification.</li>
-              <li>Benchmark baselines for rapid iteration.</li>
-            </ul>
-            <div class="tech-row"><span class="tech pytorch">PyTorch</span><span class="tech">TorchVision</span><span class="tech numpy">NumPy</span><span class="tech mpl">Matplotlib</span></div>
-            <div class="project-actions">
-              <span class="help">Notebooks</span>
-              <a class="btn primary" href="https://github.com/puspitachy/Image-Recognition-and-Classification-using-Convolutional-Neural-Network" target="_blank" rel="noreferrer noopener">View Project ↗</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Road Safety (Data Analyst + Business Analyst) -->
-        <article class="project-card project" data-tags="data-analyst,business-analyst">
-          <img class="project-img" src="images/power.png" alt="Road safety Power BI dashboard screenshot" loading="lazy">
-          <div class="project-body">
-            <h3 class="project-title">Data Driven Road Safety Initiative</h3>
-            <p class="project-desc">Interactive Power BI dashboards to identify high-risk zones and crash drivers—supporting a 15% reduction in targeted areas.</p>
-            <div class="key-title">Key Achievements</div>
-            <ul class="key-bullets">
-              <li>Hotspot maps, severity trends, time-of-day patterns, and KPI overview.</li>
-              <li>Time-intelligence, severity KPIs, exposure-adjusted rates.</li>
-              <li>Power Query (M) for cleaning, conforming codes, and incremental refresh.</li>
-            </ul>
-            <div class="tech-row"><span class="tech python">Power BI</span><span class="tech">DAX</span><span class="tech">Power Query</span></div>
-            <div class="project-actions">
-              <span class="help">Repo</span>
-              <a class="btn primary" href="https://github.com/puspitachy/Road-Accident-Analysis-by-Power-BI" target="_blank" rel="noreferrer noopener">View Project ↗</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Scuba App Design (Business Analyst / Product) -->
-        <article class="project-card project" data-tags="business-analyst">
-          <img class="project-img" src="images/dive_app_screenshot.png" alt="Mobile scuba diving app design mockup" loading="lazy">
-          <div class="project-body">
-            <h3 class="project-title">Scuba Diving App Design</h3>
-            <p class="project-desc">Mobile concept for divers: capture photos, track dive history, and browse memories.</p>
-            <div class="key-title">Key Achievements</div>
-            <ul class="key-bullets">
-              <li>Simple flows for logging dives & media.</li>
-              <li>Lightweight prototype.</li>
-              <li>Usability-first components.</li>
-            </ul>
-            <div class="tech-row"><span class="tech react">React</span><span class="tech firebase">Firebase</span><span class="tech">Prototype</span></div>
-            <div class="project-actions">
-              <span class="help">Code</span>
-              <a class="btn primary" href="https://github.com/puspitachy/UX-UI-design" target="_blank" rel="noreferrer noopener">View Project ↗</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Coffee Sales (Data Analyst + Business Analyst) -->
-        <article class="project-card project" data-tags="data-analyst,business-analyst">
-          <img class="project-img" src="images/top_5_customers.png" alt="Coffee Sales dashboard visual" loading="lazy">
-          <div class="project-body">
-            <h3 class="project-title">Sales Dashboard</h3>
-            <p class="project-desc">Interactive Coffee Sales Dashboard to track top customers, product performance, and revenue trends.</p>
-            <div class="key-title">Key Achievements</div>
-            <ul class="key-bullets">
-              <li>Surfaced top-line KPIs & seasonality.</li>
-              <li>Improved stakeholder decision speed.</li>
-            </ul>
-            <div class="tech-row"><span class="tech excel">Excel</span><span class="tech">Power Query</span></div>
-            <div class="project-actions">
-              <span class="help">Repo</span>
-              <a class="btn primary" href="https://github.com/puspitachy/Data-Analysis-Coffee-sales-excel-dashboard" target="_blank" rel="noreferrer noopener">View Project ↗</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Bike Sales (Data Analyst + Business Analyst) -->
-        <article class="project-card project" data-tags="data-analyst,business-analyst">
-          <img class="project-img" src="images/downloaded_chart.png" alt="Bike Sales Excel dashboard" loading="lazy">
-          <div class="project-body">
-            <h3 class="project-title">Excel Dashboard</h3>
-            <p class="project-desc">Bike Sales Dashboard showing insights by region, marital status, and education to uncover buying patterns.</p>
-            <div class="key-title">Key Achievements</div>
-            <ul class="key-bullets">
-              <li>Clean Pivot-Table data model.</li>
-              <li>Clear slicers & charts for non-technical users.</li>
-            </ul>
-            <div class="tech-row"><span class="tech excel">Excel</span><span class="tech">Pivot Tables</span><span class="tech mpl">Charts</span></div>
-            <div class="project-actions">
-              <span class="help">Repo</span>
-              <a class="btn primary" href="https://github.com/puspitachy/Excel-project-bike-dataset" target="_blank" rel="noreferrer noopener">View Project ↗</a>
-            </div>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- ===== EXPERIENCE & EDUCATION (kept same as your file) ===== -->
-    <section id="experience" aria-labelledby="exp-heading">
-      <h2 id="exp-heading"><strong>Experience</strong></h2>
-      <div class="panel">
-        <div class="media-list">
-          <div class="media-card">
-            <div class="media-logo"><img src="images/north_london_partners_shared_services_logo.jpeg" alt="NHS logo" loading="lazy"></div>
-            <div>
-              <h2 class="media-title">North London Partner Shared Recruitment Service (NHS)</h2>
-              <h3 class="media-title">HR Data &amp; Systems Analyst — NHS</h3>
-              <div class="media-period">London, UK• <strong>Jan 2022 – Mar 2024</strong></div>
-              <ul class="media-bullets">
-                <li>Managed workforce data in ESR; lifted accuracy to <strong>98%</strong> and ensured compliance.</li>
-                <li>Optimised recruitment & payroll flows; cut processing time by <strong>30%</strong>.</li>
-                <li>Built HR dashboards (trends, turnover, compliance).</li>
-                <li>Automated repetitive tasks with RPA and scripts.</li>
-              </ul>
-              <p style="margin-top:10px"><a class="btn sm" href="https://www.nhs.uk/" target="_blank" rel="noreferrer noopener">Company site</a></p>
-            </div>
-          </div>
-
-          <div class="media-card">
-            <div class="media-logo"><img src="images/CS_logo_2020-new-colour.png" alt="Citizen Shareholders logo" loading="lazy"></div>
-            <div>
-              <h2 class="media-title">Citizen Shareholders</h2>
-              <h3 class="media-title">Data Support Coordinator</h3>
-              <div class="media-period"><strong>London, UK • July 2020 – January 2021</strong></div>
-              <ul class="media-bullets">
-                <li>Resolved client issues with data-driven solutions and clear communication.</li>
-                <li>Maintained an organized repository with <strong>100%</strong> accuracy.</li>
-              </ul>
-              <p style="margin-top:10px"><a class="btn sm" href="https://www.citizenshareholders.org" aria-disabled="true" style="opacity:.65">Company site</a></p>
-            </div>
-          </div>
+  <!-- ===== 3 FEATURED (Uber-style) ===== -->
+  <div class="featured-stack" id="featured-projects">
+    <!-- 01 -->
+    <article class="featured-project project" data-tags="ai-ml,data-analyst">
+      <div class="fp-head">
+        <div class="fp-num">01</div>
+        <div class="fp-title-wrap">
+          <div class="fp-tag">Featured</div>
+          <h3 class="fp-title">Sentiment Analysis Web App</h3>
         </div>
       </div>
-
-      <h2 style="margin-top:28px"><strong>Education</strong></h2>
-      <div class="panel">
-        <div class="media-list">
-          <div class="media-card">
-            <div class="media-logo"><img src="images/yeshiva_logo_square_centered.png" alt="Yeshiva University logo" loading="lazy"></div>
-            <div>
-              <h2 class="media-title">Yeshiva University, New York, USA</h2>
-              <h3 class="media-title">MS, Artificial Intelligence — Yeshiva University (New York)</h3>
-              <div class="media-period"><strong>2024 – Present</strong></div>
-              <ul class="media-bullets"><li>Focus: Data Analytics, Product-oriented ML, AI Ethics.</li></ul>
-              <p style="margin-top:10px"><a class="btn sm" href="https://www.yu.edu/" target="_blank" rel="noreferrer noopener">University site</a></p>
-            </div>
-          </div>
-
-          <div class="media-card">
-            <div class="media-logo"><img src="images/greenwich_logo_square_centered.png" alt="University of Greenwich logo" loading="lazy"></div>
-            <div>
-              <h2 class="media-title">University of Greenwich, London, UK</h2>
-              <h3 class="media-title">BSc Computer Science</h3>
-              <div class="media-period"><strong>2017 – 2020</strong></div>
-              <ul class="media-bullets"><li>Core CS: data structures, DBs, networking, web.</li></ul>
-              <p style="margin-top:10px"><a class="btn sm" href="https://www.gre.ac.uk/" target="_blank" rel="noreferrer noopener">University site</a></p>
-            </div>
-          </div>
+      <div class="fp-body">
+        <div class="fp-media">
+          <img src="images/Screenshot 2025-04-10 153022.png" alt="Sentiment Analysis Web App screenshot" loading="lazy">
+          <img src="images/Screenshot 2025-04-10 153022.png" alt="Sentiment Analysis result view" loading="lazy">
+        </div>
+        <p class="fp-desc">
+          Flask app that classifies feedback (positive / neutral / negative) with a reproducible pipeline.
+          Includes data cleaning, baseline modeling, and a simple UI for non-technical stakeholders.
+        </p>
+        <div class="fp-actions">
+          <a class="pill primary" href="https://github.com/puspitachy/Building-an-web-app-for-Sentiment-Analysis" target="_blank" rel="noreferrer noopener">
+            View Project ↗
+          </a>
+          <a class="pill" href="https://github.com/puspitachy/Building-an-web-app-for-Sentiment-Analysis" target="_blank" rel="noreferrer noopener">
+            GitHub Repo
+          </a>
         </div>
       </div>
-    </section>
+    </article>
+
+    <!-- 02 -->
+    <article class="featured-project project" data-tags="ai-ml">
+      <div class="fp-head">
+        <div class="fp-num">02</div>
+        <div class="fp-title-wrap">
+          <div class="fp-tag">Featured</div>
+          <h3 class="fp-title">Image Recognition</h3>
+        </div>
+      </div>
+      <div class="fp-body">
+        <div class="fp-media">
+          <img src="images/downloaded_image.png" alt="Image Recognition notebooks and plots" loading="lazy">
+          <img src="images/downloaded_image.png" alt="Model evaluation plots" loading="lazy">
+        </div>
+        <p class="fp-desc">
+          Classification experiments with clean notebooks and evaluation plots. Focus on strong baselines,
+          explainability, and repeatable training/evaluation workflows.
+        </p>
+        <div class="fp-actions">
+          <a class="pill primary" href="https://github.com/puspitachy/Image-Recognition-and-Classification-using-Convolutional-Neural-Network" target="_blank" rel="noreferrer noopener">
+            View Project ↗
+          </a>
+          <a class="pill" href="https://github.com/puspitachy/Image-Recognition-and-Classification-using-Convolutional-Neural-Network" target="_blank" rel="noreferrer noopener">
+            Notebooks
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <!-- 03 -->
+    <article class="featured-project project" data-tags="data-analyst,business-analyst">
+      <div class="fp-head">
+        <div class="fp-num">03</div>
+        <div class="fp-title-wrap">
+          <div class="fp-tag">Featured</div>
+          <h3 class="fp-title">Data Driven Road Safety Initiative</h3>
+        </div>
+      </div>
+      <div class="fp-body">
+        <div class="fp-media">
+          <img src="images/power.png" alt="Road safety Power BI dashboard screenshot" loading="lazy">
+          <img src="images/power.png" alt="Road safety insights view" loading="lazy">
+        </div>
+        <p class="fp-desc">
+          Power BI dashboards to identify high-risk zones and crash drivers. Includes hotspot mapping,
+          severity trends, and time-of-day patterns for decision-ready reporting.
+        </p>
+        <div class="fp-actions">
+          <a class="pill primary" href="https://github.com/puspitachy/Road-Accident-Analysis-by-Power-BI" target="_blank" rel="noreferrer noopener">
+            View Project ↗
+          </a>
+          <a class="pill" href="https://github.com/puspitachy/Road-Accident-Analysis-by-Power-BI" target="_blank" rel="noreferrer noopener">
+            Dashboard Details
+          </a>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <!-- ===== EXTRA PROJECTS (hidden until “Show all projects”) ===== -->
+  <div class="projects projects--extra-hidden" id="proj-grid">
+    <!-- Scuba App Design (Business Analyst / Product) -->
+    <article class="project-card project" data-tags="business-analyst">
+      <img class="project-img" src="images/dive_app_screenshot.png" alt="Mobile scuba diving app design mockup" loading="lazy">
+      <div class="project-body">
+        <h3 class="project-title">Scuba Diving App Design</h3>
+        <p class="project-desc">Mobile concept for divers: capture photos, track dive history, and browse memories.</p>
+        <div class="key-title">Key Achievements</div>
+        <ul class="key-bullets">
+          <li>Simple flows for logging dives & media.</li>
+          <li>Lightweight prototype.</li>
+          <li>Usability-first components.</li>
+        </ul>
+        <div class="tech-row"><span class="tech react">React</span><span class="tech firebase">Firebase</span><span class="tech">Prototype</span></div>
+        <div class="project-actions">
+          <span class="help">Code</span>
+          <a class="btn primary" href="https://github.com/puspitachy/UX-UI-design" target="_blank" rel="noreferrer noopener">View Project ↗</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Sales Dashboard (Excel) -->
+    <article class="project-card project" data-tags="data-analyst,business-analyst">
+      <img class="project-img" src="images/top_5_customers.png" alt="Coffee Sales dashboard visual" loading="lazy">
+      <div class="project-body">
+        <h3 class="project-title">Sales Dashboard</h3>
+        <p class="project-desc">Interactive Coffee Sales Dashboard to track top customers, product performance, and revenue trends.</p>
+        <div class="key-title">Key Achievements</div>
+        <ul class="key-bullets">
+          <li>Surfaced top-line KPIs & seasonality.</li>
+          <li>Improved stakeholder decision speed.</li>
+        </ul>
+        <div class="tech-row"><span class="tech excel">Excel</span><span class="tech">Power Query</span></div>
+        <div class="project-actions">
+          <span class="help">Repo</span>
+          <a class="btn primary" href="https://github.com/puspitachy/Data-Analysis-Coffee-sales-excel-dashboard" target="_blank" rel="noreferrer noopener">View Project ↗</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Bike Sales (Excel) -->
+    <article class="project-card project" data-tags="data-analyst,business-analyst">
+      <img class="project-img" src="images/downloaded_chart.png" alt="Bike Sales Excel dashboard" loading="lazy">
+      <div class="project-body">
+        <h3 class="project-title">Excel Dashboard</h3>
+        <p class="project-desc">Bike Sales Dashboard showing insights by region, marital status, and education to uncover buying patterns.</p>
+        <div class="key-title">Key Achievements</div>
+        <ul class="key-bullets">
+          <li>Clean Pivot-Table data model.</li>
+          <li>Clear slicers & charts for non-technical users.</li>
+        </ul>
+        <div class="tech-row"><span class="tech excel">Excel</span><span class="tech">Pivot Tables</span><span class="tech mpl">Charts</span></div>
+        <div class="project-actions">
+          <span class="help">Repo</span>
+          <a class="btn primary" href="https://github.com/puspitachy/Excel-project-bike-dataset" target="_blank" rel="noreferrer noopener">View Project ↗</a>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
 
     <!-- ===== PUBLISHED WORK ===== -->
     <section id="publications" aria-labelledby="pubs-heading">
@@ -797,51 +765,26 @@
     window.addEventListener('scroll', revealTop, { passive: true });
     toTop?.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
 
-    // Project filter
-    const buttons = document.querySelectorAll('#proj-filters .filter-btn');
-    const cards = document.querySelectorAll('#proj-grid .project');
-    buttons.forEach(btn => btn.addEventListener('click', () => {
-      buttons.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
-      btn.classList.add('active');
-      btn.setAttribute('aria-selected','true');
-      const key = btn.dataset.filter;
-      cards.forEach(card => {
-        const tags = (card.dataset.tags || '').split(',').map(s => s.trim());
-        const show = (key === 'all') || tags.includes(key);
-        card.classList.toggle('hidden', !show);
-      });
-    }));
+   // Project filter (filters BOTH featured + grid)
+const buttons = document.querySelectorAll('#proj-filters .filter-btn');
 
-    // Animate skill bars on first view
-    (function(){
-      const section = document.querySelector('#skills');
-      if(!section) return;
-      function animateBars(){
-        const rows = section.querySelectorAll('.skill-row');
-        rows.forEach(row=>{
-          if(row.dataset.done) return;
-          const target = +row.dataset.percent || 0;
-          const fill = row.querySelector('.fill');
-          const pct  = row.querySelector('.pct');
-          requestAnimationFrame(()=>{ fill.style.width = target + '%'; });
-          const start = performance.now(), dur = 1600;
-          const step = (now)=>{
-            const p = Math.min(1, (now - start)/dur);
-            pct.textContent = Math.round(p * target) + '%';
-            if(p < 1) requestAnimationFrame(step);
-            else { pct.textContent = target + '%'; row.dataset.done = '1'; }
-          };
-          requestAnimationFrame(step);
-        });
-      }
-      const io = new IntersectionObserver((entries)=>{
-        if(entries.some(e=>e.isIntersecting)){
-          animateBars(); io.disconnect();
-        }
-      }, {threshold:0.25});
-      io.observe(section);
-    })();
+// IMPORTANT: select all .project inside the projects section, not only #proj-grid
+const cards = document.querySelectorAll('#projects .project');
 
+buttons.forEach(btn => btn.addEventListener('click', () => {
+  buttons.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
+  btn.classList.add('active');
+  btn.setAttribute('aria-selected','true');
+
+  const key = btn.dataset.filter;
+
+  cards.forEach(card => {
+    const tags = (card.dataset.tags || '').split(',').map(s => s.trim());
+    const show = (key === 'all') || tags.includes(key);
+    card.classList.toggle('hidden', !show);
+  });
+}));
+    
     // Contact form (Formspree)
     const form = document.getElementById('contact-form');
     const toast = document.getElementById('form-toast');
