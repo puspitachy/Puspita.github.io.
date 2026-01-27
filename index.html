@@ -395,235 +395,141 @@
       </div>
     </section>
 
-    <!-- ===== PROJECTS ===== -->
-    <section id="projects" aria-labelledby="projects-heading">
-      <h2 id="projects-heading">Selected Projects</h2>
-      <div class="filters" id="proj-filters" role="tablist" aria-label="Project filters">
-        <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">All</button>
-        <button class="filter-btn" data-filter="ai" role="tab" aria-selected="false">AI</button>
-        <button class="filter-btn" data-filter="automation" role="tab" aria-selected="false">Automation</button>
-        <button class="filter-btn" data-filter="data-analytics" role="tab" aria-selected="false">Data Analytics</button>
-      </div>
+   <!-- ===== PROJECTS (FIXED: 3 portfolio versions) ===== -->
+<section id="projects" aria-labelledby="projects-heading">
+  <h2 id="projects-heading">Selected Projects</h2>
 
-      <div class="projects" id="proj-grid">
-        <!-- Sentiment Analysis -->
-        <article class="project-card project" data-tags="ai,data-analytics">
-          <img class="project-img" src="images/Screenshot 2025-04-10 153022.png" alt="Screenshot of Sentiment Analysis Web App" loading="lazy">
-          <div class="project-body">
-            <h3 class="project-title">Sentiment Analysis Web App</h3>
-            <p class="project-desc">Lightweight Flask app that classifies feedback (positive / neutral / negative) with a clean, reproducible pipeline.</p>
-            <div class="key-title">Key Achievements</div>
-            <ul class="key-bullets">
-              <li>End-to-end pipeline from cleaning → model → UI.</li>
-              <li>Explainable baseline for business stakeholders.</li>
-              <li>Ready for small-team deployment.</li>
-            </ul>
-            <div class="tech-row">
-              <span class="tech python">Python</span><span class="tech pandas">Pandas</span><span class="tech sklearn">scikit-learn</span><span class="tech flask">Flask</span>
-            </div>
-            <div class="project-actions">
-              <span class="help">Repo & notebooks</span>
-              <a class="btn primary" href="https://github.com/puspitachy/Building-an-web-app-for-Sentiment-Analysis" target="_blank" rel="noreferrer noopener">View Details ↗</a>
-            </div>
-          </div>
-        </article>
+  <!-- 3 portfolio versions -->
+  <div class="filters" id="proj-filters" role="tablist" aria-label="Project filters">
+    <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">All</button>
+    <button class="filter-btn" data-filter="data-analyst" role="tab" aria-selected="false">Data Analyst</button>
+    <button class="filter-btn" data-filter="ai-ml" role="tab" aria-selected="false">AI / ML</button>
+    <button class="filter-btn" data-filter="business-analyst" role="tab" aria-selected="false">Business Analyst</button>
+  </div>
 
-        <!-- Image Recognition -->
-        <article class="project-card project" data-tags="ai">
-          <img class="project-img" src="images/downloaded_image.png" alt="Image Recognition notebooks and plots" loading="lazy">
-          <div class="project-body">
-            <h3 class="project-title">Image Recognition</h3>
-            <p class="project-desc">Classification & segmentation experiments with tidy notebooks and evaluation plots; focus on baselines & explainability.</p>
-            <div class="key-title">Key Achievements</div>
-            <ul class="key-bullets">
-              <li>Reproducible EDA + metrics.</li>
-              <li>PyTorch CNN for image classification.</li>
-              <li>Benchmark baselines for rapid iteration.</li>
-            </ul>
-            <div class="tech-row"><span class="tech pytorch">PyTorch</span><span class="tech">TorchVision</span><span class="tech numpy">NumPy</span><span class="tech mpl">Matplotlib</span></div>
-            <div class="project-actions">
-              <span class="help">Notebooks</span>
-              <a class="btn primary" href="https://github.com/puspitachy/Image-Recognition-and-Classification-using-Convolutional-Neural-Network" target="_blank" rel="noreferrer noopener">View Details ↗</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Data Driven Road Safety Initiative  -->
-        <article class="project-card project" data-tags="automation,data-analytics">
-          <img class="project-img" src="images/power.png" alt="Applied GenAI workflows screenshot" loading="lazy">
-          <div class="project-body">
-            <h3 class="project-title">Data Driven Road Safety Initiative</h3>
-            <p class="project-desc">    Interactive Power BI dashboards to identify high-risk zones and key crash factors—supporting a 15% reduction in targeted areas</p>
-            <div class="key-title">Key Achievements</div>
-            <ul class="key-bullets">
-              <li>Hotspot maps, severity trends, time-of-day patterns, and KPI overview</li>
-              <li>Time-intelligence, severity KPIs, exposure-adjusted rates</li>
-              <li>Power Query (M) for cleaning, conforming codes, and incremental refresh</li>
-            </ul>
-            <div class="tech-row"><span class="tech python">Power BI</span><span class="tech">Dax</span><span class="tech">Report</span></div>
-            <div class="project-actions">
-              <span class="help">Repo & Notebooks</span>
-              <a class="btn primary" href="https://github.com/puspitachy/Road-Accident-Analysis-by-Power-BI" target="_blank" rel="noreferrer noopener">View Details ↗</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- UX/UI Design (Scuba App) -->
-        <article class="project-card project" data-tags="ai,automation">
-          <img class="project-img" src="images/dive_app_screenshot.png" alt="Mobile scuba diving app design mockup" loading="lazy">
-          <div class="project-body">
-            <h3 class="project-title">Scuba Diving App Design</h3>
-            <p class="project-desc">Mobile concept for divers: capture photos, track dive history, and browse memories.</p>
-            <div class="key-title">Key Achievements</div>
-            <ul class="key-bullets">
-              <li>Simple flows for logging dives & media.</li>
-              <li>Lightweight prototype.</li>
-              <li>Usability-first components.</li>
-            </ul>
-            <div class="tech-row"><span class="tech react">React</span><span class="tech firebase">Firebase</span><span class="tech">Cloud Functions</span></div>
-            <div class="project-actions">
-              <span class="help">Code</span>
-              <a class="btn primary" href="https://github.com/puspitachy/UX-UI-design" target="_blank" rel="noreferrer noopener">View Details ↗</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Coffee Sales Dashboard -->
-        <article class="project-card project" data-tags="data-analytics">
-          <img class="project-img" src="images/top_5_customers.png" alt="Coffee Sales dashboard visual" loading="lazy">
-          <div class="project-body">
-            <h3 class="project-title">Sales Dashboard</h3>
-            <p class="project-desc">Interactive Coffee Sales Dashboard to track top customers, product performance, and revenue trends.</p>
-            <div class="key-title">Key Achievements</div>
-            <ul class="key-bullets">
-              <li>Surfaced top-line KPIs & seasonality.</li>
-              <li>Improved stakeholder decision speed.</li>
-            </ul>
-            <div class="tech-row"><span class="tech excel">Excel</span><span class="tech">Power Query</span></div>
-            <div class="project-actions">
-              <span class="help">Summary</span>
-              <a class="btn primary" href="https://github.com/puspitachy/Data-Analysis-Coffee-sales-excel-dashboard" aria-disabled="true" style="opacity:.65">View Details</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Bike Sales Dashboard -->
-        <article class="project-card project" data-tags="data-analytics">
-          <img class="project-img" src="images/downloaded_chart.png" alt="Bike Sales Excel dashboard" loading="lazy">
-          <div class="project-body">
-            <h3 class="project-title">Excel Dashboard</h3>
-            <p class="project-desc">Bike Sales Dashboard showing insights by region, marital status, and education to uncover buying patterns.</p>
-            <div class="key-title">Key Achievements</div>
-            <ul class="key-bullets">
-              <li>Clean Pivot-Table data model.</li>
-              <li>Clear slicers & charts for non-technical users.</li>
-            </ul>
-            <div class="tech-row"><span class="tech excel">Excel</span><span class="tech">Pivot Tables</span><span class="tech mpl">Charts</span></div>
-            <div class="project-actions">
-              <span class="help">Gallery</span>
-              <a class="btn primary" href="https://github.com/puspitachy/Excel-project-bike-dataset" aria-disabled="true" style="opacity:.65">View details</a>
-            </div>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- ===== SKILLS ===== -->
-    <section id="skills" aria-labelledby="skills-heading">
-      <h2 id="skills-heading">Skills</h2>
-      <div class="panel">
-        <div class="skills-bars">
-          <!-- Python -->
-          <div class="skill-row" data-percent="95">
-            <img class="skill-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python logo" loading="lazy">
-            <div class="skill-col">
-              <div class="skill-name">Python</div>
-              <div class="skill-meter"><div class="fill"></div><span class="pct">0%</span></div>
-            </div>
-          </div>
-          <!-- Pandas -->
-          <div class="skill-row" data-percent="92">
-            <img class="skill-icon" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/pandas/pandas-original.svg" alt="Pandas logo" loading="lazy">
-            <div class="skill-col">
-              <div class="skill-name">Pandas</div>
-              <div class="skill-meter"><div class="fill"></div><span class="pct">0%</span></div>
-            </div>
-          </div>
-          <!-- NumPy -->
-          <div class="skill-row" data-percent="90">
-            <img class="skill-icon" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/numpy/numpy-original.svg" alt="NumPy logo" loading="lazy">
-            <div class="skill-col">
-              <div class="skill-name">NumPy</div>
-              <div class="skill-meter"><div class="fill"></div><span class="pct">0%</span></div>
-            </div>
-          </div>
-          <!-- scikit-learn -->
-          <div class="skill-row" data-percent="90">
-            <img class="skill-icon" src="https://scikit-learn.org/stable/_static/scikit-learn-logo-small.png" alt="scikit-learn logo" loading="lazy">
-            <div class="skill-col">
-              <div class="skill-name">scikit-learn</div>
-              <div class="skill-meter"><div class="fill"></div><span class="pct">0%</span></div>
-            </div>
-          </div>
-          <!-- SQL (icon is white → add helper class for better light-contrast) -->
-          <div class="skill-row" data-percent="88">
-            <img class="skill-icon" src="images/61_sql-database-generic.90b41636a8.jpg" alt="SQL logo" loading="lazy">
-            <div class="skill-col">
-              <div class="skill-name">SQL</div>
-              <div class="skill-meter"><div class="fill"></div><span class="pct">0%</span></div>
-            </div>
-          </div>
-          <!-- Power BI / Tableau -->
-          <div class="skill-row" data-percent="90">
-            <img class="skill-icon logo--white-on-dark" src="https://cdn.worldvectorlogo.com/logos/tableau-software.svg" alt="Power BI / Tableau logo" loading="lazy">
-            <div class="skill-col">
-              <div class="skill-name">Power BI / Tableau</div>
-              <div class="skill-meter"><div class="fill"></div><span class="pct">0%</span></div>
-            </div>
-          </div>
-          <!-- Matplotlib -->
-          <div class="skill-row" data-percent="88">
-            <img class="skill-icon" src="images/1679493396295.png" alt="Matplotlib logo" loading="lazy">
-            <div class="skill-col">
-              <div class="skill-name">Matplotlib</div>
-              <div class="skill-meter"><div class="fill"></div><span class="pct">0%</span></div>
-            </div>
-          </div>
-          <!-- Flask -->
-          <div class="skill-row" data-percent="94">
-            <img class="skill-icon" src="images/Flask-Dark.svg" alt="Flask logo" loading="lazy">
-            <div class="skill-col">
-              <div class="skill-name">Flask</div>
-              <div class="skill-meter"><div class="fill"></div><span class="pct">0%</span></div>
-            </div>
-          </div>
-          <!-- React + Firebase -->
-          <div class="skill-row" data-percent="85">
-            <img class="skill-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React logo" loading="lazy">
-            <div class="skill-col">
-              <div class="skill-name">React + Firebase</div>
-              <div class="skill-meter"><div class="fill"></div><span class="pct">0%</span></div>
-            </div>
-          </div>
-          <!-- Git / GitHub -->
-          <div class="skill-row" data-percent="92">
-            <img class="skill-icon" src="images/github-6980894_640.png" alt="GitHub logo" loading="lazy">
-            <div class="skill-col">
-              <div class="skill-name">Git / GitHub</div>
-              <div class="skill-meter"><div class="fill"></div><span class="pct">0%</span></div>
-            </div>
-          </div>
-          <!-- Excel -->
-          <div class="skill-row" data-percent="97">
-            <img class="skill-icon" src="https://img.icons8.com/color/48/microsoft-excel-2019--v1.png" alt="Excel logo" loading="lazy">
-            <div class="skill-col">
-              <div class="skill-name">Excel</div>
-              <div class="skill-meter"><div class="fill"></div><span class="pct">0%</span></div>
-            </div>
-          </div>
+  <div class="projects" id="proj-grid">
+    <!-- Sentiment Analysis (AI/ML + Data Analyst) -->
+    <article class="project-card project" data-tags="ai-ml,data-analyst">
+      <img class="project-img" src="images/Screenshot 2025-04-10 153022.png" alt="Screenshot of Sentiment Analysis Web App" loading="lazy">
+      <div class="project-body">
+        <h3 class="project-title">Sentiment Analysis Web App</h3>
+        <p class="project-desc">Lightweight Flask app that classifies feedback (positive / neutral / negative) with a clean, reproducible pipeline.</p>
+        <div class="key-title">Key Achievements</div>
+        <ul class="key-bullets">
+          <li>End-to-end pipeline from cleaning → model → UI.</li>
+          <li>Explainable baseline for business stakeholders.</li>
+          <li>Ready for small-team deployment.</li>
+        </ul>
+        <div class="tech-row">
+          <span class="tech python">Python</span><span class="tech pandas">Pandas</span><span class="tech sklearn">scikit-learn</span><span class="tech flask">Flask</span>
+        </div>
+        <div class="project-actions">
+          <span class="help">Repo & notebooks</span>
+          <a class="btn primary" href="https://github.com/puspitachy/Building-an-web-app-for-Sentiment-Analysis" target="_blank" rel="noreferrer noopener">View Details ↗</a>
         </div>
       </div>
-    </section>
+    </article>
+
+    <!-- Image Recognition (AI/ML) -->
+    <article class="project-card project" data-tags="ai-ml">
+      <img class="project-img" src="images/downloaded_image.png" alt="Image Recognition notebooks and plots" loading="lazy">
+      <div class="project-body">
+        <h3 class="project-title">Image Recognition</h3>
+        <p class="project-desc">Classification & segmentation experiments with tidy notebooks and evaluation plots; focus on baselines & explainability.</p>
+        <div class="key-title">Key Achievements</div>
+        <ul class="key-bullets">
+          <li>Reproducible EDA + metrics.</li>
+          <li>PyTorch CNN for image classification.</li>
+          <li>Benchmark baselines for rapid iteration.</li>
+        </ul>
+        <div class="tech-row"><span class="tech pytorch">PyTorch</span><span class="tech">TorchVision</span><span class="tech numpy">NumPy</span><span class="tech mpl">Matplotlib</span></div>
+        <div class="project-actions">
+          <span class="help">Notebooks</span>
+          <a class="btn primary" href="https://github.com/puspitachy/Image-Recognition-and-Classification-using-Convolutional-Neural-Network" target="_blank" rel="noreferrer noopener">View Details ↗</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Road Safety (Data Analyst + Business Analyst) -->
+    <article class="project-card project" data-tags="data-analyst,business-analyst">
+      <img class="project-img" src="images/power.png" alt="Road safety Power BI dashboard screenshot" loading="lazy">
+      <div class="project-body">
+        <h3 class="project-title">Data Driven Road Safety Initiative</h3>
+        <p class="project-desc">Interactive Power BI dashboards to identify high-risk zones and crash drivers—supporting a 15% reduction in targeted areas.</p>
+        <div class="key-title">Key Achievements</div>
+        <ul class="key-bullets">
+          <li>Hotspot maps, severity trends, time-of-day patterns, and KPI overview.</li>
+          <li>Time-intelligence, severity KPIs, exposure-adjusted rates.</li>
+          <li>Power Query (M) for cleaning, conforming codes, and incremental refresh.</li>
+        </ul>
+        <div class="tech-row"><span class="tech python">Power BI</span><span class="tech">DAX</span><span class="tech">Power Query</span></div>
+        <div class="project-actions">
+          <span class="help">Repo</span>
+          <a class="btn primary" href="https://github.com/puspitachy/Road-Accident-Analysis-by-Power-BI" target="_blank" rel="noreferrer noopener">View Details ↗</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Scuba App Design (Business Analyst / Product) -->
+    <article class="project-card project" data-tags="business-analyst">
+      <img class="project-img" src="images/dive_app_screenshot.png" alt="Mobile scuba diving app design mockup" loading="lazy">
+      <div class="project-body">
+        <h3 class="project-title">Scuba Diving App Design</h3>
+        <p class="project-desc">Mobile concept for divers: capture photos, track dive history, and browse memories.</p>
+        <div class="key-title">Key Achievements</div>
+        <ul class="key-bullets">
+          <li>Simple flows for logging dives & media.</li>
+          <li>Lightweight prototype.</li>
+          <li>Usability-first components.</li>
+        </ul>
+        <div class="tech-row"><span class="tech react">React</span><span class="tech firebase">Firebase</span><span class="tech">Prototype</span></div>
+        <div class="project-actions">
+          <span class="help">Code</span>
+          <a class="btn primary" href="https://github.com/puspitachy/UX-UI-design" target="_blank" rel="noreferrer noopener">View Details ↗</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Coffee Sales (Data Analyst + Business Analyst) -->
+    <article class="project-card project" data-tags="data-analyst,business-analyst">
+      <img class="project-img" src="images/top_5_customers.png" alt="Coffee Sales dashboard visual" loading="lazy">
+      <div class="project-body">
+        <h3 class="project-title">Sales Dashboard</h3>
+        <p class="project-desc">Interactive Coffee Sales Dashboard to track top customers, product performance, and revenue trends.</p>
+        <div class="key-title">Key Achievements</div>
+        <ul class="key-bullets">
+          <li>Surfaced top-line KPIs & seasonality.</li>
+          <li>Improved stakeholder decision speed.</li>
+        </ul>
+        <div class="tech-row"><span class="tech excel">Excel</span><span class="tech">Power Query</span></div>
+        <div class="project-actions">
+          <span class="help">Repo</span>
+          <a class="btn primary" href="https://github.com/puspitachy/Data-Analysis-Coffee-sales-excel-dashboard" target="_blank" rel="noreferrer noopener">View Details ↗</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Bike Sales (Data Analyst + Business Analyst) -->
+    <article class="project-card project" data-tags="data-analyst,business-analyst">
+      <img class="project-img" src="images/downloaded_chart.png" alt="Bike Sales Excel dashboard" loading="lazy">
+      <div class="project-body">
+        <h3 class="project-title">Excel Dashboard</h3>
+        <p class="project-desc">Bike Sales Dashboard showing insights by region, marital status, and education to uncover buying patterns.</p>
+        <div class="key-title">Key Achievements</div>
+        <ul class="key-bullets">
+          <li>Clean Pivot-Table data model.</li>
+          <li>Clear slicers & charts for non-technical users.</li>
+        </ul>
+        <div class="tech-row"><span class="tech excel">Excel</span><span class="tech">Pivot Tables</span><span class="tech mpl">Charts</span></div>
+        <div class="project-actions">
+          <span class="help">Repo</span>
+          <a class="btn primary" href="https://github.com/puspitachy/Excel-project-bike-dataset" target="_blank" rel="noreferrer noopener">View Details ↗</a>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
 
     <!-- ===== EXPERIENCE & EDUCATION ===== -->
     <section id="experience" aria-labelledby="exp-heading">
