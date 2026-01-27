@@ -353,6 +353,136 @@
       .pub-card:hover{transform:none}
       .skill-meter .fill{transition:none}
     }
+
+    /* ================================
+   Uber-style Featured Projects
+   (paste at END of your <style>)
+   ================================ */
+:root{
+  --uberNavy:#0b0a2a;
+  --uberNavy2:#070724;
+  --uberGold:#f2b300;
+}
+
+/* wrapper */
+.featured-wrap{display:grid; gap:26px; margin-top:18px}
+
+/* main card */
+.featured-card{
+  border-radius:22px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.10);
+  box-shadow:var(--shadow);
+  background:linear-gradient(180deg, var(--uberNavy) 0%, var(--uberNavy2) 70%);
+}
+:root[data-theme="light"] .featured-card{
+  border-color:rgba(0,0,0,.10);
+}
+
+/* header: 01 + title */
+.featured-head{
+  display:grid;
+  grid-template-columns:120px 1fr;
+  gap:18px;
+  align-items:center;
+  padding:26px 26px 18px;
+}
+.featured-no{
+  font-family:Poppins, Inter, sans-serif;
+  font-weight:900;
+  font-size:78px;
+  line-height:1;
+  color:#fff;
+}
+.featured-title{
+  margin:0;
+  font-family:Poppins, Inter, sans-serif;
+  font-weight:900;
+  letter-spacing:.6px;
+  text-transform:uppercase;
+  color:var(--uberGold);
+  font-size:clamp(26px, 2.6vw, 44px);
+  line-height:1.15;
+}
+
+/* two images row */
+.featured-media{
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:0;
+  background:#fff; /* matches your screenshot */
+}
+.featured-media img{
+  width:100%;
+  height:320px;
+  object-fit:cover;
+  display:block;
+}
+@media (max-width:980px){
+  .featured-head{grid-template-columns:90px 1fr}
+  .featured-no{font-size:58px}
+  .featured-media{grid-template-columns:1fr}
+  .featured-media img{height:260px}
+}
+
+/* bottom text + buttons */
+.featured-bottom{
+  padding:18px 26px 22px;
+  display:grid;
+  grid-template-columns:1.4fr .9fr;
+  gap:22px;
+  align-items:center;
+}
+.featured-desc{
+  margin:0;
+  color:#e9eefc;
+  font-size:1.02rem;
+  line-height:1.65;
+}
+.featured-desc .hi{color:var(--uberGold); font-weight:900}
+
+.featured-actions{
+  display:flex;
+  gap:14px;
+  justify-content:flex-end;
+  flex-wrap:wrap;
+}
+@media (max-width:980px){
+  .featured-bottom{grid-template-columns:1fr}
+  .featured-actions{justify-content:flex-start}
+}
+
+/* outline pill buttons */
+.pill-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:14px 18px;
+  border-radius:999px;
+  font-weight:900;
+  color:var(--uberGold);
+  text-decoration:none;
+  border:3px solid rgba(255,255,255,.85);
+  background:transparent;
+  min-width:170px;
+  text-align:center;
+  transition:.18s;
+}
+.pill-btn:hover{transform:translateY(-2px)}
+.pill-btn:focus{outline:none; box-shadow:var(--outline)}
+
+/* tools / analysis strip (IMPORTANT: avoids conflict with your .row class) */
+.featured-strip{
+  background:linear-gradient(180deg, #0b0a2a 0%, #080826 100%);
+  border-top:1px solid rgba(255,255,255,.10);
+  padding:16px 26px;
+  font-weight:900;
+  letter-spacing:.2px;
+  color:#fff;
+}
+.featured-strip .label{color:var(--uberGold); margin-right:8px}
+.featured-strip .line{margin:2px 0}
+
   </style>
 </head>
 
