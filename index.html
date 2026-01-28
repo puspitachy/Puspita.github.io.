@@ -483,6 +483,17 @@
 .featured-strip .label{color:var(--uberGold); margin-right:8px}
 .featured-strip .line{margin:2px 0}
 
+    /* hide extra projects initially */
+.projects--extra-hidden {
+  display: none;
+}
+
+/* when expanded */
+.projects--extra-show {
+  display: grid !important;
+}
+
+
   </style>
 </head>
 
@@ -904,6 +915,31 @@
 
    // Project filter (filters BOTH featured + grid)
 const buttons = document.querySelectorAll('#proj-filters .filter-btn');
+    // ===== SHOW MORE / SHOW LESS =====
+const toggleBtn = document.getElementById('toggle-projects');
+const extraProjects = document.getElementById('proj-grid');
+const projectsNote = document.getElementById('projects-note');
+
+toggleBtn?.addEventListener('click', () => {
+  const expanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+
+  if (expanded) {
+    // Hide again
+    extraProjects.classList.remove('projects--extra-show');
+    extraProjects.classList.add('projects--extra-hidden');
+    toggleBtn.textContent = "Show all projects";
+    projectsNote.textContent = "Showing 3 featured projects";
+    toggleBtn.setAttribute('aria-expanded', 'false');
+  } else {
+    // Show all
+    extraProjects.classList.remove('projects--extra-hidden');
+    extraProjects.classList.add('projects--extra-show');
+    toggleBtn.textContent = "Show fewer projects";
+    projectsNote.textContent = "Showing all projects";
+    toggleBtn.setAttribute('aria-expanded', 'true');
+  }
+});
+
 
 // IMPORTANT: select all .project inside the projects section, not only #proj-grid
 const cards = document.querySelectorAll('#projects .project');
