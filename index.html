@@ -15,32 +15,43 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
 
-  <style>
-   :root{
-  --bg:#002B36;          /* Dark Teal */
-  --panel:#003844;       /* Slightly lighter teal for cards */
-  --text:#EAF4F4;        /* Soft white teal-friendly */
-  --muted:#87A5A6;       /* Muted grey-teal for secondary text */
-  --accent:#FF8A00;      /* Warm Orange */
-  --accent-2:#FFA733;    /* Lighter orange for gradients */
+<style>
+:root{
+  /* Water Background (Deep + Light Turquoise) */
+  --bg:#008F9B;          /* Deep Water Teal */
+  --panel:#0AA7A7;       /* Soft Aqua Panel */
+
+  /* Text */
+  --text:#EAF4F4;        /* Soft white */
+  --muted:#9CD3D3;       /* Muted light aqua */
+
+  /* Forest Orange Buttons + Accents */
+  --accent:#D86B32;      /* Forest Orange */
+  --accent-2:#FF9A4A;    /* Lighter orange for gradients */
+  --link:#FFB066;        /* Orange-tinted link */
+
+  /* Others */
   --success:#19c37d;
   --radius:16px;
   --shadow:0 10px 30px rgba(0,0,0,.45);
-  --link:#FFB066;        /* Orange-tinted link color */
-  --outline:0 0 0 3px rgba(255,138,0,.45);
-  --softBorderDark: rgba(255,255,255,.10);
-  --softBorderLight: rgba(0,0,0,.08);
-  --subtleFillDark: rgba(255,255,255,.04);
+  --outline:0 0 0 3px rgba(216,107,50,.4); /* Orange glow outline */
+  --softBorderDark: rgba(255,255,255,.12);
+  --softBorderLight: rgba(0,0,0,.1);
+  --subtleFillDark: rgba(255,255,255,.06);
   --subtleFillLight: rgba(0,0,0,.03);
 }
-    :root[data-theme="light"]{
-  --bg:#FDFBF8;
-  --panel:#FFFFFF;
-  --text:#0D1F21;
-  --muted:#5B6E6F;
-  --link:#FF8A00;
-  --shadow:0 10px 30px rgba(0,0,0,.08);
+
+/* LIGHT MODE (Natural Desert + Soft Water Inspired) */
+:root[data-theme="light"]{
+  --bg:#F5FCFC;          /* Very pale aqua */
+  --panel:#FFFFFF;       /* Clean white */
+  --text:#0D1F21;        /* Charcoal */
+  --muted:#5B6E6F;       /* Grey teal */
+  --link:#D86B32;        /* Forest orange */
+  --shadow:0 10px 30px rgba(0,0,0,.05);
 }
+
+
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
