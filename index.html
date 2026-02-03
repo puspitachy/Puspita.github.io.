@@ -848,123 +848,126 @@
   }
 }
 
-/* ===== EDUCATION (clean working) ===== */
-.edu-section{
-  padding:64px 0;
+/* ===== EDUCATION + EXPERIENCE split (like screenshot) ===== */
+.edex-section{
+  padding: 80px 0;
 }
 
-.edu-header{
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-  margin-bottom:22px;
+/* Top pill */
+.edex-pill{
+  display:inline-block;
+  padding: 12px 18px;
+  border-radius: 18px;
+  border: 3px solid #ffb800;
+  color: #ffb800;
+  font-family: Poppins, Inter, sans-serif;
+  font-weight: 800;
+  letter-spacing: .5px;
+  margin-bottom: 26px;
 }
 
-.edu-big{
-  margin:0;
-  font-family:Poppins, Inter, sans-serif;
-  font-weight:900;
-  font-size:clamp(28px, 3.2vw, 44px);
-  line-height:1.1;
+.edex-pill .muted{
+  color: rgba(255,255,255,.9);
+  font-weight: 600;
 }
 
-.edu-list{
+/* Grid */
+.edex-grid{
   display:grid;
-  gap:18px;
+  grid-template-columns: 1fr 2px 1fr;
+  gap: 34px;
+  align-items: start;
 }
 
-/* CARD */
-.edu-card2{
+/* Divider line */
+.edex-divider{
+  width: 2px;
+  height: 100%;
+  background: rgba(255,255,255,.35);
+  border-radius: 2px;
+}
+
+/* Titles */
+.edex-title{
+  margin: 0 0 20px;
+  font-family: Poppins, Inter, sans-serif;
+  font-weight: 900;
+  font-size: clamp(34px, 3.3vw, 54px);
+  letter-spacing: 1px;
+  color: #ffb800;
+}
+
+/* Item */
+.edex-item{
   display:grid;
-  grid-template-columns: 110px 1fr; /* logo column */
-  gap:22px;
-  align-items:center;
-  padding:22px;
-  border-radius:22px;
-  border:1px solid rgba(255,255,255,.12);
-  background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
-  box-shadow:0 16px 40px rgba(0,0,0,.35);
+  grid-template-columns: 110px 1fr;
+  gap: 18px;
+  align-items: start;
+  margin-bottom: 26px;
 }
 
-:root[data-theme="light"] .edu-card2{
-  background:#fff;
-  border-color:rgba(0,0,0,.10);
-  box-shadow:0 10px 26px rgba(0,0,0,.08);
-}
-
-/* LEFT LOGO WRAPPER */
-.edu-photoWrap{
+/* Circle logo */
+.edex-logoWrap{
   display:flex;
+  align-items:flex-start;
   justify-content:center;
-  align-items:center;
 }
 
-/* LOGO (SAME SIZE FOR BOTH) */
-.edu-logo{
-  width:90px;
-  height:90px;
-  object-fit:contain;
-  border-radius:50%;
-  background: #ffffff;
-  padding:10px;
-  border:5px solid rgba(255,255,255,.12);
-  box-shadow:0 18px 38px rgba(0,0,0,.22);
+.edex-logo{
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+  object-fit: contain;
+  background: #ffb800;           /* yellow circle like screenshot */
+  padding: 12px;
+  box-shadow: 0 18px 40px rgba(0,0,0,.35);
 }
 
-/* Light mode logo border */
-:root[data-theme="light"] .edu-logo{
-  border:5px solid rgba(0,0,0,.08);
+/* Text */
+.edex-org{
+  margin: 0 0 6px;
+  font-family: Poppins, Inter, sans-serif;
+  font-size: 26px;
+  font-weight: 900;
+  color: #ffb800;
 }
 
-/* RIGHT TEXT */
-.edu-info{
-  display:flex;
-  flex-direction:column;
-  gap:8px;
+.edex-points{
+  margin: 0;
+  padding-left: 18px;
+  color: rgba(255,255,255,.92);
+  line-height: 1.6;
+  font-size: 18px;
 }
 
-.edu-school{
-  font-size:1.35rem;
-  font-weight:900;
-  margin:0;
+.edex-points li{
+  margin: 6px 0;
 }
 
-.edu-degree{
-  font-size:1.08rem;
-  opacity:.92;
-  margin:0;
+.edex-points .sub{
+  list-style: none;
+  padding-left: 0;
+  margin-left: -18px;
+  color: rgba(255,255,255,.85);
+  font-size: 16px;
 }
 
-/* chips row */
-.edu-metaRow{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-  margin-top:4px;
+.gold{
+  color:#ffb800;
+  font-weight: 900;
 }
 
-/* bullets (YOU USE edu-bullets2 in HTML) */
-.edu-bullets2{
-  margin:12px 0 0;
-  padding-left:18px;
-  line-height:1.65;
-  font-size:1.02rem; /* keeps it NOT tiny */
-}
-
-.edu-bullets2 li{
-  margin:6px 0;
-}
-
-/* RESPONSIVE */
-@media (max-width: 800px){
-  .edu-card2{
-    grid-template-columns:1fr;
-    gap:14px;
+/* Mobile */
+@media (max-width: 900px){
+  .edex-grid{
+    grid-template-columns: 1fr;
+    gap: 24px;
   }
-
-  .edu-logo{
-    width:82px;
-    height:82px;
+  .edex-divider{
+    display:none;
+  }
+  .edex-item{
+    grid-template-columns: 92px 1fr;
   }
 }
 
@@ -1094,64 +1097,86 @@
 
 
 
-<!-- ===== EDUCATION (Logo + Card style) ===== -->
-<section id="education" aria-labelledby="edu-heading" class="edu-section">
-  <h2 id="edu-heading" class="sr-only">Education</h2>
+<!-- ===== EDUCATION + EXPERIENCE (Split Layout like example) ===== -->
+<section id="edu-exp" class="edex-section" aria-labelledby="edex-heading">
+  <div class="edex-pill">Education & Experience <span class="muted">Background</span></div>
 
-  <div class="edu-header">
-    <span class="tag">Education</span>
-    <h2 class="edu-big">My <span class="gold">Education</span></h2>
-  </div>
+  <div class="edex-grid">
+    <!-- LEFT: EDUCATION -->
+    <div class="edex-col">
+      <h2 id="edex-heading" class="edex-title">EDUCATION</h2>
 
-  <div class="edu-list">
-    <article class="edu-card2">
-      <div class="edu-photoWrap">
-        <img class="edu-logo" src="images/yyy.png" alt="Yeshiva University logo" loading="lazy">
-      </div>
-
-      <div class="edu-info">
-        <div class="edu-school">Yeshiva University</div>
-        <div class="edu-degree">M.S. in Artificial Intelligence</div>
-
-        <div class="edu-metaRow">
-          <span class="edu-chip2">New York, USA</span>
-          <span class="edu-chip2">2024 – Present</span>
+      <!-- Education item 1 -->
+      <article class="edex-item">
+        <div class="edex-logoWrap">
+          <img src="images/yeshiva_logo_square_centered.png" class="edex-logo" alt="Yeshiva University logo">
         </div>
 
-        <ul class="edu-bullets2">
-          <li><span class="gold">Focus:</span> Data Analytics, Product ML, Human-Centered AI</li>
-          <li><span class="gold">Tools:</span> Python, SQL, Excel, Power BI, Tableau</li>
-          <li><span class="gold">Highlights:</span> Research + analytics projects, ML prototypes, dashboards</li>
-        </ul>
-
-        <div class="edu-actions2">
-          <a class="edu-btn2 outline" href="#projects">Projects</a>
-          <a class="edu-btn2 gold" href="images/Puspita Chowdhury new res.pdf" download>Download CV</a>
+        <div class="edex-body">
+          <h3 class="edex-org">Yeshiva University</h3>
+          <ul class="edex-points">
+            <li><span class="gold">M.S. in Artificial Intelligence</span> (2024 – Present)</li>
+            <li class="sub">New York, USA</li>
+            <li class="sub">Focus: Data Analytics, Product ML, Human-Centered AI</li>
+          </ul>
         </div>
-      </div>
-    </article>
+      </article>
 
-    <article class="edu-card2">
-      <div class="edu-photoWrap">
-        <img class="edu-logo" src="images/gg.png" alt="University of Greenwich logo" loading="lazy">
-      </div>
-
-      <div class="edu-info">
-        <div class="edu-school">University of Greenwich</div>
-        <div class="edu-degree">BSc in Computer Science</div>
-
-        <div class="edu-metaRow">
-          <span class="edu-chip2">London, UK</span>
-          <span class="edu-chip2">2018 – 2021</span>
+      <!-- Education item 2 -->
+      <article class="edex-item">
+        <div class="edex-logoWrap">
+          <img src="images/greenwich_logo_square_centered.png" class="edex-logo" alt="University of Greenwich logo">
         </div>
 
-        <ul class="edu-bullets2">
-          <li><span class="gold">Focus:</span> Programming, Software Engineering, Databases</li>
-          <li><span class="gold">Skills:</span> Java, Python, Web Development, Data Structures</li>
-          <li><span class="gold">Highlights:</span> Final-year project, algorithms, OOP, system design</li>
-        </ul>
-      </div>
-    </article>
+        <div class="edex-body">
+          <h3 class="edex-org">University of Greenwich</h3>
+          <ul class="edex-points">
+            <li><span class="gold">BSc in Computer Science</span> (2018 – 2021)</li>
+            <li class="sub">London, UK</li>
+            <li class="sub">Focus: Programming, Software Engineering, Databases</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+
+    <!-- CENTER DIVIDER -->
+    <div class="edex-divider" aria-hidden="true"></div>
+
+    <!-- RIGHT: EXPERIENCE -->
+    <div class="edex-col">
+      <h2 class="edex-title">EXPERIENCE</h2>
+
+      <!-- Experience item 1 -->
+      <article class="edex-item">
+        <div class="edex-logoWrap">
+          <img src="images/yeshiva_90x90.png" class="edex-logo" alt="Yeshiva University logo">
+        </div>
+
+        <div class="edex-body">
+          <h3 class="edex-org">Yeshiva University</h3>
+          <ul class="edex-points">
+            <li><span class="gold">Tech Support</span> (2026 – Present)</li>
+            <li class="sub">Support live online classes, troubleshooting, Zoom/AV setup</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- Experience item 2 -->
+      <article class="edex-item">
+        <div class="edex-logoWrap">
+          <img src="images/your_company_logo.png" class="edex-logo" alt="Company logo">
+        </div>
+
+        <div class="edex-body">
+          <h3 class="edex-org">One to World</h3>
+          <ul class="edex-points">
+            <li><span class="gold">Global Guide</span> (Part-time)</li>
+            <li class="sub">Mentored international students and supported engagement programs</li>
+          </ul>
+        </div>
+      </article>
+
+    </div>
   </div>
 </section>
 
