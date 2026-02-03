@@ -728,31 +728,49 @@ footer{margin-top:28px; padding:32px 0 56px; border-top:1px solid rgba(255,255,2
 .copyright{color:var(--muted); margin-top:14px; text-align:center}
 
 .hidden{display:none !important}
+/* ===== CONTACT FIX (paste at very end) ===== */
 
-
-  .contact-container {
+/* make sure grid columns behave correctly */
+#contact .contact-grid{
   display: grid;
-  grid-template-columns: 1fr 1fr;   /* 2 equal wide columns */
-  gap: 40px;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+  gap: 28px;
   align-items: start;
-  width: 100%;
-  max-width: 1200px;
-  margin: auto;
 }
-.contact-form {
-  width: 100%;
+
+/* IMPORTANT: allow children to shrink properly instead of squeezing inputs */
+#contact .contact-grid > *{
+  min-width: 0;
 }
-.contact-form input,
-.contact-form textarea {
+
+/* force label above input (not beside it) */
+#contact form.contact label{
+  display: block;
+  margin: 0 0 6px;
+}
+
+/* force inputs to be full-width blocks */
+#contact form.contact input,
+#contact form.contact textarea{
+  display: block;
   width: 100%;
-  max-width: 100%;  /* prevents squeezing */
+  max-width: 100%;
   box-sizing: border-box;
 }
-@media (max-width: 768px) {
-  .contact-container {
-    grid-template-columns: 1fr;   /* stack vertically */
+
+/* make the button not look squeezed */
+#contact form.contact button{
+  width: fit-content;
+  min-width: 180px;
+}
+
+/* mobile: stack and full width */
+@media (max-width: 980px){
+  #contact .contact-grid{
+    grid-template-columns: 1fr;
   }
 }
+
 
 </style>
 </head>
