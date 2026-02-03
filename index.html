@@ -848,236 +848,178 @@
   }
 }
 
-/* =========================
-   EDUCATION (matches About style)
-   ========================= */
+/* ===== EDUCATION (new card style) ===== */
 .edu-section{
-  position:relative;
-  padding:72px 0;
-  scroll-margin-top:84px;
+  padding:64px 0;
 }
 
-.edu-pill{
-  position:absolute;
-  top:18px;
-  left:0;
-  display:inline-flex;
-  align-items:center;
-  padding:8px 16px;
-  border-radius:999px;
-  border:3px solid var(--accent);
-  color:var(--accent);
-  font-weight:900;
-  font-family:Poppins, Inter, sans-serif;
-  letter-spacing:.4px;
-  background:rgba(0,0,0,.10);
+.edu-header{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  margin-bottom:22px;
 }
 
-.edu-grid{
-  display:grid;
-  grid-template-columns: 1fr 1.35fr;
-  gap:54px;
-  align-items:center;
-  min-height:520px;
-}
-
-.edu-title{
+.edu-big{
   margin:0;
   font-family:Poppins, Inter, sans-serif;
-  font-weight:500;
-  line-height:1.02;
-  font-size:clamp(52px, 6.2vw, 96px);
-  color:#fff;
+  font-weight:900;
+  font-size:clamp(28px, 3.2vw, 44px);
+  line-height:1.1;
 }
-.edu-title .gold{ color:var(--accent); font-weight:900; }
 
-.edu-right{
+.edu-list{
   display:grid;
   gap:18px;
 }
 
-.edu-card{
+/* card */
+.edu-card2{
+  display:grid;
+  grid-template-columns: 160px 1fr;
+  gap:22px;
+  align-items:center;
+  padding:22px;
   border-radius:22px;
-  border:1px solid rgba(255,255,255,.14);
+  border:1px solid rgba(255,255,255,.12);
   background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
   box-shadow:0 16px 40px rgba(0,0,0,.35);
-  padding:26px 26px 22px;
 }
 
-.edu-top{ display:grid; gap:8px; }
+:root[data-theme="light"] .edu-card2{
+  background:#fff;
+  border-color:rgba(0,0,0,.10);
+  box-shadow:0 10px 26px rgba(0,0,0,.08);
+}
+
+/* LEFT IMAGE — match your hero photo style */
+.edu-photoWrap{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.edu-photo{
+  width:135px;
+  height:135px;
+  border-radius:50%;
+  object-fit:cover; /* change to contain if logo is clipped */
+  box-shadow:0 18px 38px rgba(0,0,0,.22);
+  border:5px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.04);
+}
+
+:root[data-theme="light"] .edu-photo{
+  border:5px solid rgba(0,0,0,.08);
+  background:#fff;
+}
+
+/* If your image is a LOGO and you want full logo visible, use this class */
+.edu-photo.logo{
+  object-fit:contain;
+  padding:14px;
+  background:#fff;
+}
+
+/* Right text bigger */
+.edu-info{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
 .edu-school{
   font-weight:900;
-  letter-spacing:.2px;
   font-size:1.25rem;
-  color:#fff;
-}
-.edu-degree{
-  font-size:1.05rem;
-  color:rgba(255,255,255,.88);
 }
 
-.edu-meta{
+.edu-degree{
+  font-weight:800;
+  font-size:1.05rem;
+  color:var(--muted);
+}
+
+.edu-metaRow{
   display:flex;
   flex-wrap:wrap;
   gap:10px;
-  margin-top:6px;
+  margin-top:2px;
 }
 
-.edu-chip{
-  display:inline-flex;
-  align-items:center;
-  padding:8px 12px;
+.edu-chip2{
+  display:inline-block;
+  padding:7px 12px;
   border-radius:999px;
   border:1px solid rgba(255,255,255,.18);
   background:rgba(255,255,255,.06);
-  color:rgba(255,255,255,.86);
   font-weight:800;
   font-size:.92rem;
 }
 
-.edu-divider{
-  height:1px;
-  background:linear-gradient(90deg, transparent, rgba(255,255,255,.18), transparent);
-  margin:18px 0 14px;
+:root[data-theme="light"] .edu-chip2{
+  border-color:rgba(0,0,0,.10);
+  background:#f4f6fb;
 }
 
-.edu-bullets{
-  margin:0;
-  padding-left:18px;
-  color:rgba(255,255,255,.85);
-  line-height:1.7;
-  font-size:1.02rem;
+.edu-bullets2{
+  margin:6px 0 0 18px;
+  font-size:1.02rem; /* makes it not small */
+  color:var(--text);
+  line-height:1.65;
 }
-.edu-bullets li{ margin:10px 0; }
-.edu-bullets .gold{ color:var(--accent); font-weight:900; }
 
-.edu-actions{
+.edu-bullets2 li{
+  margin:6px 0;
+}
+
+/* Actions */
+.edu-actions2{
   display:flex;
-  gap:16px;
+  gap:12px;
   flex-wrap:wrap;
-  margin-top:16px;
+  margin-top:10px;
 }
 
-/* buttons like screenshot */
-.edu-btn{
+.edu-btn2{
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  min-width:280px;
-  padding:22px 28px;
-  border-radius:26px;
-  font-size:22px;
-  font-weight:600;
-  letter-spacing:.3px;
-  text-decoration:underline;
+  padding:12px 18px;
+  border-radius:999px;
+  font-weight:900;
+  text-decoration:none;
   transition:.18s;
 }
 
-.edu-btn.outline{
-  border:4px solid #ffffff;
-  color:#ffffff;
-  background:transparent;
-}
-.edu-btn.gold{
-  border:4px solid var(--accent);
-  color:#ffffff;
-  background:transparent;
-}
-.edu-btn:hover{ transform:translateY(-3px); }
-
-@media (max-width:980px){
-  .edu-grid{
-    grid-template-columns:1fr;
-    min-height:auto;
-    gap:26px;
-    padding-top:40px;
-  }
-  .edu-title{ font-size:clamp(44px, 9vw, 74px); }
-}
-
-@media (max-width:600px){
-  .edu-btn{
-    min-width:220px;
-    padding:18px 22px;
-    font-size:18px;
-  }
-}
-/* ===== EDUCATION items layout (logo + card) ===== */
-.edu-right{
-  display:grid;
-  gap:26px;
-}
-
-.edu-item{
-  display:grid;
-  grid-template-columns: 160px 1fr;
-  gap:24px;
-  align-items:center;
-}
-
-/* ===== Circular badge like your 3rd image =====
-   - white outer ring
-   - yellow inner circle
-   - your image/logo on top
-*/
-.edu-badge{
-  width:150px;
-  height:150px;
-  border-radius:50%;
-  position:relative;
-  display:grid;
-  place-items:center;
-  border:10px solid #ffffff;       /* white ring */
-  overflow:hidden;
-  box-shadow:0 14px 30px rgba(0,0,0,.35);
+.edu-btn2.outline{
+  color:#fff;
+  border:2px solid rgba(255,255,255,.75);
   background:transparent;
 }
 
-/* yellow circle behind the logo/photo */
-.edu-badge::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  border-radius:50%;
-  background: var(--accent);       /* your gold */
-  z-index:0;
+.edu-btn2.gold{
+  color:#081022;
+  background:linear-gradient(135deg, var(--accent), var(--accent-2));
+  border:2px solid transparent;
 }
 
-/* your logo/photo */
-.edu-badge-img{
-  position:relative;
-  z-index:1;
-  width:78%;
-  height:78%;
-  object-fit:contain;              /* keeps logo clean */
-  filter: drop-shadow(0 10px 18px rgba(0,0,0,.25));
-}
+.edu-btn2:hover{transform:translateY(-2px)}
 
-/* If you use a person cutout PNG (transparent bg), this looks amazing */
-.edu-badge-img.cutout{
-  width:92%;
-  height:92%;
-  object-fit:contain;
-}
-
-/* keep your existing edu-card look (but ensure it fits this layout) */
-.edu-card{
-  border-radius:22px;
-  border:1px solid rgba(255,255,255,.14);
-  background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
-  box-shadow:0 16px 40px rgba(0,0,0,.35);
-  padding:26px 26px 22px;
-}
-
-/* responsive */
-@media (max-width:980px){
-  .edu-item{
+/* mobile */
+@media (max-width:900px){
+  .edu-card2{
     grid-template-columns: 1fr;
+    text-align:left;
   }
-  .edu-badge{
-    margin:0 auto;
+  .edu-photo{
+    width:120px;
+    height:120px;
+  }
+  .edu-photoWrap{
+    justify-content:flex-start;
   }
 }
+
 
   </style>
 </head>
@@ -1204,82 +1146,71 @@
 
 
 <!-- ===== EDUCATION (Logo + Card style) ===== -->
-<section id="education" class="edu-section" aria-labelledby="edu-heading">
-  <div class="edu-pill" aria-hidden="true">Education</div>
+<!-- ===== EDUCATION (Card + Hero-style photo) ===== -->
+<section id="education" aria-labelledby="edu-heading" class="edu-section">
+  <h2 id="edu-heading" class="sr-only">Education</h2>
 
-  <div class="edu-grid">
-    <!-- LEFT BIG TITLE -->
-    <div class="edu-left">
-      <h2 id="edu-heading" class="edu-title">
-        My<br>
-        <span class="gold">Education</span>
-      </h2>
-    </div>
-
-    <!-- RIGHT CONTENT -->
-    <div class="edu-right">
-
-      <!-- ===== ITEM 1 ===== -->
-      <article class="edu-item">
-        <div class="edu-badge" aria-hidden="true">
-          <!-- replace this src with your Yeshiva logo/photo later -->
-          <img class="edu-badge-img" src="images/yeshiva_logo_square_centered.png" alt="Yeshiva University logo">
-        </div>
-
-        <div class="edu-card">
-          <div class="edu-top">
-            <div class="edu-school">Yeshiva University</div>
-            <div class="edu-degree">M.S. in Artificial Intelligence</div>
-            <div class="edu-meta">
-              <span class="edu-chip">New York, USA</span>
-              <span class="edu-chip">2024 – Present</span>
-            </div>
-          </div>
-
-          <div class="edu-divider"></div>
-
-          <ul class="edu-bullets">
-            <li><span class="gold">Focus:</span> Data Analytics, Product ML, Human-Centered AI</li>
-            <li><span class="gold">Tools:</span> Python, SQL, Excel, Power BI, Tableau</li>
-            <li><span class="gold">Highlights:</span> Research + analytics projects, ML prototypes, dashboards</li>
-          </ul>
-
-          <div class="edu-actions">
-            <a class="edu-btn outline" href="#projects">Projects</a>
-            <a class="edu-btn gold" href="images/Puspita Chowdhury new res.pdf" download>Download CV</a>
-          </div>
-        </div>
-      </article>
-
-      <!-- ===== ITEM 2 ===== -->
-      <article class="edu-item">
-        <div class="edu-badge" aria-hidden="true">
-          <!-- replace this src with your Greenwich logo/photo later -->
-          <img class="edu-badge-img" src="images/greenwich_logo_square_centered.png" alt="University of Greenwich logo">
-        </div>
-
-        <div class="edu-card">
-          <div class="edu-top">
-            <div class="edu-school">University of Greenwich</div>
-            <div class="edu-degree">BSc in Computer Science</div>
-            <div class="edu-meta">
-              <span class="edu-chip">London, UK</span>
-              <span class="edu-chip">2018 – 2021</span>
-            </div>
-          </div>
-
-          <div class="edu-divider"></div>
-
-          <ul class="edu-bullets">
-            <li><span class="gold">Focus:</span> Programming, Software Engineering, Databases</li>
-            <li><span class="gold">Skills:</span> Java, Python, Web Development, Data Structures</li>
-            <li><span class="gold">Highlights:</span> Final-year project, algorithms, OOP, system design</li>
-          </ul>
-        </div>
-      </article>
-
-    </div>
+  <div class="edu-header">
+    <span class="tag">Education</span>
+    <h2 class="edu-big">My <span class="gold">Education</span></h2>
   </div>
+
+  <div class="edu-list">
+
+    <!-- CARD 1 -->
+    <article class="edu-card2">
+      <div class="edu-photoWrap">
+        <img class="edu-photo" src="images/yeshiva-logo.png" alt="Yeshiva University logo" loading="lazy">
+      </div>
+
+      <div class="edu-info">
+        <div class="edu-school">Yeshiva University</div>
+        <div class="edu-degree">M.S. in Artificial Intelligence</div>
+
+        <div class="edu-metaRow">
+          <span class="edu-chip2">New York, USA</span>
+          <span class="edu-chip2">2024 – Present</span>
+        </div>
+
+        <ul class="edu-bullets2">
+          <li><span class="gold">Focus:</span> Data Analytics, Product ML, Human-Centered AI</li>
+          <li><span class="gold">Tools:</span> Python, SQL, Excel, Power BI, Tableau</li>
+          <li><span class="gold">Highlights:</span> Research + analytics projects, ML prototypes, dashboards</li>
+        </ul>
+
+        <div class="edu-actions2">
+          <a class="edu-btn2 outline" href="#projects">Projects</a>
+          <a class="edu-btn2 gold" href="images/Puspita Chowdhury new res.pdf" download>Download CV</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- CARD 2 -->
+    <article class="edu-card2">
+      <div class="edu-photoWrap">
+        <img class="edu-photo" src="images/greenwich-logo.png" alt="University of Greenwich logo" loading="lazy">
+      </div>
+
+      <div class="edu-info">
+        <div class="edu-school">University of Greenwich</div>
+        <div class="edu-degree">BSc in Computer Science</div>
+
+        <div class="edu-metaRow">
+          <span class="edu-chip2">London, UK</span>
+          <span class="edu-chip2">2018 – 2021</span>
+        </div>
+
+        <ul class="edu-bullets2">
+          <li><span class="gold">Focus:</span> Programming, Software Engineering, Databases</li>
+          <li><span class="gold">Skills:</span> Java, Python, Web Development, Data Structures</li>
+          <li><span class="gold">Highlights:</span> Final-year project, algorithms, OOP, system design</li>
+        </ul>
+      </div>
+    </article>
+
+  </div>
+</section>
+
 </section>
 
 
