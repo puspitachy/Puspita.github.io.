@@ -696,6 +696,91 @@
 .scroll-down .c2{ animation:chevPulse 1.3s infinite; animation-delay:.2s; }
 .scroll-down .c3{ animation:chevPulse 1.3s infinite; animation-delay:.4s; }
 
+  /* =========================
+   ABOUT section like screenshot
+   ========================= */
+
+.about-hero{
+  position:relative;
+  padding:72px 0;
+  scroll-margin-top:84px;
+}
+
+/* top-left pill */
+.about-pill{
+  position:absolute;
+  top:18px;
+  left:0;
+  display:inline-flex;
+  align-items:center;
+  padding:8px 16px;
+  border-radius:999px;
+  border:3px solid var(--accent);
+  color:var(--accent);
+  font-weight:900;
+  font-family:Poppins, Inter, sans-serif;
+  letter-spacing:.4px;
+  background:rgba(0,0,0,.10);
+}
+
+/* 2-column layout */
+.about-grid{
+  display:grid;
+  grid-template-columns: 1fr 1.35fr;
+  gap:54px;
+  align-items:center;
+  min-height:520px;
+}
+
+/* big left title */
+.about-title{
+  margin:0;
+  font-family:Poppins, Inter, sans-serif;
+  font-weight:500;
+  line-height:1.02;
+  font-size:clamp(52px, 6.2vw, 96px);
+  color:#fff;
+}
+.about-title .gold{ color:var(--accent); font-weight:900; }
+
+/* right paragraph */
+.about-text{
+  margin:0 0 22px;
+  font-size:clamp(16px, 1.4vw, 22px);
+  line-height:1.65;
+  color:rgba(255,255,255,.88);
+  max-width:70ch;
+}
+.about-text .gold{
+  color:var(--accent);
+  font-weight:900;
+}
+
+/* icons + buttons row */
+.about-actions{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  flex-wrap:wrap;
+  margin-top:10px;
+}
+
+/* round outline icons */
+.about-icons{
+  display:flex;
+  gap:18px;
+  align-items:center;
+}
+.about-icon{
+  width:72px;
+  height:72px;
+  border-radius:50%;
+  border:3px solid rgba(255,255,255,.65);
+  display:grid;
+  place-items:center;
+  color:#fff;
+
 
   </style>
 </head>
@@ -778,29 +863,52 @@
 </section>
 
 
-    <!-- ===== ABOUT ===== -->
-    <section id="about" class="panel" aria-labelledby="about-heading">
-      <h2 id="about-heading">About Me</h2>
-      <div class="divider"></div>
-      <p>I’m <strong>an AI &amp; Data Practitioner</strong> passionate about building <strong>reliable, explainable, and human-centered</strong> analytics and ML products. My focus is on transforming messy datasets into <strong>clear insights</strong> and tools that organizations actually use.</p>
-      <p>At the <strong>National Health Service (NHS), London</strong>, I led <strong>data-quality and automation</strong> initiatives—lifting workforce data accuracy in <strong>ESR to 98%</strong> and cutting processing time by <strong>30%</strong>. I build dashboards, automate workflows, and prototype compact ML services that fit real-world constraints.</p>
-      <p>Core strengths: <strong>Data Analytics</strong>, <strong>Product ML</strong>, <strong>Human-Centered AI</strong>, and <strong>Automation</strong> with <strong>Python, SQL</strong>, and modern visualization tools.</p>
-      <div>
-        <span class="chip">Data Analytics</span>
-        <span class="chip">Product ML</span>
-        <span class="chip">Human-Centered AI</span>
-        <span class="chip">Automation</span>
-        <span class="chip">Python • SQL</span>
+ <!-- ===== ABOUT (Guardian-style) ===== -->
+<section id="about" class="about-hero" aria-labelledby="about-heading">
+  <div class="about-pill" aria-hidden="true">About Me</div>
+
+  <div class="about-grid">
+    <!-- LEFT BIG TEXT -->
+    <div class="about-left">
+      <h2 id="about-heading" class="about-title">
+        Hello,<br>
+        I’m <span class="gold">Puspita!</span>
+      </h2>
+    </div>
+
+    <!-- RIGHT DESCRIPTION -->
+    <div class="about-right">
+      <p class="about-text">
+        <span class="gold">AI & Data Practitioner</span> with experience in transforming messy datasets into
+        decision-ready insights and automation workflows. Skilled in
+        <span class="gold">Python, SQL, Excel, Power BI</span>, and dashboard storytelling for stakeholders.
+        I focus on <span class="gold">data analytics</span>, <span class="gold">product-oriented ML</span>, and
+        <span class="gold">human-centered AI</span> to build tools people actually use.
+      </p>
+
+      <!-- ICONS + BUTTONS ROW -->
+      <div class="about-actions">
+        <div class="about-icons">
+          <a class="about-icon" href="https://www.linkedin.com/in/puspita-chowdhury-b200561a" target="_blank" rel="noreferrer noopener" aria-label="LinkedIn">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </a>
+          <a class="about-icon" href="mailto:Puspitachy2000@gmail.com" aria-label="Email">
+            <i class="fa-regular fa-envelope"></i>
+          </a>
+          <a class="about-icon" href="https://github.com/puspitachy" target="_blank" rel="noreferrer noopener" aria-label="GitHub">
+            <i class="fa-brands fa-github"></i>
+          </a>
+        </div>
+
+        <div class="about-buttons">
+          <a class="about-btn outline" href="#projects">Projects</a>
+          <a class="about-btn gold" href="images/Puspita Chowdhury new res.pdf" download>Download CV</a>
+        </div>
       </div>
-      <div class="cta" style="margin-top:14px">
-        <a class="btn primary" href="images/Puspita Chowdhury new res.pdf" download>
-          <i class="fa-solid fa-file-arrow-down"></i> Download Resume (PDF)
-        </a>
-        <a class="btn" href="images/Puspita Chowdhury new res.pdf" target="_blank" rel="noreferrer noopener">
-          <i class="fa-regular fa-file-lines"></i> View Resume
-        </a>
-      </div>
-    </section>
+    </div>
+  </div>
+</section>
+
 
     <!-- =========================
      2) REPLACE YOUR ENTIRE <section id="projects"> ... </section> WITH THIS
