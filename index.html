@@ -17,28 +17,35 @@
 
 <style>
 :root{
-  /* Water Background (Deep + Light Turquoise) */
-  --bg:#008F9B;          /* Deep Water Teal */
-  --panel:#0AA7A7;       /* Soft Aqua Panel */
+  /* ===== Muhammad Guardian style (Navy + Gold) ===== */
+  --bg:#070724;             /* deep navy background */
+  --panel:#0B0A2A;          /* card/nav panel navy */
+  --text:#FFFFFF;           /* white text */
+  --muted:#C9D1E6;          /* soft blue-grey */
+  
+  --accent:#F2B300;         /* gold */
+  --accent-2:#FFC83D;       /* lighter gold */
+  --link:#F2B300;
 
-  /* Text */
-  --text:#EAF4F4;        /* Soft white */
-  --muted:#9CD3D3;       /* Muted light aqua */
-
-  /* Forest Orange Buttons + Accents */
-  --accent:#D86B32;      /* Forest Orange */
-  --accent-2:#FF9A4A;    /* Lighter orange for gradients */
-  --link:#FFB066;        /* Orange-tinted link */
-
-  /* Others */
   --success:#19c37d;
-  --radius:16px;
-  --shadow:0 10px 30px rgba(0,0,0,.45);
-  --outline:0 0 0 3px rgba(216,107,50,.4); /* Orange glow outline */
+  --radius:18px;
+  --shadow:0 16px 40px rgba(0,0,0,.38);
+  --outline:0 0 0 3px rgba(242,179,0,.35);
+
   --softBorderDark: rgba(255,255,255,.12);
-  --softBorderLight: rgba(0,0,0,.1);
+  --softBorderLight: rgba(0,0,0,.10);
   --subtleFillDark: rgba(255,255,255,.06);
-  --subtleFillLight: rgba(0,0,0,.03);
+  --subtleFillLight: rgba(0,0,0,.04);
+}
+
+/* OPTIONAL: light mode still clean + premium */
+:root[data-theme="light"]{
+  --bg:#F7F8FB;           /* soft off-white */
+  --panel:#FFFFFF;
+  --text:#0B1020;         /* deep ink */
+  --muted:#475569;        /* slate */
+  --link:#C98B00;         /* gold-ish */
+  --shadow:0 12px 30px rgba(2,6,23,.08);
 }
 
 /* LIGHT MODE (Natural Desert + Soft Water Inspired) */
