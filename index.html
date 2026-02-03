@@ -431,125 +431,117 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
 /* =========================
    SKILLS section (fixed)
    ========================= */
+/* ===== SKILLS SECTION ===== */
 
-/* section spacing */
-.skills-snap{ padding: 86px 0; }
+.skills-snap{
+  padding: 84px 0;
+}
 
-/* the pill title like screenshot */
+/* --- pill title --- */
 .skills-pill{
   display:inline-flex;
   align-items:center;
-  gap:10px;
-  padding:10px 16px;
+  padding:10px 18px;
   border-radius:999px;
   border:3px solid var(--accent);
-  background:rgba(0,0,0,.10);
+  color:#fff;
   font-family:Poppins, Inter, sans-serif;
   font-weight:900;
-  letter-spacing:.4px;
-  color:#fff;
+  letter-spacing:.6px;
+  background:rgba(0,0,0,.18);
+  box-shadow:0 12px 30px rgba(0,0,0,.25);
 }
-.skills-pill span{ color:var(--accent); }
+.skills-pill span{
+  color: var(--accent);
+}
 
-/* 4 columns */
+/* --- GRID: 4 columns + vertical dividers --- */
 .skills-grid{
-  margin-top:26px;
-  display:grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 42px;
-  align-items:start;
+  margin-top:36px;
+  display: grid;
+  grid-template-columns: 1fr 2px 1fr 2px 1fr 2px 1fr;
+  gap: 44px;
+  align-items: start;
 }
 
-/* vertical divider between columns */
-.skills-col + .skills-col{
-  border-left: 2px solid rgba(255,255,255,.28);
-  padding-left: 42px;
+.skills-vline{
+  width: 2px;
+  background: rgba(255,255,255,.55);
+  border-radius: 2px;
+  align-self: stretch;
 }
 
-/* hide your old divider elements */
-.skills-vline{ display:none !important; }
-
-/* headings like screenshot */
-.skills-col h2{
-  margin:0 0 22px;
-  font-family:Poppins, Inter, sans-serif;
-  font-weight:900;
-  font-size:clamp(34px, 2.8vw, 48px);
-  line-height:1.05;
-  color:#fff;
+/* --- TWO-LINE HEADINGS --- */
+.skills-title{
+  margin: 0 0 22px;
+  font-family: Poppins, Inter, sans-serif;
+  font-weight: 900;
+  letter-spacing: .4px;
+  line-height: 1.05;
 }
-.skills-col h2 .gold{ color:var(--accent); }
 
-/* skill rows */
+.skills-title-gold{
+  display: block;
+  color: var(--accent);
+  font-size: clamp(28px, 3vw, 50px);
+  white-space: nowrap; /* keeps “Data Visualization” on one line */
+}
+
+.skills-title-white{
+  display: block;
+  color: #fff;
+  font-size: clamp(24px, 2.6vw, 44px);
+  margin-top: 10px;
+}
+
+/* --- ITEMS (icons + text) --- */
 .skill-item{
   display:flex;
   align-items:center;
-  gap:18px;
-  margin:20px 0;
+  gap: 18px;
+  padding: 12px 0;
 }
+
 .skill-iconCircle{
   width:72px;
   height:72px;
   border-radius:50%;
+  background: var(--accent);
   display:grid;
   place-items:center;
-  background:var(--accent);
-  box-shadow:0 16px 34px rgba(0,0,0,.25);
+  box-shadow: 0 18px 40px rgba(0,0,0,.35);
   flex:0 0 auto;
 }
+
 .skill-iconCircle i{
-  font-size:30px;
+  font-size: 32px;
   color:#0B0A2A;
 }
 
-/* label text */
 .skill-label{
-  font-size:22px;
-  font-weight:700;
+  font-size: 22px;
+  font-weight: 800;
   color:#fff;
 }
 
-/* methods list */
+/* --- Methods list --- */
 .skills-list{
-  margin: 10px 0 0;
-  padding-left: 18px;
-  color:rgba(255,255,255,.92);
-  font-size:20px;
-  line-height:1.7;
+  margin-top: 10px;
+  padding-left: 22px;
+  font-size: 20px;
+  color:#fff;
+  line-height:1.6;
 }
-.skills-list li{ margin:10px 0; }
 
-/* light mode skills tweaks */
-:root[data-theme="light"] .skills-pill{
-  background:#fff;
-  color:#0B1020;
-  box-shadow: 0 10px 26px rgba(0,0,0,.08);
+/* --- Responsive: stack columns ONLY on phones --- */
+@media (max-width: 700px){
+  .skills-grid{
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .skills-vline{ display:none; }
 }
-:root[data-theme="light"] .skills-pill span{ color: var(--link); }
-:root[data-theme="light"] .skills-col h2{ color:#0B1020; }
-:root[data-theme="light"] .skill-label,
-:root[data-theme="light"] .skills-list{ color: rgba(13,31,33,.85); }
-:root[data-theme="light"] .skills-col + .skills-col{
-  border-left:2px solid rgba(0,0,0,.10);
-}
-:root[data-theme="light"] .skill-iconCircle{
-  background: color-mix(in oklab, var(--link) 85%, #ffcc66 15%);
-}
-:root[data-theme="light"] .skill-iconCircle i{ color:#0B1020; }
 
-/* RESPONSIVE: only stack on phones */
-@media (max-width: 760px){
-  .skills-grid{ grid-template-columns: 1fr; gap: 22px; }
-  .skills-col + .skills-col{
-    border-left:none;
-    padding-left:0;
-    padding-top:22px;
-    border-top:1px solid rgba(255,255,255,.18);
-  }
-  :root[data-theme="light"] .skills-col + .skills-col{
-    border-top:1px solid rgba(0,0,0,.10);
-  }
-}
 
 /* ===== Projects base (your existing) ===== */
 .filters{display:flex; gap:10px; margin:8px 0 18px; flex-wrap:wrap}
