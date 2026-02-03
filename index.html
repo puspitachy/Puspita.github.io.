@@ -728,6 +728,32 @@ footer{margin-top:28px; padding:32px 0 56px; border-top:1px solid rgba(255,255,2
 .copyright{color:var(--muted); margin-top:14px; text-align:center}
 
 .hidden{display:none !important}
+
+
+  .contact-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;   /* 2 equal wide columns */
+  gap: 40px;
+  align-items: start;
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+}
+.contact-form {
+  width: 100%;
+}
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  max-width: 100%;  /* prevents squeezing */
+  box-sizing: border-box;
+}
+@media (max-width: 768px) {
+  .contact-container {
+    grid-template-columns: 1fr;   /* stack vertically */
+  }
+}
+
 </style>
 </head>
 
