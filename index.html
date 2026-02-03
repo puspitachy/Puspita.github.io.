@@ -969,6 +969,138 @@
  
 }
 
+/* =========================
+   SKILLS section (like screenshot)
+   ========================= */
+.skills-snap{
+  padding: 84px 0;
+}
+
+.skills-pill{
+  display:inline-flex;
+  align-items:center;
+  padding:10px 18px;
+  border-radius:999px;
+  border:3px solid var(--accent);
+  color:#fff;
+  font-family:Poppins, Inter, sans-serif;
+  font-weight:900;
+  letter-spacing:.6px;
+  background:rgba(0,0,0,.18);
+  box-shadow:0 12px 30px rgba(0,0,0,.25);
+}
+.skills-pill span{
+  color:var(--accent);
+}
+
+.skills-grid{
+  margin-top:26px;
+  display:grid;
+  grid-template-columns: 1fr 2px 1fr 2px 1fr 2px 1fr; /* columns + dividers */
+  gap: 26px;
+  align-items:start;
+}
+
+/* vertical dividers */
+.skills-vline{
+  width:2px;
+  height:100%;
+  background:rgba(255,255,255,.28);
+  border-radius:2px;
+}
+
+/* each column */
+.skills-col h2{
+  margin: 0 0 14px;
+  font-family:Poppins, Inter, sans-serif;
+  font-weight:900;
+  letter-spacing: .5px;
+  line-height:1.08;
+  font-size: clamp(28px, 2.8vw, 44px);
+}
+.skills-col h2 .gold{
+  color: var(--accent);
+}
+
+/* item row */
+.skill-item{
+  display:flex;
+  align-items:center;
+  gap: 18px;
+  padding: 16px 0;
+}
+
+.skill-iconCircle{
+  width:72px;
+  height:72px;
+  border-radius:50%;
+  background: var(--accent);
+  display:grid;
+  place-items:center;
+  box-shadow: 0 18px 40px rgba(0,0,0,.35);
+  flex: 0 0 auto;
+}
+
+.skill-iconCircle i{
+  font-size: 30px;
+  color:#0B0A2A;
+}
+
+/* if you use images instead of icons */
+.skill-iconCircle img{
+  width:42px;
+  height:42px;
+  object-fit:contain;
+  display:block;
+}
+
+.skill-label{
+  font-size: 22px;
+  font-weight: 800;
+  color: rgba(255,255,255,.90);
+}
+
+/* methods list */
+.skills-list{
+  margin: 10px 0 0;
+  padding-left: 22px;
+  color: rgba(255,255,255,.90);
+  font-size: 20px;
+  line-height: 1.65;
+}
+.skills-list li{
+  margin: 8px 0;
+}
+
+/* Light mode tweaks */
+:root[data-theme="light"] .skills-pill{
+  background:#fff;
+  color: #0B1020;
+  box-shadow: 0 10px 26px rgba(0,0,0,.08);
+}
+:root[data-theme="light"] .skills-pill span{ color: var(--link); }
+:root[data-theme="light"] .skills-vline{ background: rgba(0,0,0,.12); }
+:root[data-theme="light"] .skill-label,
+:root[data-theme="light"] .skills-list{ color: rgba(13,31,33,.85); }
+:root[data-theme="light"] .skill-iconCircle{
+  background: color-mix(in oklab, var(--link) 85%, #ffcc66 15%);
+}
+:root[data-theme="light"] .skill-iconCircle i{ color:#0B1020; }
+
+/* Responsive: stack columns */
+@media (max-width: 1100px){
+  .skills-grid{
+    grid-template-columns: 1fr;
+  }
+  .skills-vline{ display:none; }
+  .skills-col{
+    padding: 18px 0;
+    border-bottom: 1px solid rgba(255,255,255,.18);
+  }
+  :root[data-theme="light"] .skills-col{
+    border-bottom: 1px solid rgba(0,0,0,.10);
+  }
+}
 
 
   </style>
@@ -1093,6 +1225,112 @@
   </div>
 </section>
 
+<section id="skills" class="skills-snap" aria-labelledby="skills-heading">
+  <div class="skills-pill" aria-hidden="true">
+    <span>Technical</span>&nbsp;Skills
+  </div>
+
+  <div class="skills-grid">
+    <!-- Column 1 -->
+    <div class="skills-col">
+      <h2><span class="gold">Programming</span><br>Languages</h2>
+
+      <div class="skill-item">
+        <div class="skill-iconCircle">
+          <!-- icon option -->
+          <i class="fa-solid fa-database"></i>
+          <!-- image option (use one OR the other)
+          <img src="images/61_sql-database-generic.90b41636a8.jpg" alt="SQL">
+          -->
+        </div>
+        <div class="skill-label">SQL</div>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-iconCircle">
+          <i class="fa-brands fa-python"></i>
+        </div>
+        <div class="skill-label">Python</div>
+      </div>
+    </div>
+
+    <div class="skills-vline" aria-hidden="true"></div>
+
+    <!-- Column 2 -->
+    <div class="skills-col">
+      <h2><span class="gold">Data Analytic</span><br>Tools</h2>
+
+      <div class="skill-item">
+        <div class="skill-iconCircle">
+          <i class="fa-solid fa-file-excel"></i>
+          <!-- or your image: <img src="images/xxx.png" alt="Excel"> -->
+        </div>
+        <div class="skill-label">Microsoft Excel</div>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-iconCircle">
+          <i class="fa-brands fa-google"></i>
+        </div>
+        <div class="skill-label">Google Sheets</div>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-iconCircle">
+          <i class="fa-solid fa-cloud"></i>
+        </div>
+        <div class="skill-label">Google BigQuery</div>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-iconCircle">
+          <i class="fa-solid fa-code"></i>
+        </div>
+        <div class="skill-label">Visual Studio Code</div>
+      </div>
+    </div>
+
+    <div class="skills-vline" aria-hidden="true"></div>
+
+    <!-- Column 3 -->
+    <div class="skills-col">
+      <h2><span class="gold">Data Visualization</span><br>Tools</h2>
+
+      <div class="skill-item">
+        <div class="skill-iconCircle">
+          <i class="fa-solid fa-chart-simple"></i>
+        </div>
+        <div class="skill-label">Tableau</div>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-iconCircle">
+          <i class="fa-solid fa-chart-pie"></i>
+        </div>
+        <div class="skill-label">Looker Studio</div>
+      </div>
+    </div>
+
+    <div class="skills-vline" aria-hidden="true"></div>
+
+    <!-- Column 4 -->
+    <div class="skills-col">
+      <h2><span class="gold">Data Analytic</span><br>Methods</h2>
+
+      <ul class="skills-list">
+        <li>EDA</li>
+        <li>Segmentation / Clustering</li>
+        <li>Cohort Analysis</li>
+        <li>Linear Regression</li>
+        <li>Logistic Regression</li>
+        <li>Statistics</li>
+        <li>A/B Testing</li>
+        <li>ANOVA</li>
+        <li>(Post-Hoc) T-Test</li>
+      </ul>
+    </div>
+  </div>
+</section>
 
 
 <!-- ===== EDUCATION + EXPERIENCE (Split Layout like example) ===== -->
@@ -1107,7 +1345,7 @@
       <!-- Education item 1 -->
       <article class="edex-item">
         <div class="edex-logoWrap">
-          <img src="images/yeshiva_logo_square_centered.png" class="edex-logo" alt="Yeshiva University logo">
+          <img src="images/yyy.png" class="edex-logo" alt="Yeshiva University logo">
         </div>
 
         <div class="edex-body">
@@ -1123,7 +1361,7 @@
       <!-- Education item 2 -->
       <article class="edex-item">
         <div class="edex-logoWrap">
-          <img src="images/greenwich_logo_square_centered.png" class="edex-logo" alt="University of Greenwich logo">
+          <img src="images/gg.png" class="edex-logo" alt="University of Greenwich logo">
         </div>
 
         <div class="edex-body">
