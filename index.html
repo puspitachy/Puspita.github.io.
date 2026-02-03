@@ -913,153 +913,63 @@
   border:5px solid rgba(0,0,0,.08);
   background:#fff;
 }
-
-/* If your image is a LOGO and you want full logo visible, use this class */
-.edu-photo.logo{
-  object-fit:contain;
-  padding:14px;
-  background:#fff;
-}
-
-/* Right text bigger */
-.edu-info{
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-}
-
-.edu-school{
-  font-weight:900;
-  font-size:1.25rem;
-}
-
-.edu-degree{
-  font-weight:800;
-  font-size:1.05rem;
-  color:var(--muted);
-}
-
-.edu-metaRow{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  margin-top:2px;
-}
-
-.edu-chip2{
-  display:inline-block;
-  padding:7px 12px;
-  border-radius:999px;
-  border:1px solid rgba(255,255,255,.18);
-  background:rgba(255,255,255,.06);
-  font-weight:800;
-  font-size:.92rem;
-}
-
-:root[data-theme="light"] .edu-chip2{
-  border-color:rgba(0,0,0,.10);
-  background:#f4f6fb;
-}
-
-.edu-bullets2{
-  margin:6px 0 0 18px;
-  font-size:1.02rem; /* makes it not small */
-  color:var(--text);
-  line-height:1.65;
-}
-
-.edu-bullets2 li{
-  margin:6px 0;
-}
-
-/* Actions */
-.edu-actions2{
-  display:flex;
-  gap:12px;
-  flex-wrap:wrap;
-  margin-top:10px;
-}
-
-.edu-btn2{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding:12px 18px;
-  border-radius:999px;
-  font-weight:900;
-  text-decoration:none;
-  transition:.18s;
-}
-
-.edu-btn2.outline{
-  color:#fff;
-  border:2px solid rgba(255,255,255,.75);
-  background:transparent;
-}
-
-.edu-btn2.gold{
-  color:#081022;
-  background:linear-gradient(135deg, var(--accent), var(--accent-2));
-  border:2px solid transparent;
-}
-
-.edu-btn2:hover{transform:translateY(-2px)}
-
-/* mobile */
-@media (max-width:900px){
-  .edu-card2{
-    grid-template-columns: 1fr;
-    text-align:left;
-  }
-  .edu-photo{
-    width:120px;
-    height:120px;
-  }
-  .edu-photoWrap{
-    justify-content:flex-start;
-  }
-}
-/* ===== SMALL SQUARE LOGO STYLE ===== */
+/* Small square university logos */
 .edu-logo {
-  width: 90px;
-  height: 90px;
+  width: 85px;
+  height: 85px;
   object-fit: contain;
   background: #ffffff;
-  border-radius: 12px;
+  border-radius: 14px;
   padding: 10px;
-  box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.25);
   border: 2px solid rgba(255,255,255,0.12);
 }
 
-:root[data-theme="light"] .edu-logo {
-  border-color: rgba(0,0,0,0.12);
-}
-
-/* Fix card layout */
+/* Card layout */
 .edu-card2 {
   display: grid;
-  grid-template-columns: 110px 1fr;
+  grid-template-columns: 95px 1fr;
   gap: 22px;
-  padding: 22px;
+  padding: 28px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.12);
   border-radius: 22px;
-  background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
-  border: 1px solid rgba(255,255,255,.12);
+  margin-bottom: 28px;
 }
 
-:root[data-theme="light"] .edu-card2 {
-  background:#fff;
-  border-color:rgba(0,0,0,.10);
+/* Text adjustments */
+.edu-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
-@media (max-width: 900px) {
+.edu-school {
+  font-size: 1.35rem;
+  font-weight: 600;
+}
+
+.edu-degree {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+.edu-bullets li {
+  margin: 6px 0;
+  line-height: 1.5;
+}
+
+@media (max-width: 800px) {
   .edu-card2 {
     grid-template-columns: 1fr;
+    text-align: left;
   }
+
   .edu-logo {
-    width: 80px;
-    height: 80px;
+    margin-bottom: 10px;
   }
 }
+
 
 
   </style>
