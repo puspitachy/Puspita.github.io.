@@ -780,6 +780,73 @@
   display:grid;
   place-items:center;
   color:#fff;
+/* ===== Bigger round icons ===== */
+.about-icon{
+  width:90px;         /* increased from 72px */
+  height:90px;        /* increased */
+  border-radius:50%;
+  border:4px solid rgba(255,255,255,.85); /* thicker border */
+  display:grid;
+  place-items:center;
+  color:#fff;
+  background:transparent;
+  transition:.18s;
+}
+
+.about-icon i{
+  font-size:40px;     /* icon bigger */
+}
+
+.about-icon:hover{
+  transform:translateY(-3px);
+  border-color:#fff;
+}
+
+/* ===== Bigger Projects / Download CV buttons ===== */
+.about-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:280px;          /* wider button */
+  padding:22px 28px;        /* taller button */
+  border-radius:26px;       /* rounder corners */
+  font-size:22px;           /* bigger text */
+  font-weight:600;
+  letter-spacing:.3px;
+  text-decoration:underline; /* like screenshot */
+}
+
+/* white outline */
+.about-btn.outline{
+  border:4px solid #ffffff;
+  color:#ffffff;
+}
+
+/* gold outline */
+.about-btn.gold{
+  border:4px solid var(--accent);
+  color:#ffffff;
+}
+
+.about-btn:hover{
+  transform:translateY(-3px);
+}
+
+/* responsive adjustment */
+@media (max-width:600px){
+  .about-btn{
+    min-width:220px;
+    padding:18px 22px;
+    font-size:18px;
+  }
+  .about-icon{
+    width:70px;
+    height:70px;
+  }
+  .about-icon i{
+    font-size:30px;
+  }
+}
 
 
   </style>
@@ -898,6 +965,10 @@
           <a class="about-icon" href="https://github.com/puspitachy" target="_blank" rel="noreferrer noopener" aria-label="GitHub">
             <i class="fa-brands fa-github"></i>
           </a>
+
+          <a class="btn" href="https://medium.com/@puspitachy" target="_blank" rel="noreferrer noopener"><i class="fa-brands fa-medium"></i> &nbsp;Medium</a>
+          <a class="btn" href="mailto:Puspitachy2000@gmail.com" rel="noreferrer"><i class="fa-regular fa-envelope"></i> &nbsp;Email</a>
+
         </div>
 
         <div class="about-buttons">
