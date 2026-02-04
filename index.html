@@ -853,6 +853,44 @@ footer{margin-top:0; padding:32px 0 56px; border-top:1px solid rgba(255,255,255,
   .contact-grid{grid-template-columns:1fr;}
   form.contact .row{grid-template-columns:1fr;}
 }
+
+  /* Force description and tools strip to stay left-aligned */
+.featured-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;     /* ← This keeps everything left */
+  text-align: left;
+}
+
+/* Make sure text doesn't stretch full width */
+.featured-desc {
+  text-align: left !important;
+  max-width: 800px;            /* ← Adjust this number if you want it wider/narrower */
+  margin-right: auto;          /* ← Pushes it to the left */
+}
+
+/* Keep buttons aligned to the right */
+.featured-actions {
+  align-self: flex-end;        /* ← This is the key: buttons go right */
+  margin-top: 24px;            /* optional: adds nice spacing */
+  width: auto;                 /* prevents buttons from stretching full width */
+}
+
+/* Optional: make tools/analysis look cleaner and left-aligned */
+.featured-strip {
+  align-self: flex-start;      /* keeps it left */
+  width: 100%;
+  max-width: 800px;            /* same width as description */
+  margin-right: auto;
+}
+
+/* On mobile — stack everything naturally (buttons go full width or left) */
+@media (max-width: 900px) {
+  .featured-actions {
+    align-self: stretch;       /* buttons take full width on mobile */
+    justify-content: flex-start;
+  }
+}
 </style>
 </head>
 
