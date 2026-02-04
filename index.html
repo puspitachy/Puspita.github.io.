@@ -89,34 +89,64 @@ header{
 nav{display:flex; align-items:center; justify-content:space-between; gap:16px; padding:14px 0}
 .brand{font-family:Poppins, Inter, sans-serif; font-weight:800; letter-spacing:.2px; display:flex; gap:.45ch; align-items:center}
 .brand span{background:linear-gradient(90deg, var(--accent), var(--accent-2)); -webkit-background-clip:text; background-clip:text; color:transparent}
+/* ===== NAV LINKS (no yellow button, underline active) ===== */
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:18px;
+}
 
-.nav-links{display:flex; align-items:center; gap:18px}
-.nav-links a{opacity:.9; font-weight:800; color:inherit; padding:8px 10px; border-radius:10px}
-.nav-links a:hover,.nav-links a:focus{opacity:1; text-decoration:none; background:color-mix(in oklab, var(--accent) 10%, transparent)}
+/* normal link */
+.nav-links a{
+  opacity:.85;
+  font-weight:800;
+  color:inherit;
+  padding:8px 10px;
+  border-radius:0;            /* IMPORTANT: no pill */
+  background:transparent;     /* IMPORTANT */
+  position:relative;          /* for underline */
+}
+
+/* hover = just brighter (no background box) */
+.nav-links a:hover,
+.nav-links a:focus{
+  opacity:1;
+  text-decoration:none;
+  background:transparent !important; /* kills pill hover */
+}
+
+/* active = underline (like your screenshot) */
 .nav-links a.active{
-  color:color-mix(in oklab, var(--accent) 80%, #613dff 20%);
-  background:color-mix(in oklab, var(--accent) 18%, transparent);
-  box-shadow:inset 0 0 0 1px color-mix(in oklab, var(--accent) 35%, transparent);
+  opacity:1;
+  color:#fff;
+  background:transparent !important; /* kills yellow button */
+  box-shadow:none !important;        /* kills outline */
 }
-.nav-links .hire{padding:8px 14px; border-radius:999px; background:linear-gradient(135deg, var(--accent), var(--accent-2)); color:#041018; box-shadow:var(--shadow)}
-.menu-btn{display:none; border:1px solid var(--softBorderDark); background:var(--subtleFillDark); color:var(--text); padding:8px 12px; border-radius:10px; font-weight:800}
-.theme-toggle{display:inline-flex; align-items:center; gap:8px; border:1px solid var(--softBorderDark); background:var(--subtleFillDark); color:var(--text); padding:8px 12px; border-radius:10px; font-weight:800}
-:root[data-theme="light"] .menu-btn,
-:root[data-theme="light"] .theme-toggle{
-  border-color:var(--softBorderLight);
-  background:var(--subtleFillLight);
-}
-.menu-btn:focus,.theme-toggle:focus{outline: none; box-shadow:var(--outline)}
 
-@media (max-width:900px){
-  .menu-btn{display:inline-flex; align-items:center; gap:8px}
-  .nav-right{display:flex; align-items:center; gap:10px}
-  .nav-links{position:fixed; left:4%; right:4%; top:64px; display:none; flex-direction:column; gap:12px; padding:16px; border-radius:14px; background:linear-gradient(180deg, color-mix(in oklab, var(--panel) 92%, #000 8%), var(--panel)); border:1px solid rgba(255,255,255,.08); box-shadow:var(--shadow)}
-  :root[data-theme="light"] .nav-links{background:#fff; border-color:var(--softBorderLight)}
-  .nav-links.open{display:flex}
-  .nav-links a{width:100%; padding:10px 8px; border-radius:10px}
-  .nav-links a:active{background:rgba(124,92,255,.12)}
+/* underline bar */
+.nav-links a.active::after{
+  content:"";
+  position:absolute;
+  left:10px;
+  right:10px;
+  bottom:-6px;
+  height:3px;
+  border-radius:999px;
+  background:rgba(255,255,255,.55); /* like screenshot */
 }
+
+/* optional: if you want gold underline instead */
+ /* .nav-links a.active::after{ background:var(--accent); } */
+
+/* keep your Hire pill only if you want it */
+.nav-links .hire{
+  padding:8px 14px;
+  border-radius:999px;
+  background:linear-gradient(135deg, var(--accent), var(--accent-2));
+  color:#041018;
+  box-shadow:var(--shadow);
+}
+
 
 /* ===== Hero (Guardian-style) ===== */
 .hero{
