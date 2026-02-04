@@ -857,7 +857,7 @@ footer{margin-top:0; padding:32px 0 56px; border-top:1px solid rgba(255,255,255,
 /* Force description and tools strip to stay left-aligned */
 .featured-bottom {
   display: flex;
-  flex-direction: column;
+ 
   align-items: flex-start;     /* ← This keeps everything left */
   text-align: left;
 }
@@ -903,11 +903,13 @@ footer{margin-top:0; padding:32px 0 56px; border-top:1px solid rgba(255,255,255,
 
 /* ── NEW: Side-by-side text + buttons ── */
 .text-and-buttons {
-  display: flex;
-  align-items: flex-start;          /* buttons start at the same height as text begins */
+  display: flex !important;
+  flex-direction: row !important;     /* ← this forces horizontal layout */
+  align-items: flex-start;            /* buttons start at top of text */
   justify-content: space-between;
-  gap: 40px;                        /* horizontal space between text and buttons */
+  gap: 32px;                          /* space between text and buttons */
   flex-wrap: wrap;
+  margin-bottom: 32px;                /* breathing room before tools strip */
 }
 
 .featured-desc {
@@ -917,6 +919,7 @@ footer{margin-top:0; padding:32px 0 56px; border-top:1px solid rgba(255,255,255,
   font-size: 1.45rem;
   line-height: 1.75;
   color: rgba(255,255,255,.92);
+  padding-right: 16px;
 }
 
 .featured-actions {
