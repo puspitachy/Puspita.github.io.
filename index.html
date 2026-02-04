@@ -19,40 +19,32 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <!-- ✅ Manrope = paragraphs/descriptions (clean + modern) -->
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
-
-<style>
+ <style>
 :root{
   /* ===== Navy + Gold ===== */
   --bg:#070724;
   --panel:#0B0A2A;
   --text:#FFFFFF;
   --muted:#C9D1E6;
-
   --accent:#F2B300;
   --accent-2:#FFC83D;
   --link:#F2B300;
-
   --success:#19c37d;
   --radius:18px;
   --shadow:0 16px 40px rgba(0,0,0,.38);
   --outline:0 0 0 3px rgba(242,179,0,.35);
-
   --softBorderDark: rgba(255,255,255,.12);
   --softBorderLight: rgba(0,0,0,.10);
   --subtleFillDark: rgba(255,255,255,.06);
   --subtleFillLight: rgba(0,0,0,.04);
-
   /* ✅ Fonts */
   --headingFont:"Montserrat", sans-serif;
   --descFont:"Manrope", sans-serif;
-
   /* bands */
   --blackBand:#050512;
   --navyBand:#070724;
 }
-
 /* LIGHT MODE (optional) */
 :root[data-theme="light"]{
   --bg:#F5FCFC;
@@ -61,11 +53,9 @@
   --muted:#5B6E6F;
   --link:#D86B32;
   --shadow:0 10px 30px rgba(0,0,0,.05);
-
   --blackBand:#ffffff;
   --navyBand:#F5FCFC;
 }
-
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
@@ -79,12 +69,10 @@ body{
   line-height:1.6;
 }
 :root[data-theme="light"] body{ background:var(--bg); }
-
 a{color:var(--link); text-decoration:none}
 a:hover{text-decoration:underline}
 img{max-width:100%; display:block}
 .container{width:min(1150px,92%); margin-inline:auto}
-
 /* ===== FULL-WIDTH SECTION BANDS (Navy ↔ Black) ===== */
 .section-band{ position:relative; padding:64px 0; scroll-margin-top:84px; }
 .section-band::before{
@@ -98,7 +86,6 @@ img{max-width:100%; display:block}
   background: var(--navyBand);
 }
 .section-black::before{ background: var(--blackBand); }
-
 /* optional subtle top/bottom fade so it looks premium */
 .section-band::after{
   content:"";
@@ -114,13 +101,10 @@ img{max-width:100%; display:block}
   opacity:.35;
   pointer-events:none;
 }
-
 .gold{ color:var(--accent); font-weight:900; }
-
 .sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0}
 .skip-link{position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden}
 .skip-link:focus{left:16px; top:16px; width:auto; height:auto; padding:10px 14px; background:var(--panel); color:var(--text); border-radius:10px; border:1px solid rgba(255,255,255,.2); z-index:999}
-
 /* ===== GLOBAL TYPOGRAPHY RULES ===== */
 /* ✅ Headings everywhere = Montserrat */
 h1,h2,h3,
@@ -144,7 +128,6 @@ h1,h2,h3,
   text-transform: uppercase;
   letter-spacing: 1px;
 }
-
 /* ✅ Paragraphs / descriptions everywhere = Manrope */
 p, li,
 .about-text,
@@ -164,7 +147,6 @@ p, li,
   text-transform: none !important;
   letter-spacing: 0 !important;
 }
-
 /* ===== Header / Nav ===== */
 header{
   position:sticky; top:0; z-index:50;
@@ -173,12 +155,9 @@ header{
   border-bottom:1px solid rgba(255,255,255,.06);
 }
 :root[data-theme="light"] header{border-color:var(--softBorderLight)}
-
 nav{display:flex; align-items:center; justify-content:space-between; gap:16px; padding:14px 0}
-
 /* ❌ No name on top */
 .brand-spacer{width:40px; height:40px;}
-
 /* Desktop nav links */
 .nav-links{
   display:flex;
@@ -205,7 +184,6 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
   border-radius:999px;
   background:rgba(255,255,255,.55);
 }
-
 /* Menu button hidden on desktop */
 .menu-btn{
   display:none;
@@ -221,7 +199,6 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
   text-transform: uppercase;
   letter-spacing:.6px;
 }
-
 /* ===== Hero ===== */
 .hero{
   position:relative;
@@ -263,7 +240,6 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
   max-width:42ch;
 }
 .hero-tagline .gold{ color:var(--accent); font-weight:900; }
-
 .hero-right{display:flex; justify-content:center; align-items:center;}
 .hero-ring{
   position:relative;
@@ -299,7 +275,6 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
   box-shadow:0 18px 40px rgba(0,0,0,.35);
   border:6px solid rgba(255,255,255,.18);
 }
-
 .btn{
   padding:12px 18px; border-radius:14px;
   border:1px solid rgba(255,255,255,.14);
@@ -312,9 +287,7 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
 .btn:hover{transform:translateY(-2px)}
 .btn:focus{outline:none; box-shadow:var(--outline)}
 .btn.primary{background:linear-gradient(135deg, var(--accent), var(--accent-2)); border-color:transparent; color:#041018}
-
 .hero-actions{display:flex; flex-wrap:wrap; gap:14px; margin-top:26px}
-
 /* ===== About ===== */
 .about-hero{ position:relative; }
 .about-pill{
@@ -367,7 +340,6 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
 }
 .about-icon i{font-size:40px;}
 .about-icon:hover{transform:translateY(-3px); border-color:#fff;}
-
 .about-btn{
   display:inline-flex;
   align-items:center;
@@ -384,7 +356,6 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
 .about-btn.outline{ border:4px solid #ffffff; color:#ffffff; }
 .about-btn.gold{ border:4px solid var(--accent); color:#ffffff; }
 .about-btn:hover{ transform:translateY(-3px); }
-
 /* ===== SKILLS ===== */
 .skills-snap{ }
 .skills-pill{
@@ -401,7 +372,6 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
   text-transform: uppercase;
 }
 .skills-pill span{ color: var(--accent); }
-
 .skills-grid{
   margin-top:36px;
   display: grid;
@@ -450,7 +420,6 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
   line-height:1.75;
 }
 .skills-list li{ margin:8px 0; }
-
 /* ===== Education + Experience ===== */
 .edex-section{ }
 .edex-pill{
@@ -526,7 +495,6 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
   color: rgba(255,255,255,.85);
   font-size: 16px;
 }
-
 /* ===== Projects ===== */
 .filters{display:flex; gap:10px; flex-wrap:wrap; margin:18px 0;}
 .filter-btn{
@@ -547,57 +515,56 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
 }
 .projects-toolbar{display:flex; justify-content:space-between; align-items:center; gap:14px; flex-wrap:wrap; margin:10px 0 18px;}
 .btn.ghost{ background:transparent; border:1px solid rgba(255,255,255,.22); }
-
 .featured-wrap{display:grid; gap:40px; margin-top:22px;}
 .featured-card{border:none; border-radius:0; box-shadow:none; background:transparent;}
 .featured-head{display:grid; grid-template-columns:120px 1fr; gap:18px; align-items:center; padding:0 0 18px;}
 .featured-no{font-weight:900; font-size:78px; line-height:1; color:#fff;}
 .featured-title{margin:0; color:var(--accent); font-size:clamp(28px, 3vw, 58px); line-height:1.1;}
-
 .featured-media{display:grid; grid-template-columns:1fr 1fr; gap:0;}
 .featured-media img{width:100%; height:360px; object-fit:cover;}
-
-/* ✅ the text block */
-.featured-bottom{
-  width: 100%;
-  max-width: none;
-  margin: 0;
+/* ── FIXED SIDE-BY-SIDE LAYOUT (only project section) ── */
+.featured-bottom {
   padding: 28px 0 0;
+  display: block !important;          /* prevents column override */
 }
-.featured-desc{
-  text-align:left;
-  font-size: 1.45rem;         /* ✅ BIGGER */
+.text-and-buttons {
+  display: flex !important;
+  flex-direction: row !important;     /* FORCES buttons to the right */
+  align-items: flex-start;            /* buttons align with top of text */
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-bottom: 32px;                /* space before tools */
+}
+.featured-desc {
+  flex: 1 1 60% !important;
+  margin: 0 !important;
+  padding-right: 20px;                /* breathing room */
+  text-align: left;
+  font-size: 1.45rem;
   line-height: 1.75;
-  margin:0;
   color: rgba(255,255,255,.92);
-  max-width: 1200px;
+  max-width: 75ch;
 }
-
-/* ✅ buttons right-aligned like your inspiration */
-.featured-actions{
-  width:100%;
-  max-width:none;
-  margin:20px 0 0;
-  display:flex;
-  gap:14px;
-  justify-content:flex-end;
-  flex-wrap:wrap;
+.featured-actions {
+  flex: 0 0 auto !important;
+  margin: 0 !important;
+  align-self: flex-start !important;
+  display: flex !important;
+  gap: 14px !important;
+  justify-content: flex-end !important;
+  flex-wrap: wrap;
 }
-
-/* ✅ tools strip */
-.featured-strip{
-  width:100%;
-  max-width:none;
-  margin: 18px 0 0;
-  padding:14px 0 0;
+.featured-strip {
+  margin: 0 0 60px 0;
+  padding: 14px 0 0;
+  border-top: 1px solid rgba(255,255,255,.15);
   font-weight:900;
   letter-spacing:.2px;
   color:#fff;
-  margin-bottom: 60px;        /* ✅ gap between projects */
 }
-.featured-strip .label{color:var(--accent); margin-right:10px;}
-.featured-strip .line{margin:6px 0; font-size:1.10rem; color: rgba(255,255,255,.92);}
-
+.featured-strip .label { color:var(--accent); margin-right:10px; }
+.featured-strip .line { margin:6px 0; font-size:1.10rem; color: rgba(255,255,255,.92); }
 .pill-btn{
   display:inline-flex;
   align-items:center;
@@ -614,7 +581,6 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
   text-transform: uppercase;
 }
 .pill-btn:hover{transform:translateY(-2px)}
-
 /* ===== FULL-WIDTH PROJECTS AREA ===== */
 #projects{
   width: 100vw;
@@ -627,8 +593,7 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
   width: min(1400px, 92%);
   margin: 0 auto;
 }
-
-/* ✅ add inset padding so text starts a bit after images */
+/* add inset padding so text starts a bit after images */
 #projects .featured-bottom,
 #projects .featured-strip,
 #projects .featured-actions{
@@ -641,7 +606,6 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
   object-fit: cover;
   border-radius: 0 !important;
 }
-
 /* ===== Published Work (NICER / more attractive) ===== */
 .pubs-wrap{ margin-top: 10px; }
 .pubs-intro{
@@ -748,7 +712,6 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
   text-decoration:none;
   text-transform: uppercase;
 }
-
 /* ===== Contact ===== */
 .panel{
   border:1px solid rgba(255,255,255,.12);
@@ -787,7 +750,6 @@ form.contact input, form.contact textarea{
 }
 form.contact textarea{min-height:140px; resize:vertical;}
 .toast{margin-top:10px;}
-
 /* ===== Footer ===== */
 footer{margin-top:0; padding:32px 0 56px; border-top:1px solid rgba(255,255,255,.06)}
 .foot-wrap{display:flex; align-items:center; justify-content:space-between; gap:18px; flex-wrap:wrap}
@@ -795,13 +757,10 @@ footer{margin-top:0; padding:32px 0 56px; border-top:1px solid rgba(255,255,255,
 .foot-logo{width:36px; height:36px; border-radius:10px; display:grid; place-items:center; background:linear-gradient(135deg, var(--accent), var(--accent-2)); color:#041018}
 .foot-nav{display:flex; gap:22px; color:var(--muted); font-weight:700}
 .copyright{color:var(--muted); margin-top:14px; text-align:center}
-
 .hidden{display:none !important}
-
 /* ===== MOBILE: menu button + dropdown nav ===== */
 @media (max-width: 820px){
   .menu-btn{display:inline-flex;}
-
   .nav-links{
     display:none;
     position:absolute;
@@ -824,7 +783,6 @@ footer{margin-top:0; padding:32px 0 56px; border-top:1px solid rgba(255,255,255,
   .nav-links a.active::after{display:none;}
   .nav-links a:hover{background: rgba(255,255,255,.06);}
 }
-
 /* ===== MOBILE: layout nice ===== */
 @media (max-width: 900px){
   .section-band{padding:54px 0;}
@@ -848,178 +806,19 @@ footer{margin-top:0; padding:32px 0 56px; border-top:1px solid rgba(255,255,255,
   #projects .featured-bottom,
   #projects .featured-strip,
   #projects .featured-actions{ padding-left: 18px; padding-right: 18px; }
-  .featured-actions{justify-content:flex-start}
   .pubs-grid{grid-template-columns:1fr;}
   .contact-grid{grid-template-columns:1fr;}
   form.contact .row{grid-template-columns:1fr;}
 }
-
-/* Force description and tools strip to stay left-aligned */
-.featured-bottom {
-  display: flex;
- 
-  align-items: flex-start;     /* ← This keeps everything left */
-  text-align: left;
-}
-
-/* Make sure text doesn't stretch full width */
-.featured-desc {
-  text-align: left !important;
-  max-width: 800px;            /* ← Adjust this number if you want it wider/narrower */
-  margin-right: auto;          /* ← Pushes it to the left */
-}
-
-/* Keep buttons aligned to the right */
-.featured-actions {
-  align-self: flex-end;        /* ← This is the key: buttons go right */
-  margin-top: 24px;            /* optional: adds nice spacing */
-  width: auto;                 /* prevents buttons from stretching full width */
-}
-
-/* Optional: make tools/analysis look cleaner and left-aligned */
-.featured-strip {
-  align-self: flex-start;      /* keeps it left */
-  width: 100%;
-  max-width: 800px;            /* same width as description */
-  margin-right: auto;
-}
-
-/* On mobile — stack everything naturally (buttons go full width or left) */
-@media (max-width: 900px) {
-  .featured-actions {
-    align-self: stretch;       /* buttons take full width on mobile */
-    justify-content: flex-start;
-  }
-}
-  /* Only these parts are changed/added for projects */
-
-.featured-wrap { display:grid; gap:40px; margin-top:22px; }
-.featured-card { background:transparent; }
-.featured-head { display:grid; grid-template-columns:120px 1fr; gap:18px; align-items:center; padding:0 0 18px; }
-.featured-no { font-weight:900; font-size:78px; line-height:1; color:#fff; }
-.featured-title { margin:0; color:var(--accent); font-size:clamp(28px,3vw,58px); line-height:1.1; }
-.featured-media { display:grid; grid-template-columns:1fr 1fr; gap:0; }
-.featured-media img { width:100%; height:360px; object-fit:cover; }
-
-/* ── NEW: Side-by-side text + buttons ── */
-.text-and-buttons {
-  display: flex !important;
-  flex-direction: row !important;     /* ← this forces horizontal layout */
-  align-items: flex-start;            /* buttons start at top of text */
-  justify-content: space-between;
-  gap: 32px;                          /* space between text and buttons */
-  flex-wrap: wrap;
-  margin-bottom: 32px;                /* breathing room before tools strip */
-}
-
-.featured-desc {
-  flex: 1 1 60%;                    /* text takes most of the space */
-  margin: 0;
-  text-align: left;
-  font-size: 1.45rem;
-  line-height: 1.75;
-  color: rgba(255,255,255,.92);
-  padding-right: 16px;
-}
-
-.featured-actions {
-  flex: 0 0 auto;                   /* buttons stay compact on the right */
-  margin: 0 !important;             /* remove old margin-top that pushed them down */
-  align-self: flex-start;
-  justify-content: flex-end;
-  gap: 14px;
-  flex-wrap: wrap;
-}
-
-.featured-strip {
-  margin: 32px 0 0;                 /* space above tools strip */
-  padding:14px 0 0;
-  border-top: 1px solid rgba(255,255,255,.15);
-  font-weight:900;
-  letter-spacing:.2px;
-  color:#fff;
-}
-.featured-strip .label { color:var(--accent); margin-right:10px; }
-.featured-strip .line { margin:6px 0; font-size:1.10rem; color: rgba(255,255,255,.92); }
-
-.pill-btn {
-  display:inline-flex; align-items:center; justify-content:center; padding:16px 22px;
-  border-radius:999px; font-weight:900; color:var(--accent); text-decoration:underline;
-  border:3px solid rgba(255,255,255,.85); background:transparent; min-width:170px;
-  transition:.18s; text-transform:uppercase;
-}
-.pill-btn:hover { transform:translateY(-2px); }
-
-/* Mobile: stack vertically */
+/* Mobile project adjustments */
 @media (max-width: 1100px) {
   .text-and-buttons {
-    flex-direction: column;
-    gap: 24px;
-  }
-  .featured-desc {
-    flex: 1 1 100%;
-  }
-  .featured-actions {
-    align-self: flex-start;
-    justify-content: flex-start;
-  }
-}
-  /* ── Main container for text + buttons side-by-side ── */
-.featured-bottom {
-  padding: 28px 0 0;
-}
-
-/* NEW wrapper: this forces text left + buttons right at the same height */
-.text-and-buttons {
-  display: flex;
-  align-items: flex-start;          /* buttons align with the top of the text block */
-  justify-content: space-between;
-  gap: 32px;                        /* horizontal space between text and buttons */
-  flex-wrap: wrap;
-  margin-bottom: 32px;              /* breathing room before tools strip */
-}
-
-/* Text takes most space on left */
-.featured-desc {
-  flex: 1 1 65%;                    /* gives more room to text so buttons don't get pushed too far */
-  margin: 0;
-  text-align: left;
-  font-size: 1.45rem;
-  line-height: 1.75;
-  color: rgba(255,255,255,.92);
-  max-width: 75ch;                  /* prevents text from becoming too narrow */
-}
-
-/* Buttons stay compact on the right, no extra top margin */
-.featured-actions {
-  flex: 0 0 auto;
-  margin: 0 !important;             /* removes the old 24px gap */
-  align-self: flex-start;           /* keeps buttons from stretching vertically */
-  display: flex;
-  gap: 14px;
-  justify-content: flex-end;
-  flex-wrap: wrap;
-}
-
-/* Tools strip below everything */
-.featured-strip {
-  margin: 0 0 60px 0;
-  padding: 14px 0 0;
-  border-top: 1px solid rgba(255,255,255,.12); /* subtle separator */
-  font-weight: 900;
-  letter-spacing: .2px;
-  color: #fff;
-}
-
-/* Mobile: stack naturally */
-@media (max-width: 1100px) {
-  .text-and-buttons {
-    flex-direction: column;
+    flex-direction: column !important;
     gap: 24px;
   }
   .featured-actions {
-    justify-content: flex-start;
-    width: 100%;
+    justify-content: flex-start !important;
+    width: 100% !important;
   }
 }
 </style>
