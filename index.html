@@ -514,10 +514,10 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
 .featured-media img{width:100%; height:360px; object-fit:cover;}
 /* ✅ Make all project text start at SAME left line */
 .featured-bottom{
-  max-width: 980px;     /* fixed text block width */
-  margin: 0 auto;       /* center the text block */
-  padding: 28px 0 0;    /* consistent top spacing */
-  display: block;       /* remove 2-column shifting */
+  width: 100%;
+  max-width: none;        /* remove 980px limit */
+  margin: 0;              /* remove centering */
+  padding: 28px 0 0;      /* keep nice top spacing */
 }
 
 .featured-desc{
@@ -529,17 +529,19 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
 
 /* keep buttons aligned like the same start line */
 .featured-actions{
-  max-width: 980px;
-  margin: 18px auto 0;
-  justify-content: flex-start; /* buttons start same line too */
+  width: 100%;
+  max-width: none;
+  margin: 18px 0 0;       /* remove auto centering */
+  justify-content: flex-start;
   gap: 14px;
 }
 
 /* tools strip aligned same width too */
 .featured-strip{
-  max-width: 980px;
-  margin: 18px auto 0;
-   margin-bottom: 12px;
+  width: 100%;
+  max-width: none;
+  margin: 18px 0 0;       /* remove auto centering */
+  margin-bottom: 44px;
 }
 
 .featured-actions{display:flex; gap:14px; justify-content:flex-end; flex-wrap:wrap;}
@@ -786,7 +788,18 @@ footer{margin-top:28px; padding:32px 0 56px; border-top:1px solid rgba(255,255,2
   object-fit: cover;
   border-radius:  0 !important;
 }
-
+* 🔥 PERFECT TEXT ALIGNMENT LIKE YOUR SAMPLE */
+.featured-bottom,
+.featured-actions,
+.featured-strip {
+  padding-left: 32px;   /* adjust: 24–40px */
+  padding-right: 32px;
+  max-width: 100%;      /* remove centering */
+  margin: 0;            /* keep left-aligned, not centered */
+}
+  #projects .featured-strip{
+  margin-bottom: 60px;
+}
 </style>
 </head>
 
