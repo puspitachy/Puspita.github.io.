@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <!-- Montserrat for headings, Inter fallback, American Typewriter is system font (Mac) -->
+  <!-- ✅ Montserrat = headings, ✅ Inter = paragraphs -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
@@ -42,9 +42,9 @@
   --subtleFillDark: rgba(255,255,255,.06);
   --subtleFillLight: rgba(0,0,0,.04);
 
-  /* fonts */
-  --headingFont:"Montserrat", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  --descFont:"American Typewriter", "Courier New", Courier, serif;
+  /* ✅ Fonts */
+  --headingFont:"Montserrat", sans-serif;
+  --descFont:"Inter", sans-serif;
 }
 
 /* LIGHT MODE (optional) */
@@ -66,7 +66,9 @@ body{
     radial-gradient(900px 500px at -10% 10%, #101b2f 0%, transparent 55%),
     var(--bg);
   color:var(--text);
-  font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+
+  /* ✅ Paragraph/body default = Inter */
+  font-family: var(--descFont);
   line-height:1.6;
 }
 :root[data-theme="light"] body{ background:var(--bg); }
@@ -78,21 +80,30 @@ img{max-width:100%; display:block}
 section{padding:64px 0; scroll-margin-top:84px}
 
 /* ===== GLOBAL TYPOGRAPHY RULES ===== */
-/* Headings everywhere = Montserrat */
+/* ✅ Headings everywhere = Montserrat */
 h1,h2,h3,
 .hero-name,
 .about-title,
 .featured-title,
 .edex-title,
 .project-title,
-.pub-title{
+.pub-title,
+.nav-links a,
+.btn,
+.filter-btn,
+.pill-btn,
+.pub-btn,
+.about-btn,
+.skills-pill,
+.edex-pill,
+.foot-brand{
   font-family: var(--headingFont) !important;
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 
-/* Long text / descriptions everywhere = American Typewriter */
+/* ✅ Paragraphs / descriptions everywhere = Inter */
 p, li,
 .about-text,
 .featured-desc,
@@ -102,9 +113,14 @@ p, li,
 .pub-sub,
 .pub-source,
 .pub-tag,
-.help{
+.help,
+.lead,
+.copyright,
+.foot-nav{
   font-family: var(--descFont) !important;
   font-weight: 400 !important;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
 }
 
 .gold{ color:var(--accent); font-weight:900; }
@@ -140,12 +156,9 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
   padding:8px 10px;
   background:transparent;
   position:relative;
-  font-family: var(--headingFont) !important;
 }
 .nav-links a:hover{opacity:1; text-decoration:none}
-.nav-links a.active{
-  opacity:1;
-}
+.nav-links a.active{opacity:1;}
 .nav-links a.active::after{
   content:"";
   position:absolute;
@@ -169,7 +182,6 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
   border-radius:999px;
   font-weight:900;
   cursor:pointer;
-  font-family: var(--headingFont);
   text-transform: uppercase;
   letter-spacing:.6px;
 }
@@ -197,6 +209,7 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
   text-transform:uppercase;
   background:rgba(0,0,0,.10);
   width:fit-content;
+  font-family: var(--headingFont);
 }
 .hero-badge .badge-accent{ color:var(--accent); }
 .hero-name{
@@ -212,6 +225,7 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
   line-height:1.35;
   color:rgba(255,255,255,.88);
   max-width:42ch;
+  font-family: var(--descFont);
 }
 .hero-tagline .gold{ color:var(--accent); font-weight:900; }
 
@@ -257,7 +271,6 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
   background:rgba(255,255,255,.06);
   color:var(--text); font-weight:900;
   transition:.2s;
-  font-family: var(--headingFont);
   text-transform: uppercase;
   letter-spacing:.6px;
 }
@@ -280,7 +293,6 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
   border:3px solid var(--accent);
   color:var(--accent);
   font-weight:900;
-  font-family: var(--headingFont) !important;
   letter-spacing:.4px;
   background:rgba(0,0,0,.10);
   text-transform: uppercase;
@@ -332,7 +344,6 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
   font-weight:900;
   letter-spacing:.3px;
   text-decoration:underline;
-  font-family: var(--headingFont);
   text-transform: uppercase;
 }
 .about-btn.outline{ border:4px solid #ffffff; color:#ffffff; }
@@ -348,7 +359,6 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
   border-radius:999px;
   border:3px solid var(--accent);
   color:#fff;
-  font-family: var(--headingFont) !important;
   font-weight:900;
   letter-spacing:.6px;
   background:rgba(0,0,0,.18);
@@ -394,7 +404,6 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
   font-size: 22px;
   font-weight: 900;
   color:#fff;
-  font-family: var(--headingFont) !important;
   text-transform: uppercase;
   letter-spacing:.6px;
 }
@@ -407,7 +416,6 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
   border-radius: 18px;
   border: 3px solid var(--accent);
   color: var(--accent);
-  font-family: var(--headingFont) !important;
   font-weight: 900;
   letter-spacing: .5px;
   margin-bottom: 26px;
@@ -459,7 +467,6 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
   font-size: 26px;
   font-weight: 900;
   color: var(--accent);
-  font-family: var(--headingFont) !important;
   text-transform: uppercase;
 }
 .edex-points{
@@ -487,7 +494,6 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
   border-radius:999px;
   font-weight:900;
   cursor:pointer;
-  font-family: var(--headingFont);
   text-transform: uppercase;
   letter-spacing:.6px;
 }
@@ -497,15 +503,12 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
   border-color:transparent;
 }
 .projects-toolbar{display:flex; justify-content:space-between; align-items:center; gap:14px; flex-wrap:wrap; margin:10px 0 18px;}
-.btn.ghost{
-  background:transparent;
-  border:1px solid rgba(255,255,255,.22);
-}
+.btn.ghost{ background:transparent; border:1px solid rgba(255,255,255,.22); }
 
 .featured-wrap{display:grid; gap:40px; margin-top:22px;}
 .featured-card{border:none; border-radius:0; box-shadow:none; background:transparent;}
 .featured-head{display:grid; grid-template-columns:120px 1fr; gap:18px; align-items:center; padding:0 0 18px;}
-.featured-no{font-family:var(--headingFont) !important; font-weight:900; font-size:78px; line-height:1; color:#fff;}
+.featured-no{font-weight:900; font-size:78px; line-height:1; color:#fff;}
 .featured-title{margin:0; color:var(--accent); font-size:clamp(28px, 3vw, 58px); line-height:1.1;}
 .featured-media{display:grid; grid-template-columns:1.2fr 1fr; gap:0;}
 .featured-media img{width:100%; height:360px; object-fit:cover;}
@@ -518,7 +521,6 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
   padding:16px 22px;
   border-radius:999px;
   font-weight:900;
-  font-family:var(--headingFont) !important;
   color:var(--accent);
   text-decoration:underline;
   border:3px solid rgba(255,255,255,.85);
@@ -532,7 +534,7 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
 .featured-strip .label{color:var(--accent); margin-right:10px;}
 .featured-strip .line{margin:6px 0; font-size:1.05rem;}
 
-/* ===== Published Work (your card styles kept) ===== */
+/* ===== Published Work ===== */
 .pubs-grid{
   display:grid;
   grid-template-columns: repeat(3, minmax(0,1fr));
@@ -556,7 +558,6 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
   background: linear-gradient(135deg, var(--accent), var(--accent-2));
   color:#0b0a2a;
   z-index:2;
-  font-family: var(--headingFont);
   text-transform: uppercase;
 }
 .pub-top{display:flex; gap:14px; align-items:flex-start; position:relative; z-index:1;}
@@ -568,7 +569,6 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
   border: 1px solid rgba(255,255,255,.16);
   color:#fff;
   flex:0 0 auto;
-  font-family: var(--headingFont);
 }
 .pub-title{margin:0 0 6px; font-size:1.12rem; line-height:1.3;}
 .pub-title a{color:var(--accent); text-decoration:none;}
@@ -597,7 +597,6 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
   background: transparent;
   white-space: nowrap;
   transition:.18s;
-  font-family: var(--headingFont);
   text-transform: uppercase;
 }
 .pub-btn:hover{ transform: translateY(-2px); }
@@ -609,11 +608,10 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
   background: rgba(255,255,255,.06);
   font-weight:900;
   text-decoration:none;
-  font-family: var(--headingFont);
   text-transform: uppercase;
 }
 
-/* ===== Contact (you had a .panel but no styles, so add minimal) ===== */
+/* ===== Contact ===== */
 .panel{
   border:1px solid rgba(255,255,255,.12);
   background:rgba(255,255,255,.05);
@@ -647,6 +645,8 @@ form.contact input, form.contact textarea{
   color:#fff;
   padding:12px 12px;
   outline:none;
+
+  /* ✅ Inputs also Inter */
   font-family: var(--descFont);
 }
 form.contact textarea{min-height:140px; resize:vertical;}
@@ -655,7 +655,7 @@ form.contact textarea{min-height:140px; resize:vertical;}
 /* ===== Footer ===== */
 footer{margin-top:28px; padding:32px 0 56px; border-top:1px solid rgba(255,255,255,.06)}
 .foot-wrap{display:flex; align-items:center; justify-content:space-between; gap:18px; flex-wrap:wrap}
-.foot-brand{display:flex; align-items:center; gap:12px; font-weight:900; font-family: var(--headingFont); text-transform: uppercase;}
+.foot-brand{display:flex; align-items:center; gap:12px; font-weight:900; text-transform: uppercase;}
 .foot-logo{width:36px; height:36px; border-radius:10px; display:grid; place-items:center; background:linear-gradient(135deg, var(--accent), var(--accent-2)); color:#041018}
 .foot-nav{display:flex; gap:22px; color:var(--muted); font-weight:700}
 .copyright{color:var(--muted); margin-top:14px; text-align:center}
@@ -664,7 +664,7 @@ footer{margin-top:28px; padding:32px 0 56px; border-top:1px solid rgba(255,255,2
 
 /* ===== MOBILE: menu button + dropdown nav ===== */
 @media (max-width: 820px){
-  .menu-btn{display:inline-flex;} /* show menu only on mobile */
+  .menu-btn{display:inline-flex;}
 
   .nav-links{
     display:none;
@@ -717,6 +717,7 @@ footer{margin-top:28px; padding:32px 0 56px; border-top:1px solid rgba(255,255,2
 }
 </style>
 </head>
+
 
 <body>
   <a href="#main" class="skip-link">Skip to content</a>
