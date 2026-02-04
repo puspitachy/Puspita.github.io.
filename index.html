@@ -961,44 +961,63 @@ footer{margin-top:0; padding:32px 0 56px; border-top:1px solid rgba(255,255,255,
     justify-content: flex-start;
   }
 }
-
-/* Your existing full-width & mobile project styles remain */
-#projects {
-  width:100vw;
-  margin-left:calc(50% - 50vw);
-  margin-right:calc(50% - 50vw);
-  padding-left:0;
-  padding-right:0;
-}
-#projects .projects-inner {
-  width:min(1400px,92%);
-  margin:0 auto;
-}
-#projects .featured-bottom,
-#projects .featured-strip,
-#projects .featured-actions {
-  padding-left:40px;
-  padding-right:40px;
-}
-#projects .featured-media img {
-  height:clamp(260px,30vw,420px);
-  width:100%;
-  object-fit:cover;
-  border-radius:0 !important;
+  /* ── Main container for text + buttons side-by-side ── */
+.featured-bottom {
+  padding: 28px 0 0;
 }
 
-/* Your existing media queries, pubs, contact, footer styles remain unchanged */
-@media (max-width: 900px) {
-  .section-band{padding:54px 0;}
-  .hero{grid-template-columns:1fr; padding:56px 0 24px; gap:28px; min-height:auto;}
-  .hero-right{order:-1;}
-  .featured-head{grid-template-columns:90px 1fr}
-  .featured-no{font-size:58px}
-  .featured-media{grid-template-columns:1fr}
-  .featured-media img{height:260px}
-  #projects .featured-bottom,
-  #projects .featured-strip,
-  #projects .featured-actions{ padding-left:18px; padding-right:18px; }
+/* NEW wrapper: this forces text left + buttons right at the same height */
+.text-and-buttons {
+  display: flex;
+  align-items: flex-start;          /* buttons align with the top of the text block */
+  justify-content: space-between;
+  gap: 32px;                        /* horizontal space between text and buttons */
+  flex-wrap: wrap;
+  margin-bottom: 32px;              /* breathing room before tools strip */
+}
+
+/* Text takes most space on left */
+.featured-desc {
+  flex: 1 1 65%;                    /* gives more room to text so buttons don't get pushed too far */
+  margin: 0;
+  text-align: left;
+  font-size: 1.45rem;
+  line-height: 1.75;
+  color: rgba(255,255,255,.92);
+  max-width: 75ch;                  /* prevents text from becoming too narrow */
+}
+
+/* Buttons stay compact on the right, no extra top margin */
+.featured-actions {
+  flex: 0 0 auto;
+  margin: 0 !important;             /* removes the old 24px gap */
+  align-self: flex-start;           /* keeps buttons from stretching vertically */
+  display: flex;
+  gap: 14px;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+/* Tools strip below everything */
+.featured-strip {
+  margin: 0 0 60px 0;
+  padding: 14px 0 0;
+  border-top: 1px solid rgba(255,255,255,.12); /* subtle separator */
+  font-weight: 900;
+  letter-spacing: .2px;
+  color: #fff;
+}
+
+/* Mobile: stack naturally */
+@media (max-width: 1100px) {
+  .text-and-buttons {
+    flex-direction: column;
+    gap: 24px;
+  }
+  .featured-actions {
+    justify-content: flex-start;
+    width: 100%;
+  }
 }
 </style>
 </head>
