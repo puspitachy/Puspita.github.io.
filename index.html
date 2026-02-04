@@ -854,42 +854,152 @@ footer{margin-top:0; padding:32px 0 56px; border-top:1px solid rgba(255,255,255,
   form.contact .row{grid-template-columns:1fr;}
 }
 
- /* Consistent left text + right buttons + higher button position */
+/* Force description and tools strip to stay left-aligned */
 .featured-bottom {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: flex-start;     /* ← This keeps everything left */
   text-align: left;
 }
 
+/* Make sure text doesn't stretch full width */
 .featured-desc {
   text-align: left !important;
-  max-width: 90ch;
-  margin-bottom: 16px !important;   /* ← this controls how close buttons are */
-  line-height: 1.65;
+  max-width: 800px;            /* ← Adjust this number if you want it wider/narrower */
+  margin-right: auto;          /* ← Pushes it to the left */
+}
+
+/* Keep buttons aligned to the right */
+.featured-actions {
+  align-self: flex-end;        /* ← This is the key: buttons go right */
+  margin-top: 24px;            /* optional: adds nice spacing */
+  width: auto;                 /* prevents buttons from stretching full width */
+}
+
+/* Optional: make tools/analysis look cleaner and left-aligned */
+.featured-strip {
+  align-self: flex-start;      /* keeps it left */
+  width: 100%;
+  max-width: 800px;            /* same width as description */
+  margin-right: auto;
+}
+
+/* On mobile — stack everything naturally (buttons go full width or left) */
+@media (max-width: 900px) {
+  .featured-actions {
+    align-self: stretch;       /* buttons take full width on mobile */
+    justify-content: flex-start;
+  }
+}
+  /* Only these parts are changed/added for projects */
+
+.featured-wrap { display:grid; gap:40px; margin-top:22px; }
+.featured-card { background:transparent; }
+.featured-head { display:grid; grid-template-columns:120px 1fr; gap:18px; align-items:center; padding:0 0 18px; }
+.featured-no { font-weight:900; font-size:78px; line-height:1; color:#fff; }
+.featured-title { margin:0; color:var(--accent); font-size:clamp(28px,3vw,58px); line-height:1.1; }
+.featured-media { display:grid; grid-template-columns:1fr 1fr; gap:0; }
+.featured-media img { width:100%; height:360px; object-fit:cover; }
+
+/* ── NEW: Side-by-side text + buttons ── */
+.text-and-buttons {
+  display: flex;
+  align-items: flex-start;          /* buttons start at the same height as text begins */
+  justify-content: space-between;
+  gap: 40px;                        /* horizontal space between text and buttons */
+  flex-wrap: wrap;
+}
+
+.featured-desc {
+  flex: 1 1 60%;                    /* text takes most of the space */
+  margin: 0;
+  text-align: left;
+  font-size: 1.45rem;
+  line-height: 1.75;
+  color: rgba(255,255,255,.92);
 }
 
 .featured-actions {
-  align-self: flex-end !important;
-  margin-top: 0 !important;
-  margin-bottom: 24px !important;
-  gap: 16px;
+  flex: 0 0 auto;                   /* buttons stay compact on the right */
+  margin: 0 !important;             /* remove old margin-top that pushed them down */
+  align-self: flex-start;
+  justify-content: flex-end;
+  gap: 14px;
   flex-wrap: wrap;
 }
 
 .featured-strip {
-  align-self: flex-start;
-  max-width: 90ch;
-  margin-top: 20px;
+  margin: 32px 0 0;                 /* space above tools strip */
+  padding:14px 0 0;
+  border-top: 1px solid rgba(255,255,255,.15);
+  font-weight:900;
+  letter-spacing:.2px;
+  color:#fff;
 }
+.featured-strip .label { color:var(--accent); margin-right:10px; }
+.featured-strip .line { margin:6px 0; font-size:1.10rem; color: rgba(255,255,255,.92); }
 
-@media (max-width: 900px) {
+.pill-btn {
+  display:inline-flex; align-items:center; justify-content:center; padding:16px 22px;
+  border-radius:999px; font-weight:900; color:var(--accent); text-decoration:underline;
+  border:3px solid rgba(255,255,255,.85); background:transparent; min-width:170px;
+  transition:.18s; text-transform:uppercase;
+}
+.pill-btn:hover { transform:translateY(-2px); }
+
+/* Mobile: stack vertically */
+@media (max-width: 1100px) {
+  .text-and-buttons {
+    flex-direction: column;
+    gap: 24px;
+  }
+  .featured-desc {
+    flex: 1 1 100%;
+  }
   .featured-actions {
-    align-self: stretch;
+    align-self: flex-start;
     justify-content: flex-start;
   }
 }
-  
+
+/* Your existing full-width & mobile project styles remain */
+#projects {
+  width:100vw;
+  margin-left:calc(50% - 50vw);
+  margin-right:calc(50% - 50vw);
+  padding-left:0;
+  padding-right:0;
+}
+#projects .projects-inner {
+  width:min(1400px,92%);
+  margin:0 auto;
+}
+#projects .featured-bottom,
+#projects .featured-strip,
+#projects .featured-actions {
+  padding-left:40px;
+  padding-right:40px;
+}
+#projects .featured-media img {
+  height:clamp(260px,30vw,420px);
+  width:100%;
+  object-fit:cover;
+  border-radius:0 !important;
+}
+
+/* Your existing media queries, pubs, contact, footer styles remain unchanged */
+@media (max-width: 900px) {
+  .section-band{padding:54px 0;}
+  .hero{grid-template-columns:1fr; padding:56px 0 24px; gap:28px; min-height:auto;}
+  .hero-right{order:-1;}
+  .featured-head{grid-template-columns:90px 1fr}
+  .featured-no{font-size:58px}
+  .featured-media{grid-template-columns:1fr}
+  .featured-media img{height:260px}
+  #projects .featured-bottom,
+  #projects .featured-strip,
+  #projects .featured-actions{ padding-left:18px; padding-right:18px; }
+}
 </style>
 </head>
 
@@ -1161,7 +1271,7 @@ footer{margin-top:0; padding:32px 0 56px; border-top:1px solid rgba(255,255,255,
       </div>
     </section>
 
-    <!-- ===== PROJECTS (NAVY / FULL WIDTH) ===== -->
+   <!-- ===== PROJECTS SECTION – FULLY UPDATED ===== -->
     <section id="projects" class="section-band section-navy" aria-labelledby="projects-heading">
       <div class="projects-inner">
 
@@ -1180,234 +1290,223 @@ footer{margin-top:0; padding:32px 0 56px; border-top:1px solid rgba(255,255,255,
 
         <div class="featured-wrap" id="featured-projects">
 
+          <!-- 01 – Sentiment Analyzer -->
           <article class="featured-card project" data-tags="ai-ml,data-analyst">
             <div class="featured-head">
               <div class="featured-no">01</div>
               <h3 class="featured-title">Customer Feedback Sentiment Analyzer Web App</h3>
             </div>
-
             <div class="featured-media">
               <img src="images/senti.png" alt="Sentiment Analysis Web App screenshot" loading="lazy">
               <img src="images/Screenshot 2025-04-10 153022.png" alt="Sentiment Analysis result view" loading="lazy">
             </div>
-
             <div class="featured-bottom">
-              <p class="featured-desc">
-                Flask app that turns raw customer feedback into <span class="gold">actionable sentiment insights</span> (positive / neutral / negative)
-                using a reproducible ML pipeline. Includes <span class="gold">data cleaning</span>, feature engineering,
-                baseline modeling, and a simple UI designed for <span class="gold">non-technical stakeholders</span>.
-              </p>
-
-              <div class="featured-actions">
-                <a class="pill-btn" href="YOUR_DECK_LINK" target="_blank" rel="noreferrer noopener">Full Deck</a>
-                <a class="pill-btn" href="YOUR_DASHBOARD_LINK" target="_blank" rel="noreferrer noopener">Dashboard</a>
-                <a class="pill-btn" href="https://github.com/puspitachy/Building-an-web-app-for-Sentiment-Analysis" target="_blank" rel="noreferrer noopener">Python Code</a>
+              <div class="text-and-buttons">
+                <p class="featured-desc">
+                  Flask app that turns raw customer feedback into <span class="gold">actionable sentiment insights</span> (positive / neutral / negative)
+                  using a reproducible ML pipeline. Includes <span class="gold">data cleaning</span>, feature engineering,
+                  baseline modeling, and a simple UI designed for <span class="gold">non-technical stakeholders</span>.
+                </p>
+                <div class="featured-actions">
+                  <a class="pill-btn" href="YOUR_DECK_LINK" target="_blank" rel="noreferrer noopener">Full Deck</a>
+                  <a class="pill-btn" href="YOUR_DASHBOARD_LINK" target="_blank" rel="noreferrer noopener">Dashboard</a>
+                  <a class="pill-btn" href="https://github.com/puspitachy/Building-an-web-app-for-Sentiment-Analysis" target="_blank" rel="noreferrer noopener">Python Code</a>
+                </div>
               </div>
-            </div>
-
-            <div class="featured-strip">
-              <div class="line"><span class="label">Tools :</span> Python (Flask), scikit-learn</div>
-              <div class="line"><span class="label">Analysis :</span> <span class="gold">EDA</span>, NLP, Model Evaluation</div>
+              <div class="featured-strip">
+                <div class="line"><span class="label">Tools :</span> Python (Flask), scikit-learn</div>
+                <div class="line"><span class="label">Analysis :</span> <span class="gold">EDA</span>, NLP, Model Evaluation</div>
+              </div>
             </div>
           </article>
 
+          <!-- 02 – Healthcare Model -->
           <article class="featured-card project" data-tags="data-analytics,ai-ml">
             <div class="featured-head">
               <div class="featured-no">02</div>
               <h3 class="featured-title">Healthcare Model Evaluation Analytics</h3>
             </div>
-
             <div class="featured-media">
               <img src="images/health.png" alt="Healthcare model evaluation visualization" loading="lazy">
               <img src="images/r.jpg" alt="Metrics comparison for healthcare models" loading="lazy">
             </div>
-
             <div class="featured-bottom">
-              <p class="featured-desc">
-                A data analytics case study on how healthcare teams choose reliable predictive models by comparing
-                <span class="gold">precision</span>, <span class="gold">recall</span>, <span class="gold">ROC–AUC</span>,
-                and <span class="gold">calibration</span>. Focused on <span class="gold">real-world clinical decision-making</span>
-                and communicating tradeoffs clearly—beyond just accuracy.
-              </p>
-
-              <div class="featured-actions">
-                <a class="pill-btn" href="https://medium.com/design-bootcamp/beyond-accuracy-how-healthcare-chooses-the-right-machine-learning-model-7d9764960b8c"
-                  target="_blank" rel="noreferrer noopener">Read Article</a>
-                <a class="pill-btn" href="YOUR_DECK_LINK" target="_blank" rel="noreferrer noopener">Summary Deck</a>
-                <a class="pill-btn" href="YOUR_NOTEBOOK_LINK" target="_blank" rel="noreferrer noopener">Analysis Notes</a>
+              <div class="text-and-buttons">
+                <p class="featured-desc">
+                  A data analytics case study on how healthcare teams choose reliable predictive models by comparing
+                  <span class="gold">precision</span>, <span class="gold">recall</span>, <span class="gold">ROC–AUC</span>,
+                  and <span class="gold">calibration</span>. Focused on <span class="gold">real-world clinical decision-making</span>
+                  and communicating tradeoffs clearly—beyond just accuracy.
+                </p>
+                <div class="featured-actions">
+                  <a class="pill-btn" href="https://medium.com/design-bootcamp/beyond-accuracy-how-healthcare-chooses-the-right-machine-learning-model-7d9764960b8c" target="_blank" rel="noreferrer noopener">Read Article</a>
+                  <a class="pill-btn" href="YOUR_DECK_LINK" target="_blank" rel="noreferrer noopener">Summary Deck</a>
+                  <a class="pill-btn" href="YOUR_NOTEBOOK_LINK" target="_blank" rel="noreferrer noopener">Analysis Notes</a>
+                </div>
               </div>
-            </div>
-
-            <div class="featured-strip">
-              <div class="line"><span class="label">Tools :</span> Python, pandas, scikit-learn, ROC–AUC tools</div>
-              <div class="line"><span class="label">Analysis :</span> <span class="gold">Model Comparison</span>, Metric Interpretation, Healthcare Analytics</div>
+              <div class="featured-strip">
+                <div class="line"><span class="label">Tools :</span> Python, pandas, scikit-learn, ROC–AUC tools</div>
+                <div class="line"><span class="label">Analysis :</span> Model Comparison, Metric Interpretation, Healthcare Analytics</div>
+              </div>
             </div>
           </article>
 
+          <!-- 07 – Brain Tumor -->
           <article class="featured-card project" data-tags="ai-ml,data-analyst">
             <div class="featured-head">
               <div class="featured-no">07</div>
               <h3 class="featured-title">Brain Tumor MRI Classification (Hybrid CNN)</h3>
             </div>
-
             <div class="featured-media">
               <img src="images/bt.png" alt="Brain tumor MRI classification project cover" loading="lazy">
               <img src="images/t5.png" alt="Hybrid CNN results and performance metrics" loading="lazy">
             </div>
-
             <div class="featured-bottom">
-              <p class="featured-desc">
-                Hybrid deep learning model for brain tumor classification using MRI scans, combining
-                <span class="gold">InceptionV3</span> + <span class="gold">MobileNetV3</span> for strong feature extraction and efficient performance.
-                Includes preprocessing, training pipeline, and evaluation with <span class="gold">confusion matrix</span> and accuracy.
-                Published as a poster/paper in <span class="gold">IEEE SPICSCON 2025</span>.
-              </p>
-
-              <div class="featured-actions">
-                <a class="pill-btn" href="YOUR_PAPER_LINK" target="_blank" rel="noreferrer noopener">IEEE Paper</a>
-                <a class="pill-btn" href="YOUR_POSTER_LINK" target="_blank" rel="noreferrer noopener">Poster</a>
-                <a class="pill-btn" href="YOUR_GITHUB_LINK" target="_blank" rel="noreferrer noopener">Project Files</a>
+              <div class="text-and-buttons">
+                <p class="featured-desc">
+                  Hybrid deep learning model for brain tumor classification using MRI scans, combining
+                  <span class="gold">InceptionV3</span> + <span class="gold">MobileNetV3</span> for strong feature extraction and efficient performance.
+                  Includes preprocessing, training pipeline, and evaluation with <span class="gold">confusion matrix</span> and accuracy.
+                  Published as a poster/paper in <span class="gold">IEEE SPICSCON 2025</span>.
+                </p>
+                <div class="featured-actions">
+                  <a class="pill-btn" href="YOUR_PAPER_LINK" target="_blank" rel="noreferrer noopener">IEEE Paper</a>
+                  <a class="pill-btn" href="YOUR_POSTER_LINK" target="_blank" rel="noreferrer noopener">Poster</a>
+                  <a class="pill-btn" href="YOUR_GITHUB_LINK" target="_blank" rel="noreferrer noopener">Project Files</a>
+                </div>
               </div>
-            </div>
-
-            <div class="featured-strip">
-              <div class="line"><span class="label">Tools :</span> Python, PyTorch, OpenCV, NumPy</div>
-              <div class="line"><span class="label">Model :</span> <span class="gold">Hybrid CNN</span> (InceptionV3 + MobileNetV3)</div>
+              <div class="featured-strip">
+                <div class="line"><span class="label">Tools :</span> Python, PyTorch, OpenCV, NumPy</div>
+                <div class="line"><span class="label">Model :</span> <span class="gold">Hybrid CNN</span> (InceptionV3 + MobileNetV3)</div>
+              </div>
             </div>
           </article>
 
+          <!-- 03 – Road Safety -->
           <article class="featured-card project" data-tags="data-analyst,business-analyst">
             <div class="featured-head">
               <div class="featured-no">03</div>
               <h3 class="featured-title">Data Driven Road Safety Initiative</h3>
             </div>
-
             <div class="featured-media">
               <img src="images/rr.jpeg" alt="Road safety Power BI dashboard screenshot" loading="lazy">
               <img src="images/road.png" alt="Road safety insights view" loading="lazy">
             </div>
-
             <div class="featured-bottom">
-              <p class="featured-desc">
-                Power BI dashboards built to identify <span class="gold">high-risk zones</span> and key crash drivers.
-                Includes <span class="gold">hotspot mapping</span>, severity trends, and time-of-day patterns—designed for
-                <span class="gold">decision-ready reporting</span> and safety planning.
-              </p>
-
-              <div class="featured-actions">
-                <a class="pill-btn" href="YOUR_REPORT_LINK" target="_blank" rel="noreferrer noopener">Full Report</a>
-                <a class="pill-btn" href="YOUR_DASHBOARD_LINK" target="_blank" rel="noreferrer noopener">Power BI</a>
-                <a class="pill-btn" href="https://github.com/puspitachy/Road-Accident-Analysis-by-Power-BI" target="_blank" rel="noreferrer noopener">Project Files</a>
+              <div class="text-and-buttons">
+                <p class="featured-desc">
+                  Power BI dashboards built to identify <span class="gold">high-risk zones</span> and key crash drivers.
+                  Includes <span class="gold">hotspot mapping</span>, severity trends, and time-of-day patterns—designed for
+                  <span class="gold">decision-ready reporting</span> and safety planning.
+                </p>
+                <div class="featured-actions">
+                  <a class="pill-btn" href="YOUR_REPORT_LINK" target="_blank" rel="noreferrer noopener">Full Report</a>
+                  <a class="pill-btn" href="YOUR_DASHBOARD_LINK" target="_blank" rel="noreferrer noopener">Power BI</a>
+                  <a class="pill-btn" href="https://github.com/puspitachy/Road-Accident-Analysis-by-Power-BI" target="_blank" rel="noreferrer noopener">Project Files</a>
+                </div>
               </div>
-            </div>
-
-            <div class="featured-strip">
-              <div class="line"><span class="label">Tools :</span> Power BI, Excel, DAX</div>
-              <div class="line"><span class="label">Analysis :</span> <span class="gold">KPI Trends</span>, Hotspots, Severity</div>
+              <div class="featured-strip">
+                <div class="line"><span class="label">Tools :</span> Power BI, Excel, DAX</div>
+                <div class="line"><span class="label">Analysis :</span> <span class="gold">KPI Trends</span>, Hotspots, Severity</div>
+              </div>
             </div>
           </article>
 
-        </div>
+          <!-- 05 – Coffee Shop -->
+          <article class="featured-card project" data-tags="data-analyst,business-analyst">
+            <div class="featured-head">
+              <div class="featured-no">05</div>
+              <h3 class="featured-title">Coffee Shop Revenue & Sales Analysis</h3>
+            </div>
+            <div class="featured-media">
+              <img src="images/ccd.png" alt="Coffee shop revenue Excel dashboard overview" loading="lazy">
+              <img src="images/unnamed.jpg" alt="Coffee sales trends and top products analysis view" loading="lazy">
+            </div>
+            <div class="featured-bottom">
+              <div class="text-and-buttons">
+                <p class="featured-desc">
+                  Excel dashboard analyzing coffee shop revenue and sales across products, locations, and time.
+                  Includes <span class="gold">KPI cards</span>, monthly trends, top-selling items, and peak-hour patterns for
+                  <span class="gold">growth insights</span> and decision-ready reporting.
+                </p>
+                <div class="featured-actions">
+                  <a class="pill-btn" href="YOUR_REPORT_LINK" target="_blank" rel="noreferrer noopener">Full Report</a>
+                  <a class="pill-btn" href="YOUR_EXCEL_LINK" target="_blank" rel="noreferrer noopener">Excel Dashboard</a>
+                  <a class="pill-btn" href="YOUR_GITHUB_LINK" target="_blank" rel="noreferrer noopener">Project Files</a>
+                </div>
+              </div>
+              <div class="featured-strip">
+                <div class="line"><span class="label">Tools :</span> Excel, Pivot Tables, Power Query</div>
+                <div class="line"><span class="label">Analysis :</span> Revenue KPIs, Trends, Top Products, Peak Hours</div>
+              </div>
+            </div>
+          </article>
 
-        <!-- extra projects grid kept (show/hide) -->
-        <div class="projects projects--extra-hidden" id="proj-grid">
-
+          <!-- 06 – Scuba Diving -->
           <article class="featured-card project" data-tags="business-analyst">
             <div class="featured-head">
               <div class="featured-no">06</div>
               <h3 class="featured-title">Scuba Diving App Design</h3>
             </div>
-
             <div class="featured-media">
               <img src="images/dive_app_screenshot.png" alt="Scuba diving app UI mockup" loading="lazy">
               <img src="images/dive_app_screenshot.png" alt="Scuba diving app flow preview" loading="lazy">
             </div>
-
             <div class="featured-bottom">
-              <p class="featured-desc">
-                Mobile UI/UX concept designed for divers to capture underwater moments, log dive history, and browse memories.
-                Built around a <span class="gold">clean user flow</span> with quick logging and <span class="gold">visual storytelling</span>.
-              </p>
-
-              <div class="featured-actions">
-                <a class="pill-btn" href="https://github.com/puspitachy/UX-UI-design" target="_blank" rel="noreferrer noopener">Project Files</a>
-                <a class="pill-btn" href="YOUR_FIGMA_LINK" target="_blank" rel="noreferrer noopener">Figma</a>
-                <a class="pill-btn" href="YOUR_CASE_STUDY_LINK" target="_blank" rel="noreferrer noopener">Case Study</a>
+              <div class="text-and-buttons">
+                <p class="featured-desc">
+                  Mobile UI/UX concept designed for divers to capture underwater moments, log dive history, and browse memories.
+                  Built around a <span class="gold">clean user flow</span> with quick logging and <span class="gold">visual storytelling</span>.
+                </p>
+                <div class="featured-actions">
+                  <a class="pill-btn" href="https://github.com/puspitachy/UX-UI-design" target="_blank" rel="noreferrer noopener">Project Files</a>
+                  <a class="pill-btn" href="YOUR_FIGMA_LINK" target="_blank" rel="noreferrer noopener">Figma</a>
+                  <a class="pill-btn" href="YOUR_CASE_STUDY_LINK" target="_blank" rel="noreferrer noopener">Case Study</a>
+                </div>
               </div>
-            </div>
-
-            <div class="featured-strip">
-              <div class="line"><span class="label">Tools :</span> Figma, UI Kit, Prototyping</div>
-              <div class="line"><span class="label">Analysis :</span> UX Flow, Wireframes, Visual Design</div>
+              <div class="featured-strip">
+                <div class="line"><span class="label">Tools :</span> Figma, UI Kit, Prototyping</div>
+                <div class="line"><span class="label">Analysis :</span> UX Flow, Wireframes, Visual Design</div>
+              </div>
             </div>
           </article>
 
-          <article class="featured-card project" data-tags="data-analyst,business-analyst">
-            <div class="featured-head">
-              <div class="featured-no">05</div>
-              <h3 class="featured-title">Coffee Shop Revenue &amp; Sales Analysis</h3>
-            </div>
-
-            <div class="featured-media">
-              <img src="images/ccd.png" alt="Coffee shop revenue Excel dashboard overview" loading="lazy">
-              <img src="images/unnamed.jpg" alt="Coffee sales trends and top products analysis view" loading="lazy">
-            </div>
-
-            <div class="featured-bottom">
-              <p class="featured-desc">
-                Excel dashboard analyzing coffee shop revenue and sales across products, locations, and time.
-                Includes <span class="gold">KPI cards</span>, monthly trends, top-selling items, and peak-hour patterns for
-                <span class="gold">growth insights</span> and decision-ready reporting.
-              </p>
-
-              <div class="featured-actions">
-                <a class="pill-btn" href="YOUR_REPORT_LINK" target="_blank" rel="noreferrer noopener">Full Report</a>
-                <a class="pill-btn" href="YOUR_EXCEL_LINK" target="_blank" rel="noreferrer noopener">Excel Dashboard</a>
-                <a class="pill-btn" href="YOUR_GITHUB_LINK" target="_blank" rel="noreferrer noopener">Project Files</a>
-              </div>
-            </div>
-
-            <div class="featured-strip">
-              <div class="line"><span class="label">Tools :</span> Excel, Pivot Tables, Power Query</div>
-              <div class="line"><span class="label">Analysis :</span> Revenue KPIs, Trends, Top Products, Peak Hours</div>
-            </div>
-          </article>
-
+          <!-- 08 – Bike Sales -->
           <article class="featured-card project" data-tags="data-analyst,business-analyst">
             <div class="featured-head">
               <div class="featured-no">08</div>
               <h3 class="featured-title">Bike Sales Excel Dashboard</h3>
             </div>
-
             <div class="featured-media">
               <img src="images/downloaded_chart.png" alt="Bike Sales Excel dashboard overview" loading="lazy">
               <img src="images/downloaded_chart.png" alt="Bike Sales analysis view" loading="lazy">
             </div>
-
             <div class="featured-bottom">
-              <p class="featured-desc">
-                Excel dashboard visualizing bike sales performance by region, education, customer segments, and demographics.
-                Includes <span class="gold">purchase behavior</span>, KPI indicators, and insights to support
-                <span class="gold">targeted marketing decisions</span>.
-              </p>
-
-              <div class="featured-actions">
-                <a class="pill-btn" href="YOUR_REPORT_LINK" target="_blank" rel="noreferrer noopener">Full Report</a>
-                <a class="pill-btn" href="YOUR_EXCEL_LINK" target="_blank" rel="noreferrer noopener">Excel Dashboard</a>
-                <a class="pill-btn" href="https://github.com/puspitachy/Excel-project-bike-dataset" target="_blank" rel="noreferrer noopener">Project Files</a>
+              <div class="text-and-buttons">
+                <p class="featured-desc">
+                  Excel dashboard visualizing bike sales performance by region, education, customer segments, and demographics.
+                  Includes <span class="gold">purchase behavior</span>, KPI indicators, and insights to support
+                  <span class="gold">targeted marketing decisions</span>.
+                </p>
+                <div class="featured-actions">
+                  <a class="pill-btn" href="YOUR_REPORT_LINK" target="_blank" rel="noreferrer noopener">Full Report</a>
+                  <a class="pill-btn" href="YOUR_EXCEL_LINK" target="_blank" rel="noreferrer noopener">Excel Dashboard</a>
+                  <a class="pill-btn" href="https://github.com/puspitachy/Excel-project-bike-dataset" target="_blank" rel="noreferrer noopener">Project Files</a>
+                </div>
               </div>
-            </div>
-
-            <div class="featured-strip">
-              <div class="line"><span class="label">Tools :</span> Excel, Pivot Tables, Power Query</div>
-              <div class="line"><span class="label">Analysis :</span> Sales KPIs, Demographics, Regional Insights</div>
+              <div class="featured-strip">
+                <div class="line"><span class="label">Tools :</span> Excel, Pivot Tables, Power Query</div>
+                <div class="line"><span class="label">Analysis :</span> Sales KPIs, Demographics, Regional Insights</div>
+              </div>
             </div>
           </article>
 
         </div>
+
       </div>
     </section>
 
+   
     <!-- ===== PUBLISHED WORK (BLACK) ===== -->
     <section id="publications" class="section-band section-black" aria-labelledby="pubs-heading">
       <div class="edex-pill">Published <span class="muted">Work </span></div>
