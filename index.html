@@ -788,18 +788,25 @@ footer{margin-top:28px; padding:32px 0 56px; border-top:1px solid rgba(255,255,2
   object-fit: cover;
   border-radius:  0 !important;
 }
-* 🔥 PERFECT TEXT ALIGNMENT LIKE YOUR SAMPLE */
-.featured-bottom,
-.featured-actions,
-.featured-strip {
-  padding-left: 32px;   /* adjust: 24–40px */
-  padding-right: 32px;
-  max-width: 100%;      /* remove centering */
-  margin: 0;            /* keep left-aligned, not centered */
+/* 🔥 Add clean padding so text is slightly inside (like your screenshot) */
+#projects .featured-bottom,
+#projects .featured-strip,
+#projects .featured-actions {
+    padding-left: 40px;
+    padding-right: 40px;
 }
-  #projects .featured-strip{
-  margin-bottom: 60px;
+#projects .featured-desc {
+    max-width: 1200px;  /* matches your example */
+    margin: 0;
 }
+#projects .featured-actions {
+    justify-content: flex-end;   /* buttons on right */
+    margin-top: 20px;
+}
+#projects .featured-strip {
+    margin-bottom: 60px;   /* space between projects */
+}
+
 </style>
 </head>
 
