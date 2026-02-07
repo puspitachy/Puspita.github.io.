@@ -304,7 +304,7 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
   background:rgba(255,255,255,.06);
   color:var(--text);
   transition:.2s;
-  font-size:16px;              /* ✅ buttons 12 */
+  font-size:16px;
 }
 .btn:hover{transform:translateY(-2px)}
 .btn:focus{outline:none; box-shadow:var(--outline)}
@@ -370,7 +370,7 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
   min-width:280px;
   padding:22px 28px;
   border-radius:26px;
-  font-size:16px;              /* ✅ buttons 12 */
+  font-size:16px;
   text-decoration:underline;
 }
 .about-btn.outline{ border:4px solid #ffffff; color:#ffffff; }
@@ -382,10 +382,9 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
 #skills .skill-label,
 #skills .skills-list,
 #skills .skills-list li{
-  font-family: var(--projectTitle) !important;   /* ← CORRECT THIS */
+  font-family: var(--projectTitle) !important;
 }
 
-/* ✅ skill name font size (you said 7.5 — using 7.5pt equivalent) */
 #skills .skill-label{
   font-size: 16px;
   letter-spacing:.2px;
@@ -393,7 +392,6 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
   font-weight:700 !important;
 }
 
-/* ✅ headings in Aptos size 12 (Programming Languages / Tools / Visualization / Methods) */
 #skills .skills-col > h2{
   font-family: var(--projectTitle) !important;
   font-size:16px;
@@ -450,7 +448,7 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
   margin:14px 0 0;
   padding-left:18px;
   color: rgba(255,255,255,.92);
-  font-size:16px;               /* ✅ 12 */
+  font-size:16px;
   line-height:1.75;
 }
 .skills-list li{ margin:8px 0; }
@@ -537,7 +535,7 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
   padding:10px 14px;
   border-radius:999px;
   cursor:pointer;
-  font-size:16px;               /* ✅ 12 */
+  font-size:16px;
 }
 .filter-btn.active{
   background:linear-gradient(135deg, var(--accent), var(--accent-2));
@@ -568,7 +566,6 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
 }
 .featured-card.alt::before{ background: var(--blackBand); }
 
-/* slightly fade edges like your sections */
 .featured-card::after{
   content:"";
   position:absolute;
@@ -589,79 +586,84 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
 
 .featured-media{display:grid; grid-template-columns:1fr 1fr; gap:0;}
 .featured-media img{
-  width:100%; 
-  height:360px; 
+  width:100%;
+  height:360px;
   object-fit:cover;
-  border-radius: 0; /* ← ADD THIS */
+  border-radius: 0;
 }
+
+/* ✅ FIX: PROJECT DESCRIPTION + BUTTON LAYOUT (COPY OF REF) */
 .featured-bottom{
   padding: 22px 0 0;
   display:grid;
-  grid-template-columns: minmax(0, 1.25fr) minmax(0, .85fr);
-  gap: 26px;
+
+  /* Left side (text) takes remaining space, right side is fixed column for buttons */
+  grid-template-columns: minmax(0, 1fr) 340px;
+
+  gap: 30px;
   align-items:start;
 }
-
 .featured-left{min-width:0;}
 
-/* ✅ Project description font 12 + unset font */
+/* ensure paragraph never slides under buttons */
 .featured-desc{
-  font-family: var(--projectTitle) !important;  /* ← CORRECT THIS (Times New Roman) */
+  font-family: var(--projectTitle) !important;
   margin:0;
   text-align:left;
   font-size: 16px;
   line-height: 1.75;
   color: rgba(255,255,255,.92);
-  max-width: 75ch;
-  padding-right: 10px;
-
+  max-width: none;      /* ✅ allow it to reach near the button column */
+  padding-right: 0;     /* ✅ not needed because grid handles spacing */
 }
 
+/* keep your strip as-is */
 .featured-strip{
   margin: 14px 0 0 0;
   padding: 12px 0 0;
-  border-top: none; /* ← REMOVED THE LINE */
+  border-top: none;
   font-weight:900;
   letter-spacing:.2px;
   color:#fff;
   font-size:12px;
 }
 
-/* ✅ All project buttons SAME ROW + width 75–100 + font 12 */
-/* ✅ Buttons: 2-column layout (3rd under 1st, 4th under 2nd) */
+/* ✅ Buttons: 2-column grid so 3rd goes below 1st, 4th below 2nd */
 .featured-actions{
   display:grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
-  justify-items: end;     /* keeps buttons aligned to the right like before */
-  align-content: start;
-  margin: 0;
-}
-.featured-actions::-webkit-scrollbar{height:6px;}
-.featured-actions::-webkit-scrollbar-thumb{background:rgba(255,255,255,.18); border-radius:999px;}
+  gap:12px 12px;
+  justify-items:stretch;
+  align-items:start;
 
-/* ✅ Bigger button size (padding/min-width), font stays same */
+  margin: 0;
+  padding-bottom: 6px;
+}
+
+/* buttons bigger size, font unchanged */
 .pill-btn{
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  padding:18px 26px;             /* bigger than 14px 20px */
+
+  padding:18px 22px;     /* ✅ bigger button */
+  min-height:56px;       /* ✅ taller */
   border-radius:999px;
+
   font-weight:900;
   color:var(--accent);
   text-decoration:underline;
   border:3px solid rgba(255,255,255,.85);
   background:transparent;
-  min-width:150px;               /* bigger button */
-  max-width:none;                /* let grid decide */
-  font-size:14px;                /* keep same font size */
+
+  font-size:14px;        /* ✅ keep your font size (you said don’t change button font) */
   transition:.18s;
   text-transform: uppercase;
   white-space:nowrap;
-  justify-self:end;              /* right-align inside grid cell */
+
+  width:100%;            /* ✅ fill grid cell */
 }
 .pill-btn:hover{transform:translateY(-2px)}
-
 
 /* ===== FULL-WIDTH PROJECTS AREA ===== */
 #projects{
@@ -691,7 +693,7 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
 .pubs-wrap{ margin-top: 10px; }
 .pubs-intro{
   color: rgba(255,255,255,.88);
-  font-size: 16px;              /* ✅ 12 */
+  font-size: 16px;
   max-width: 70ch;
 }
 .pubs-grid{
@@ -719,7 +721,7 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
 }
 .pub-ribbon{
   position:absolute; top:14px; right:14px;
-  font-weight:900; font-size:16px; padding:8px 16px;   /* ✅ 12 */
+  font-weight:900; font-size:16px; padding:8px 16px;
   border-radius:999px; letter-spacing:.3px;
   background: linear-gradient(135deg, var(--accent), var(--accent-2));
   color:#0b0a2a;
@@ -736,10 +738,10 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
   color:#fff;
   flex:0 0 auto;
 }
-.pub-title{margin:0 0 8px; font-size:16px; line-height:1.25;}  /* ✅ 12 */
+.pub-title{margin:0 0 8px; font-size:16px; line-height:1.25;}
 .pub-title a{color:var(--accent); text-decoration:none;}
 .pub-title a:hover{text-decoration:underline;}
-.pub-sub{margin:0; color: rgba(255,255,255,.86); line-height:1.55; font-size:16px;} /* ✅ 12 */
+.pub-sub{margin:0; color: rgba(255,255,255,.86); line-height:1.55; font-size:16px;}
 .pub-meta{margin-top:16px; display:flex; flex-wrap:wrap; gap:10px; position:relative; z-index:1;}
 .pub-tag{
   padding:8px 16px;
@@ -747,7 +749,7 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
   border:1px solid rgba(255,255,255,.16);
   background: rgba(255,255,255,.06);
   font-weight:800;
-  font-size:16px;               /* ✅ 12 */
+  font-size:16px;
   color: rgba(255,255,255,.90);
 }
 .pub-actions{
@@ -755,7 +757,7 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
   display:flex; align-items:center; justify-content:space-between; gap:16px;
   position:relative; z-index:1;
 }
-.pub-source{color: rgba(255,255,255,.80); font-size:16px;}      /* ✅ 12 */
+.pub-source{color: rgba(255,255,255,.80); font-size:16px;}
 .pub-btn{
   display:inline-flex;
   align-items:center;
@@ -770,7 +772,7 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
   white-space: nowrap;
   transition:.18s;
   text-transform: uppercase;
-  font-size:16px;               /* ✅ 12 */
+  font-size:16px;
 }
 .pub-btn:hover{ transform: translateY(-2px); }
 .pubs-cta{display:flex; justify-content:flex-end; margin-top:18px;}
@@ -782,7 +784,7 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
   font-weight:900;
   text-decoration:none;
   text-transform: uppercase;
-  font-size:16px;               /* ✅ 12 */
+  font-size:16px;
 }
 
 /* ===== Contact ===== */
@@ -792,7 +794,7 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
   border-radius:18px;
   padding:22px;
 }
-.lead{color:rgba(255,255,255,.92); font-size:16px;}           /* ✅ 12 */
+.lead{color:rgba(255,255,255,.92); font-size:16px;}
 .contact-grid{
   display:grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
@@ -806,12 +808,12 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
   padding:14px; border-radius:16px;
   border:1px solid rgba(255,255,255,.12);
   background:rgba(0,0,0,.15);
-  font-size:16px;               /* ✅ 12 */
+  font-size:16px;
 }
 .contact-card i{font-size:20px; margin-top:2px; color:var(--accent);}
-.help{color:rgba(255,255,255,.75); font-size:16px;}           /* ✅ 12 */
+.help{color:rgba(255,255,255,.75); font-size:16px;}
 form.contact .row{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
-form.contact label{display:block; margin:0 0 6px; font-size:16px;} /* ✅ 12 */
+form.contact label{display:block; margin:0 0 6px; font-size:16px;}
 form.contact input, form.contact textarea{
   width:100%;
   border-radius:14px;
@@ -820,19 +822,19 @@ form.contact input, form.contact textarea{
   color:#fff;
   padding:16px 16px;
   outline:none;
-  font-family: var(--aptosBody);  /* ← CORRECT THIS */
+  font-family: var(--aptosBody);
   font-size:16px;
 }
 form.contact textarea{min-height:140px; resize:vertical;}
-.toast{margin-top:10px; font-size:16px;}                      /* ✅ 12 */
+.toast{margin-top:10px; font-size:16px;}
 
 /* ===== Footer ===== */
 footer{margin-top:0; padding:32px 0 56px; border-top:1px solid rgba(255,255,255,.06)}
 .foot-wrap{display:flex; align-items:center; justify-content:space-between; gap:18px; flex-wrap:wrap}
 .foot-brand{display:flex; align-items:center; gap:16px;}
 .foot-logo{width:36px; height:36px; border-radius:10px; display:grid; place-items:center; background:linear-gradient(135deg, var(--accent), var(--accent-2)); color:#041018}
-.foot-nav{display:flex; gap:22px; color:var(--muted); font-weight:700; font-size:16px;} /* ✅ 12 */
-.copyright{color:var(--muted); margin-top:14px; text-align:center; font-size:16px;}     /* ✅ 12 */
+.foot-nav{display:flex; gap:22px; color:var(--muted); font-weight:700; font-size:16px;}
+.copyright{color:var(--muted); margin-top:14px; text-align:center; font-size:16px;}
 .hidden{display:none !important}
 
 /* ===== MOBILE: menu ===== */
@@ -887,24 +889,19 @@ footer{margin-top:0; padding:32px 0 56px; border-top:1px solid rgba(255,255,255,
   .contact-grid{grid-template-columns:1fr;}
   form.contact .row{grid-template-columns:1fr;}
 
-  /* on mobile, allow buttons to wrap (otherwise too tight) */
-.featured-actions{ grid-template-columns: 1fr; justify-items: start; }
-  .pill-btn{ min-width: 120px; max-width:none; }
+  /* ✅ On mobile: 2 columns still works, but allow it to drop to 1 column if needed */
+  .featured-bottom{ grid-template-columns: 1fr; gap: 18px; }
+  .featured-actions{ grid-template-columns: 1fr 1fr; }
 }
 
 /* Project layout on smaller widths */
 @media (max-width: 1100px){
   .featured-bottom{ grid-template-columns: 1fr; gap: 18px; }
-  .featured-actions{ justify-content:flex-start; }
+  .featured-actions{ grid-template-columns: 1fr 1fr; }
 }
-
-@media (max-width: 600px) {
-  .featured-actions {
-    grid-template-columns: 1fr !important;
-  }
+@media (max-width: 520px){
+  .featured-actions{ grid-template-columns: 1fr; } /* ✅ super small screens: single column */
 }
-
-
 </style>
 </head>
 
@@ -943,7 +940,6 @@ footer{margin-top:0; padding:32px 0 56px; border-top:1px solid rgba(255,255,255,
           <span class="badge-accent">Data Analyst</span> Portfolio
         </div>
 
-        <!-- ✅ Puspita Chowdhury stays Aptos -->
         <h1 class="hero-name">
           PUSPITA<br>
           <span class="gold">CHOWDHURY</span>
