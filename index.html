@@ -891,8 +891,59 @@ footer{margin-top:0; padding:32px 0 56px; border-top:1px solid rgba(255,255,255,
 
 /* Project layout on smaller widths */
 @media (max-width: 1100px){
-  .featured-bottom{ grid-template-columns: 1fr; gap: 18px; }
-  .featured-actions{ justify-content:flex-start; }
+  .featured-bottom{ 
+    grid-template-columns: 1fr !important; 
+    gap: 18px !important; 
+  }
+  .featured-actions{ 
+    justify-content: stretch !important;
+    max-width: 100% !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .featured-actions {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+  /* ===== PROJECT FIXES ONLY ===== */
+
+/* Make description extend down */
+.featured-left {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.featured-desc {
+  flex: 1 !important;  /* This makes it extend down */
+  margin-bottom: 12px !important;
+}
+
+/* Make buttons bigger (size, not font) */
+.pill-btn {
+  padding: 16px 12px !important;  /* Bigger buttons */
+  min-width: 0 !important;
+  width: 100% !important;
+}
+
+/* Button wrapping in 2 columns */
+.featured-actions {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 8px !important;
+  width: 100% !important;
+  max-width: 280px !important;
+}
+
+/* Remove scrollbar since we're using grid */
+.featured-actions::-webkit-scrollbar {
+  display: none !important;
+}
+
+/* Proper spacing between description end and buttons */
+.featured-bottom {
+  align-items: end !important;
 }
 </style>
 </head>
