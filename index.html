@@ -613,6 +613,8 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
   line-height: 1.75;
   color: rgba(255,255,255,.92);
   max-width: 75ch;
+  padding-right: 10px;
+
 }
 
 .featured-strip{
@@ -626,39 +628,40 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
 }
 
 /* ✅ All project buttons SAME ROW + width 75–100 + font 12 */
+/* ✅ Buttons: 2-column layout (3rd under 1st, 4th under 2nd) */
 .featured-actions{
-  display:flex;
-  flex-direction:row;
-  flex-wrap:nowrap;             /* ✅ same row */
-  gap:10px;
-  justify-content:flex-end;
-  align-items:flex-start;
+  display:grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  justify-items: end;     /* keeps buttons aligned to the right like before */
+  align-content: start;
   margin: 0;
-  overflow-x:auto;              /* if too many buttons, can scroll instead of wrapping */
-  padding-bottom: 6px;
 }
 .featured-actions::-webkit-scrollbar{height:6px;}
 .featured-actions::-webkit-scrollbar-thumb{background:rgba(255,255,255,.18); border-radius:999px;}
 
+/* ✅ Bigger button size (padding/min-width), font stays same */
 .pill-btn{
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  padding:14px 20px;  /* Increased padding */
+  padding:18px 26px;             /* bigger than 14px 20px */
   border-radius:999px;
   font-weight:900;
   color:var(--accent);
   text-decoration:underline;
   border:3px solid rgba(255,255,255,.85);
   background:transparent;
-  min-width: 120px;              /* Increased */
-  max-width: 150px;              /* Increased */
-  font-size:14px;               /* Increased from 12px to 14px */
+  min-width:150px;               /* bigger button */
+  max-width:none;                /* let grid decide */
+  font-size:14px;                /* keep same font size */
   transition:.18s;
   text-transform: uppercase;
   white-space:nowrap;
+  justify-self:end;              /* right-align inside grid cell */
 }
 .pill-btn:hover{transform:translateY(-2px)}
+
 
 /* ===== FULL-WIDTH PROJECTS AREA ===== */
 #projects{
@@ -885,7 +888,7 @@ footer{margin-top:0; padding:32px 0 56px; border-top:1px solid rgba(255,255,255,
   form.contact .row{grid-template-columns:1fr;}
 
   /* on mobile, allow buttons to wrap (otherwise too tight) */
-  .featured-actions{ flex-wrap:wrap; overflow-x:visible; }
+.featured-actions{ grid-template-columns: 1fr; justify-items: start; }
   .pill-btn{ min-width: 120px; max-width:none; }
 }
 
