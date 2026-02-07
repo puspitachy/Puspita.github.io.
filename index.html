@@ -72,7 +72,7 @@ body{
     radial-gradient(900px 500px at -10% 10%, #101b2f 0%, transparent 55%),
     var(--bg);
   color:var(--text);
-  var(--projectTitle) !important: var(--projectTitle) !important;
+  font-family: var(--projectTitle) !important;
   line-height:1.6;
 }
 :root[data-theme="light"] body{ background:var(--bg); }
@@ -130,7 +130,7 @@ h1,h2,h3,
 .edex-pill,
 .edex-title,
 .foot-brand{
-  var(--projectTitle) !important: var(--aptosBody) !important;
+  font-family: var(--aptosBody) !important;
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -146,7 +146,7 @@ p, li,
 .lead,
 .copyright,
 .foot-nav{
-  var(--projectTitle) !important: var(--aptosBody) !important;
+  font-family: var(--aptosBody) !important;
   font-weight: 400 !important;
   text-transform: none !important;
   letter-spacing: 0 !important;
@@ -154,19 +154,19 @@ p, li,
 
 /* UNSET areas (your request) */
 .about-title{
-  var(--projectTitle) !important: var(--unsetDisplay) !important;
+  font-family: var(--unsetDisplay) !important;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 .edex-points,
 .edex-points li,
 .edex-points li.sub{
-  var(--projectTitle) !important: var(--unsetSans) !important;
+  font-family: var(--unsetSans) !important;
 }
 
 /* ✅ Project title stays Times New Roman */
 .featured-title{
-  var(--projectTitle) !important: var(--projectTitle) !important;
+  font-family: var(--projectTitle) !important;
   font-weight: 700 !important;
   text-transform: none !important;
   letter-spacing: 0 !important;
@@ -382,7 +382,7 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
 #skills .skill-label,
 #skills .skills-list,
 #skills .skills-list li{
-  var(--projectTitle) !important: var(--unsetSans) !important;   /* ✅ unset */
+  font-family: var(--unsetSans) !important;   /* ✅ unset */
 }
 
 /* ✅ skill name font size (you said 7.5 — using 7.5pt equivalent) */
@@ -395,7 +395,7 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
 
 /* ✅ headings in Aptos size 12 (Programming Languages / Tools / Visualization / Methods) */
 #skills .skills-col > h2{
-  var(--projectTitle) !important: var(--aptosBody) !important;
+  font-family: var(--aptosBody) !important;
   font-size:16px;
   line-height:1.25;
   margin:0 0 14px;
@@ -606,7 +606,7 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
 
 /* ✅ Project description font 12 + unset font */
 .featured-desc{
-  var(--projectTitle) !important: var(--unsetSans) !important;
+  font-family: var(--unsetSans) !important;
   margin:0;
   text-align:left;
   font-size: 16px;              /* ✅ 12 */
@@ -817,7 +817,7 @@ form.contact input, form.contact textarea{
   color:#fff;
   padding:16px 16px;
   outline:none;
-  var(--projectTitle) !important: var(--aptosBody);
+  font-family: var(--aptosBody);
   font-size:16px;               /* ✅ 12 */
 }
 form.contact textarea{min-height:140px; resize:vertical;}
