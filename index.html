@@ -497,7 +497,8 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
   position:relative;
   padding-right:28px; /* space for separator */
 }
-.skills-col:nth-of-type(-n+3)::after{
+/* ✅ Only the FIRST 4 columns in the top grid get the pseudo separators */
+.skills-grid > .skills-col:nth-of-type(-n+4)::after{
   content:"";
   position:absolute;
   top:10px;
@@ -566,6 +567,20 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
   line-height:1.75;
 }
 .skills-list li{ margin:8px 0; }
+
+  /* ✅ ROW 2: do NOT use the top-row pseudo separators */
+.skills-row2 .skills-col::after{ display:none !important; }
+.skills-row2 .skills-col{ padding-right:0 !important; }
+
+/* ✅ Bring content closer to the middle divider */
+.skills-row2{
+  column-gap: 18px !important;   /* smaller gap = closer */
+}
+
+/* Optional: slightly reduce list indent so bullets move closer too */
+.skills-row2 .skills-list{
+  padding-left: 14px;
+}
 
 /* ✅ MOBILE */
 @media (max-width: 900px){
