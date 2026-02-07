@@ -433,6 +433,40 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
   border-radius:2px;
   align-self:stretch;
 }
+  /* ✅ Row 2: 2 columns with a divider in the middle */
+.skills-row2{
+  grid-column: 1 / -1;                 /* take full width of skills grid */
+  display: grid;
+  grid-template-columns: 1fr 2px 1fr;   /* left | line | right */
+  gap: 44px;
+  align-items: start;
+  margin-top: 36px;
+}
+
+/* Row2 divider line */
+.skills-row2 .skills-vline{
+  display: block;
+  width: 2px;
+  background: rgba(255,255,255,.55);
+  border-radius: 2px;
+  align-self: stretch;
+}
+
+/* Keep these long items in one line (desktop) */
+.skills-row2 .skills-list li{
+  white-space: nowrap;
+}
+
+/* Mobile: stack */
+@media (max-width: 900px){
+  .skills-row2{
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+  .skills-row2 .skills-vline{ display:none; }
+  .skills-row2 .skills-list li{ white-space: normal; }
+}
+
   /* ✅ Put 5th + 6th skills on row 2 and center under col 2 & 3 */
 .skills-col:nth-of-type(5){
   grid-column: 3;   /* under 2nd column area */
