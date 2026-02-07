@@ -382,7 +382,7 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
 #skills .skill-label,
 #skills .skills-list,
 #skills .skills-list li{
-  font-family: var(--unsetSans) !important;   /* ✅ unset */
+  font-family: var(--unsetSans) !important;   /* ← CORRECT THIS */
 }
 
 /* ✅ skill name font size (you said 7.5 — using 7.5pt equivalent) */
@@ -606,10 +606,10 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
 
 /* ✅ Project description font 12 + unset font */
 .featured-desc{
-  font-family: var(--unsetSans) !important;
+  font-family: var(--projectTitle) !important;  /* ← CORRECT THIS (Times New Roman) */
   margin:0;
   text-align:left;
-  font-size: 16px;              /* ✅ 12 */
+  font-size: 16px;
   line-height: 1.75;
   color: rgba(255,255,255,.92);
   max-width: 75ch;
@@ -817,8 +817,8 @@ form.contact input, form.contact textarea{
   color:#fff;
   padding:16px 16px;
   outline:none;
-  font-family: var(--aptosBody);
-  font-size:16px;               /* ✅ 12 */
+  font-family: var(--aptosBody);  /* ← CORRECT THIS */
+  font-size:16px;
 }
 form.contact textarea{min-height:140px; resize:vertical;}
 .toast{margin-top:10px; font-size:16px;}                      /* ✅ 12 */
