@@ -416,14 +416,40 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
 .skills-grid{
   margin-top:36px;
   display:grid;
-  grid-template-columns: repeat(4, minmax(220px, 1fr));
+
+  /* Top row: 4 columns + 3 vertical lines */
+  grid-template-columns: 1fr 2px 1fr 2px 1fr 2px 1fr;
+
   column-gap:44px;
   row-gap:46px;
   align-items:start;
 }
 
 /* hide old vlines (we'll draw clean ones with ::after) */
-.skills-vline{ display:none !important; }
+* vertical lines */
+.skills-vline{
+  width:2px;
+  background: rgba(255,255,255,.55);
+  border-radius:2px;
+  align-self:stretch;
+}
+  /* ✅ Put 5th + 6th skills on row 2 and center under col 2 & 3 */
+.skills-col:nth-of-type(5){
+  grid-column: 3;   /* under 2nd column area */
+  grid-row: 2;
+}
+
+.skills-col:nth-of-type(6){
+  grid-column: 5;   /* under 3rd column area */
+  grid-row: 2;
+}
+
+/* remove the vlines on row 2 (so it looks clean like your sketch) */
+.skills-grid > .skills-vline:nth-of-type(4),
+.skills-grid > .skills-vline:nth-of-type(5),
+.skills-grid > .skills-vline:nth-of-type(6){
+  display:none;
+}
 
 /* draw vertical separators for top row */
 .skills-col{
@@ -1095,7 +1121,7 @@ footer{margin-top:0; padding:32px 0 56px; border-top:1px solid rgba(255,255,255,
       </div>
     </div>
 
-    <div class="skills-vline" aria-hidden="true"></div>
+    <span class="skills-vline" aria-hidden="true"></span>
 
     <!-- 2) DATA ANALYTIC TOOLS -->
     <div class="skills-col">
@@ -1122,7 +1148,7 @@ footer{margin-top:0; padding:32px 0 56px; border-top:1px solid rgba(255,255,255,
       </div>
     </div>
 
-    <div class="skills-vline" aria-hidden="true"></div>
+    <span class="skills-vline" aria-hidden="true"></span>
 
     <!-- 3) DATA VISUALIZATION TOOLS -->
     <div class="skills-col">
@@ -1139,7 +1165,7 @@ footer{margin-top:0; padding:32px 0 56px; border-top:1px solid rgba(255,255,255,
       </div>
     </div>
 
-    <div class="skills-vline" aria-hidden="true"></div>
+    <span class="skills-vline" aria-hidden="true"></span>
 
     <!-- 4) DATA ANALYTIC METHODS -->
     <div class="skills-col">
@@ -1152,14 +1178,14 @@ footer{margin-top:0; padding:32px 0 56px; border-top:1px solid rgba(255,255,255,
         <li>Logistic Regression</li>
         <li>Statistics</li>
         <li>A/B Testing</li>
+        <li>ANOVA</li>
+        <li>Post-Hoc T-Test</li>
       </ul>
     </div>
 
-    <div class="skills-vline" aria-hidden="true"></div>
-
-    <!-- 5) AI & MACHINE LEARNING (ROW 2, CENTER) -->
+    <!-- 5) AI & MACHINE LEARNING (ROW 2 CENTER) -->
     <div class="skills-col">
-      <h2>AI & <span class="gold">MACHINE LEARNING</span></h2>
+      <h2>AI &amp; <span class="gold">MACHINE LEARNING</span></h2>
       <ul class="skills-list">
         <li>Classification Models</li>
         <li>Feature Engineering</li>
@@ -1169,11 +1195,231 @@ footer{margin-top:0; padding:32px 0 56px; border-top:1px solid rgba(255,255,255,
       </ul>
     </div>
 
-    <div class="skills-vline" aria-hidden="true"></div>
-
-    <!-- 6) PRODUCT & BUSINESS INSIGHTS (ROW 2, CENTER) -->
+    <!-- 6) PRODUCT & BUSINESS INSIGHTS (ROW 2 CENTER) -->
     <div class="skills-col">
-      <h2>PRODUCT & <span class="gold">BUSINESS INSIGHTS</span></h2>
+      <h2>PRODUCT &amp; <span class="gold">BUSINESS INSIGHTS</span></h2>
+      <ul class="skills-list">
+        <li>KPI Design</li>
+        <li>Dashboard Storytelling</li>
+        <li>Requirements Gathering</li>
+        <li>Stakeholder Communication</li>
+        <li>Insight Generation</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+<!-- ===== SKILLS (NAVY) ===== -->
+<section id="skills" class="skills-snap section-band section-navy" aria-labelledby="skills-heading">
+  <div class="skills-pill" aria-hidden="true">
+    <span>Technical</span>&nbsp;Skills
+  </div>
+
+  <div class="skills-grid">
+
+    <!-- 1) PROGRAMMING LANGUAGES -->
+    <div class="skills-col">
+      <h2>PROGRAMMING <span class="gold">LANGUAGES</span></h2>
+
+      <div class="skill-item">
+        <div class="skill-iconCircle"><i class="fa-solid fa-database"></i></div>
+        <div class="skill-label">SQL</div>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-iconCircle"><i class="fa-brands fa-python"></i></div>
+        <div class="skill-label">Python</div>
+      </div>
+    </div>
+
+    <span class="skills-vline" aria-hidden="true"></span>
+
+    <!-- 2) DATA ANALYTIC TOOLS -->
+    <div class="skills-col">
+      <h2>DATA <span class="gold">ANALYTIC TOOLS</span></h2>
+
+      <div class="skill-item">
+        <div class="skill-iconCircle"><i class="fa-solid fa-file-excel"></i></div>
+        <div class="skill-label">Microsoft Excel</div>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-iconCircle"><i class="fa-brands fa-google"></i></div>
+        <div class="skill-label">Google Sheets</div>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-iconCircle"><i class="fa-solid fa-cloud"></i></div>
+        <div class="skill-label">Google BigQuery</div>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-iconCircle"><i class="fa-solid fa-code"></i></div>
+        <div class="skill-label">Visual Studio Code</div>
+      </div>
+    </div>
+
+    <span class="skills-vline" aria-hidden="true"></span>
+
+    <!-- 3) DATA VISUALIZATION TOOLS -->
+    <div class="skills-col">
+      <h2>DATA <span class="gold">VISUALIZATION TOOLS</span></h2>
+
+      <div class="skill-item">
+        <div class="skill-iconCircle"><i class="fa-solid fa-chart-simple"></i></div>
+        <div class="skill-label">Tableau</div>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-iconCircle"><i class="fa-solid fa-chart-pie"></i></div>
+        <div class="skill-label">Looker Studio</div>
+      </div>
+    </div>
+
+    <span class="skills-vline" aria-hidden="true"></span>
+
+    <!-- 4) DATA ANALYTIC METHODS -->
+    <div class="skills-col">
+      <h2>DATA <span class="gold">ANALYTIC METHODS</span></h2>
+      <ul class="skills-list">
+        <li>EDA</li>
+        <li>Segmentation / Clustering</li>
+        <li>Cohort Analysis</li>
+        <li>Linear Regression</li>
+        <li>Logistic Regression</li>
+        <li>Statistics</li>
+        <li>A/B Testing</li>
+        <li>ANOVA</li>
+        <li>Post-Hoc T-Test</li>
+      </ul>
+    </div>
+
+    <!-- 5) AI & MACHINE LEARNING (ROW 2 CENTER) -->
+    <div class="skills-col">
+      <h2>AI &amp; <span class="gold">MACHINE LEARNING</span></h2>
+      <ul class="skills-list">
+        <li>Classification Models</li>
+        <li>Feature Engineering</li>
+        <li>Model Evaluation</li>
+        <li>NLP (Sentiment Analysis)</li>
+        <li>CNN (Hybrid Models)</li>
+      </ul>
+    </div>
+
+    <!-- 6) PRODUCT & BUSINESS INSIGHTS (ROW 2 CENTER) -->
+    <div class="skills-col">
+      <h2>PRODUCT &amp; <span class="gold">BUSINESS INSIGHTS</span></h2>
+      <ul class="skills-list">
+        <li>KPI Design</li>
+        <li>Dashboard Storytelling</li>
+        <li>Requirements Gathering</li>
+        <li>Stakeholder Communication</li>
+        <li>Insight Generation</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+<!-- ===== SKILLS (NAVY) ===== -->
+<section id="skills" class="skills-snap section-band section-navy" aria-labelledby="skills-heading">
+  <div class="skills-pill" aria-hidden="true">
+    <span>Technical</span>&nbsp;Skills
+  </div>
+
+  <div class="skills-grid">
+
+    <!-- 1) PROGRAMMING LANGUAGES -->
+    <div class="skills-col">
+      <h2>PROGRAMMING <span class="gold">LANGUAGES</span></h2>
+
+      <div class="skill-item">
+        <div class="skill-iconCircle"><i class="fa-solid fa-database"></i></div>
+        <div class="skill-label">SQL</div>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-iconCircle"><i class="fa-brands fa-python"></i></div>
+        <div class="skill-label">Python</div>
+      </div>
+    </div>
+
+    <span class="skills-vline" aria-hidden="true"></span>
+
+    <!-- 2) DATA ANALYTIC TOOLS -->
+    <div class="skills-col">
+      <h2>DATA <span class="gold">ANALYTIC TOOLS</span></h2>
+
+      <div class="skill-item">
+        <div class="skill-iconCircle"><i class="fa-solid fa-file-excel"></i></div>
+        <div class="skill-label">Microsoft Excel</div>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-iconCircle"><i class="fa-brands fa-google"></i></div>
+        <div class="skill-label">Google Sheets</div>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-iconCircle"><i class="fa-solid fa-cloud"></i></div>
+        <div class="skill-label">Google BigQuery</div>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-iconCircle"><i class="fa-solid fa-code"></i></div>
+        <div class="skill-label">Visual Studio Code</div>
+      </div>
+    </div>
+
+    <span class="skills-vline" aria-hidden="true"></span>
+
+    <!-- 3) DATA VISUALIZATION TOOLS -->
+    <div class="skills-col">
+      <h2>DATA <span class="gold">VISUALIZATION TOOLS</span></h2>
+
+      <div class="skill-item">
+        <div class="skill-iconCircle"><i class="fa-solid fa-chart-simple"></i></div>
+        <div class="skill-label">Tableau</div>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-iconCircle"><i class="fa-solid fa-chart-pie"></i></div>
+        <div class="skill-label">Looker Studio</div>
+      </div>
+    </div>
+
+    <span class="skills-vline" aria-hidden="true"></span>
+
+    <!-- 4) DATA ANALYTIC METHODS -->
+    <div class="skills-col">
+      <h2>DATA <span class="gold">ANALYTIC METHODS</span></h2>
+      <ul class="skills-list">
+        <li>EDA</li>
+        <li>Segmentation / Clustering</li>
+        <li>Cohort Analysis</li>
+        <li>Linear Regression</li>
+        <li>Logistic Regression</li>
+        <li>Statistics</li>
+        <li>A/B Testing</li>
+        <li>ANOVA</li>
+        <li>Post-Hoc T-Test</li>
+      </ul>
+    </div>
+
+    <!-- 5) AI & MACHINE LEARNING (ROW 2 CENTER) -->
+    <div class="skills-col">
+      <h2>AI &amp; <span class="gold">MACHINE LEARNING</span></h2>
+      <ul class="skills-list">
+        <li>Classification Models</li>
+        <li>Feature Engineering</li>
+        <li>Model Evaluation</li>
+        <li>NLP (Sentiment Analysis)</li>
+        <li>CNN (Hybrid Models)</li>
+      </ul>
+    </div>
+
+    <!-- 6) PRODUCT & BUSINESS INSIGHTS (ROW 2 CENTER) -->
+    <div class="skills-col">
+      <h2>PRODUCT &amp; <span class="gold">BUSINESS INSIGHTS</span></h2>
       <ul class="skills-list">
         <li>KPI Design</li>
         <li>Dashboard Storytelling</li>
