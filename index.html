@@ -414,8 +414,9 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
 
 /* ✅ NEW GRID: 4 columns on top row, 2 centered on second row */
 .skills-grid{
-  margin-top:36px;
-  display:grid;
+  grid-template-columns: 1fr 2px 1fr 2px 1fr 2px 1fr;
+}
+
 
   /* Top row: 4 columns + 3 vertical lines */
   grid-template-columns: 1fr 2px 1fr 2px 1fr 2px 1fr;
@@ -435,10 +436,10 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
 }
   /* ✅ Row 2: 2 columns with a divider in the middle */
 .skills-row2{
-  grid-column: 1 / -1;                 /* take full width of skills grid */
+  grid-column: 1 / -1;
   display: grid;
-  grid-template-columns: 1fr 2px 1fr;   /* left | line | right */
-  gap: 44px;
+  grid-template-columns: 1fr 2px 1fr;
+  gap: 20px;                    /* 💛 brings text closer to the line */
   align-items: start;
   margin-top: 36px;
 }
@@ -1216,7 +1217,7 @@ footer{margin-top:0; padding:32px 0 56px; border-top:1px solid rgba(255,255,255,
         <li>Post-Hoc T-Test</li>
       </ul>
     </div>
-!-- ✅ ROW 2 (full width) -->
+
 <div class="skills-row2">
 
   <!-- AI -->
