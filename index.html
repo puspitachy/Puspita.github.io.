@@ -588,6 +588,24 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
   .skills-col{ padding-right:0; }
   .skills-col::after{ display:none !important; }
 }
+  /* ✅ Move ONLY the left (AI) column toward the center */
+.skills-row2 > .skills-col:first-child{
+  margin-left: 140px;   /* adjust: 80px - 200px */
+}
+
+/* Optional: keep it nicer on smaller screens */
+@media (max-width: 1100px){
+  .skills-row2 > .skills-col:first-child{
+    margin-left: 60px;
+  }
+}
+
+@media (max-width: 900px){
+  .skills-row2 > .skills-col:first-child{
+    margin-left: 0;  /* reset for mobile stacked layout */
+  }
+}
+
 
 
 /* ===== Education + Experience ===== */
