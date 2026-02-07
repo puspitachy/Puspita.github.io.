@@ -1388,27 +1388,56 @@ footer{margin-top:0; padding:32px 0 56px; border-top:1px solid rgba(255,255,255,
           </article>
 
           <!-- 06 – BLACK -->
-          <article class="featured-card alt project" data-tags="business-analyst">
+          <article class="featured-card alt project" data-tags="AI">
             <div class="featured-head">
               <div class="featured-no">06</div>
-              <h3 class="featured-title">Scuba Diving App Design</h3>
+              <h3 class="featured-title">Multi-Level Stacking Ensemble for Heart Disease Prediction</h3>
             </div>
 
             <div class="featured-media">
-              <img src="images/dive_app_screenshot.png" alt="Scuba diving app UI mockup" loading="lazy">
-              <img src="images/dive_app_screenshot.png" alt="Scuba diving app flow preview" loading="lazy">
+              <img src="images/he.png" alt="Scuba diving app UI mockup" loading="lazy">
+              <img src="images/hear.png" alt="Scuba diving app flow preview" loading="lazy">
             </div>
 
             <div class="featured-bottom">
               <div class="featured-left">
                 <p class="featured-desc">
-  Mobile UI/UX concept designed for divers to capture underwater moments,
-  <span class="gold">log dive history</span>, and browse memories through a clean, visual interface.
-  Built around a <span class="gold">frictionless user flow</span> with quick logging,
-  structured dive journals, and <span class="gold">visual storytelling</span>.
-  Includes wireframes, prototyping, and a polished UI system designed for
-  <span class="gold">simple navigation</span> and immersion.
+  A comprehensive machine learning study comparing multiple classifiers for 
+  <span class="gold">early-stage heart disease prediction</span> using the UCI Heart Disease dataset. 
+  The project explores the impact of <span class="gold">feature engineering</span>, 
+  <span class="gold">data preprocessing</span>, and <span class="gold">ensemble learning</span> on clinical risk modeling.
+  The dataset, sourced from four international hospitals, contains 920 patient records with 24 numerical
+  and categorical features, cleaned through <span class="gold">missing-value imputation</span>, 
+  outlier treatment, scaling, and transformation of skewed variables 
+  (e.g., <span class="gold">cholesterol</span>, <span class="gold">oldpeak</span>).
+  <br><br>
+  The study implements a diverse set of models including Logistic Regression, Ridge, SVM,
+  KNN, Random Forest, Gradient Boosting, XGBoost, and LightGBM, followed by both 
+  <span class="gold">MLP neural networks</span> and a 
+  <span class="gold">multi-level hybrid stacking ensemble</span>. 
+  The stacking architecture uses <span class="gold">out-of-fold predictions</span> to prevent data leakage,
+  combining nine Level-0 base learners with three Level-1 models and 
+  a final <span class="gold">XGBoost blender</span>.
+  This layered design improves generalization and captures non-linear risk patterns more effectively
+  than single-model baselines.
+  <br><br>
+  Results demonstrate that <span class="gold">ensemble methods significantly outperform</span> 
+  both classical ML and deep learning stand-alone models. 
+  The Two-Level Stacking model with an MLP meta-learner achieves 
+  <span class="gold">AUC-ROC = 0.9316</span> and 
+  <span class="gold">accuracy = 0.8533</span>, showing superior risk discrimination and robustness.
+  Feature importance analysis highlights the reliability of 
+  <span class="gold">LightGBM</span>, <span class="gold">XGBoost</span>, and 
+  <span class="gold">Random Forest</span> in clinical prediction scenarios.
+  <br><br>
+  The project concludes that <span class="gold">stacking ensembles</span> offer the best balance between 
+  performance and clinical interpretability, making them strong candidates for 
+  <span class="gold">decision-support systems</span> in cardiology. 
+  Future work includes integrating <span class="gold">Explainable AI</span> (SHAP/LIME), 
+  exploring <span class="gold">tabular deep learning models</span> (TabNet, FT-Transformer),
+  and evaluating model stability under <span class="gold">data drift</span> and real-world deployment.
 </p>
+
 
 
                 <div class="featured-strip">
@@ -1419,7 +1448,7 @@ footer{margin-top:0; padding:32px 0 56px; border-top:1px solid rgba(255,255,255,
 
               <div class="featured-actions">
                 <a class="pill-btn" href="https://github.com/puspitachy/UX-UI-design" target="_blank" rel="noreferrer noopener">Files</a>
-                <a class="pill-btn" href="YOUR_FIGMA_LINK" target="_blank" rel="noreferrer noopener">Figma</a>
+                <a class="pill-btn" href="YOUR_FIGMA_LINK" target="_blank" rel="noreferrer noopener">Code</a>
                 <a class="pill-btn" href="YOUR_CASE_STUDY_LINK" target="_blank" rel="noreferrer noopener">Study</a>
               </div>
             </div>
