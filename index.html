@@ -15,6 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
+  <!-- “unset” fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
@@ -22,6 +23,7 @@
 
 <style>
 :root{
+  /* ===== Navy + Gold ===== */
   --bg:#070724;
   --panel:#0B0A2A;
   --text:#FFFFFF;
@@ -38,14 +40,17 @@
   --subtleFillDark: rgba(255,255,255,.06);
   --subtleFillLight: rgba(0,0,0,.04);
 
+  /* ✅ Fonts */
   --aptosBody: "Aptos", "Aptos Display", "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
   --unsetSans: "Manrope", sans-serif;
   --unsetDisplay: "Montserrat", sans-serif;
   --projectTitle: "Times New Roman", Times, serif;
 
+  /* bands */
   --blackBand:#050512;
   --navyBand:#070724;
 }
+
 :root[data-theme="light"]{
   --bg:#F5FCFC;
   --panel:#FFFFFF;
@@ -77,6 +82,7 @@ a:hover{text-decoration:underline}
 img{max-width:100%; display:block}
 .container{width:min(1150px,92%); margin-inline:auto}
 
+/* ===== FULL-WIDTH SECTION BANDS (Navy ↔ Black) ===== */
 .section-band{ position:relative; padding:64px 0; scroll-margin-top:84px; }
 .section-band::before{
   content:"";
@@ -109,6 +115,7 @@ img{max-width:100%; display:block}
 .skip-link{position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden}
 .skip-link:focus{left:16px; top:16px; width:auto; height:auto; padding:10px 14px; background:var(--panel); color:var(--text); border-radius:10px; border:1px solid rgba(255,255,255,.2); z-index:999}
 
+/* ✅ Aptos for headings/nav/buttons/labels (includes Puspita Chowdhury) */
 h1,h2,h3,
 .hero-badge,
 .hero-name,
@@ -128,6 +135,8 @@ h1,h2,h3,
   text-transform: uppercase;
   letter-spacing: 1px;
 }
+
+/* body text default */
 p, li,
 .about-text,
 .pub-sub,
@@ -143,6 +152,19 @@ p, li,
   letter-spacing: 0 !important;
 }
 
+/* UNSET areas (your request) */
+.about-title{
+  font-family: var(--projectTitle) !important;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.edex-points,
+.edex-points li,
+.edex-points li.sub{
+  font-family: var(--projectTitle) !important;
+}
+
+/* ✅ Project title stays Times New Roman */
 .featured-title{
   font-family: var(--projectTitle) !important;
   font-weight: 700 !important;
@@ -150,6 +172,7 @@ p, li,
   letter-spacing: 0 !important;
 }
 
+/* ===== Header / Nav ===== */
 header{
   position:sticky; top:0; z-index:50;
   backdrop-filter:saturate(1.2) blur(10px);
@@ -354,20 +377,22 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
 .about-btn.gold{ border:4px solid var(--accent); color:#ffffff; }
 .about-btn:hover{ transform:translateY(-3px); }
 
-/* ===========================
-   ✅✅ SKILLS (FIXED VERSION)
-   =========================== */
+/* ===== SKILLS ===== */
+/* ===== SKILLS ===== */
+/* ✅ Skill section “unset” */
 #skills .skill-label,
 #skills .skills-list,
 #skills .skills-list li{
   font-family: var(--projectTitle) !important;
 }
+
 #skills .skill-label{
   font-size: 16px;
   letter-spacing:.2px;
   text-transform:none !important;
   font-weight:700 !important;
 }
+
 #skills .skills-col > h2{
   font-family: var(--projectTitle) !important;
   font-size:16px;
@@ -387,49 +412,132 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
 }
 .skills-pill span{ color: var(--accent); }
 
-/* Row 1: 4 columns + 3 divider spans */
+/* Row 1: 4 skill boxes with 3 divider lines */
 .skills-grid{
   margin-top:36px;
-  display:grid;
+  display: grid;
   grid-template-columns: 1fr 2px 1fr 2px 1fr 2px 1fr;
+  gap: 30px;      /* smaller gap looks better */
+  align-items: start;
+}
+
+
+
+
+  /* Top row: 4 columns + 3 vertical lines */
+  grid-template-columns: 1fr 2px 1fr 2px 1fr 2px 1fr;
+
   column-gap:44px;
   row-gap:46px;
   align-items:start;
 }
 
+/* hide old vlines (we'll draw clean ones with ::after) */
+* vertical lines */
 .skills-vline{
   width:2px;
   background: rgba(255,255,255,.55);
   border-radius:2px;
   align-self:stretch;
 }
-
-/* Row 2: two columns + ONE divider */
+  /* ✅ Row 2: 2 columns with a divider in the middle */
 .skills-row2{
   grid-column: 1 / -1;
-  display:grid;
+  display: grid;
   grid-template-columns: 1fr 2px 1fr;
-  column-gap:28px;     /* ✅ bring text closer to divider */
-  align-items:start;
-  margin-top: 34px;
+  gap: 20px;                    /* 💛 brings text closer to the line */
+  align-items: start;
+  margin-top: 36px;
 }
 
-.skills-row2 .skills-vline{ align-self:stretch; }
-
-/* list spacing */
-.skills-list{
-  margin:14px 0 0;
-  padding-left:18px;
-  color: rgba(255,255,255,.92);
-  font-size:16px;
-  line-height:1.75;
+/* Row2 divider line */
+.skills-row2 .skills-vline{
+  display: block;
+  width: 2px;
+  background: rgba(255,255,255,.55);
+  border-radius: 2px;
+  align-self: stretch;
 }
-.skills-list li{ margin:8px 0; }
 
-/* keep long items in one line on desktop */
-.skills-row2 .skills-list li{ white-space: nowrap; }
+/* Keep these long items in one line (desktop) */
+.skills-row2 .skills-list li{
+  white-space: nowrap;
+}
 
-/* Icons row items */
+/* Mobile: stack */
+@media (max-width: 900px){
+  .skills-row2{
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+  .skills-row2 .skills-vline{ display:none; }
+  .skills-row2 .skills-list li{ white-space: normal; }
+}
+
+  /* ✅ Put 5th + 6th skills on row 2 and center under col 2 & 3 */
+.skills-col:nth-of-type(5){
+  grid-column: 3;   /* under 2nd column area */
+  grid-row: 2;
+}
+
+.skills-col:nth-of-type(6){
+  grid-column: 5;   /* under 3rd column area */
+  grid-row: 2;
+}
+
+/* remove the vlines on row 2 (so it looks clean like your sketch) */
+.skills-grid > .skills-vline:nth-of-type(4),
+.skills-grid > .skills-vline:nth-of-type(5),
+.skills-grid > .skills-vline:nth-of-type(6){
+  display:none;
+}
+
+/* draw vertical separators for top row */
+.skills-col{
+  position:relative;
+  padding-right:28px; /* space for separator */
+}
+.skills-col:nth-of-type(-n+3)::after{
+  content:"";
+  position:absolute;
+  top:10px;
+  right:0;
+  width:2px;
+  height:calc(100% - 10px);
+  background:rgba(255,255,255,.55);
+  border-radius:2px;
+}
+
+/* remove separator after 4th col */
+.skills-col:nth-of-type(4){
+  padding-right:0;
+}
+.skills-col:nth-of-type(4)::after{ display:none; }
+
+/* Row 2 positioning (5th + 6th sections centered under col 2 and 3) */
+.skills-col:nth-of-type(5){
+  grid-column:2;
+  grid-row:2;
+  padding-right:28px;
+}
+.skills-col:nth-of-type(6){
+  grid-column:3;
+  grid-row:2;
+  padding-right:0;
+}
+
+/* separator between the two bottom columns */
+.skills-col:nth-of-type(5)::after{
+  content:"";
+  position:absolute;
+  top:10px;
+  right:0;
+  width:2px;
+  height:calc(100% - 10px);
+  background:rgba(255,255,255,.55);
+  border-radius:2px;
+}
+
 .skill-item{
   display:flex;
   align-items:center;
@@ -450,21 +558,24 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
   font-size:28px;
   color:#0B0A2A;
 }
+.skills-list{
+  margin:14px 0 0;
+  padding-left:18px;
+  color: rgba(255,255,255,.92);
+  font-size:16px;
+  line-height:1.75;
+}
+.skills-list li{ margin:8px 0; }
 
-/* Mobile: stack everything */
+/* ✅ MOBILE */
 @media (max-width: 900px){
   .skills-grid{ grid-template-columns:1fr; row-gap:26px; }
-  .skills-vline{ display:none; }
-
-  .skills-row2{
-    grid-template-columns:1fr;
-    row-gap:22px;
-  }
-  .skills-row2 .skills-vline{ display:none; }
-  .skills-row2 .skills-list li{ white-space: normal; }
+  .skills-col{ padding-right:0; }
+  .skills-col::after{ display:none !important; }
 }
 
-/* ===== Education + Experience (your existing CSS kept) ===== */
+
+/* ===== Education + Experience ===== */
 .edex-pill{
   display:inline-block;
   padding: 16px 18px;
@@ -537,7 +648,309 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
   font-size: 16px;
 }
 
-/* ===== Footer (kept) ===== */
+/* ===== Projects ===== */
+.filters{display:flex; gap:10px; flex-wrap:wrap; margin:18px 0;}
+.filter-btn{
+  border:1px solid rgba(255,255,255,.18);
+  background:rgba(255,255,255,.06);
+  color:#fff;
+  padding:10px 14px;
+  border-radius:999px;
+  cursor:pointer;
+  font-size:16px;
+}
+.filter-btn.active{
+  background:linear-gradient(135deg, var(--accent), var(--accent-2));
+  color:#041018;
+  border-color:transparent;
+}
+
+.projects-toolbar{display:flex; justify-content:space-between; align-items:center; gap:14px; flex-wrap:wrap; margin:10px 0 18px;}
+.featured-wrap{display:grid; gap:0; margin-top:22px;}
+
+/* ✅ Each project alternates background: navy → black → navy */
+.featured-card{
+  border:none;
+  border-radius:0;
+  box-shadow:none;
+  background:transparent;
+  position:relative;
+  padding:52px 0;
+}
+.featured-card::before{
+  content:"";
+  position:absolute;
+  top:0; bottom:0;
+  left:calc(50% - 50vw);
+  width:100vw;
+  background: var(--navyBand);
+  z-index:-1;
+}
+.featured-card.alt::before{ background: var(--blackBand); }
+
+.featured-card::after{
+  content:"";
+  position:absolute;
+  top:0; bottom:0;
+  left:calc(50% - 50vw);
+  width:100vw;
+  z-index:-1;
+  background:
+    linear-gradient(to bottom, rgba(0,0,0,.30), transparent 22%),
+    linear-gradient(to top, rgba(0,0,0,.35), transparent 18%);
+  opacity:.30;
+  pointer-events:none;
+}
+
+.featured-head{display:grid; grid-template-columns:120px 1fr; gap:18px; align-items:center; padding:0 0 18px;}
+.featured-no{font-weight:900; font-size:78px; line-height:1; color:#fff;}
+.featured-title{margin:0; color:var(--accent); font-size:clamp(28px, 3vw, 58px); line-height:1.1;}
+
+.featured-media{display:grid; grid-template-columns:1fr 1fr; gap:0;}
+.featured-media img{
+  width:100%;
+  height:360px;
+  object-fit:cover;
+  border-radius: 0;
+}
+
+/* ✅ FIX: PROJECT DESCRIPTION + BUTTON LAYOUT (COPY OF REF) */
+.featured-bottom{
+  padding: 22px 0 0;
+  display:grid;
+
+  /* Left side (text) takes remaining space, right side is fixed column for buttons */
+  grid-template-columns: minmax(0, 1fr) 340px;
+
+  gap: 30px;
+  align-items:start;
+}
+.featured-left{min-width:0;}
+
+/* ensure paragraph never slides under buttons */
+.featured-desc{
+  font-family: var(--projectTitle) !important;
+  margin:0;
+  text-align:left;
+  font-size: 16px;
+  line-height: 1.75;
+  color: rgba(255,255,255,.92);
+  max-width: none;      /* ✅ allow it to reach near the button column */
+  padding-right: 0;     /* ✅ not needed because grid handles spacing */
+}
+
+/* keep your strip as-is */
+.featured-strip{
+  margin: 14px 0 0 0;
+  padding: 12px 0 0;
+  border-top: none;
+  font-weight:900;
+  letter-spacing:.2px;
+  color:#fff;
+  font-size:12px;
+}
+
+/* ✅ Buttons: 2-column grid so 3rd goes below 1st, 4th below 2nd */
+.featured-actions{
+  display:grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap:12px 12px;
+  justify-items:stretch;
+  align-items:start;
+
+  margin: 0;
+  padding-bottom: 6px;
+}
+
+/* buttons bigger size, font unchanged */
+.pill-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+
+  padding:18px 22px;     /* ✅ bigger button */
+  min-height:56px;       /* ✅ taller */
+  border-radius:999px;
+
+  font-weight:900;
+  color:var(--accent);
+  text-decoration:underline;
+  border:3px solid rgba(255,255,255,.85);
+  background:transparent;
+
+  font-size:14px;        /* ✅ keep your font size (you said don’t change button font) */
+  transition:.18s;
+  text-transform: uppercase;
+  white-space:nowrap;
+
+  width:100%;            /* ✅ fill grid cell */
+}
+.pill-btn:hover{transform:translateY(-2px)}
+
+/* ===== FULL-WIDTH PROJECTS AREA ===== */
+#projects{
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding-left: 0;
+  padding-right: 0;
+}
+#projects .projects-inner{
+  width: min(1400px, 92%);
+  margin: 0 auto;
+}
+#projects .featured-bottom,
+#projects .featured-head{
+  padding-left: 40px;
+  padding-right: 40px;
+}
+#projects .featured-media img{
+  height: clamp(260px, 30vw, 420px);
+  width: 100%;
+  object-fit: cover;
+  border-radius: 0 !important;
+}
+
+/* ===== Published Work ===== */
+.pubs-wrap{ margin-top: 10px; }
+.pubs-intro{
+  color: rgba(255,255,255,.88);
+  font-size: 16px;
+  max-width: 70ch;
+}
+.pubs-grid{
+  margin-top: 18px;
+  display:grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap:18px;
+}
+.pub-card{
+  position:relative;
+  border-radius:24px;
+  padding:22px 22px 18px;
+  background:
+    radial-gradient(700px 260px at 20% 0%, rgba(242,179,0,.10), transparent 55%),
+    linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.02));
+  border: 1px solid rgba(255,255,255,.12);
+  box-shadow: 0 18px 44px rgba(0,0,0,.32);
+  overflow:hidden;
+  transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+.pub-card:hover{
+  transform: translateY(-8px);
+  border-color: rgba(242,179,0,.35);
+  box-shadow:0 24px 56px rgba(0,0,0,.42);
+}
+.pub-ribbon{
+  position:absolute; top:14px; right:14px;
+  font-weight:900; font-size:16px; padding:8px 16px;
+  border-radius:999px; letter-spacing:.3px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color:#0b0a2a;
+  z-index:2;
+  text-transform: uppercase;
+}
+.pub-top{display:flex; gap:14px; align-items:flex-start; position:relative; z-index:1;}
+.pub-logo{
+  width:48px; height:48px; border-radius:16px;
+  display:grid; place-items:center;
+  font-weight:900;
+  background: rgba(0,0,0,.25);
+  border: 1px solid rgba(255,255,255,.16);
+  color:#fff;
+  flex:0 0 auto;
+}
+.pub-title{margin:0 0 8px; font-size:16px; line-height:1.25;}
+.pub-title a{color:var(--accent); text-decoration:none;}
+.pub-title a:hover{text-decoration:underline;}
+.pub-sub{margin:0; color: rgba(255,255,255,.86); line-height:1.55; font-size:16px;}
+.pub-meta{margin-top:16px; display:flex; flex-wrap:wrap; gap:10px; position:relative; z-index:1;}
+.pub-tag{
+  padding:8px 16px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.16);
+  background: rgba(255,255,255,.06);
+  font-weight:800;
+  font-size:16px;
+  color: rgba(255,255,255,.90);
+}
+.pub-actions{
+  margin-top:18px;
+  display:flex; align-items:center; justify-content:space-between; gap:16px;
+  position:relative; z-index:1;
+}
+.pub-source{color: rgba(255,255,255,.80); font-size:16px;}
+.pub-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:10px 16px;
+  border-radius:999px;
+  font-weight:900;
+  border: 3px solid rgba(255,255,255,.85);
+  color: var(--accent);
+  text-decoration: underline;
+  background: transparent;
+  white-space: nowrap;
+  transition:.18s;
+  text-transform: uppercase;
+  font-size:16px;
+}
+.pub-btn:hover{ transform: translateY(-2px); }
+.pubs-cta{display:flex; justify-content:flex-end; margin-top:18px;}
+.pubs-cta a{
+  display:inline-flex; align-items:center; gap:10px;
+  padding:16px 16px; border-radius:14px;
+  border:1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.06);
+  font-weight:900;
+  text-decoration:none;
+  text-transform: uppercase;
+  font-size:16px;
+}
+
+/* ===== Contact ===== */
+.panel{
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(255,255,255,.05);
+  border-radius:18px;
+  padding:22px;
+}
+.lead{color:rgba(255,255,255,.92); font-size:16px;}
+.contact-grid{
+  display:grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+  gap: 28px;
+  align-items: start;
+}
+.contact-grid > *{min-width:0;}
+.contact-cards{display:grid; gap:16px;}
+.contact-card{
+  display:flex; gap:16px; align-items:flex-start;
+  padding:14px; border-radius:16px;
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(0,0,0,.15);
+  font-size:16px;
+}
+.contact-card i{font-size:20px; margin-top:2px; color:var(--accent);}
+.help{color:rgba(255,255,255,.75); font-size:16px;}
+form.contact .row{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+form.contact label{display:block; margin:0 0 6px; font-size:16px;}
+form.contact input, form.contact textarea{
+  width:100%;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.16);
+  background:rgba(255,255,255,.06);
+  color:#fff;
+  padding:16px 16px;
+  outline:none;
+  font-family: var(--aptosBody);
+  font-size:16px;
+}
+form.contact textarea{min-height:140px; resize:vertical;}
+.toast{margin-top:10px; font-size:16px;}
+
+/* ===== Footer ===== */
 footer{margin-top:0; padding:32px 0 56px; border-top:1px solid rgba(255,255,255,.06)}
 .foot-wrap{display:flex; align-items:center; justify-content:space-between; gap:18px; flex-wrap:wrap}
 .foot-brand{display:flex; align-items:center; gap:16px;}
@@ -584,8 +997,32 @@ footer{margin-top:0; padding:32px 0 56px; border-top:1px solid rgba(255,255,255,
   .about-icon{width:68px; height:68px;}
   .about-icon i{font-size:28px;}
   .about-btn{min-width:220px; padding:16px 20px; font-size:16px;}
+  .skills-grid{grid-template-columns:1fr; gap:26px;}
+  .skills-vline{display:none;}
   .edex-grid{grid-template-columns:1fr; gap:24px;}
   .edex-divider{display:none;}
+  .featured-head{grid-template-columns:90px 1fr}
+  .featured-no{font-size:58px}
+  .featured-media{grid-template-columns:1fr}
+  .featured-media img{height:260px}
+  #projects .featured-bottom,
+  #projects .featured-head{ padding-left: 18px; padding-right: 18px; }
+  .pubs-grid{grid-template-columns:1fr;}
+  .contact-grid{grid-template-columns:1fr;}
+  form.contact .row{grid-template-columns:1fr;}
+
+  /* ✅ On mobile: 2 columns still works, but allow it to drop to 1 column if needed */
+  .featured-bottom{ grid-template-columns: 1fr; gap: 18px; }
+  .featured-actions{ grid-template-columns: 1fr 1fr; }
+}
+
+/* Project layout on smaller widths */
+@media (max-width: 1100px){
+  .featured-bottom{ grid-template-columns: 1fr; gap: 18px; }
+  .featured-actions{ grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 520px){
+  .featured-actions{ grid-template-columns: 1fr; } /* ✅ super small screens: single column */
 }
 </style>
 </head>
@@ -662,11 +1099,20 @@ footer{margin-top:0; padding:32px 0 56px; border-top:1px solid rgba(255,255,255,
         </div>
 
         <div class="about-right">
-          <p style="text-align: justify; font-size:16px;">
-            AI & Data Practitioner and Analytics Specialist with hands-on experience supporting data-driven
-            workflows across academic, healthcare, and business environments, including work with the
-            <span class="gold">NHS</span>.
-          </p>
+        <p class="featured-desc" style="text-align: justify; font-size:16px;">
+  AI & Data Practitioner and Analytics Specialist with hands-on experience supporting data-driven 
+  workflows across academic, healthcare, and business environments, including work with the 
+  <span class="gold">NHS</span>. Demonstrates strong capability in turning raw, unstructured data 
+  into <span class="gold">decision-ready insights</span> through end-to-end processes such as 
+  data cleaning, EDA, feature engineering, and performance evaluation. Skilled in 
+  <span class="gold">Python</span>, <span class="gold">SQL</span>, <span class="gold">Excel</span>,
+  <span class="gold">Power BI</span>, <span class="gold">Tableau</span>, and statistical methods 
+  for comprehensive analytics, reporting, and dashboard development. Comfortable creating 
+  stakeholder-focused visualizations, KPI frameworks, and analytical narratives that support 
+  process improvement, operational efficiency, and evidence-based decision-making.
+</p>
+
+
 
           <div class="about-actions">
             <div class="about-icons">
@@ -693,124 +1139,718 @@ footer{margin-top:0; padding:32px 0 56px; border-top:1px solid rgba(255,255,255,
       </div>
     </section>
 
-    <!-- ===== SKILLS (NAVY) ===== -->
-    <section id="skills" class="skills-snap section-band section-navy" aria-labelledby="skills-heading">
-      <div class="skills-pill" aria-hidden="true">
-        <span>Technical</span>&nbsp;Skills
+<!-- ===== SKILLS (NAVY) ===== -->
+<section id="skills" class="skills-snap section-band section-navy" aria-labelledby="skills-heading">
+  <div class="skills-pill" aria-hidden="true">
+    <span>Technical</span>&nbsp;Skills
+  </div>
+
+  <div class="skills-grid">
+
+    <!-- 1) PROGRAMMING LANGUAGES -->
+    <div class="skills-col">
+      <h2>PROGRAMMING <span class="gold">LANGUAGES</span></h2>
+
+      <div class="skill-item">
+        <div class="skill-iconCircle"><i class="fa-solid fa-database"></i></div>
+        <div class="skill-label">SQL</div>
       </div>
 
-      <div class="skills-grid">
+      <div class="skill-item">
+        <div class="skill-iconCircle"><i class="fa-brands fa-python"></i></div>
+        <div class="skill-label">Python</div>
+      </div>
+    </div>
 
-        <!-- 1) PROGRAMMING LANGUAGES -->
-        <div class="skills-col">
-          <h2>PROGRAMMING <span class="gold">LANGUAGES</span></h2>
+    <span class="skills-vline" aria-hidden="true"></span>
 
-          <div class="skill-item">
-            <div class="skill-iconCircle"><i class="fa-solid fa-database"></i></div>
-            <div class="skill-label">SQL</div>
-          </div>
+    <!-- 2) DATA ANALYTIC TOOLS -->
+    <div class="skills-col">
+      <h2>DATA <span class="gold">ANALYTIC TOOLS</span></h2>
 
-          <div class="skill-item">
-            <div class="skill-iconCircle"><i class="fa-brands fa-python"></i></div>
-            <div class="skill-label">Python</div>
-          </div>
+      <div class="skill-item">
+        <div class="skill-iconCircle"><i class="fa-solid fa-file-excel"></i></div>
+        <div class="skill-label">Microsoft Excel</div>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-iconCircle"><i class="fa-brands fa-google"></i></div>
+        <div class="skill-label">Google Sheets</div>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-iconCircle"><i class="fa-solid fa-cloud"></i></div>
+        <div class="skill-label">Google BigQuery</div>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-iconCircle"><i class="fa-solid fa-code"></i></div>
+        <div class="skill-label">Visual Studio Code</div>
+      </div>
+    </div>
+
+    <span class="skills-vline" aria-hidden="true"></span>
+
+    <!-- 3) DATA VISUALIZATION TOOLS -->
+    <div class="skills-col">
+      <h2>DATA <span class="gold">VISUALIZATION TOOLS</span></h2>
+
+      <div class="skill-item">
+        <div class="skill-iconCircle"><i class="fa-solid fa-chart-simple"></i></div>
+        <div class="skill-label">Tableau</div>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-iconCircle"><i class="fa-solid fa-chart-pie"></i></div>
+        <div class="skill-label">Looker Studio</div>
+      </div>
+    </div>
+
+    <span class="skills-vline" aria-hidden="true"></span>
+
+    <!-- 4) DATA ANALYTIC METHODS -->
+    <div class="skills-col">
+      <h2>DATA <span class="gold">ANALYTIC METHODS</span></h2>
+      <ul class="skills-list">
+        <li>EDA</li>
+        <li>Segmentation / Clustering</li>
+        <li>Cohort Analysis</li>
+        <li>Linear Regression</li>
+        <li>Logistic Regression</li>
+        <li>Statistics</li>
+        <li>A/B Testing</li>
+        <li>ANOVA</li>
+        <li>Post-Hoc T-Test</li>
+      </ul>
+    </div>
+
+<div class="skills-row2">
+
+  <!-- AI -->
+  <div class="skills-col">
+    <h2>AI &amp; <span class="gold">MACHINE LEARNING</span></h2>
+    <ul class="skills-list">
+      <li>Classification Models</li>
+      <li>Feature Engineering</li>
+      <li>Model Evaluation</li>
+      <li>NLP (Sentiment Analysis)</li>
+      <li>CNN (Hybrid Models)</li>
+    </ul>
+  </div>
+
+  <div class="skills-vline" aria-hidden="true"></div>
+
+  <!-- PRODUCT -->
+  <div class="skills-col">
+    <h2>PRODUCT &amp; <span class="gold">BUSINESS INSIGHTS</span></h2>
+    <ul class="skills-list">
+      <li>KPI Design</li>
+      <li>Dashboard Storytelling</li>
+      <li>Requirements Gathering</li>
+      <li>Stakeholder Communication</li>
+      <li>Insight Generation</li>
+    </ul>
+  </div>
+
+</div>
+
+
+  </div>
+</section>
+
+
+  
+
+
+
+
+
+
+    <!-- ===== EDUCATION + EXPERIENCE (BLACK) ===== -->
+    <section id="edu-exp" class="edex-section section-band section-black" aria-labelledby="edex-heading">
+      <div class="edex-pill">Education & Experience <span class="muted">Background</span></div>
+
+      <div class="edex-grid">
+        <div class="edex-col">
+          <h2 id="edex-heading" class="edex-title">EDUCATION</h2>
+
+          <article class="edex-item">
+            <div class="edex-logoWrap">
+              <img src="images/yyy.png" class="edex-logo" alt="Yeshiva University logo">
+            </div>
+            <div class="edex-body">
+              <h3 class="edex-org">Yeshiva University (New York, USA)</h3>
+              <ul class="edex-points">
+                <li><span class="gold">M.S. in Artificial Intelligence</span> (2025 – Present)</li>
+                <li><span class="gold">Grade:</span> 3.91</li>
+                <li>Focus: Data Analytics, Machine Learning, Human-Centered AI</li>
+                <li>Key Projects: CNN Brain Tumor Model (IEEE), WiFi Gesture Recognition</li>
+                <li>Coursework: ML, DL, NLP, Algorithms</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="edex-item">
+            <div class="edex-logoWrap">
+              <img src="images/gg.png" class="edex-logo" alt="University of Greenwich logo">
+            </div>
+            <div class="edex-body">
+              <h3 class="edex-org">University of Greenwich (London, UK)</h3>
+              <ul class="edex-points">
+                <li><span class="gold">BSc in Computer Science</span> (2020 – 2023)</li>
+                <li><span class="gold">Grade:</span> 3.41</li>
+                <li>Focus: Programming, Software Engineering, Databases</li>
+                <li>Coursework: Data Structures, Algorithms, Web Development, DBMS</li>
+                <li>Key Projects: E-commerce SQL Database System, Student Management Web App</li>
+              </ul>
+            </div>
+          </article>
         </div>
 
-        <span class="skills-vline" aria-hidden="true"></span>
+        <div class="edex-divider" aria-hidden="true"></div>
 
-        <!-- 2) DATA ANALYTIC TOOLS -->
-        <div class="skills-col">
-          <h2>DATA <span class="gold">ANALYTIC TOOLS</span></h2>
+        <div class="edex-col">
+          <h2 class="edex-title">EXPERIENCE</h2>
 
-          <div class="skill-item">
-            <div class="skill-iconCircle"><i class="fa-solid fa-file-excel"></i></div>
-            <div class="skill-label">Microsoft Excel</div>
-          </div>
+          <article class="edex-item">
+            <div class="edex-logoWrap">
+              <img src="images/yyy.png" class="edex-logo" alt="Yeshiva University logo">
+            </div>
+            <div class="edex-body">
+              <h3 class="edex-org">Yeshiva University</h3>
+              <ul class="edex-points">
+                <li><span class="gold">Teaching Assistant</span> (2025 – Present)</li>
+                <li class="sub">• Held regular office hours and supported students 1:1 or in small groups to clarify course concepts and help with assignments.</li>
+                <li class="sub">• Graded assignments (and when assigned, exams/projects) using instructor-provided rubrics and returned feedback in a timely manner.</li>
+              </ul>
+            </div>
+          </article>
 
-          <div class="skill-item">
-            <div class="skill-iconCircle"><i class="fa-brands fa-google"></i></div>
-            <div class="skill-label">Google Sheets</div>
-          </div>
-
-          <div class="skill-item">
-            <div class="skill-iconCircle"><i class="fa-solid fa-cloud"></i></div>
-            <div class="skill-label">Google BigQuery</div>
-          </div>
-
-          <div class="skill-item">
-            <div class="skill-iconCircle"><i class="fa-solid fa-code"></i></div>
-            <div class="skill-label">Visual Studio Code</div>
-          </div>
+          <article class="edex-item">
+            <div class="edex-logoWrap">
+              <img src="images/north_london_partners_shared_services_logo.jpeg" class="edex-logo" alt="Company logo">
+            </div>
+            <div class="edex-body">
+              <h3 class="edex-org">North London Shared Recruitment Service (NHS)</h3>
+              <ul class="edex-points">
+                <li><span class="gold">HR Data and System Analyst</span></li>
+                <li class="sub">• Led the maintenance and optimization of enterprise HR systems (ESR), delivering <span class="gold">98% data accuracy</span> and supporting successful audits and compliance reviews.</li>
+                <li class="sub">• Analyzed large-scale workforce datasets to produce actionable weekly/monthly reports, accelerating management decision-making by <span class="gold">20%</span>.</li>
+              </ul>
+            </div>
+          </article>
         </div>
-
-        <span class="skills-vline" aria-hidden="true"></span>
-
-        <!-- 3) DATA VISUALIZATION TOOLS -->
-        <div class="skills-col">
-          <h2>DATA <span class="gold">VISUALIZATION TOOLS</span></h2>
-
-          <div class="skill-item">
-            <div class="skill-iconCircle"><i class="fa-solid fa-chart-simple"></i></div>
-            <div class="skill-label">Tableau</div>
-          </div>
-
-          <div class="skill-item">
-            <div class="skill-iconCircle"><i class="fa-solid fa-chart-pie"></i></div>
-            <div class="skill-label">Looker Studio</div>
-          </div>
-        </div>
-
-        <span class="skills-vline" aria-hidden="true"></span>
-
-        <!-- 4) DATA ANALYTIC METHODS -->
-        <div class="skills-col">
-          <h2>DATA <span class="gold">ANALYTIC METHODS</span></h2>
-          <ul class="skills-list">
-            <li>EDA</li>
-            <li>Segmentation / Clustering</li>
-            <li>Cohort Analysis</li>
-            <li>Linear Regression</li>
-            <li>Logistic Regression</li>
-            <li>Statistics</li>
-            <li>A/B Testing</li>
-            <li>ANOVA</li>
-            <li>Post-Hoc T-Test</li>
-          </ul>
-        </div>
-
-        <!-- ✅ Row 2 -->
-        <div class="skills-row2">
-
-          <div class="skills-col">
-            <h2>AI &amp; <span class="gold">MACHINE LEARNING</span></h2>
-            <ul class="skills-list">
-              <li>Classification Models</li>
-              <li>Feature Engineering</li>
-              <li>Model Evaluation</li>
-              <li>NLP (Sentiment Analysis)</li>
-              <li>CNN (Hybrid Models)</li>
-            </ul>
-          </div>
-
-          <div class="skills-vline" aria-hidden="true"></div>
-
-          <div class="skills-col">
-            <h2>PRODUCT &amp; <span class="gold">BUSINESS INSIGHTS</span></h2>
-            <ul class="skills-list">
-              <li>KPI Design</li>
-              <li>Dashboard Storytelling</li>
-              <li>Requirements Gathering</li>
-              <li>Stakeholder Communication</li>
-              <li>Insight Generation</li>
-            </ul>
-          </div>
-
-        </div>
-
       </div>
     </section>
 
-    <!-- (rest of your sections can stay exactly same) -->
+    <!-- ===== PROJECTS (NAVY section, each card alternates navy/black) ===== -->
+    <section id="projects" class="section-band section-navy" aria-labelledby="projects-heading">
+      <div class="projects-inner">
+
+        <div class="edex-pill">Notable <span class="muted">Projects </span></div>
+
+        <div class="filters" id="proj-filters" role="tablist" aria-label="Project filters">
+          <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">All</button>
+          <button class="filter-btn" data-filter="data-analyst" role="tab" aria-selected="false">Data Analyst</button>
+          <button class="filter-btn" data-filter="ai-ml" role="tab" aria-selected="false">AI / ML</button>
+          <button class="filter-btn" data-filter="business-analyst" role="tab" aria-selected="false">Business Analyst</button>
+        </div>
+
+        <div class="projects-toolbar">
+          <div class="projects-note" id="projects-note">Showing 3 featured projects</div>
+        </div>
+
+        <div class="featured-wrap" id="featured-projects">
+
+          <!-- 01 – NAVY -->
+          <article class="featured-card project" data-tags="ai-ml,data-analyst">
+            <div class="featured-head">
+              <div class="featured-no">01</div>
+              <h3 class="featured-title">Customer Feedback Sentiment Analyzer Web App</h3>
+            </div>
+
+            <div class="featured-media">
+              <img src="images/senti.png" alt="Sentiment Analysis Web App screenshot" loading="lazy">
+              <img src="images/Screenshot 2025-04-10 153022.png" alt="Sentiment Analysis result view" loading="lazy">
+            </div>
+
+            <div class="featured-bottom">
+              <div class="featured-left">
+               <p class="featured-desc" style="text-align: justify;">
+  A Flask-based sentiment analysis system that transforms raw customer feedback into 
+  <span class="gold">actionable business insights</span>. The workflow includes text cleaning, 
+  tokenization, vectorization, and <span class="gold">feature engineering</span>, enabling accurate 
+  classification of feedback as positive or negative. Designed for 
+  <span class="gold">non-technical stakeholders</span>, the interface helps teams monitor 
+  customer satisfaction trends and identify recurring pain points. The project demonstrates a 
+  reproducible, end-to-end NLP pipeline suitable for real-world customer experience analytics. 
+  It shows how <span class="gold">NLP automation</span> can streamline feedback analysis and 
+  support data-driven decision-making.
+</p>
+
+
+
+                <div class="featured-strip">
+                  <div class="line"><span class="label">Tools :</span> Python (Flask), scikit-learn</div>
+                  <div class="line"><span class="label">Analysis :</span> <span class="gold">EDA</span>, NLP, Model Evaluation</div>
+                </div>
+              </div>
+
+              <div class="featured-actions">
+                <a class="pill-btn" href="YOUR_DECK_LINK" target="_blank" rel="noreferrer noopener">Full Deck</a>
+                <a class="pill-btn" href="YOUR_DASHBOARD_LINK" target="_blank" rel="noreferrer noopener">Dashboard</a>
+                <a class="pill-btn" href="https://github.com/puspitachy/Building-an-web-app-for-Sentiment-Analysis" target="_blank" rel="noreferrer noopener">Python Code</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 02 – BLACK -->
+          <article class="featured-card alt project" data-tags="data-analytics,ai-ml">
+            <div class="featured-head">
+              <div class="featured-no">02</div>
+              <h3 class="featured-title">Healthcare Model Evaluation Analytics</h3>
+            </div>
+
+            <div class="featured-media">
+              <img src="images/health.png" alt="Healthcare model evaluation visualization" loading="lazy">
+              <img src="images/r.jpg" alt="Metrics comparison for healthcare models" loading="lazy">
+            </div>
+
+            <div class="featured-bottom">
+              <div class="featured-left">
+               <p class="featured-desc" style="text-align: justify;">
+  A detailed analytics case study comparing healthcare ML models using 
+  <span class="gold">precision</span>, <span class="gold">recall</span>, 
+  <span class="gold">ROC–AUC</span>, and <span class="gold">calibration</span> metrics. 
+  Visual dashboards highlight how small metric differences can impact patient risk 
+  predictions, alert systems, and clinical workflows. The project demonstrates the 
+  importance of selecting models that balance performance with 
+  <span class="gold">interpretability</span> in high-stakes environments. It emphasizes the 
+  consequences of false positives, false negatives, and threshold misalignment. 
+  Overall, it showcases the value of <span class="gold">metric-driven evaluation</span> when 
+  deploying AI tools in medical settings.
+</p>
+
+
+
+
+                <div class="featured-strip">
+                  <div class="line"><span class="label">Tools :</span> Python, pandas, scikit-learn, ROC–AUC tools</div>
+                  <div class="line"><span class="label">Analysis :</span> Model Comparison, Metric Interpretation, Healthcare Analytics</div>
+                </div>
+              </div>
+
+              <div class="featured-actions">
+                <a class="pill-btn" href="https://medium.com/design-bootcamp/beyond-accuracy-how-healthcare-chooses-the-right-machine-learning-model-7d9764960b8c" target="_blank" rel="noreferrer noopener">Read</a>
+                <a class="pill-btn" href="YOUR_DECK_LINK" target="_blank" rel="noreferrer noopener">Deck</a>
+                <a class="pill-btn" href="YOUR_NOTEBOOK_LINK" target="_blank" rel="noreferrer noopener">Notes</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 07 – NAVY -->
+          <article class="featured-card project" data-tags="ai-ml,data-analyst">
+            <div class="featured-head">
+              <div class="featured-no">07</div>
+              <h3 class="featured-title">Brain Tumor MRI Classification (Hybrid CNN)</h3>
+            </div>
+
+            <div class="featured-media">
+              <img src="images/bt.png" alt="Brain tumor MRI classification project cover" loading="lazy">
+              <img src="images/t5.png" alt="Hybrid CNN results and performance metrics" loading="lazy">
+            </div>
+
+            <div class="featured-bottom">
+              <div class="featured-left">
+              <p class="featured-desc" style="text-align: justify;">
+  A hybrid deep learning system combining <span class="gold">InceptionV3</span> and 
+  <span class="gold">MobileNetV3</span> to classify brain tumor MRI scans with high accuracy 
+  and computational efficiency. The pipeline includes preprocessing, augmentation, and 
+  robust training strategies for improved feature extraction. Model performance is evaluated 
+  with accuracy scores and a <span class="gold">confusion matrix</span>, reflecting strong 
+  generalization across tumor types. Published as a poster/paper in 
+  <span class="gold">IEEE SPICSCON 2025</span>, the work showcases advanced hybrid modeling 
+  for medical imaging tasks. It demonstrates the power of 
+  <span class="gold">multi-architecture CNN fusion</span> in healthcare AI.
+</p>
+
+
+
+
+
+                <div class="featured-strip">
+                  <div class="line"><span class="label">Tools :</span> Python, PyTorch, OpenCV, NumPy</div>
+                  <div class="line"><span class="label">Model :</span> <span class="gold">Hybrid CNN</span> (InceptionV3 + MobileNetV3)</div>
+                </div>
+              </div>
+
+              <div class="featured-actions">
+                <a class="pill-btn" href="YOUR_PAPER_LINK" target="_blank" rel="noreferrer noopener">Paper</a>
+                <a class="pill-btn" href="YOUR_POSTER_LINK" target="_blank" rel="noreferrer noopener">Poster</a>
+                <a class="pill-btn" href="YOUR_GITHUB_LINK" target="_blank" rel="noreferrer noopener">Files</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 03 – BLACK -->
+          <article class="featured-card alt project" data-tags="data-analyst,business-analyst">
+            <div class="featured-head">
+              <div class="featured-no">03</div>
+              <h3 class="featured-title">Data Driven Road Safety Initiative</h3>
+            </div>
+
+            <div class="featured-media">
+              <img src="images/rr.jpeg" alt="Road safety Power BI dashboard screenshot" loading="lazy">
+              <img src="images/road.png" alt="Road safety insights view" loading="lazy">
+            </div>
+
+            <div class="featured-bottom">
+              <div class="featured-left">
+              <p class="featured-desc" style="text-align: justify;">
+  An Excel-based dashboard analyzing coffee shop revenue across products, stores, dates, 
+  and customer behavior patterns. Built using Power Query and Pivot Tables, it automates 
+  cleaning, calculates <span class="gold">revenue KPIs</span>, and visualizes performance trends. 
+  Insights reveal top sellers, low-performing items, and <span class="gold">peak-hour patterns</span> 
+  that influence operational efficiency. The dashboard supports staff scheduling, menu 
+  optimization, and promotional planning. By uncovering clear trends, it enables 
+  <span class="gold">profit-focused decision-making</span> for both daily operations and 
+  long-term growth.
+</p>
+
+
+
+                <div class="featured-strip">
+                  <div class="line"><span class="label">Tools :</span> Power BI, Excel, DAX</div>
+                  <div class="line"><span class="label">Analysis :</span> <span class="gold">KPI Trends</span>, Hotspots, Severity</div>
+                </div>
+              </div>
+
+              <div class="featured-actions">
+                <a class="pill-btn" href="YOUR_REPORT_LINK" target="_blank" rel="noreferrer noopener">Report</a>
+                <a class="pill-btn" href="YOUR_DASHBOARD_LINK" target="_blank" rel="noreferrer noopener">Power BI</a>
+                <a class="pill-btn" href="https://github.com/puspitachy/Road-Accident-Analysis-by-Power-BI" target="_blank" rel="noreferrer noopener">Files</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 05 – NAVY -->
+          <article class="featured-card project" data-tags="data-analyst,business-analyst">
+            <div class="featured-head">
+              <div class="featured-no">05</div>
+              <h3 class="featured-title">Coffee Shop Revenue & Sales Analysis</h3>
+            </div>
+
+            <div class="featured-media">
+              <img src="images/ccd.png" alt="Coffee shop revenue Excel dashboard overview" loading="lazy">
+              <img src="images/unnamed.jpg" alt="Coffee sales trends and top products analysis view" loading="lazy">
+            </div>
+
+            <div class="featured-bottom">
+              <div class="featured-left">
+             <p class="featured-desc" style="text-align: justify;">
+  An Excel-based dashboard analyzing coffee shop revenue across products, stores, dates, 
+  and customer behavior patterns. Built using Power Query and Pivot Tables, it automates 
+  cleaning, calculates <span class="gold">revenue KPIs</span>, and visualizes performance trends. 
+  Insights reveal top sellers, low-performing items, and <span class="gold">peak-hour patterns</span> 
+  that influence operational efficiency. The dashboard supports staff scheduling, menu 
+  optimization, and promotional planning. By uncovering clear trends, it enables 
+  <span class="gold">profit-focused decision-making</span> for both daily operations and 
+  long-term growth.
+</p>
+
+
+
+                <div class="featured-strip">
+                  <div class="line"><span class="label">Tools :</span> Excel, Pivot Tables, Power Query</div>
+                  <div class="line"><span class="label">Analysis :</span> Revenue KPIs, Trends, Top Products, Peak Hours</div>
+                </div>
+              </div>
+
+              <div class="featured-actions">
+                <a class="pill-btn" href="YOUR_REPORT_LINK" target="_blank" rel="noreferrer noopener">Report</a>
+                <a class="pill-btn" href="YOUR_EXCEL_LINK" target="_blank" rel="noreferrer noopener">Excel</a>
+                <a class="pill-btn" href="YOUR_GITHUB_LINK" target="_blank" rel="noreferrer noopener">Files</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 06 – BLACK -->
+          <article class="featured-card alt project" data-tags="AI">
+            <div class="featured-head">
+              <div class="featured-no">06</div>
+              <h3 class="featured-title">Multi-Level Stacking Ensemble for Heart Disease Prediction</h3>
+            </div>
+
+            <div class="featured-media">
+              <img src="images/g.png" alt="Scuba diving app UI mockup" loading="lazy">
+              <img src="images/hear.png" alt="Scuba diving app flow preview" loading="lazy">
+            </div>
+
+            <div class="featured-bottom">
+              <div class="featured-left">
+                
+<p class="featured-desc" style="text-align: justify;">
+  A comprehensive machine learning study comparing multiple classifiers for 
+  <span class="gold">early-stage heart disease prediction</span> using the UCI dataset. 
+  The project evaluates the impact of <span class="gold">feature engineering</span>,  
+  <span class="gold">data preprocessing</span>, and <span class="gold">ensemble learning</span> 
+  on improving clinical risk modeling. It analyzes 920 patient records collected across 
+  four hospitals, cleaned through <span class="gold">missing-value imputation</span>, scaling, 
+  and transformation of skewed biomarkers such as <span class="gold">cholesterol</span> and 
+  <span class="gold">oldpeak</span>. A hybrid stacking architecture significantly enhances 
+  <span class="gold">risk prediction accuracy</span>, outperforming traditional single-model approaches.
+</p>
+
+
+
+
+                <div class="featured-strip">
+                  <div class="line"><span class="label">Tools :</span> Figma, UI Kit, Prototyping</div>
+                  <div class="line"><span class="label">Analysis :</span> UX Flow, Wireframes, Visual Design</div>
+                </div>
+              </div>
+
+              <div class="featured-actions">
+                <a class="pill-btn" href="https://github.com/puspitachy/UX-UI-design" target="_blank" rel="noreferrer noopener">Files</a>
+                <a class="pill-btn" href="YOUR_FIGMA_LINK" target="_blank" rel="noreferrer noopener">Code</a>
+                <a class="pill-btn" href="YOUR_CASE_STUDY_LINK" target="_blank" rel="noreferrer noopener">Study</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 08 – NAVY -->
+          <article class="featured-card project" data-tags="data-analyst,business-analyst">
+            <div class="featured-head">
+              <div class="featured-no">08</div>
+              <h3 class="featured-title">Bike Sales Excel Dashboard</h3>
+            </div>
+
+            <div class="featured-media">
+              <img src="images/bi.png" alt="Bike Sales Excel dashboard overview" loading="lazy">
+              <img src="images/bike.png" alt="Bike Sales analysis view" loading="lazy">
+            </div>
+
+            <div class="featured-bottom">
+              <div class="featured-left">
+              <p class="featured-desc" style="text-align: justify;">
+  A comprehensive Excel dashboard visualizing bike sales patterns across demographics, 
+  regions, commute distances, and education levels. Using Pivot Tables and Power Query, 
+  it provides <span class="gold">filterable KPI insights</span> and clear patterns in purchase 
+  behavior. Visualizations highlight how factors like income, marital status, age, and 
+  commute range influence the likelihood of buying a bike. The dashboard is designed for 
+  marketing and planning teams seeking <span class="gold">data-driven customer insights</span>. 
+  These findings help businesses build more <span class="gold">targeted marketing strategies</span> 
+  and improve sales outcomes.
+</p>
+
+
+
+                <div class="featured-strip">
+                  <div class="line"><span class="label">Tools :</span> Excel, Pivot Tables, Power Query</div>
+                  <div class="line"><span class="label">Analysis :</span> Sales KPIs, Demographics, Regional Insights</div>
+                </div>
+              </div>
+
+              <div class="featured-actions">
+                <a class="pill-btn" href="YOUR_REPORT_LINK" target="_blank" rel="noreferrer noopener">Report</a>
+                <a class="pill-btn" href="YOUR_EXCEL_LINK" target="_blank" rel="noreferrer noopener">Excel</a>
+                <a class="pill-btn" href="https://github.com/puspitachy/Excel-project-bike-dataset" target="_blank" rel="noreferrer noopener">Files</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PUBLISHED WORK (BLACK) ===== -->
+    <section id="publications" class="section-band section-black" aria-labelledby="pubs-heading">
+      <div class="edex-pill">Published <span class="muted">Work </span></div>
+
+      <div class="pubs-wrap">
+        <p class="pubs-intro">
+          Articles that turn complex ideas into clear, practical, human-centered AI/data solutions.
+        </p>
+
+        <div class="pubs-grid">
+          <article class="pub-card">
+            <div class="pub-ribbon">Featured</div>
+            <div class="pub-top">
+              <div class="pub-logo" aria-hidden="true">M</div>
+              <div>
+                <h3 class="pub-title">
+                  <a href="https://medium.com/ai-advances/cracking-the-code-of-robot-arms-953dc0c7fe99" target="_blank" rel="noreferrer noopener">
+                    Cracking the Code of Robot Arms
+                  </a>
+                </h3>
+                <p class="pub-sub">
+                  A gentle guide to kinematics turning intimidating equations into an intuitive roadmap for motion planning.
+                </p>
+              </div>
+            </div>
+            <div class="pub-meta">
+              <span class="pub-tag">Robotics</span>
+              <span class="pub-tag">Kinematics</span>
+              <span class="pub-tag">Math Intuition</span>
+            </div>
+            <div class="pub-actions">
+              <span class="pub-source">Published in <strong>AI Advances</strong></span>
+              <a class="pub-btn" href="https://medium.com/ai-advances/cracking-the-code-of-robot-arms-953dc0c7fe99" target="_blank" rel="noreferrer noopener">
+                Read
+              </a>
+            </div>
+          </article>
+
+          <article class="pub-card">
+            <div class="pub-top">
+              <div class="pub-logo" aria-hidden="true">M</div>
+              <div>
+                <h3 class="pub-title">
+                  <a href="https://medium.com/activated-thinker/when-health-data-is-overlooked-productivity-pays-the-price-b915327af958" target="_blank" rel="noreferrer noopener">
+                    When Health Data Is Overlooked, Productivity Pays the Price
+                  </a>
+                </h3>
+                <p class="pub-sub">
+                  Evidence-backed argument for treating women’s health metrics as first-class features in product and policy design.
+                </p>
+              </div>
+            </div>
+            <div class="pub-meta">
+              <span class="pub-tag">Women’s Health</span>
+              <span class="pub-tag">Productivity</span>
+              <span class="pub-tag">Data for Impact</span>
+            </div>
+            <div class="pub-actions">
+              <span class="pub-source">Published in <strong>Activated Thinker</strong></span>
+              <a class="pub-btn" href="https://medium.com/activated-thinker/when-health-data-is-overlooked-productivity-pays-the-price-b915327af958" target="_blank" rel="noreferrer noopener">
+                Read
+              </a>
+            </div>
+          </article>
+
+          <article class="pub-card">
+            <div class="pub-top">
+              <div class="pub-logo" aria-hidden="true">M</div>
+              <div>
+                <h3 class="pub-title">
+                  <a href="https://medium.com/ai-advances/simplifying-sentiment-analysis-7c7f56267c4e" target="_blank" rel="noreferrer noopener">
+                    Simplifying Sentiment Analysis
+                  </a>
+                </h3>
+                <p class="pub-sub">
+                  A pragmatic pipeline from data cleaning to a lightweight model that business teams can actually deploy.
+                </p>
+              </div>
+            </div>
+            <div class="pub-meta">
+              <span class="pub-tag">NLP</span>
+              <span class="pub-tag">LogReg</span>
+              <span class="pub-tag">Deployment-ready</span>
+            </div>
+            <div class="pub-actions">
+              <span class="pub-source">Published in <strong>AI Advances</strong></span>
+              <a class="pub-btn" href="https://medium.com/ai-advances/simplifying-sentiment-analysis-7c7f56267c4e" target="_blank" rel="noreferrer noopener">
+                Read
+              </a>
+            </div>
+          </article>
+        </div>
+
+        <div class="pubs-cta">
+          <a href="https://medium.com/@puspitachy" target="_blank" rel="noreferrer noopener">
+            <i class="fa-brands fa-medium"></i> View all on Medium
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CONTACT (NAVY) ===== -->
+    <section id="contact" class="section-band section-navy" aria-labelledby="contact-heading">
+      <div class="edex-pill">Contact</div>
+
+      <div class="panel">
+        <p class="lead" style="margin:0 0 16px">
+          <strong>I am open to research collaborations, internships, and speaking/mentoring</strong>
+        </p>
+
+        <div class="contact-grid">
+          <div class="contact-cards">
+            <div class="contact-card">
+              <i class="fa-regular fa-envelope" aria-hidden="true"></i>
+              <div>
+                <div style="font-weight:900; text-transform:uppercase;">Email</div>
+                <a href="mailto:Puspitachy2000@gmail.com" class="help">Puspitachy2000@gmail.com</a>
+              </div>
+            </div>
+
+            <div class="contact-card">
+              <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
+              <div>
+                <div style="font-weight:900; text-transform:uppercase;">LinkedIn</div>
+                <a class="help" target="_blank" rel="noreferrer noopener" href="https://www.linkedin.com/in/puspita-chowdhury-b200561a">
+                  linkedin.com/in/puspita-chowdhury-b200561a
+                </a>
+              </div>
+            </div>
+
+            <div class="contact-card">
+              <i class="fa-brands fa-github" aria-hidden="true"></i>
+              <div>
+                <div style="font-weight:900; text-transform:uppercase;">GitHub</div>
+                <a class="help" target="_blank" rel="noreferrer noopener" href="https://github.com/puspitachy">
+                  github.com/puspitachy
+                </a>
+              </div>
+            </div>
+
+            <div class="contact-card">
+              <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+              <div>
+                <div style="font-weight:900; text-transform:uppercase;">Location</div>
+                <div class="help">New York, USA</div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <form id="contact-form" class="contact" action="https://formspree.io/f/xxxxxxxx" method="POST" novalidate>
+              <div class="row">
+                <div>
+                  <label for="name">Full Name</label>
+                  <input id="name" name="name" type="text" placeholder="Your name" required aria-required="true">
+                </div>
+                <div>
+                  <label for="email">Email Address</label>
+                  <input id="email" name="email" type="email" placeholder="you@example.com" required aria-required="true">
+                </div>
+              </div>
+
+              <div style="margin-top:16px;">
+                <label for="subject">Subject</label>
+                <input id="subject" name="subject" type="text" placeholder="Subject of your message">
+              </div>
+
+              <div style="margin-top:16px;">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="Your message here..." required aria-required="true"></textarea>
+              </div>
+
+              <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
+              <input type="hidden" name="_subject" value="New message from puspita.github.io contact form">
+
+              <div style="margin-top:16px;">
+                <button class="btn primary" type="submit">
+                  <i class="fa-regular fa-paper-plane" aria-hidden="true"></i> Send Message
+                </button>
+              </div>
+
+              <div id="form-toast" class="toast" role="status" aria-live="polite"></div>
+              <p class="help">This form securely sends to your email via Formspree. No account info is stored on this site.</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
 
   </main>
 
@@ -836,6 +1876,7 @@ footer{margin-top:0; padding:32px 0 56px; border-top:1px solid rgba(255,255,255,
   <script>
     document.getElementById('yr').textContent = new Date().getFullYear();
 
+    // Mobile nav open/close
     const menuBtn = document.getElementById('menu-btn');
     const siteNav = document.getElementById('site-nav');
 
@@ -848,6 +1889,61 @@ footer{margin-top:0; padding:32px 0 56px; border-top:1px solid rgba(255,255,255,
       siteNav.classList.remove('open');
       menuBtn?.setAttribute('aria-expanded','false');
     }));
+
+    // Project filter
+    const buttons = document.querySelectorAll('#proj-filters .filter-btn');
+    const cards = document.querySelectorAll('#projects .project');
+
+    buttons.forEach(btn => btn.addEventListener('click', () => {
+      buttons.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected','true');
+
+      const key = btn.dataset.filter;
+      cards.forEach(card => {
+        const tags = (card.dataset.tags || '').split(',').map(s => s.trim());
+        const show = (key === 'all') || tags.includes(key);
+        card.classList.toggle('hidden', !show);
+      });
+    }));
+
+    // Active nav highlight
+    const navLinks = Array.from(document.querySelectorAll('.nav-links a'));
+    const navHome  = document.getElementById('nav-home');
+    navLinks.forEach(a => a.classList.remove('active'));
+    navHome?.classList.add('active');
+
+    const observeTargets = [
+      document.querySelector('#projects'),
+      document.querySelector('#skills'),
+      document.querySelector('#edu-exp'),
+      document.querySelector('#publications'),
+      document.querySelector('#contact')
+    ].filter(Boolean);
+
+    const navIO = new IntersectionObserver((entries)=>{
+      if (window.scrollY < 160) {
+        navLinks.forEach(a => a.classList.remove('active'));
+        navHome?.classList.add('active');
+        return;
+      }
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = '#' + entry.target.id;
+          navLinks.forEach(a => a.classList.remove('active'));
+          const link = navLinks.find(a => a.getAttribute('href') === id);
+          link?.classList.add('active');
+        }
+      });
+    }, {rootMargin:'-50% 0px -40% 0px', threshold:0.01});
+
+    observeTargets.forEach(sec => navIO.observe(sec));
+
+    navHome?.addEventListener('click', () => {
+      navLinks.forEach(a => a.classList.remove('active'));
+      navHome.classList.add('active');
+      window.scrollTo({top:0, behavior:'smooth'});
+    });
   </script>
 </body>
 </html>
