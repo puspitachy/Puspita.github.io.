@@ -378,6 +378,7 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
 .about-btn:hover{ transform:translateY(-3px); }
 
 /* ===== SKILLS ===== */
+/* ===== SKILLS ===== */
 /* ✅ Skill section “unset” */
 #skills .skill-label,
 #skills .skills-list,
@@ -411,24 +412,70 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
 }
 .skills-pill span{ color: var(--accent); }
 
+/* ✅ NEW GRID: 4 columns on top row, 2 centered on second row */
 .skills-grid{
   margin-top:36px;
-  display: grid;
-  grid-template-columns: 1fr 2px 1fr 2px 1fr 2px 1fr;
-  gap: 44px;
-  align-items: start;
+  display:grid;
+  grid-template-columns: repeat(4, minmax(220px, 1fr));
+  column-gap:44px;
+  row-gap:46px;
+  align-items:start;
 }
-.skills-vline{
-  width: 2px;
-  background: rgba(255,255,255,.55);
-  border-radius: 2px;
-  align-self: stretch;
+
+/* hide old vlines (we'll draw clean ones with ::after) */
+.skills-vline{ display:none !important; }
+
+/* draw vertical separators for top row */
+.skills-col{
+  position:relative;
+  padding-right:28px; /* space for separator */
 }
+.skills-col:nth-of-type(-n+3)::after{
+  content:"";
+  position:absolute;
+  top:10px;
+  right:0;
+  width:2px;
+  height:calc(100% - 10px);
+  background:rgba(255,255,255,.55);
+  border-radius:2px;
+}
+
+/* remove separator after 4th col */
+.skills-col:nth-of-type(4){
+  padding-right:0;
+}
+.skills-col:nth-of-type(4)::after{ display:none; }
+
+/* Row 2 positioning (5th + 6th sections centered under col 2 and 3) */
+.skills-col:nth-of-type(5){
+  grid-column:2;
+  grid-row:2;
+  padding-right:28px;
+}
+.skills-col:nth-of-type(6){
+  grid-column:3;
+  grid-row:2;
+  padding-right:0;
+}
+
+/* separator between the two bottom columns */
+.skills-col:nth-of-type(5)::after{
+  content:"";
+  position:absolute;
+  top:10px;
+  right:0;
+  width:2px;
+  height:calc(100% - 10px);
+  background:rgba(255,255,255,.55);
+  border-radius:2px;
+}
+
 .skill-item{
   display:flex;
   align-items:center;
-  gap: 14px;
-  padding: 10px 0;
+  gap:14px;
+  padding:10px 0;
 }
 .skill-iconCircle{
   width:60px;
@@ -441,7 +488,7 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
   flex:0 0 auto;
 }
 .skill-iconCircle i{
-  font-size: 28px;
+  font-size:28px;
   color:#0B0A2A;
 }
 .skills-list{
@@ -452,6 +499,14 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
   line-height:1.75;
 }
 .skills-list li{ margin:8px 0; }
+
+/* ✅ MOBILE */
+@media (max-width: 900px){
+  .skills-grid{ grid-template-columns:1fr; row-gap:26px; }
+  .skills-col{ padding-right:0; }
+  .skills-col::after{ display:none !important; }
+}
+
 
 /* ===== Education + Experience ===== */
 .edex-pill{
@@ -1017,7 +1072,6 @@ footer{margin-top:0; padding:32px 0 56px; border-top:1px solid rgba(255,255,255,
       </div>
     </section>
 
- <!-- ===== SKILLS (NAVY) ===== -->
 <!-- ===== SKILLS (NAVY) ===== -->
 <section id="skills" class="skills-snap section-band section-navy" aria-labelledby="skills-heading">
   <div class="skills-pill" aria-hidden="true">
@@ -1026,7 +1080,7 @@ footer{margin-top:0; padding:32px 0 56px; border-top:1px solid rgba(255,255,255,
 
   <div class="skills-grid">
 
-    <!-- PROGRAMMING LANGUAGES -->
+    <!-- 1) PROGRAMMING LANGUAGES -->
     <div class="skills-col">
       <h2>PROGRAMMING <span class="gold">LANGUAGES</span></h2>
 
@@ -1043,7 +1097,7 @@ footer{margin-top:0; padding:32px 0 56px; border-top:1px solid rgba(255,255,255,
 
     <div class="skills-vline" aria-hidden="true"></div>
 
-    <!-- DATA ANALYTIC TOOLS -->
+    <!-- 2) DATA ANALYTIC TOOLS -->
     <div class="skills-col">
       <h2>DATA <span class="gold">ANALYTIC TOOLS</span></h2>
 
@@ -1070,7 +1124,40 @@ footer{margin-top:0; padding:32px 0 56px; border-top:1px solid rgba(255,255,255,
 
     <div class="skills-vline" aria-hidden="true"></div>
 
-    <!-- AI & MACHINE LEARNING -->
+    <!-- 3) DATA VISUALIZATION TOOLS -->
+    <div class="skills-col">
+      <h2>DATA <span class="gold">VISUALIZATION TOOLS</span></h2>
+
+      <div class="skill-item">
+        <div class="skill-iconCircle"><i class="fa-solid fa-chart-simple"></i></div>
+        <div class="skill-label">Tableau</div>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-iconCircle"><i class="fa-solid fa-chart-pie"></i></div>
+        <div class="skill-label">Looker Studio</div>
+      </div>
+    </div>
+
+    <div class="skills-vline" aria-hidden="true"></div>
+
+    <!-- 4) DATA ANALYTIC METHODS -->
+    <div class="skills-col">
+      <h2>DATA <span class="gold">ANALYTIC METHODS</span></h2>
+      <ul class="skills-list">
+        <li>EDA</li>
+        <li>Segmentation / Clustering</li>
+        <li>Cohort Analysis</li>
+        <li>Linear Regression</li>
+        <li>Logistic Regression</li>
+        <li>Statistics</li>
+        <li>A/B Testing</li>
+      </ul>
+    </div>
+
+    <div class="skills-vline" aria-hidden="true"></div>
+
+    <!-- 5) AI & MACHINE LEARNING (ROW 2, CENTER) -->
     <div class="skills-col">
       <h2>AI & <span class="gold">MACHINE LEARNING</span></h2>
       <ul class="skills-list">
@@ -1084,7 +1171,7 @@ footer{margin-top:0; padding:32px 0 56px; border-top:1px solid rgba(255,255,255,
 
     <div class="skills-vline" aria-hidden="true"></div>
 
-    <!-- PRODUCT & BUSINESS INSIGHTS -->
+    <!-- 6) PRODUCT & BUSINESS INSIGHTS (ROW 2, CENTER) -->
     <div class="skills-col">
       <h2>PRODUCT & <span class="gold">BUSINESS INSIGHTS</span></h2>
       <ul class="skills-list">
@@ -1096,26 +1183,9 @@ footer{margin-top:0; padding:32px 0 56px; border-top:1px solid rgba(255,255,255,
       </ul>
     </div>
 
-    <div class="skills-vline" aria-hidden="true"></div>
-
-    <!-- DATA ANALYTIC METHODS -->
-    <div class="skills-col">
-      <h2>DATA <span class="gold">ANALYTIC METHODS</span></h2>
-      <ul class="skills-list">
-        <li>EDA</li>
-        <li>Segmentation / Clustering</li>
-        <li>Cohort Analysis</li>
-        <li>Linear Regression</li>
-        <li>Logistic Regression</li>
-        <li>Statistics</li>
-        <li>A/B Testing</li>
-        <li>ANOVA</li>
-        <li>Post-Hoc T-Test</li>
-      </ul>
-    </div>
-
   </div>
 </section>
+
 
 
 
