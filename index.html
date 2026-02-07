@@ -413,13 +413,18 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
 .skills-pill span{ color: var(--accent); }
 
 /* Row 1: 4 skill boxes with 3 divider lines */
+/* Row 1: 4 skill boxes with 3 divider lines */
 .skills-grid{
   margin-top:36px;
-  display: grid;
+  display:grid;
   grid-template-columns: 1fr 2px 1fr 2px 1fr 2px 1fr;
-  gap: 30px;      /* smaller gap looks better */
-  align-items: start;
+
+  column-gap:44px;
+  row-gap:46px;
+
+  align-items:stretch;   /* ✅ makes the vlines full height (same as tallest column) */
 }
+
 
 
 
@@ -433,7 +438,7 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
 }
 
 /* hide old vlines (we'll draw clean ones with ::after) */
-* vertical lines */
+
 .skills-vline{
   width:2px;
   background: rgba(255,255,255,.55);
