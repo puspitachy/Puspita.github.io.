@@ -412,10 +412,16 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
 }
 .skills-pill span{ color: var(--accent); }
 
-/* ✅ NEW GRID: 4 columns on top row, 2 centered on second row */
+/* Row 1: 4 skill boxes with 3 divider lines */
 .skills-grid{
+  margin-top:36px;
+  display: grid;
   grid-template-columns: 1fr 2px 1fr 2px 1fr 2px 1fr;
+  gap: 30px;      /* smaller gap looks better */
+  align-items: start;
 }
+
+
 
 
   /* Top row: 4 columns + 3 vertical lines */
