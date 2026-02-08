@@ -378,7 +378,6 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
 .about-btn:hover{ transform:translateY(-3px); }
 
 /* ===== SKILLS ===== */
-/* ===== SKILLS ===== */
 /* ✅ Skill section “unset” */
 #skills .skill-label,
 #skills .skills-list,
@@ -413,7 +412,6 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
 .skills-pill span{ color: var(--accent); }
 
 /* Row 1: 4 skill boxes with 3 divider lines */
-/* Row 1: 4 skill boxes with 3 divider lines */
 .skills-grid{
   margin-top:36px;
   display:grid;
@@ -422,22 +420,8 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
   column-gap:44px;
   row-gap:46px;
 
-  align-items:stretch;   /* ✅ makes the vlines full height (same as tallest column) */
+  align-items:stretch;
 }
-
-
-
-
-
-  /* Top row: 4 columns + 3 vertical lines */
-  grid-template-columns: 1fr 2px 1fr 2px 1fr 2px 1fr;
-
-  column-gap:44px;
-  row-gap:46px;
-  align-items:start;
-}
-
-/* hide old vlines (we'll draw clean ones with ::after) */
 
 .skills-vline{
   width:2px;
@@ -445,12 +429,13 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
   border-radius:2px;
   align-self:stretch;
 }
-  /* ✅ Row 2: 2 columns with a divider in the middle */
+
+/* ✅ Row 2: 2 columns with a divider in the middle */
 .skills-row2{
   grid-column: 1 / -1;
   display: grid;
   grid-template-columns: 1fr 2px 1fr;
-  gap: 20px;                    /* 💛 brings text closer to the line */
+  gap: 20px;
   align-items: start;
   margin-top: 36px;
 }
@@ -477,71 +462,6 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
   }
   .skills-row2 .skills-vline{ display:none; }
   .skills-row2 .skills-list li{ white-space: normal; }
-}
-
-  /* ✅ Put 5th + 6th skills on row 2 and center under col 2 & 3 */
-.skills-col:nth-of-type(5){
-  grid-column: 3;   /* under 2nd column area */
-  grid-row: 2;
-}
-
-.skills-col:nth-of-type(6){
-  grid-column: 5;   /* under 3rd column area */
-  grid-row: 2;
-}
-
-/* remove the vlines on row 2 (so it looks clean like your sketch) */
-.skills-grid > .skills-vline:nth-of-type(4),
-.skills-grid > .skills-vline:nth-of-type(5),
-.skills-grid > .skills-vline:nth-of-type(6){
-  display:none;
-}
-
-/* draw vertical separators for top row */
-.skills-col{
-  position:relative;
-  padding-right:28px; /* space for separator */
-}
-/* ✅ Only the FIRST 4 columns in the top grid get the pseudo separators */
-.skills-grid > .skills-col:nth-of-type(-n+4)::after{
-  content:"";
-  position:absolute;
-  top:10px;
-  right:0;
-  width:2px;
-  height:calc(100% - 10px);
-  background:rgba(255,255,255,.55);
-  border-radius:2px;
-}
-
-/* remove separator after 4th col */
-.skills-col:nth-of-type(4){
-  padding-right:0;
-}
-.skills-col:nth-of-type(4)::after{ display:none; }
-
-/* Row 2 positioning (5th + 6th sections centered under col 2 and 3) */
-.skills-col:nth-of-type(5){
-  grid-column:2;
-  grid-row:2;
-  padding-right:28px;
-}
-.skills-col:nth-of-type(6){
-  grid-column:3;
-  grid-row:2;
-  padding-right:0;
-}
-
-/* separator between the two bottom columns */
-.skills-col:nth-of-type(5)::after{
-  content:"";
-  position:absolute;
-  top:10px;
-  right:0;
-  width:2px;
-  height:calc(100% - 10px);
-  background:rgba(255,255,255,.55);
-  border-radius:2px;
 }
 
 .skill-item{
@@ -573,27 +493,7 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
 }
 .skills-list li{ margin:8px 0; }
 
-  /* ✅ ROW 2: do NOT use the top-row pseudo separators */
-.skills-row2 .skills-col::after{ display:none !important; }
-.skills-row2 .skills-col{ padding-right:0 !important; }
-
-/* ✅ Bring content closer to the middle divider */
-.skills-row2{
-  column-gap: 18px !important;   /* smaller gap = closer */
-}
-
-/* Optional: slightly reduce list indent so bullets move closer too */
-.skills-row2 .skills-list{
-  padding-left: 14px;
-}
-
-/* ✅ MOBILE */
-@media (max-width: 900px){
-  .skills-grid{ grid-template-columns:1fr; row-gap:26px; }
-  .skills-col{ padding-right:0; }
-  .skills-col::after{ display:none !important; }
-}
-  /* ✅ Move ONLY the left (AI) column toward the center */
+/* ✅ Move ONLY the left (AI) column toward the center */
 .skills-row2 > .skills-col:first-child{
   margin-left: 310px;
 }
@@ -604,14 +504,11 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
     margin-left: 60px;
   }
 }
-
 @media (max-width: 900px){
   .skills-row2 > .skills-col:first-child{
-    margin-left: 0;  /* reset for mobile stacked layout */
+    margin-left: 0;
   }
 }
-
-
 
 /* ===== Education + Experience ===== */
 .edex-pill{
@@ -703,7 +600,14 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
   border-color:transparent;
 }
 
-.projects-toolbar{display:flex; justify-content:space-between; align-items:center; gap:14px; flex-wrap:wrap; margin:10px 0 18px;}
+.projects-toolbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:14px;
+  flex-wrap:wrap;
+  margin:10px 0 18px;
+}
 .featured-wrap{display:grid; gap:0; margin-top:22px;}
 
 /* ✅ Each project alternates background: navy → black → navy */
@@ -756,10 +660,7 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
 .featured-bottom{
   padding: 22px 0 0;
   display:grid;
-
-  /* Left side (text) takes remaining space, right side is fixed column for buttons */
   grid-template-columns: minmax(0, 1fr) 340px;
-
   gap: 30px;
   align-items:start;
 }
@@ -773,8 +674,8 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
   font-size: 16px;
   line-height: 1.75;
   color: rgba(255,255,255,.92);
-  max-width: none;      /* ✅ allow it to reach near the button column */
-  padding-right: 0;     /* ✅ not needed because grid handles spacing */
+  max-width: none;
+  padding-right: 0;
 }
 
 /* keep your strip as-is */
@@ -795,7 +696,6 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
   gap:12px 12px;
   justify-items:stretch;
   align-items:start;
-
   margin: 0;
   padding-bottom: 6px;
 }
@@ -806,8 +706,8 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
   align-items:center;
   justify-content:center;
 
-  padding:18px 22px;     /* ✅ bigger button */
-  min-height:56px;       /* ✅ taller */
+  padding:18px 22px;
+  min-height:56px;
   border-radius:999px;
 
   font-weight:900;
@@ -816,12 +716,12 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
   border:3px solid rgba(255,255,255,.85);
   background:transparent;
 
-  font-size:14px;        /* ✅ keep your font size (you said don’t change button font) */
+  font-size:14px;
   transition:.18s;
   text-transform: uppercase;
   white-space:nowrap;
 
-  width:100%;            /* ✅ fill grid cell */
+  width:100%;
 }
 .pill-btn:hover{transform:translateY(-2px)}
 
@@ -848,6 +748,11 @@ nav{display:flex; align-items:center; justify-content:space-between; gap:16px; p
   object-fit: cover;
   border-radius: 0 !important;
 }
+
+/* ✅ NEW: numbering only for Featured (3 items) */
+#featured-projects.no-numbering .featured-no{ display:none !important; }
+#featured-projects.no-numbering .featured-head{ grid-template-columns: 1fr; }
+#featured-projects.no-numbering .featured-title{ width:100%; }
 
 /* ===== Published Work ===== */
 .pubs-wrap{ margin-top: 10px; }
@@ -1049,7 +954,6 @@ footer{margin-top:0; padding:32px 0 56px; border-top:1px solid rgba(255,255,255,
   .contact-grid{grid-template-columns:1fr;}
   form.contact .row{grid-template-columns:1fr;}
 
-  /* ✅ On mobile: 2 columns still works, but allow it to drop to 1 column if needed */
   .featured-bottom{ grid-template-columns: 1fr; gap: 18px; }
   .featured-actions{ grid-template-columns: 1fr 1fr; }
 }
@@ -1060,7 +964,7 @@ footer{margin-top:0; padding:32px 0 56px; border-top:1px solid rgba(255,255,255,
   .featured-actions{ grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 520px){
-  .featured-actions{ grid-template-columns: 1fr; } /* ✅ super small screens: single column */
+  .featured-actions{ grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -1138,19 +1042,17 @@ footer{margin-top:0; padding:32px 0 56px; border-top:1px solid rgba(255,255,255,
 
         <div class="about-right">
         <p class="featured-desc" style="text-align: justify; font-size:16px;">
-  AI & Data Practitioner and Analytics Specialist with hands-on experience supporting data-driven 
-  workflows across academic, healthcare, and business environments, including work with the 
-  <span class="gold">NHS</span>. Demonstrates strong capability in turning raw, unstructured data 
-  into <span class="gold">decision-ready insights</span> through end-to-end processes such as 
-  data cleaning, EDA, feature engineering, and performance evaluation. Skilled in 
+  AI & Data Practitioner and Analytics Specialist with hands-on experience supporting data-driven
+  workflows across academic, healthcare, and business environments, including work with the
+  <span class="gold">NHS</span>. Demonstrates strong capability in turning raw, unstructured data
+  into <span class="gold">decision-ready insights</span> through end-to-end processes such as
+  data cleaning, EDA, feature engineering, and performance evaluation. Skilled in
   <span class="gold">Python</span>, <span class="gold">SQL</span>, <span class="gold">Excel</span>,
-  <span class="gold">Power BI</span>, <span class="gold">Tableau</span>, and statistical methods 
-  for comprehensive analytics, reporting, and dashboard development. Comfortable creating 
-  stakeholder-focused visualizations, KPI frameworks, and analytical narratives that support 
+  <span class="gold">Power BI</span>, <span class="gold">Tableau</span>, and statistical methods
+  for comprehensive analytics, reporting, and dashboard development. Comfortable creating
+  stakeholder-focused visualizations, KPI frameworks, and analytical narratives that support
   process improvement, operational efficiency, and evidence-based decision-making.
 </p>
-
-
 
           <div class="about-actions">
             <div class="about-icons">
@@ -1194,10 +1096,9 @@ footer{margin-top:0; padding:32px 0 56px; border-top:1px solid rgba(255,255,255,
         <div class="skill-label">SQL</div>
       </div>
       <div class="skill-item">
-  <div class="skill-iconCircle"><i class="fa-solid fa-code"></i></div>
-  <div class="skill-label">R</div>
-</div>
-
+        <div class="skill-iconCircle"><i class="fa-solid fa-code"></i></div>
+        <div class="skill-label">R</div>
+      </div>
 
       <div class="skill-item">
         <div class="skill-iconCircle"><i class="fa-brands fa-python"></i></div>
@@ -1243,10 +1144,9 @@ footer{margin-top:0; padding:32px 0 56px; border-top:1px solid rgba(255,255,255,
         <div class="skill-label">Power BI</div>
       </div>
       <div class="skill-item">
-  <div class="skill-iconCircle"><i class="fa-solid fa-table-columns"></i></div>
-  <div class="skill-label">Tableau</div>
-</div>
-
+        <div class="skill-iconCircle"><i class="fa-solid fa-table-columns"></i></div>
+        <div class="skill-label">Tableau</div>
+      </div>
 
       <div class="skill-item">
         <div class="skill-iconCircle"><i class="fa-solid fa-chart-pie"></i></div>
@@ -1257,121 +1157,102 @@ footer{margin-top:0; padding:32px 0 56px; border-top:1px solid rgba(255,255,255,
     <span class="skills-vline" aria-hidden="true"></span>
 
     <!-- 4) DATA ANALYTIC METHODS -->
-<div class="skills-col">
-  <h2>DATA <span class="gold">ANALYTIC METHODS</span></h2>
+    <div class="skills-col">
+      <h2>DATA <span class="gold">ANALYTIC METHODS</span></h2>
 
-  <div class="skill-item">
-    <div class="skill-iconCircle"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
-    <div class="skill-label">EDA</div>
-  </div>
+      <div class="skill-item">
+        <div class="skill-iconCircle"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+        <div class="skill-label">EDA</div>
+      </div>
 
-  <div class="skill-item">
-    <div class="skill-iconCircle"><i class="fa-solid fa-diagram-project"></i></div>
-    <div class="skill-label">Segmentation / Clustering</div>
-  </div>
+      <div class="skill-item">
+        <div class="skill-iconCircle"><i class="fa-solid fa-diagram-project"></i></div>
+        <div class="skill-label">Segmentation / Clustering</div>
+      </div>
 
-  <div class="skill-item">
-    <div class="skill-iconCircle"><i class="fa-solid fa-user-group"></i></div>
-    <div class="skill-label">Cohort Analysis</div>
-  </div>
+      <div class="skill-item">
+        <div class="skill-iconCircle"><i class="fa-solid fa-user-group"></i></div>
+        <div class="skill-label">Cohort Analysis</div>
+      </div>
 
+      <div class="skill-item">
+        <div class="skill-iconCircle"><i class="fa-solid fa-calculator"></i></div>
+        <div class="skill-label">Statistics</div>
+      </div>
 
-
-  <div class="skill-item">
-    <div class="skill-iconCircle"><i class="fa-solid fa-calculator"></i></div>
-    <div class="skill-label">Statistics</div>
-  </div>
-
-  <div class="skill-item">
-    <div class="skill-iconCircle"><i class="fa-solid fa-vial"></i></div>
-    <div class="skill-label">A/B Testing</div>
-  </div>
-
-  
-  </div>
-</div>
-
-
-<div class="skills-row2">
-<div class="skills-row2">
-
-  <!-- AI -->
-  <div class="skills-col">
-    <h2>AI &amp; <span class="gold">MACHINE LEARNING</span></h2>
-
-    <div class="skill-item">
-      <div class="skill-iconCircle"><i class="fa-solid fa-layer-group"></i></div>
-      <div class="skill-label">Classification and Regression  Models</div>
-    </div>
-
-    <div class="skill-item">
-      <div class="skill-iconCircle"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
-      <div class="skill-label">Feature Engineering</div>
-    </div>
-
-    <div class="skill-item">
-      <div class="skill-iconCircle"><i class="fa-solid fa-chart-line"></i></div>
-      <div class="skill-label">Model Evaluation</div>
-    </div>
-
-    <div class="skill-item">
-      <div class="skill-iconCircle"><i class="fa-solid fa-language"></i></div>
-      <div class="skill-label">Natural Language Processing </div>
-    </div>
-
-    <div class="skill-item">
-      <div class="skill-iconCircle"><i class="fa-solid fa-brain"></i></div>
-      <div class="skill-label">Deep Learning (CNNs, Transfer Learning)</div>
+      <div class="skill-item">
+        <div class="skill-iconCircle"><i class="fa-solid fa-vial"></i></div>
+        <div class="skill-label">A/B Testing</div>
+      </div>
     </div>
   </div>
 
-  <div class="skills-vline" aria-hidden="true"></div>
+  <div class="skills-row2">
 
-  <!-- PRODUCT -->
-  <div class="skills-col">
-    <h2>PRODUCT &amp; <span class="gold">BUSINESS INSIGHTS</span></h2>
+    <!-- AI -->
+    <div class="skills-col">
+      <h2>AI &amp; <span class="gold">MACHINE LEARNING</span></h2>
 
-    <div class="skill-item">
-      <div class="skill-iconCircle"><i class="fa-solid fa-bullseye"></i></div>
-      <div class="skill-label">KPI Design</div>
+      <div class="skill-item">
+        <div class="skill-iconCircle"><i class="fa-solid fa-layer-group"></i></div>
+        <div class="skill-label">Classification and Regression  Models</div>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-iconCircle"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+        <div class="skill-label">Feature Engineering</div>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-iconCircle"><i class="fa-solid fa-chart-line"></i></div>
+        <div class="skill-label">Model Evaluation</div>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-iconCircle"><i class="fa-solid fa-language"></i></div>
+        <div class="skill-label">Natural Language Processing </div>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-iconCircle"><i class="fa-solid fa-brain"></i></div>
+        <div class="skill-label">Deep Learning (CNNs, Transfer Learning)</div>
+      </div>
     </div>
 
-    <div class="skill-item">
-      <div class="skill-iconCircle"><i class="fa-solid fa-chart-bar"></i></div>
-      <div class="skill-label">Dashboard Storytelling</div>
+    <div class="skills-vline" aria-hidden="true"></div>
+
+    <!-- PRODUCT -->
+    <div class="skills-col">
+      <h2>PRODUCT &amp; <span class="gold">BUSINESS INSIGHTS</span></h2>
+
+      <div class="skill-item">
+        <div class="skill-iconCircle"><i class="fa-solid fa-bullseye"></i></div>
+        <div class="skill-label">KPI Design</div>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-iconCircle"><i class="fa-solid fa-chart-bar"></i></div>
+        <div class="skill-label">Dashboard Storytelling</div>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-iconCircle"><i class="fa-solid fa-list-check"></i></div>
+        <div class="skill-label">Requirements Gathering</div>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-iconCircle"><i class="fa-solid fa-people-group"></i></div>
+        <div class="skill-label">Stakeholder Communication</div>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-iconCircle"><i class="fa-solid fa-lightbulb"></i></div>
+        <div class="skill-label">Insight Generation</div>
+      </div>
     </div>
-
-    <div class="skill-item">
-      <div class="skill-iconCircle"><i class="fa-solid fa-list-check"></i></div>
-      <div class="skill-label">Requirements Gathering</div>
-    </div>
-
-    <div class="skill-item">
-      <div class="skill-iconCircle"><i class="fa-solid fa-people-group"></i></div>
-      <div class="skill-label">Stakeholder Communication</div>
-    </div>
-
-    <div class="skill-item">
-      <div class="skill-iconCircle"><i class="fa-solid fa-lightbulb"></i></div>
-      <div class="skill-label">Insight Generation</div>
-    </div>
-  </div>
-
-</div>
-
-
-
 
   </div>
 </section>
-
-
-  
-
-
-
-
-
 
     <!-- ===== EDUCATION + EXPERIENCE (BLACK) ===== -->
     <section id="edu-exp" class="edex-section section-band section-black" aria-labelledby="edex-heading">
@@ -1457,7 +1338,8 @@ footer{margin-top:0; padding:32px 0 56px; border-top:1px solid rgba(255,255,255,
         <div class="edex-pill">Notable <span class="muted">Projects </span></div>
 
         <div class="filters" id="proj-filters" role="tablist" aria-label="Project filters">
-          <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">All</button>
+          <!-- ✅ renamed ALL -> Featured -->
+          <button class="filter-btn active" data-filter="featured" role="tab" aria-selected="true">Featured</button>
           <button class="filter-btn" data-filter="data-analyst" role="tab" aria-selected="false">Data Analytics</button>
           <button class="filter-btn" data-filter="ai-ml" role="tab" aria-selected="false">Data Science</button>
           <button class="filter-btn" data-filter="business-analyst" role="tab" aria-selected="false"> Machine Learning</button>
@@ -1465,12 +1347,19 @@ footer{margin-top:0; padding:32px 0 56px; border-top:1px solid rgba(255,255,255,
 
         <div class="projects-toolbar">
           <div class="projects-note" id="projects-note">Showing 3 featured projects</div>
+
+          <!-- ✅ See more / Show less (only appears in Featured mode) -->
+          <div>
+            <button id="see-more-btn" class="btn" type="button" aria-expanded="false">
+              See more
+            </button>
+          </div>
         </div>
 
         <div class="featured-wrap" id="featured-projects">
 
-          <!-- 01 – NAVY -->
-          <article class="featured-card project" data-tags="ai-ml,data-analyst">
+          <!-- 01 – NAVY (FEATURED) -->
+          <article class="featured-card project" data-featured="true" data-tags="ai-ml,data-analyst">
             <div class="featured-head">
               <div class="featured-no">01</div>
               <h3 class="featured-title">Customer Feedback Sentiment Analyzer Web App</h3>
@@ -1484,18 +1373,16 @@ footer{margin-top:0; padding:32px 0 56px; border-top:1px solid rgba(255,255,255,
             <div class="featured-bottom">
               <div class="featured-left">
                <p class="featured-desc" style="text-align: justify;">
-  A Flask-based sentiment analysis system that transforms raw customer feedback into 
-  <span class="gold">actionable business insights</span>. The workflow includes text cleaning, 
-  tokenization, vectorization, and <span class="gold">feature engineering</span>, enabling accurate 
-  classification of feedback as positive or negative. Designed for 
-  <span class="gold">non-technical stakeholders</span>, the interface helps teams monitor 
-  customer satisfaction trends and identify recurring pain points. The project demonstrates a 
-  reproducible, end-to-end NLP pipeline suitable for real-world customer experience analytics. 
-  It shows how <span class="gold">NLP automation</span> can streamline feedback analysis and 
+  A Flask-based sentiment analysis system that transforms raw customer feedback into
+  <span class="gold">actionable business insights</span>. The workflow includes text cleaning,
+  tokenization, vectorization, and <span class="gold">feature engineering</span>, enabling accurate
+  classification of feedback as positive or negative. Designed for
+  <span class="gold">non-technical stakeholders</span>, the interface helps teams monitor
+  customer satisfaction trends and identify recurring pain points. The project demonstrates a
+  reproducible, end-to-end NLP pipeline suitable for real-world customer experience analytics.
+  It shows how <span class="gold">NLP automation</span> can streamline feedback analysis and
   support data-driven decision-making.
 </p>
-
-
 
                 <div class="featured-strip">
                   <div class="line"><span class="label">Tools :</span> Python (Flask), scikit-learn</div>
@@ -1511,8 +1398,8 @@ footer{margin-top:0; padding:32px 0 56px; border-top:1px solid rgba(255,255,255,
             </div>
           </article>
 
-          <!-- 02 – BLACK -->
-          <article class="featured-card alt project" data-tags="data-analytics,ai-ml">
+          <!-- 02 – BLACK (FEATURED) -->
+          <article class="featured-card alt project" data-featured="true" data-tags="data-analyst,ai-ml">
             <div class="featured-head">
               <div class="featured-no">02</div>
               <h3 class="featured-title">Healthcare Model Evaluation Analytics</h3>
@@ -1526,20 +1413,17 @@ footer{margin-top:0; padding:32px 0 56px; border-top:1px solid rgba(255,255,255,
             <div class="featured-bottom">
               <div class="featured-left">
                <p class="featured-desc" style="text-align: justify;">
-  A detailed analytics case study comparing healthcare ML models using 
-  <span class="gold">precision</span>, <span class="gold">recall</span>, 
-  <span class="gold">ROC–AUC</span>, and <span class="gold">calibration</span> metrics. 
-  Visual dashboards highlight how small metric differences can impact patient risk 
-  predictions, alert systems, and clinical workflows. The project demonstrates the 
-  importance of selecting models that balance performance with 
-  <span class="gold">interpretability</span> in high-stakes environments. It emphasizes the 
-  consequences of false positives, false negatives, and threshold misalignment. 
-  Overall, it showcases the value of <span class="gold">metric-driven evaluation</span> when 
+  A detailed analytics case study comparing healthcare ML models using
+  <span class="gold">precision</span>, <span class="gold">recall</span>,
+  <span class="gold">ROC–AUC</span>, and <span class="gold">calibration</span> metrics.
+  Visual dashboards highlight how small metric differences can impact patient risk
+  predictions, alert systems, and clinical workflows. The project demonstrates the
+  importance of selecting models that balance performance with
+  <span class="gold">interpretability</span> in high-stakes environments. It emphasizes the
+  consequences of false positives, false negatives, and threshold misalignment.
+  Overall, it showcases the value of <span class="gold">metric-driven evaluation</span> when
   deploying AI tools in medical settings.
 </p>
-
-
-
 
                 <div class="featured-strip">
                   <div class="line"><span class="label">Tools :</span> Python, pandas, scikit-learn, ROC–AUC tools</div>
@@ -1555,8 +1439,8 @@ footer{margin-top:0; padding:32px 0 56px; border-top:1px solid rgba(255,255,255,
             </div>
           </article>
 
-          <!-- 07 – NAVY -->
-          <article class="featured-card project" data-tags="ai-ml,data-analyst">
+          <!-- 07 – NAVY (FEATURED) -->
+          <article class="featured-card project" data-featured="true" data-tags="ai-ml,data-analyst">
             <div class="featured-head">
               <div class="featured-no">07</div>
               <h3 class="featured-title">Brain Tumor MRI Classification (Hybrid CNN)</h3>
@@ -1570,20 +1454,16 @@ footer{margin-top:0; padding:32px 0 56px; border-top:1px solid rgba(255,255,255,
             <div class="featured-bottom">
               <div class="featured-left">
               <p class="featured-desc" style="text-align: justify;">
-  A hybrid deep learning system combining <span class="gold">InceptionV3</span> and 
-  <span class="gold">MobileNetV3</span> to classify brain tumor MRI scans with high accuracy 
-  and computational efficiency. The pipeline includes preprocessing, augmentation, and 
-  robust training strategies for improved feature extraction. Model performance is evaluated 
-  with accuracy scores and a <span class="gold">confusion matrix</span>, reflecting strong 
-  generalization across tumor types. Published as a poster/paper in 
-  <span class="gold">IEEE SPICSCON 2025</span>, the work showcases advanced hybrid modeling 
-  for medical imaging tasks. It demonstrates the power of 
+  A hybrid deep learning system combining <span class="gold">InceptionV3</span> and
+  <span class="gold">MobileNetV3</span> to classify brain tumor MRI scans with high accuracy
+  and computational efficiency. The pipeline includes preprocessing, augmentation, and
+  robust training strategies for improved feature extraction. Model performance is evaluated
+  with accuracy scores and a <span class="gold">confusion matrix</span>, reflecting strong
+  generalization across tumor types. Published as a poster/paper in
+  <span class="gold">IEEE SPICSCON 2025</span>, the work showcases advanced hybrid modeling
+  for medical imaging tasks. It demonstrates the power of
   <span class="gold">multi-architecture CNN fusion</span> in healthcare AI.
 </p>
-
-
-
-
 
                 <div class="featured-strip">
                   <div class="line"><span class="label">Tools :</span> Python, PyTorch, OpenCV, NumPy</div>
@@ -1615,17 +1495,15 @@ Monitoring & Analysis Dashboard</h3>
             <div class="featured-bottom">
               <div class="featured-left">
               <p class="featured-desc" style="text-align: justify;">
-  An Excel-based dashboard analyzing coffee shop revenue across products, stores, dates, 
-  and customer behavior patterns. Built using Power Query and Pivot Tables, it automates 
-  cleaning, calculates <span class="gold">revenue KPIs</span>, and visualizes performance trends. 
-  Insights reveal top sellers, low-performing items, and <span class="gold">peak-hour patterns</span> 
-  that influence operational efficiency. The dashboard supports staff scheduling, menu 
-  optimization, and promotional planning. By uncovering clear trends, it enables 
-  <span class="gold">profit-focused decision-making</span> for both daily operations and 
+  An Excel-based dashboard analyzing coffee shop revenue across products, stores, dates,
+  and customer behavior patterns. Built using Power Query and Pivot Tables, it automates
+  cleaning, calculates <span class="gold">revenue KPIs</span>, and visualizes performance trends.
+  Insights reveal top sellers, low-performing items, and <span class="gold">peak-hour patterns</span>
+  that influence operational efficiency. The dashboard supports staff scheduling, menu
+  optimization, and promotional planning. By uncovering clear trends, it enables
+  <span class="gold">profit-focused decision-making</span> for both daily operations and
   long-term growth.
 </p>
-
-
 
                 <div class="featured-strip">
                   <div class="line"><span class="label">Tools :</span> Power BI, Excel, DAX</div>
@@ -1656,17 +1534,15 @@ Monitoring & Analysis Dashboard</h3>
             <div class="featured-bottom">
               <div class="featured-left">
              <p class="featured-desc" style="text-align: justify;">
-  An Excel-based dashboard analyzing coffee shop revenue across products, stores, dates, 
-  and customer behavior patterns. Built using Power Query and Pivot Tables, it automates 
-  cleaning, calculates <span class="gold">revenue KPIs</span>, and visualizes performance trends. 
-  Insights reveal top sellers, low-performing items, and <span class="gold">peak-hour patterns</span> 
-  that influence operational efficiency. The dashboard supports staff scheduling, menu 
-  optimization, and promotional planning. By uncovering clear trends, it enables 
-  <span class="gold">profit-focused decision-making</span> for both daily operations and 
+  An Excel-based dashboard analyzing coffee shop revenue across products, stores, dates,
+  and customer behavior patterns. Built using Power Query and Pivot Tables, it automates
+  cleaning, calculates <span class="gold">revenue KPIs</span>, and visualizes performance trends.
+  Insights reveal top sellers, low-performing items, and <span class="gold">peak-hour patterns</span>
+  that influence operational efficiency. The dashboard supports staff scheduling, menu
+  optimization, and promotional planning. By uncovering clear trends, it enables
+  <span class="gold">profit-focused decision-making</span> for both daily operations and
   long-term growth.
 </p>
-
-
 
                 <div class="featured-strip">
                   <div class="line"><span class="label">Tools :</span> Excel, Pivot Tables, Power Query</div>
@@ -1683,7 +1559,7 @@ Monitoring & Analysis Dashboard</h3>
           </article>
 
           <!-- 06 – BLACK -->
-          <article class="featured-card alt project" data-tags="AI">
+          <article class="featured-card alt project" data-tags="ai-ml">
             <div class="featured-head">
               <div class="featured-no">06</div>
               <h3 class="featured-title">Multi-Level Stacking Ensemble for Heart Disease Prediction</h3>
@@ -1696,21 +1572,18 @@ Monitoring & Analysis Dashboard</h3>
 
             <div class="featured-bottom">
               <div class="featured-left">
-                
+
 <p class="featured-desc" style="text-align: justify;">
-  A comprehensive machine learning study comparing multiple classifiers for 
-  <span class="gold">early-stage heart disease prediction</span> using the UCI dataset. 
-  The project evaluates the impact of <span class="gold">feature engineering</span>,  
-  <span class="gold">data preprocessing</span>, and <span class="gold">ensemble learning</span> 
-  on improving clinical risk modeling. It analyzes 920 patient records collected across 
-  four hospitals, cleaned through <span class="gold">missing-value imputation</span>, scaling, 
-  and transformation of skewed biomarkers such as <span class="gold">cholesterol</span> and 
-  <span class="gold">oldpeak</span>. A hybrid stacking architecture significantly enhances 
+  A comprehensive machine learning study comparing multiple classifiers for
+  <span class="gold">early-stage heart disease prediction</span> using the UCI dataset.
+  The project evaluates the impact of <span class="gold">feature engineering</span>,
+  <span class="gold">data preprocessing</span>, and <span class="gold">ensemble learning</span>
+  on improving clinical risk modeling. It analyzes 920 patient records collected across
+  four hospitals, cleaned through <span class="gold">missing-value imputation</span>, scaling,
+  and transformation of skewed biomarkers such as <span class="gold">cholesterol</span> and
+  <span class="gold">oldpeak</span>. A hybrid stacking architecture significantly enhances
   <span class="gold">risk prediction accuracy</span>, outperforming traditional single-model approaches.
 </p>
-
-
-
 
                 <div class="featured-strip">
                   <div class="line"><span class="label">Tools :</span> Figma, UI Kit, Prototyping</div>
@@ -1741,17 +1614,15 @@ Monitoring & Analysis Dashboard</h3>
             <div class="featured-bottom">
               <div class="featured-left">
               <p class="featured-desc" style="text-align: justify;">
-  A comprehensive Excel dashboard visualizing bike sales patterns across demographics, 
-  regions, commute distances, and education levels. Using Pivot Tables and Power Query, 
-  it provides <span class="gold">filterable KPI insights</span> and clear patterns in purchase 
-  behavior. Visualizations highlight how factors like income, marital status, age, and 
-  commute range influence the likelihood of buying a bike. The dashboard is designed for 
-  marketing and planning teams seeking <span class="gold">data-driven customer insights</span>. 
-  These findings help businesses build more <span class="gold">targeted marketing strategies</span> 
+  A comprehensive Excel dashboard visualizing bike sales patterns across demographics,
+  regions, commute distances, and education levels. Using Pivot Tables and Power Query,
+  it provides <span class="gold">filterable KPI insights</span> and clear patterns in purchase
+  behavior. Visualizations highlight how factors like income, marital status, age, and
+  commute range influence the likelihood of buying a bike. The dashboard is designed for
+  marketing and planning teams seeking <span class="gold">data-driven customer insights</span>.
+  These findings help businesses build more <span class="gold">targeted marketing strategies</span>
   and improve sales outcomes.
 </p>
-
-
 
                 <div class="featured-strip">
                   <div class="line"><span class="label">Tools :</span> Excel, Pivot Tables, Power Query</div>
@@ -1998,22 +1869,124 @@ Monitoring & Analysis Dashboard</h3>
       menuBtn?.setAttribute('aria-expanded','false');
     }));
 
-    // Project filter
-    const buttons = document.querySelectorAll('#proj-filters .filter-btn');
-    const cards = document.querySelectorAll('#projects .project');
+    /* =========================
+       ✅ PROJECTS: Featured (3) + See more + Filters
+       Rules:
+       - Featured tab shows ONLY 3 projects + numbering 1/2/3
+       - See more shows ALL projects together (no numbering)
+       - Any other filter shows all matching projects (no numbering)
+       ========================= */
+    const filterButtons = document.querySelectorAll('#proj-filters .filter-btn');
+    const projectCards  = Array.from(document.querySelectorAll('#projects .project'));
+    const projectsNote  = document.getElementById('projects-note');
+    const seeMoreBtn    = document.getElementById('see-more-btn');
+    const projectsWrap  = document.getElementById('featured-projects');
 
-    buttons.forEach(btn => btn.addEventListener('click', () => {
-      buttons.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
+    // Keep the original number text to restore when needed
+    projectCards.forEach(card => {
+      const n = card.querySelector('.featured-no');
+      if (n) n.dataset.original = n.textContent.trim();
+    });
+
+    const getFeaturedCards = () => projectCards.filter(c => c.dataset.featured === 'true');
+
+    let currentFilter = 'featured';
+    let expandedAll = false;
+
+    function setActiveFilter(btn){
+      filterButtons.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
       btn.classList.add('active');
       btn.setAttribute('aria-selected','true');
+    }
 
-      const key = btn.dataset.filter;
-      cards.forEach(card => {
-        const tags = (card.dataset.tags || '').split(',').map(s => s.trim());
-        const show = (key === 'all') || tags.includes(key);
-        card.classList.toggle('hidden', !show);
+    function setNumberingForFeatured(){
+      // show numbering only for the 3 featured items
+      projectsWrap.classList.remove('no-numbering');
+      const featured = getFeaturedCards();
+      featured.forEach((card, idx) => {
+        const n = card.querySelector('.featured-no');
+        if (n) n.textContent = String(idx + 1);
       });
+    }
+
+    function removeNumbering(){
+      // hide number column + remove text
+      projectsWrap.classList.add('no-numbering');
+      projectCards.forEach(card => {
+        const n = card.querySelector('.featured-no');
+        if (n) n.textContent = '';
+      });
+    }
+
+    function showCards(cardsToShow){
+      projectCards.forEach(card => card.classList.toggle('hidden', !cardsToShow.includes(card)));
+    }
+
+    function applyView(){
+      if (currentFilter === 'featured'){
+        // show 3 featured unless expandedAll
+        if (!expandedAll){
+          const featured = getFeaturedCards();
+          showCards(featured);
+          setNumberingForFeatured();
+
+          projectsNote.textContent = 'Showing 3 featured projects';
+          if (seeMoreBtn){
+            seeMoreBtn.classList.remove('hidden');
+            seeMoreBtn.textContent = 'See more';
+            seeMoreBtn.setAttribute('aria-expanded','false');
+          }
+        } else {
+          // expanded: show all, no numbering
+          showCards(projectCards);
+          removeNumbering();
+
+          projectsNote.textContent = `Showing all ${projectCards.length} projects`;
+          if (seeMoreBtn){
+            seeMoreBtn.classList.remove('hidden');
+            seeMoreBtn.textContent = 'Show less';
+            seeMoreBtn.setAttribute('aria-expanded','true');
+          }
+        }
+        return;
+      }
+
+      // any other filter: show matching projects (can be more than 3), no numbering, hide see-more
+      const key = currentFilter;
+      const matches = projectCards.filter(card => {
+        const tags = (card.dataset.tags || '').split(',').map(s => s.trim()).filter(Boolean);
+        return tags.includes(key);
+      });
+
+      showCards(matches);
+      removeNumbering();
+
+      projectsNote.textContent = `Showing ${matches.length} project${matches.length === 1 ? '' : 's'}`;
+      if (seeMoreBtn) seeMoreBtn.classList.add('hidden');
+    }
+
+    // Filter clicks
+    filterButtons.forEach(btn => btn.addEventListener('click', () => {
+      setActiveFilter(btn);
+      currentFilter = btn.dataset.filter;
+
+      // reset expansion when switching filter
+      expandedAll = false;
+
+      applyView();
     }));
+
+    // See more toggle (only works in Featured)
+    seeMoreBtn?.addEventListener('click', () => {
+      if (currentFilter !== 'featured') return;
+      expandedAll = !expandedAll;
+      applyView();
+    });
+
+    // Initialize
+    projectsWrap?.classList.remove('no-numbering');
+    if (seeMoreBtn) seeMoreBtn.classList.remove('hidden');
+    applyView();
 
     // Active nav highlight
     const navLinks = Array.from(document.querySelectorAll('.nav-links a'));
